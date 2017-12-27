@@ -15,28 +15,23 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import com.ruizton.main.Enum.VirtualCoinTypeStatusEnum;
 import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 
-import com.google.common.base.Objects;
-import com.ruizton.main.Enum.VirtualCoinTypeStatusEnum;
-import org.hibernate.annotations.Type;
 
 /**
  * Fvirtualcointype entity. @author MyEclipse Persistence Tools
  */
 @Entity
 @Table(name = "fvirtualcointype")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Fvirtualcointype implements java.io.Serializable {
-
-	// Fields
 
 	private int fid;
 	private int fid_s;
 	private boolean fisShare;// 是否可以交易
-	private boolean FIsWithDraw;// 是否可以充值提现
+	private boolean FIsWithDraw;// 是否可以提现
+	private boolean FIsRecharge;// 是否可以充值
 	private String fname;
 	private String fShortName;
 	private String fdescription;
@@ -64,11 +59,11 @@ public class Fvirtualcointype implements java.io.Serializable {
 	private String fintroUrl;//新增字段：项目简介url
 	private double fopenPrice;//新增字段：开盘价格
 	private double ftotalamount;//总量
-	
+
 	private String fname_sn;//新增
 	private double fupanddown;//日涨跌
 
-	private double fupanddownweek;//周涨跌 
+	private double fupanddownweek;//周涨跌
 	private double fmarketValue;//总市值
 	private double fentrustValue;//日成交额
 
@@ -82,7 +77,16 @@ public class Fvirtualcointype implements java.io.Serializable {
 	private int homeOrder;	//首页次序
 	private int typeOrder; //板块次序
 	private int totalOrder; //所有币的排序，用于充币提币
-
+	private int confirmTimes;	// 充值确认次数
+	private int isOtcActive;  //是否启用otc
+	private boolean isIntroSend;   //是否开启推广送手续费
+	private double introRate;  //推广送手续费费率
+	public int getIsOtcActive() {
+		return isOtcActive;
+	}
+	public void setIsOtcActive(int isOtcActive) {
+		this.isOtcActive = isOtcActive;
+	}
 	public int getTotalOrder() {
 		return totalOrder;
 	}
@@ -106,10 +110,10 @@ public class Fvirtualcointype implements java.io.Serializable {
 
 	/** full constructor */
 	public Fvirtualcointype(String fname, String fdescription,
-			Timestamp faddTime, Set<Fentrustplan> fentrustplans,
-			Set<Fentrust> fentrusts,
-			Set<Fvirtualcaptualoperation> fvirtualcaptualoperations,
-			Set<Fvirtualwallet> fvirtualwallets) {
+							Timestamp faddTime, Set<Fentrustplan> fentrustplans,
+							Set<Fentrust> fentrusts,
+							Set<Fvirtualcaptualoperation> fvirtualcaptualoperations,
+							Set<Fvirtualwallet> fvirtualwallets) {
 		this.fname = fname;
 		this.fdescription = fdescription;
 		this.faddTime = faddTime;
@@ -168,7 +172,8 @@ public class Fvirtualcointype implements java.io.Serializable {
 		this.fentrustplans = fentrustplans;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "fvirtualcointype")
+	@Transient
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "fvirtualcointype")
 	public Set<Fentrust> getFentrusts() {
 		return this.fentrusts;
 	}
@@ -353,7 +358,7 @@ public class Fvirtualcointype implements java.io.Serializable {
 	public void setFurl(String furl) {
 		this.furl = furl;
 	}
-	
+
 	@Transient
 	public double getVolumn() {
 		return volumn;
@@ -371,51 +376,51 @@ public class Fvirtualcointype implements java.io.Serializable {
 	public void setCanLend(boolean canLend) {
 		this.canLend = canLend;
 	}
-	
+
 	@Transient
 	public String getFname_sn(){
 		return this.fname_sn;
 	}
-	
+
 	public void setFname_sn(String name_sn){
 		if (name_sn!=null && name_sn.length()>10){
 			name_sn = name_sn.substring(0,7)+"...";
 		}
 		this.fname_sn = name_sn;
 	}
-	
+
 	@Column(name = "fintroUrl", length = 255)
 	public String getFintroUrl(){
 		return this.fintroUrl;
 	}
-	
+
 	public void setFintroUrl(String fintroUrl){
 		this.fintroUrl = fintroUrl;
 	}
-	
+
 	@Transient
 	public double getFupanddown(){
 		return this.fupanddown;
 	}
-	
+
 	public void setFupanddown(double fupanddown){
 		this.fupanddown = fupanddown;
 	}
-	
+
 	@Transient
 	public double getFupanddownweek(){
 		return this.fupanddownweek;
 	}
-	
+
 	public void setFupanddownweek(double fupanddownweek){
 		this.fupanddownweek = fupanddownweek;
 	}
-	
+
 	@Transient
 	public double getFmarketValue(){
 		return this.fmarketValue;
 	}
-	
+
 	public void setFmarketValue(double fmarketValue){
 		this.fmarketValue = fmarketValue;
 	}
@@ -424,26 +429,26 @@ public class Fvirtualcointype implements java.io.Serializable {
 	public double getFentrustValue(){
 		return this.fentrustValue;
 	}
-	
+
 	public void setFentrustValue(double fentrustValue){
 		this.fentrustValue = fentrustValue;
 	}
-	
-	
+
+
 	@Column(name = "fopenPrice", precision = 12, scale = 0)
 	public double getFopenPrice(){
 		return this.fopenPrice;
 	}
-	
+
 	public void setFopenPrice(double fopenPrice){
 		this.fopenPrice = fopenPrice;
 	}
-	
+
 	@Column(name = "ftotalAmount", precision = 12, scale = 0)
 	public double getFtotalamount(){
 		return this.ftotalamount;
 	}
-	
+
 	public void setFtotalamount(double ftotalamount){
 		this.ftotalamount = ftotalamount;
 	}
@@ -493,10 +498,44 @@ public class Fvirtualcointype implements java.io.Serializable {
 		this.typeOrder = typeOrder;
 	}
 
+	@Column(name = "confirm_times")
+	public int getConfirmTimes() {
+		return confirmTimes;
+	}
+
+	public void setConfirmTimes(int confirmTimes) {
+		this.confirmTimes = confirmTimes;
+	}
+
+	@Column(name = "FIsRecharge")
+	public boolean isFIsRecharge() {
+		return FIsRecharge;
+	}
+
+	public void setFIsRecharge(boolean FIsRecharge) {
+		this.FIsRecharge = FIsRecharge;
+	}
+
+	public boolean isIntroSend() {
+		return isIntroSend;
+	}
+
+	public void setIntroSend(boolean introSend) {
+		isIntroSend = introSend;
+	}
+
+	public double getIntroRate() {
+		return introRate;
+	}
+
+	public void setIntroRate(double introRate) {
+		this.introRate = introRate;
+	}
+
 	//通过ID判断两个币种是否为同一个币种
 	@Override
 	public boolean equals(Object obj) {
-		
+
 		if(obj == null){
 			return false;
 		}

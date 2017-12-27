@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:task="http://www.springframework.org/schema/task"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+
+	<import resource="classpath*:applicationContext-dataSource.xml"/>
+
+	<bean class="com.lc.jobs.sms.SystemArgsService"/>
+	<bean id="job1" class="com.lc.jobs.sms.EmailJob"/>
+	<bean id="job2" class="com.lc.jobs.sms.AliSms"/>
+	<!--<bean id="job3" class="com.lc.jobs.sms.SmsVoiceJob"/>-->
+	<!--<bean id="job4" class="com.lc.jobs.push.PushJob"/>-->
+
+	<bean class="java.util.concurrent.Executors" factory-method="newFixedThreadPool">
+		<constructor-arg value="100"/>
+	</bean>
+
+	<task:scheduler id="scheduler" pool-size="4"/>
+	<task:scheduled-tasks scheduler="scheduler">
+		<!--<task:scheduled ref="job1" method="run" cron="0 * * * * *"/>-->
+		<!--<task:scheduled ref="job2" method="run" cron="0 * * * * *"/>-->
+		<!--<task:scheduled ref="job3" method="run" cron="0 * * * * *"/>-->
+		<task:scheduled ref="job1" method="run" fixed-delay="3000"/>
+		<task:scheduled ref="job2" method="run" fixed-delay="3000"/>
+		<!--<task:scheduled ref="job3" method="run" fixed-delay="3000"/>-->
+		<!--<task:scheduled ref="job4" method="run" fixed-delay="3000"/>-->
+	</task:scheduled-tasks>
+
+	<context:annotation-config />
+
+</beans>
