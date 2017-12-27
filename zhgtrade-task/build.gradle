@@ -20,8 +20,6 @@ dependencies {
     compile "org.eclipse.jetty:apache-jstl:$jettyVersion"
     compile "org.eclipse.jetty:jetty-annotations:$jettyVersion"
     compile project(':zhgtrade-core')
-    compile project(":zhgtrade-qukuaidake")
-    compile project(":zhgtrade-activity")
     compile fileTree(dir:'lib',include:"*.jar")
 }
 

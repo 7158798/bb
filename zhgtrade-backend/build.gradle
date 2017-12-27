@@ -8,7 +8,6 @@ repositories {
 
 dependencies {
     compile project(":zhgtrade-core")
-    compile project(":zhgtrade-qukuaidake")
     testCompile "junit:junit:4.11"
     compileOnly 'javax.servlet:javax.servlet-api:3.1.0'
     compile "org.hibernate:hibernate-ehcache:$hibernateVersion"
@@ -24,7 +23,6 @@ dependencies {
     compile "org.apache.poi:poi-ooxml-schemas:$poiVersion"
     compile "com.aliyun.oss:aliyun-sdk-oss:$ossVersion"
 
-    compile project(":zhgtrade-activity")
 }
 
 def env = System.getProperty("env") ?: "dev"
