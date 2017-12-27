@@ -154,7 +154,7 @@ public class WXCommonController extends ApiBaseController {
         }else if(3 == type){
             // 权益交易
             sortCoinRank(datas, sort);
-            datas.stream().filter(e -> 1 == e.getEquityType()).forEach(e -> list.add(getDealResponseColumn(e)));
+//            datas.stream().filter(e -> 1 == e.getEquityType()).forEach(e -> list.add(getDealResponseColumn(e)));
         }else{
             sortCoinRank(datas, sort);
             datas.stream().filter(e -> type == e.getCoinTradeType()).forEach(e -> list.add(getDealResponseColumn(e)));

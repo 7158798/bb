@@ -26,7 +26,7 @@ public class LatestDealData implements Serializable {
     private int status;             // 状态
     private String openTrade;       // 开启交易时间
     private int coinTradeType;      // 币币交易类型
-    private int equityType;         // 权益交易类型
+    private String group;           // 交易区
     private boolean homeShow;       // 是否首页展示
 
     private int homeOrder;          // 首页次序
@@ -211,14 +211,6 @@ public class LatestDealData implements Serializable {
         this.coinTradeType = coinTradeType;
     }
 
-    public int getEquityType() {
-        return equityType;
-    }
-
-    public void setEquityType(int equityType) {
-        this.equityType = equityType;
-    }
-
     public boolean isHomeShow() {
         return homeShow;
     }
@@ -273,5 +265,13 @@ public class LatestDealData implements Serializable {
 
     public void setTotalOrder(int totalOrder) {
         this.totalOrder = totalOrder;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 }

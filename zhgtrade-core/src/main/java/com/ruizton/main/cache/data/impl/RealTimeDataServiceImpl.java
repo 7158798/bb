@@ -95,15 +95,15 @@ public class RealTimeDataServiceImpl implements RealTimeDataService {
         return list;
     }
 
-	@Override
-	public List<FentrustData> getSellDepthMap(int id, int deep) {
-		return realTimeEntrustDepthService.getSellDepthMap(id,deep);
-	}
+    @Override
+    public String getSellDepthMap(int id, int deep) {
+        return realTimeEntrustDepthService.getSellDepthMap(id,deep);
+    }
 
-	@Override
-	public List<FentrustData> getBuyDepthMap(int id, int deep) {
-		return realTimeEntrustDepthService.getBuyDepthMap(id,deep);
-	}
+    @Override
+    public String getBuyDepthMap(int id, int deep) {
+        return realTimeEntrustDepthService.getBuyDepthMap(id,deep);
+    }
 
     @Override
     public LatestDealData getLatestDealData(int id) {

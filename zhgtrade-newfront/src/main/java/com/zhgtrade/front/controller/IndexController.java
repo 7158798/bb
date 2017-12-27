@@ -283,11 +283,11 @@ public class IndexController extends BaseController {
 
 		if(Utils.isAjax(request)){
 			sortCoinRank(ajaxDatas, sort);
-			map.put("dealDatas", ajaxDatas);
+			map.put("dealDatas", dealDatas);
 			return "index_list";
 		}else{
 			sortCoinRank(mainDatas, sort);
-			map.put("mainDatas", mainDatas);
+			map.put("mainDatas", dealDatas);
 
 			sortCoinRank(leftDatas, sort);
 			map.put("leftDatas", leftDatas);
@@ -322,11 +322,6 @@ public class IndexController extends BaseController {
 		List<LatestDealData> dealDatas = realTimeDataService.getLatestDealDataList();
 		List<LatestDealData> datas = new ArrayList<>(dealDatas.size());
 
-		for(LatestDealData dealData : dealDatas){
-			if(1 == dealData.getEquityType()){
-				datas.add(dealData);
-			}
-		}
 
 		sortCoinRank(datas, sort);
 		map.put("dealDatas", datas);

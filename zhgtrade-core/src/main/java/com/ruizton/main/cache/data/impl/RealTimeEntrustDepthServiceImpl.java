@@ -24,13 +24,13 @@ public class RealTimeEntrustDepthServiceImpl implements RealTimeEntrustDepthServ
     public RealTimeEntrustDepthServiceImpl() {
     }
 
-	@Override
-	public List<FentrustData> getSellDepthMap(int id, int deep) {
+    @Override
+    public String getSellDepthMap(int id, int deep) {
         return realTimeCenter.getEntrustList(String.format("%d:%d:%d", id, EntrustTypeEnum.SELL, deep));
-	}
+    }
 
     @Override
-    public List<FentrustData> getBuyDepthMap(int id, int deep) {
+    public String getBuyDepthMap(int id, int deep) {
         return realTimeCenter.getEntrustList(String.format("%d:%d:%d", id, EntrustTypeEnum.BUY, deep));
     }
 

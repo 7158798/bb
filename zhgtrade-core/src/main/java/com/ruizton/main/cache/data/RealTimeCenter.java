@@ -47,7 +47,7 @@ public class RealTimeCenter {
     private Map<Integer, Set<FentrustlogData>> entrustSuccessMap = new ConcurrentSkipListMap<>();
 
     // 结构：key -> entrust depth
-    private Map<String, List<FentrustData>> depthMap = new ConcurrentHashMap<>();
+    private Map<String, String> depthMap = new ConcurrentHashMap<>();
 
     // 结构：key -> entrust market depth
     private Map<Integer, String> marketMap = new ConcurrentHashMap<>();
@@ -116,10 +116,10 @@ public class RealTimeCenter {
      * @param key
      * @return
      */
-    public List<FentrustData> getEntrustList(String key) {
-        List<FentrustData> list = depthMap.get(key);
+    public String getEntrustList(String key) {
+        String list = depthMap.get(key);
         if (list == null) {
-            list = Collections.emptyList();
+            list = "[]";
         }
         return list;
     }
@@ -198,24 +198,18 @@ public class RealTimeCenter {
 
     // 同步挂单列表（不同深度）
     private void syncDepthEntrust(String key) {
-        List<FentrustData> data = getDepthEntrust(key);
+        String data = getDepthEntrust(key);
         if (data != null) {
             depthMap.put(key, data);
         }
     }
 
-    private List<FentrustData> getDepthEntrust(String key) {
-        final List<FentrustData> list = new ArrayList<>();
+    private String getDepthEntrust(String key) {
+        String data;
         try (Jedis connection = jedisPool.getResource()) {
-            byte[] bytes = connection.hget("depth".getBytes(), key.getBytes());
-            if (bytes != null && bytes.length > 0) {
-                FentrustData[] data = JSON.parseObject(bytes, FentrustData[].class);
-                for (int i = 0; i < data.length; i++) {
-                    list.add(data[i]);
-                }
-            }
+            data = connection.hget("depth", key);
         }
-        return list;
+        return data;
     }
 
     // 同步最新价格

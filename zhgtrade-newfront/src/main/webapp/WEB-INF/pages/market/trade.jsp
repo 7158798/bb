@@ -25,9 +25,7 @@
 	</style>
 </head>
 <body>
-<c:set var="menu_index" value="${vdata.equityType == 0 ? 2 : 3}"/>
 <%@ include file="../common/header.jsp"%>
-<!-- <script src="static/js/kline/sand_theme.js"></script> -->
 <div class="market_wrapper">
 	<input type="hidden" id="symbol" value="${vdata.fid}"/>
 	<div class="center_page">

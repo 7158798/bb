@@ -28,8 +28,6 @@ import com.ruizton.util.Utils;
 import com.ruizton.util.ZhgUserSynUtils;
 import com.zhgtrade.front.controller.ApiBaseController;
 import net.sf.json.JSONObject;
-import org.apache.commons.collections.map.HashedMap;
-import org.apache.regexp.RE;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.support.converter.SimpleMessageConverter;

@@ -4,9 +4,9 @@
     <div class="item trdeHref">
         <div class="coinid dn">${deal.fid}</div>
         <div class="fl item_leap">
-            <c:if test="${!empty deal.furl}">
-                <img src="${cdn}${deal.furl}" width="22" alt="${deal.fname}${deal.fShortName}" title="${deal.fname}${deal.fShortName}" class="db fl"/>
-            </c:if>
+            <%--<c:if test="${!empty deal.furl}">--%>
+                <%--<img src="${cdn}${deal.furl}" width="22" alt="${deal.fname}${deal.fShortName}" title="${deal.fname}${deal.fShortName}" class="db fl"/>--%>
+            <%--</c:if>--%>
             <b title="${deal.fname}${deal.fShortName}" class="coinname db fl ellipsis f12">${deal.fname}${deal.fShortName}</b>
         </div>
         <div class="fl item_leap" >

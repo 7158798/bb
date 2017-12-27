@@ -26,14 +26,6 @@
 <div class="carousel">
     <div class="coin_img_show img_show">
         <div class="center_page">
-            <%--<div class="item1">--%>
-            <%--<div class="main fl"></div>--%>
-            <%--<div class="other fr"></div>--%>
-            <%--</div>--%>
-            <%--<div class="item2">--%>
-            <%--<p class="fl"><a class="f16" href="javascript:void(0)">币主板简介币主板简介币主板简介币主板简介</a></p>--%>
-            <%--<p class="fr"><a class="f16" href="javascript:void(0)">币主板简介币主板简介币主板简介币主板简介</a></p>--%>
-            <%--</div>--%>
             <div class="item3">
                 <p class="fl animated flipInY show_light"><a class="f22" href="/coin/main.html">了解币主板</a></p>
                 <p class="fr animated flipInY show_light"><a class="f22" href="/coin/vice.html">了解币三板</a></p>

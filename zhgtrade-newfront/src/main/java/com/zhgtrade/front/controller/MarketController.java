@@ -1,5 +1,6 @@
 package com.zhgtrade.front.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.ruizton.main.Enum.EntrustRobotStatusEnum;
 import com.ruizton.main.Enum.EntrustStatusEnum;
 import com.ruizton.main.Enum.VirtualCoinTypeStatusEnum;
@@ -536,15 +537,13 @@ public class MarketController extends BaseController {
         Map<String, Object> map = new HashMap<>();
 
         Object[] successEntrusts = this.realTimeDataService.getEntrustSuccessMap(symbol).toArray();
-        List<FentrustData> buyEntrusts = this.realTimeDataService.getBuyDepthMap(symbol, deep);
-        List<FentrustData> sellEntrusts = this.realTimeDataService.getSellDepthMap(symbol, deep);
+        Object buyEntrusts = JSONArray.parse(this.realTimeDataService.getBuyDepthMap(symbol, deep));
+        Object sellEntrusts = JSONArray.parse(this.realTimeDataService.getSellDepthMap(symbol, deep));
 
-        List<List<String>> sellDepthList = toStringList(deep, sellEntrusts);
-        List<List<String>> buyDepthList = toStringList(deep, buyEntrusts);
         List<List<String>> recentDealList = toStringList2(successEntrusts);
 
-        map.put("buyDepthList", buyDepthList);
-        map.put("sellDepthList", sellDepthList);
+        map.put("buyDepthList", buyEntrusts);
+        map.put("sellDepthList", sellEntrusts);
         map.put("recentDealList", recentDealList);
         map.put("symbol", symbol);
 

@@ -101,27 +101,12 @@ public class KlineController {
         JSONObject jsonObject = new JSONObject();
         jsonObject.accumulate("result", "success");
 
-        Collection<FentrustData> sell = this.realTimeDataService.getBuyDepthMap(symbol, 4);
-        Collection<FentrustData> buy = this.realTimeDataService.getSellDepthMap(symbol, 4);
-
-        List<List<Double>> buyList = new ArrayList<List<Double>>();
-        List<List<Double>> sellList = new ArrayList<List<Double>>();
-        for (FentrustData fentrust : buy) {
-            List<Double> list = new ArrayList<Double>();
-            list.add(fentrust.getFprize());
-            list.add(fentrust.getFleftCount());
-            buyList.add(list);
-        }
-        for (FentrustData fentrust : sell) {
-            List<Double> list = new ArrayList<Double>();
-            list.add(fentrust.getFprize());
-            list.add(fentrust.getFleftCount());
-            sellList.add(list);
-        }
+        String sell = this.realTimeDataService.getBuyDepthMap(symbol, 4);
+        String buy = this.realTimeDataService.getSellDepthMap(symbol, 4);
 
         JSONObject askBidJson = new JSONObject();
-        askBidJson.accumulate("bids", buyList);
-        askBidJson.accumulate("asks", sellList);
+        askBidJson.accumulate("bids", buy);
+        askBidJson.accumulate("asks", sell);
 
         jsonObject.accumulate("return", askBidJson);
         jsonObject.accumulate("now", Utils.getTimestamp().getTime());

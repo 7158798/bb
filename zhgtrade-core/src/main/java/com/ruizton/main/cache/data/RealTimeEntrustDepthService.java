@@ -18,14 +18,14 @@ public interface RealTimeEntrustDepthService {
      * @param deep
      * @return
      */
-    List<FentrustData> getSellDepthMap(int id,int deep);
+    String getSellDepthMap(int id,int deep);
     /**
      * 委托买入列表
      * @param id
      * @param deep
      * @return
      */
-    List<FentrustData> getBuyDepthMap(int id,int deep);
+    String getBuyDepthMap(int id,int deep);
 
     /**
      * 获取行情
