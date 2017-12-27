@@ -37,23 +37,23 @@ public class BaseController {
 	public Fuser getSessionUser(HttpServletRequest request){
 		return (Fuser) request.getSession().getAttribute(Constants.USER_LOGIN_SESSION);
 	}
-	
+
 	public boolean isLogin(HttpServletRequest request){
 		return null != getSessionUser(request);
 	}
-	
+
 	public String getStaticServer(){
 		return "http://zhgtrade.oss-cn-qingdao.aliyuncs.com";
 	}
-	
+
 	public void setSecondLoginSession(HttpServletRequest request, Fuser fuser){
 		request.getSession().setAttribute(Constants.USER_SECOND_LOGIN_SESSION, fuser);
 	}
-	
+
 	public void setLoginSession(HttpServletRequest request, Fuser fuser){
 		request.getSession().setAttribute(Constants.USER_LOGIN_SESSION, fuser);
 	}
-	
+
 	public void setFormToken(HttpServletRequest request){
 		request.getSession().setAttribute(Constants.FORM_TOKEN, Utils.randomInteger(6));
 	}
@@ -69,7 +69,7 @@ public class BaseController {
 	public Captcha getCaptcha(HttpServletRequest request){
 		return (Captcha) request.getSession().getAttribute(Constants.SESSION_CAPTCHA_CODE);
 	}
-	
+
 	public void cleanCaptcha(HttpServletRequest request){
 		request.getSession().removeAttribute(Constants.SESSION_CAPTCHA_CODE);
 	}

@@ -14,6 +14,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpServletRequest;
 
+import com.ruizton.main.model.*;
 import com.ruizton.main.service.admin.SystemArgsService;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,15 +38,6 @@ import com.ruizton.main.dao.FuserDAO;
 import com.ruizton.main.dao.FvirtualcointypeDAO;
 import com.ruizton.main.dao.FvirtualwalletDAO;
 import com.ruizton.main.dao.FwalletDAO;
-import com.ruizton.main.model.Fentrust;
-import com.ruizton.main.model.Fentrustlog;
-import com.ruizton.main.model.Fentrustplan;
-import com.ruizton.main.model.Fsubscription;
-import com.ruizton.main.model.Fsubscriptionlog;
-import com.ruizton.main.model.Fuser;
-import com.ruizton.main.model.Fvirtualcointype;
-import com.ruizton.main.model.Fvirtualwallet;
-import com.ruizton.main.model.Fwallet;
 import com.ruizton.main.service.BaseService;
 import com.ruizton.util.MathUtils;
 import com.ruizton.util.Utils;
@@ -868,6 +860,88 @@ public class FrontTradeService {
      */
     public double avgSuccessPrice(int entrustId){
         return fentrustlogDAO.avgSuccessPrice(entrustId);
+    }
+
+    // 委托买入，改进版
+    public Fentrust updateEntrustBuy2(Market market, double tradeAmount, double tradeCnyPrice, Fuser fuser) throws Exception {
+
+        // 检查用户是否需要手续费, 2017/04/05
+        double ffee = 0d;
+        if (fuser.getFneedFee()) {
+            double ffeeRate = market.getBuyFee();
+            ffee = MathUtils.multiply(tradeAmount, ffeeRate);
+        }
+
+        double totalTradePrice = MathUtils.multiply(tradeAmount, tradeCnyPrice);
+
+        // 不查询直接更新，提高并发量
+        // 如果更新失败，则返回，不再下单
+        double tradeMonmey = totalTradePrice;
+        int updateRow = fvirtualwalletDAO.updateRmb(fuser.getFid(), market.getBuyId(), tradeMonmey, Utils.getTimestamp());
+        if (updateRow == 0) {
+            return null;
+        }
+
+        Fentrust fentrust = new Fentrust();
+        fentrust.setFcount(tradeAmount);
+        fentrust.setFleftCount(tradeAmount);
+        fentrust.setFamount(totalTradePrice);
+        fentrust.setFfees(ffee);
+        fentrust.setFleftfees(ffee);
+        fentrust.setFcreateTime(Utils.getTimestamp());
+        fentrust.setFentrustType(EntrustTypeEnum.BUY);
+        fentrust.setFisLimit(false);
+        fentrust.setFlastUpdatTime(Utils.getTimestamp());
+        fentrust.setFprize(tradeCnyPrice);
+        fentrust.setFstatus(EntrustStatusEnum.Going);
+        fentrust.setFsuccessAmount(0F);
+        fentrust.setFhasSubscription(false);
+        fentrust.setFuser(fuser);
+        fentrust.setMarket(market);
+        fentrust.setRobotStatus(EntrustRobotStatusEnum.Normal);
+        this.fentrustDAO.save(fentrust);
+
+        return fentrust;
+    }
+
+    // 委托卖出，改进版
+    public Fentrust updateEntrustSell2(Market market, double tradeAmount, double tradeCnyPrice, Fuser fuser) throws Exception {
+
+        // 不查询直接更新，提高并发量
+        // 如果更新失败，则返回，不再下单
+        int updateRow = fvirtualwalletDAO.updateRmb(fuser.getFid(), market.getSellId(), tradeAmount, Utils.getTimestamp());
+        if (updateRow == 0) {
+            return null;
+        }
+
+        // 检查用户是否需要手续费, 2016/03/28
+        double ffee = 0d;
+        if (fuser.getFneedFee()) {
+            double ffeeRate = market.getSellFee();
+            ffee = MathUtils.multiply(MathUtils.multiply(tradeAmount, tradeCnyPrice), ffeeRate);
+        }
+
+        Fentrust fentrust = new Fentrust();
+        fentrust.setFamount(MathUtils.multiply(tradeAmount, tradeCnyPrice));
+        fentrust.setFcount(tradeAmount);
+        fentrust.setFleftCount(tradeAmount);
+        fentrust.setFfees(ffee);
+        fentrust.setFleftfees(ffee);
+        fentrust.setFcreateTime(Utils.getTimestamp());
+        fentrust.setFentrustType(EntrustTypeEnum.SELL);
+        fentrust.setFisLimit(false);
+        fentrust.setFlastUpdatTime(Utils.getTimestamp());
+        fentrust.setFprize(tradeCnyPrice);
+        fentrust.setFstatus(EntrustStatusEnum.Going);
+        fentrust.setFsuccessAmount(0F);
+        fentrust.setFuser(fuser);
+        fentrust.setFhasSubscription(false);
+        fentrust.setMarket(market);
+        fentrust.setRobotStatus(EntrustRobotStatusEnum.Normal);
+        this.fentrustDAO.save(fentrust);
+
+        return fentrust;
+
     }
 }
 

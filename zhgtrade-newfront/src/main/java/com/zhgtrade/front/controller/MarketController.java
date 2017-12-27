@@ -55,6 +55,8 @@ public class MarketController extends BaseController {
     private FrontOthersService frontOthersService;
 
     @Autowired
+    private MarketService marketService;
+    @Autowired
     private OneDayData oneDayData;
     @Autowired
     private ConstantMap constantMap;
@@ -148,51 +150,55 @@ public class MarketController extends BaseController {
 
         Map<String, Object> map = new HashMap<>();
         //检查是否登录
-        if (getSessionUser(request) == null){
+        Fuser sessionUser = getSessionUser(request);
+        if (sessionUser == null){
             map.put("isLogin", 0);
             return map;
         }
-        tradeAmount = Utils.getDouble(tradeAmount, 4);
-        tradeCnyPrice = Utils.getDouble(tradeCnyPrice, 4);
-//        System.out.println("1、" + System.currentTimeMillis());
 
-        if (tradeAmount < 0.0001D) {
-            map.put("resultCode", -1);
-            return map;
-        }
+        Market market = marketService.findById(symbol);
 
-        if (tradeCnyPrice < 0.0001D) {
-            map.put("resultCode", -3);
-            return map;
-        }
-        // 最大交易限制
-        if(tradeAmount * tradeCnyPrice > constantMap.getDouble(ConstantKeys.MAX_TRADE_AMOUNT)){
-            map.put("resultCode", -35);
-            return map;
-        }
-
-        LatestDealData vdata = realTimeDataService.getLatestDealData(symbol);
-
-        if (vdata == null || vdata.getStatus() == VirtualCoinTypeStatusEnum.Abnormal) {
+        if (market == null || market.getStatus() == Market.STATUS_Abnormal) {
             map.put("resultCode", -100);
             return map;
         }
 
-        if (!vdata.isFisShare()) {
+        if (market.getTradeStatus() == Market.TRADE_STATUS_Abnormal) {
             map.put("resultCode", -101);
             return map;
         }
 
         //是否开放交易
-        if (MarketUtils.openTrade(vdata.getOpenTrade()) == false) {
+        if (MarketUtils.openTrade(market.getTradeTime()) == false) {
             map.put("resultCode", -400);
             return map;
         }
 
-        if (checkLimitTrade(symbol, tradeCnyPrice, map)) return map;
+        tradeAmount = Utils.getDouble(tradeAmount, market.getDecimals());
+        tradeCnyPrice = Utils.getDouble(tradeCnyPrice, market.getDecimals());
+//        System.out.println("1、" + System.currentTimeMillis());
 
+        if (tradeAmount < market.getMinCount()) {
+            map.put("resultCode", -1);
+            map.put("msg", market.getMinCount());
+            return map;
+        }
 
-        Fuser fuser = this.frontUserService.findById(getSessionUser(request).getFid());
+        if (market.getMinMoney() != -1 && tradeAmount * tradeCnyPrice < market.getMinMoney()) {
+            map.put("resultCode", -3);
+            map.put("msg", market.getMinMoney());
+            return map;
+        }
+        // 最大交易限制
+        if(market.getMaxMoney() != -1 && tradeAmount * tradeCnyPrice > market.getMaxMoney()){
+            map.put("resultCode", -35);
+            map.put("msg", market.getMaxMoney());
+            return map;
+        }
+
+        if (checkLimitTrade(market, tradeCnyPrice, map)) return map;
+
+        Fuser fuser = this.frontUserService.findById(sessionUser.getFid());
 
         double totalTradePrice = 0F;
         if (limited == 0) {
@@ -200,8 +206,13 @@ public class MarketController extends BaseController {
         } else {
             totalTradePrice = tradeAmount;
         }
-        Fwallet fwallet = fuser.getFwallet();
-        if (fwallet.getFtotalRmb() < totalTradePrice) {
+
+        Fvirtualwallet fvirtualwallet = this.frontUserService.findVirtualWalletByUser(fuser.getFid(), market.getBuyId());
+        if (fvirtualwallet == null) {
+            map.put("resultCode", -200);
+            return map;
+        }
+        if (fvirtualwallet.getFtotal() < totalTradePrice) {
             map.put("resultCode", -4);
             return map;
         }
@@ -213,8 +224,7 @@ public class MarketController extends BaseController {
 
         boolean flag = false;
         try {
-            Fvirtualcointype fvirtualcointype = frontVirtualCoinService.findFvirtualCoinById(symbol);
-            final Fentrust fentrust = this.frontTradeService.updateEntrustBuy2(tradeAmount, tradeCnyPrice, fuser, limited == 1, EntrustRobotStatusEnum.Normal, fvirtualcointype);
+            final Fentrust fentrust = this.frontTradeService.updateEntrustBuy2(market, tradeAmount, tradeCnyPrice, fuser);
             frontTradeService.sendToQueue(limited == 1, symbol, fentrust);
             flag = true;
         } catch (Exception e) {
@@ -229,32 +239,24 @@ public class MarketController extends BaseController {
         return map;
     }
 
-    private boolean checkLimitTrade(@RequestParam(required = true) int symbol, @RequestParam(required = true) double tradeCnyPrice, Map<String, Object> map) {
-        Flimittrade limittrade = this.isLimitTrade(symbol);
-
+    private boolean checkLimitTrade(Market market, @RequestParam(required = true) double tradeCnyPrice, Map<String, Object> map) {
         double upPrice = 0d;
         double downPrice = 0d;
-        if (limittrade != null) {
-            upPrice = limittrade.getFupprice();
-            downPrice = limittrade.getFdownprice();
-            if (downPrice < 0) downPrice = 0;
-            if (tradeCnyPrice > upPrice || tradeCnyPrice < downPrice) {
+        if (market.getMaxPrice() != -1) {
+            upPrice = market.getMaxPrice();
+            if (tradeCnyPrice > upPrice) {
+                map.put("resultCode", -900);
+                return true;
+            }
+        }
+        if (market.getMinPrice() != -1) {
+            downPrice = market.getMinPrice();
+            if (tradeCnyPrice < downPrice) {
                 map.put("resultCode", -900);
                 return true;
             }
         }
         return false;
-    }
-
-    @RequestMapping("/getFee")
-    @ResponseBody
-    public Object getFee(HttpServletRequest request, @RequestParam("symbol") int symbol) {
-        double ffee = 0d;
-        Fuser fuser = getSessionUser(request);
-        if (fuser != null && fuser.getFneedFee()) {
-            ffee = frontVirtualCoinService.findFfees(symbol, fuser.getFscore().getFlevel()).getFfee();
-        }
-        return Collections.singletonMap("fee", ffee);
     }
 
     public Flimittrade isLimitTrade(int vid) {
@@ -292,51 +294,56 @@ public class MarketController extends BaseController {
         //检查是否登录
         Map<String, Object> map = new HashMap<>();
 
-        if (getSessionUser(request) == null){
+        Fuser sessionUser = getSessionUser(request);
+        if (sessionUser == null){
             map.put("isLogin", 0);
             return map;
         }
 
+        Market market = marketService.findById(symbol);
 
-        tradeAmount = Utils.getDouble(tradeAmount, 4);
-        tradeCnyPrice = Utils.getDouble(tradeCnyPrice, 4);
-
-        if (tradeAmount < 0.0001D) {
-            map.put("resultCode", -1);
-            return map;
-        }
-
-        if (tradeCnyPrice < 0.0001D) {
-            map.put("resultCode", -3);
-            return map;
-        }
-        // 最大交易限制
-        if(tradeAmount * tradeCnyPrice > constantMap.getDouble(ConstantKeys.MAX_TRADE_AMOUNT)){
-            map.put("resultCode", -35);
-            return map;
-        }
-
-        LatestDealData vdata = realTimeDataService.getLatestDealData(symbol);
-
-        if (vdata == null || !vdata.isFisShare()
-                || vdata.getStatus() != VirtualCoinTypeStatusEnum.Normal) {
+        if (market == null || market.getStatus() == Market.STATUS_Abnormal) {
             map.put("resultCode", -100);
             return map;
         }
 
+        if (market.getTradeStatus() == Market.TRADE_STATUS_Abnormal) {
+            map.put("resultCode", -101);
+            return map;
+        }
+
         //是否开放交易
-        if (MarketUtils.openTrade(vdata.getOpenTrade()) == false) {
+        if (MarketUtils.openTrade(market.getTradeTime()) == false) {
             map.put("resultCode", -400);
             return map;
         }
 
-        // 限价交易
-        if (checkLimitTrade(symbol, tradeCnyPrice, map)) {
+        tradeAmount = Utils.getDouble(tradeAmount, market.getDecimals());
+        tradeCnyPrice = Utils.getDouble(tradeCnyPrice, market.getDecimals());
+
+        if (tradeAmount < market.getMinCount()) {
+            map.put("resultCode", -1);
+            map.put("msg", market.getMinCount());
             return map;
         }
 
-        Fuser fuser = this.frontUserService.findById(getSessionUser(request).getFid());
-        Fvirtualwallet fvirtualwallet = this.frontUserService.findVirtualWalletByUser(fuser.getFid(), symbol);
+        if (market.getMinMoney() != -1 && tradeAmount * tradeCnyPrice < market.getMinMoney()) {
+            map.put("resultCode", -3);
+            map.put("msg", market.getMinMoney());
+            return map;
+        }
+
+        // 最大交易限制
+        if(market.getMaxMoney() != -1 && tradeAmount * tradeCnyPrice > market.getMaxMoney()){
+            map.put("resultCode", -35);
+            map.put("msg", market.getMaxMoney());
+            return map;
+        }
+
+        if (checkLimitTrade(market, tradeCnyPrice, map)) {return map;}
+
+        Fuser fuser = this.frontUserService.findById(sessionUser.getFid());
+        Fvirtualwallet fvirtualwallet = this.frontUserService.findVirtualWalletByUser(fuser.getFid(), market.getSellId());
         if (fvirtualwallet == null) {
             map.put("resultCode", -200);
             return map;
@@ -350,9 +357,7 @@ public class MarketController extends BaseController {
 
         boolean flag = false;
         try {
-            Fvirtualcointype fvirtualcointype = this.frontVirtualCoinService.findFvirtualCoinById(symbol);
-
-            final Fentrust fentrust = this.frontTradeService.updateEntrustSell2(symbol, tradeAmount, tradeCnyPrice, fuser, limited == 1, EntrustRobotStatusEnum.Normal, fvirtualcointype);
+            final Fentrust fentrust = this.frontTradeService.updateEntrustSell2(market, tradeAmount, tradeCnyPrice, fuser);
             frontTradeService.sendToQueue(limited == 1, symbol, fentrust);
             flag = true;
         } catch (Exception e) {
@@ -367,17 +372,15 @@ public class MarketController extends BaseController {
 
         return map;
     }
-
     /**
      * 取消挂单
-     * @param request
      * @param id
      * @return
      * @throws Exception
      */
     @ResponseBody
     @RequestMapping(value = "/cancelEntrust", method = RequestMethod.POST)
-    public Object cancelEntrust(HttpServletRequest request, @RequestParam(required = false, defaultValue = "0") int id) throws Exception {
+    public Object cancelEntrust(@RequestParam(required = false, defaultValue = "0") int id ,HttpServletRequest request) throws Exception {
 
         Map<String, Object> map = new HashMap<>();
         Fuser sessionUser = getSessionUser(request);
@@ -393,46 +396,26 @@ public class MarketController extends BaseController {
             try {
                 /*更新挂单*/
                 this.frontTradeService.updateCancelFentrust(fentrust, fuser);
-                realTimeDataService.removeEntrustBuyMap(fentrust.getFvirtualcointype().getFid(), fentrust);
+                realTimeDataService.removeEntrustBuyMap(fentrust.getMarket().getId(), fentrust);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
-//        Fvirtualcointype fvirtualcointype = fentrust.getFvirtualcointype();
-//        int symbol = fvirtualcointype.getFid();
-//
-//        map.put("recommendPrizesell", this.realTimeDataService.getHighestBuyPrize(symbol));//推荐卖出价
-//
-//        map.put("recommendPrizebuy", this.realTimeDataService.getLowestSellPrize(symbol));//推荐买入价
-//
-//        map.put("isLogin", 1);
-//        map.put("needTradePasswd", isNeedTradePassword(request));
-
-//        Map<Integer, Fvirtualwallet> fvirtualwallets = this.frontUserService.findVirtualWallet(sessionUser.getFid());
-//        Fvirtualwallet virtualwallet = fvirtualwallets.get(symbol);
-
-        // 这里原来是把用户ID当成钱包ID去拿钱包，但是经查实，数据对不上，改成通过钱包ID去拿钱包
-//        Fwallet wallet = this.frontUserService.findFwalletById(sessionUser.getFwallet().getFid());
-//
-//        map.put("rmbtotal", wallet.getFtotalRmb());
-//        map.put("virtotal", virtualwallet.getFtotal());
-
-//        List<Fentrust> fentrusts = this.frontTradeService.findFentrustHistory(sessionUser.getFid(), symbol, null, 0, 10, " flastUpdatTime desc ", new int[]{EntrustStatusEnum.Going, EntrustStatusEnum.PartDeal});
-//
-//        List<List<String>> entrustList = new ArrayList<List<String>>();
-//        for (int i = 0; i < fentrusts.size() && i <= 10; i++) {
-//            Fentrust entrust = (Fentrust) fentrusts.get(i);
-//            List<String> itemList = new ArrayList<String>();
-//            itemList.add(String.valueOf(entrust.getFentrustType()));
-//            itemList.add(String.valueOf(entrust.getFprize()));
-//            itemList.add(String.valueOf(entrust.getFleftCount()));
-//            itemList.add(String.valueOf(entrust.getFid()));
-//            entrustList.add(itemList);
-//        }
-//        map.put("entrustList", entrustList);
-
         return map;
+    }
+
+    @RequestMapping("/getFee")
+    @ResponseBody
+    public Object getFee(@RequestParam("symbol") int symbol) {
+        double buyFfee = 0d;
+        double sellFee = 0d;
+        Market market = marketService.findById(symbol);
+        sellFee = market.getSellFee();
+        buyFfee = market.getBuyFee();
+        Map<String, Double> ret = new HashMap<>();
+        ret.put("sellFee", sellFee);
+        ret.put("buyFee", buyFfee);
+        return ret;
     }
 
     @RequestMapping("/detail")

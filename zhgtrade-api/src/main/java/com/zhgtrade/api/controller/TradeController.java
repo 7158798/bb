@@ -132,40 +132,40 @@ public class TradeController extends ApiBaseController {
         return ret;
     }
 
-    /**
-     * 500/s
-     * 获取市场深度
-     *
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/depth")
-    public Object depth(HttpServletRequest request, @RequestParam(value = "symbol") int symbol,
-                        @RequestParam(value = "merge", required = false, defaultValue = "0") int merge) {
-        Map<String, Object> result = new HashMap<>(5);
-        if (symbol <= 0) {
-            result.put(ApiConstants.RESULT_KEY, false);
-            result.put(ApiConstants.RESULT_CODE_KEY, APIResultCode.Code_201.getCode());
-            return result;
-        }
-
-        List<FentrustData> buyData = realTimeDataService.getBuyDepthMap(symbol, merge);
-        List<FentrustData> sellData = realTimeDataService.getSellDepthMap(symbol, merge);
-
-        List buyList = new ArrayList<>(buyData.size());
-        List sellList = new ArrayList<>(sellData.size());
-        for (FentrustData data : buyData) {
-            buyList.add(new Object[]{data.getFprize(), Utils.getDouble(data.getFleftCount(), 4)});
-        }
-        for (FentrustData data : sellData) {
-            sellList.add(new Object[]{data.getFprize(), Utils.getDouble(data.getFleftCount(), 4)});
-        }
-
-        result.put("asks", buyList);
-        result.put("bids", sellList);
-        result.put(ApiConstants.RESULT_KEY, true);
-        return result;
-    }
+//    /**
+//     * 500/s
+//     * 获取市场深度
+//     *
+//     * @return
+//     */
+//    @ResponseBody
+//    @RequestMapping(value = "/depth")
+//    public Object depth(HttpServletRequest request, @RequestParam(value = "symbol") int symbol,
+//                        @RequestParam(value = "merge", required = false, defaultValue = "0") int merge) {
+//        Map<String, Object> result = new HashMap<>(5);
+//        if (symbol <= 0) {
+//            result.put(ApiConstants.RESULT_KEY, false);
+//            result.put(ApiConstants.RESULT_CODE_KEY, APIResultCode.Code_201.getCode());
+//            return result;
+//        }
+//
+//        List<FentrustData> buyData = realTimeDataService.getBuyDepthMap(symbol, merge);
+//        List<FentrustData> sellData = realTimeDataService.getSellDepthMap(symbol, merge);
+//
+//        List buyList = new ArrayList<>(buyData.size());
+//        List sellList = new ArrayList<>(sellData.size());
+//        for (FentrustData data : buyData) {
+//            buyList.add(new Object[]{data.getFprize(), Utils.getDouble(data.getFleftCount(), 4)});
+//        }
+//        for (FentrustData data : sellData) {
+//            sellList.add(new Object[]{data.getFprize(), Utils.getDouble(data.getFleftCount(), 4)});
+//        }
+//
+//        result.put("asks", buyList);
+//        result.put("bids", sellList);
+//        result.put(ApiConstants.RESULT_KEY, true);
+//        return result;
+//    }
 
     /**
      * 400/s

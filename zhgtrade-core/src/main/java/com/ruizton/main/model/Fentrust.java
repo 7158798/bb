@@ -1,9 +1,11 @@
 package com.ruizton.main.model;
 
+import com.ruizton.main.Enum.EntrustStatusEnum;
+import com.ruizton.main.Enum.EntrustTypeEnum;
+import org.hibernate.annotations.GenericGenerator;
+
 import java.sql.Timestamp;
-import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,15 +13,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
-import org.hibernate.annotations.GenericGenerator;
 
-import com.ruizton.main.Enum.EntrustStatusEnum;
-import com.ruizton.main.Enum.EntrustTypeEnum;
 
 /**
  * Fentrust entity. @author MyEclipse Persistence Tools
@@ -33,6 +31,7 @@ public class Fentrust implements java.io.Serializable {
 
 	private int fid;
 	private Fvirtualcointype fvirtualcointype;
+	private Market market;
 	private Fuser fuser;
 	private Timestamp fcreateTime;
 	private Timestamp flastUpdatTime;
@@ -60,9 +59,9 @@ public class Fentrust implements java.io.Serializable {
 
 	/** full constructor */
 	public Fentrust(Fvirtualcointype fvirtualcointype,
-			Fentrustplan fentrustplan, Fuser fuser, Timestamp fcreateTime,
-			int fentrustType, double fprize, double famount, double fcount,
-			int fstatus, Set<Fentrustlog> fentrustlogs) {
+					Fentrustplan fentrustplan, Fuser fuser, Timestamp fcreateTime,
+					int fentrustType, double fprize, double famount, double fcount,
+					int fstatus, Set<Fentrustlog> fentrustlogs) {
 		this.fvirtualcointype = fvirtualcointype;
 		this.fuser = fuser;
 		this.fcreateTime = fcreateTime;
@@ -86,14 +85,25 @@ public class Fentrust implements java.io.Serializable {
 		this.fid = fid;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "fVi_fId")
+	//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "fVi_fId")
+	@Transient
 	public Fvirtualcointype getFvirtualcointype() {
 		return this.fvirtualcointype;
 	}
 
 	public void setFvirtualcointype(Fvirtualcointype fvirtualcointype) {
 		this.fvirtualcointype = fvirtualcointype;
+	}
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "fVi_fId")
+	public Market getMarket() {
+		return market;
+	}
+
+	public void setMarket(Market market) {
+		this.market = market;
 	}
 
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -243,7 +253,7 @@ public class Fentrust implements java.io.Serializable {
 	public void setFleftfees(double fleftfees) {
 		this.fleftfees = fleftfees;
 	}
-	
+
 	@Column(name="fhasSubscription")
 	public boolean isFhasSubscription() {
 		return fhasSubscription;
@@ -252,7 +262,7 @@ public class Fentrust implements java.io.Serializable {
 	public void setFhasSubscription(boolean fhasSubscription) {
 		this.fhasSubscription = fhasSubscription;
 	}
-	
+
 	@Column(name="robotStatus")
 	public int getRobotStatus() {
 		return this.robotStatus;
