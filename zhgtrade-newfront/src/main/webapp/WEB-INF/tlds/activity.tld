@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+  <description>zhgtrade</description>
+  <display-name>zhg functions</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>ac</short-name>
+  <uri>/custom</uri>
+
+  <function>
+    <description>
+      投票八位分栏
+    </description>
+    <name>voteNum</name>
+    <function-class>com.ruizton.util.StringUtils</function-class>
+    <function-signature>java.util.Map voteNum(java.lang.String,java.lang.String)</function-signature>
+    <example>
+      ${ac:voteNum(num,format)}
+    </example>
+  </function>
+
+  <function>
+    <description>
+      日期格式化
+    </description>
+    <name>formatDate</name>
+    <function-class>com.ruizton.util.DateUtils</function-class>
+    <function-signature>java.lang.String formatDate(java.util.Date,java.lang.String)</function-signature>
+    <example>
+      ${ac:formatDate(new Date(),"yyyy-MM-dd HH:mm:ss")}
+    </example>
+  </function>
+
+  <function>
+    <description>
+      手机号码隐藏
+    </description>
+    <name>hide_tel</name>
+    <function-class>com.ruizton.util.StringUtils</function-class>
+    <function-signature>java.lang.String hide_tel(java.lang.String)</function-signature>
+    <example>
+      ${ac:hide_tel("18202729071")}
+    </example>
+  </function>
+
+  <function>
+    <description>
+      百分比转换
+    </description>
+    <name>getPercent</name>
+    <function-class>com.ruizton.util.StringUtils</function-class>
+    <function-signature>java.lang.String getPercent(int,float,java.lang.String))</function-signature>
+    <example>
+      ${ac:getPercent(1,1,"#")}
+    </example>
+  </function>
+  <function>
+    <description>
+      百分比转换
+    </description>
+    <name>getTimeFormat</name>
+    <function-class>com.ruizton.util.DateUtils</function-class>
+    <function-signature>java.lang.String getTimeFormat(java.util.Date))</function-signature>
+    <example>
+      ${ac:getTimeFormat(new Date())}
+    </example>
+  </function>
+
+</taglib>

@@ -1,0 +1,211 @@
+/*
+	2015-04-25 author:yujie
+*/
+/* å®žæ—¶è¡Œæƒ…å¤´éƒ¨å¼€å§‹ */
+.header .flow{box-shadow:none;}
+.center_page a:hover{text-decoration:underline;}
+.center_page{overflow:visible;}
+.market_wrapper{background:#fafafa;height:91px;box-shadow:1px 2px 10px #e1e1e1;line-height:90px;}
+.coin_wrapper .coin_img{margin:10px 3px 10px 15px;}
+.coin_wrapper .coin_container{height:90px;width:280px;position:relative;/* border:1px solid #fff;border-bottom:none; */}
+.coin_wrapper .coin_container .coin_title{border: 1px solid transparent;}
+.coin_wrapper .coin_container .coin_title.cur{height:91px;background:#fff;position:absolute;top:0px;left:0px;z-index:5;box-shadow:0 -1px 2px #ddd;border:1px solid #d9d9d9;border-bottom:none;}
+.coin_wrapper .coinname{text-align:left;width:128px;color: #333;}
+.coin_wrapper .coinname span.text{height:45px;}
+.coin_wrapper .coinname span.text1{line-height:60px;}
+.coin_wrapper .coinname span.text2{line-height:20px;}
+.coin_wrapper .coinname span.text2{color:#aaa;}
+.coin_wrapper .coinname span.text2.cur{color:#08a3d7;}
+.coin_wrapper .coin_sel_box{padding: 2px 14px 12px 11px;box-shadow:0px 0px 4px #d9d9d9;background:#fff;width:800px;border:1px solid #ddd;position:absolute;top:91px;left:0px;z-index:4;}
+.coin_wrapper .coin_sel_box ul li{float:left;border-bottom: 1px solid #eee;line-height: 71px;}
+.coin_wrapper .coin_sel_box ul li a{display:block;height:40px;text-decoration: none}
+.coin_wrapper .data ul li{float:left;width:135px;line-height:25px;padding:20px 0px;}
+.coin_wrapper #last-price{width:150px;}
+.coin_wrapper .data ul{margin-left:85px;}
+/* å®žæ—¶è¡Œæƒ…å¤´éƒ¨ç»“æŸ */
+#title_sel li{cursor:pointer;position:relative;background:#fff;z-index:2;border-bottom:1px solid #ccc;height:40px;margin-top:10px;line-height:40px;padding:0px 10px;}
+#title_sel{height:50px;}
+#title_sel li.cur{border:1px solid #ccc;border-bottom:0px;height:40px;color:#08a3d7;}
+.kline,.quotes{width:1200px;height:500px;border:1px solid #ccc;}
+/* å·¦è¾¹äº¤æ˜“é¢æ¿å¼€å§‹ */
+.trade_wrapper{margin-top:40px;color:#111;width:740px;height:475px;border:1px solid #ccc;}
+.trade_wrapper .item{width:370px;height:475px;}
+.trade_wrapper .item .title{text-align:left;height:50px;line-height:50px;}
+.trade_wrapper .item .content{padding:0px 50px;height:100px;}
+.trade_wrapper .item .content p{height:35px;line-height:35px;margin-top:10px;}
+.trade_wrapper .item .content p span{height:35px;}
+.trade_wrapper .item .content p span.fir{width:70px;text-align:right;}
+.trade_wrapper .item .content p input{height:35px;width:120px;}
+.trade_wrapper .item .confirm{width:130px;height:35px;line-height:35px;border-radius:5px;display:block;margin:0 auto;}
+.trade_wrapper .buy_item .confirm:hover{text-decoration: none;background: #ad1212;}
+.trade_wrapper .sell_item .confirm:hover{text-decoration: none;background:#0b6c23;}
+/* å·¦è¾¹äº¤æ˜“é¢æ¿ç»“æŸ */
+/* å³è¾¹ä¸ªäººäº¤æ˜“ä¿¡æ¯å¼€å§‹ */
+#content_sel .info{color:#333;text-align:left;width:440px;height:475px;margin-top: 40px;}
+#content_sel .info .money_info{height:73px;margin-bottom:10px;}
+#content_sel .info .deal{height:190px;margin-bottom:10px;}
+#content_sel .info .money_info p{height:35px;border:1px solid #ccc;border-top:none;}
+#content_sel .info .money_info p.fir{border-top:1px solid #ccc;}
+#content_sel .info .money_info p span{padding-left:5px;width:141px;height:35px;line-height:35px;}
+#content_sel .info .money_info p span.fir{width:65px;}
+#content_sel .info .money_info p span.right_line{border-right:1px solid #ccc;}
+#content_sel .deal{border:1px solid #ccc;}
+#content_sel .deal .title{height:40px;line-height:40px;border-bottom:1px solid #ccc;}
+#content_sel .deal span{width:85px;height:25px;line-height:25px;text-align: left}
+
+#content_sel .deal span:first-child {
+    width: 65px;
+    padding-left: 20px;
+}
+
+#content_sel .deal .nt2, #content_sel .deal .nc2 {
+    width: 70px;
+}
+#content_sel .deal .nt3, #content_sel .deal .nc3 {
+    width: 113px;
+}
+#content_sel .deal .nt4, #content_sel .deal .nc4 {
+    width: 115px;
+}
+#content_sel .deal .nt5, #content_sel .deal .nc5 {
+    width: 52px;
+}
+
+#content_sel .deal .dt2, #content_sel .deal .dc2 {
+    width: 70px;
+}
+#content_sel .deal .dt3, #content_sel .deal .dc3 {
+    width: 113px;
+}
+#content_sel .deal .dt4, #content_sel .deal .dc4 {
+    width: 115px;
+}
+#content_sel .deal .dt5, #content_sel .deal .dc5 {
+    width: 52px;
+}
+
+#content_sel .deal p{height:25px;}
+#content_sel .dealed a:hover{text-decoration:none;}
+/* å³è¾¹ä¸ªäººäº¤æ˜“ä¿¡æ¯ç»“æŸ */
+/* ä¹°ç›˜ ä¹°ç›˜ æˆäº¤è®°å½•å¼€å§‹ */
+.entrust_wrapper{padding-bottom:40px;}
+.entrust_container{width:330px;margin-right:50px;}
+.entrust_container .title{height:80px;line-height:100px;color:#333;text-align:left;}
+.entrust_container .content{border:1px solid #ccc;width:360px;height: 568px}
+.entrust_container .content p{height:25px;line-height:25px;cursor: pointer}
+.entrust_container .content p.fir{color:#666;height:40px;line-height:40px;}
+.entrust_container .content p span{width:89px;height:25px;}
+.entrust_wrapper  .entrust_log .content{width:438px;margin-right:0;}
+.entrust_wrapper  .entrust_log .content span:first-child{    padding-left: 20px;width: 105px;}
+.entrust_wrapper .entrust_log .content .lc1, .entrust_wrapper .entrust_log .content .lt1 {
+    width: 50px;
+}
+.entrust_wrapper .entrust_log .content .lc2, .entrust_wrapper .entrust_log .content .lt2 {
+    width: 45px;
+}
+.entrust_wrapper .entrust_log .content .lc3, .entrust_wrapper .entrust_log .content .lt3 {
+    width: 105px;
+}
+.entrust_wrapper .entrust_log .content .lc4, .entrust_wrapper .entrust_log .content .lt4 {
+    width: 92px;
+}
+.entrust_wrapper .entrust_log .content .lc5, .entrust_wrapper .entrust_log .content .lt5 {
+    width: 70px;
+}
+.entrust_wrapper  .entrust_log .content span{width:87px;text-align: left;}
+/* ä¹°ç›˜ ä¹°ç›˜ æˆäº¤è®°å½•ç»“æŸ */
+/* äº†è§£å¸ä¿¡æ¯å¼€å§‹ */
+#content_sel .details,#content_sel .news,#content_sel .compare,#content_sel .hedging{color:#323232;text-align:left;width:1160px;border:1px solid #ccc;padding:20px;}
+#content_sel .details .title,#content_sel .news .title,#content_sel .compare .title,#content_sel .hedging .title{height:30px;line-height:30px;}
+#content_sel .details .content{padding:15px;}
+#content_sel .details .content .text{width:1000px;line-height:25px;color:#666;}
+#content_sel .details .content a{height:30px;line-height:30px;padding:0 10px;border-radius:15px;display:inline-block;border:2px solid #08a3d7;color:#08a3d7;}
+#content_sel .details .content a:hover{text-decoration:none;}
+#content_sel .details .content td{color:#666;padding-left:10px;height:30px;line-height:30px;border:1px solid #ccc;}
+/* äº†è§£å¸ä¿¡æ¯ç»“æŸ */
+/*å¸‚åœºåŠ¨æ€å¼€å§‹*/
+#content_sel .news .content{padding: 40px 130px 20px 130px;}
+#content_sel .news .content .col{width: 880px;height:40px;}
+#content_sel .news .content .col p{width: 880px;height:40px;line-height:40px;}
+#content_sel .news .content .col p{border-bottom:1px dotted #e5e5e5;}
+#content_sel .news .content .col p a{width: 500px;display: block;float: left;text-align: left;}
+/*å¸‚åœºåŠ¨æ€ç»“æŸ*/
+/*è¡Œæƒ…å¯¹æ¯”å¼€å§‹*/
+#content_sel .compare .content{border:1px solid #ccc;margin:15px;}
+#content_sel .compare .row{border-top:1px solid #ccc;}
+#content_sel .compare .row.fir{border-top:0;}
+#content_sel .compare .row span{height:40px;line-height:40px;text-align:center;}
+#content_sel .compare .row .span1{width:150px;}
+#content_sel .compare .row .span2{width:120px;border-left:1px solid #ccc;}
+#content_sel .compare .row .span3{width:170px;}
+#content_sel .compare .row .span4{width:60px;font-size: 22px;}
+#content_sel .compare .row .span5{width:90px;border-left:1px solid #ccc;}
+#content_sel .compare .row .span6{width:117px;}
+#content_sel .compare .ps{height:40px;line-height:40px;padding-left: 15px;}
+/*è¡Œæƒ…å¯¹æ¯”ç»“æŸ*/
+/*å¸å¯¹å†²å¼€å§‹*/
+#content_sel .hedging .content{margin:15px;padding: 25px 70px;border: 1px solid #ccc;}
+#content_sel .hedging .c_left{width: 627px;border-right:1px solid #ccc;height: 325px;}
+#content_sel .hedging .c_left .name{width:360px;height:60px;line-height:60px;font-size:18px;}
+.hedging .c_left .name img{display:block;float:left;margin-top: 5px;}
+#content_sel .hedging .c_left .name .text{line-height:60px;display: block;float: left;padding-left: 10px;}
+#content_sel .hedging .c_left .price{height:60px;line-height:60px;font-size:26px;}
+#content_sel .hedging .c_left .time{font-size:14px;height:70px;line-height:70px;}
+#content_sel .hedging .c_left .rest_time{background:#f9f3dd;height:80px;width:490px;padding:0px 10px;}
+#content_sel .hedging .c_left .rest_time .item1{height: 40px;line-height: 40px;padding-left: 15px;}
+#content_sel .hedging .c_left .rest_time .num{font-size:24px;color:#00b7ee;width:20px;height:30px;margin-left: 15px;background:#fff;line-height:30px;text-align:center;}
+#content_sel .hedging .c_left .rest_time .txt{font-size:14px;margin-left: 15px;line-height:30px;text-align:center;}
+#content_sel .hedging .c_right{margin-left:100px;width: 258px;}
+#content_sel .hedging .c_right .c_title{font-size:16px;}
+#content_sel .hedging .c_right .c_term1{font-size:14px;}
+#content_sel .hedging .c_right .c_term1 a{display:inline-block;float:right;margin-right: 23px;}
+#content_sel .hedging .c_right .c_term2{margin:15px 0;}
+#content_sel .hedging .c_right .c_term2 a{margin-right: 10px;width:70px;height:30px;line-height:30px;border-radius:3px;border:1px solid #00b7ee;color:#00b7ee;text-align:center;float:left;}
+#content_sel .hedging .c_right .c_term2 a.cur{color:#fff;background:#00b7ee;}
+#content_sel .hedging .c_right .c_term2 a:hover{text-decoration:none;color:#fff;background:#00b7ee;}
+#content_sel .hedging .c_right input{height:40px;width: 229px;font-size:14px;}
+#content_sel .hedging .c_right .information{height:30px;line-height:30px;color:#969696;}
+#content_sel .hedging .c_right a.submit{display: block;margin-top: 20px;height:40px;line-height:40px;background:#00b7ee;color:#fff;font-size:16px;text-align:center;width: 237px;border-radius:3px;}
+#content_sel .hedging .c_right a.look_log{height: 35px;line-height:50px;float: right;margin-right: 22px;}
+#content_sel .hedging .log_content{border:0;padding:0px;}
+#content_sel .log_content .log_title{margin:20px 0;font-size:14px;}
+#content_sel .log_content .table p{height:40px;}
+#content_sel .log_content .table p:nth-child(odd){background:#f0f0f0;}
+#content_sel .log_content .table p span{width: 225px;height:40px;line-height:40px;display:block;float:left;text-align:center;}
+/*å¸å¯¹å†²ç»“æŸ*/
+/* æ»šåŠ¨æ¡å¼€å§‹ */
+.Demo,.sell_Demo{height:50px;}
+.trade_wrapper .item .content p span .scrollBar,.trade_wrapper .item .content p span .sell_scrollBar {width: 130px;height: 10px;background: #ccc;margin: 15px auto;-webkit-border-radius: 2em;-moz-border-radius: 2em;border-radius: 2em;cursor: pointer;}
+.trade_wrapper .item .content p span .scroll_Track,.trade_wrapper .item .content p span .sell_scroll_Track {width: 0px;height: 10px;background: #1f963d;-webkit-border-radius: 2em;-moz-border-radius: 2em;border-radius: 2em;}
+.trade_wrapper .item .content p span .scroll_Thumb,.trade_wrapper .item .content p span .sell_scroll_Thumb {height: 15px;width: 15px;background: #1f963d;-webkit-border-radius: 2em;-moz-border-radius: 2em;border-radius: 2em;border: 1px solid #ccc;-webkit-box-shadow: 0px 0px 5px #ccc;-moz-box-shadow: 0px 0px 5px #ccc;box-shadow: 0px 0px 5px #ccc;position: absolute;margin-top: -4px;cursor: pointer;}
+/*.trade_wrapper .item .content p span .scroll_Thumb:hover,.trade_wrapper .item .content p span :hover {background: #fd0202;border: 1px solid #fff;}*/
+.trade_wrapper .buy_item .content p span .scroll_Track {background: #fd0202;}
+.trade_wrapper .buy_item .content p span .scroll_Thumb {background: #fd0202;}
+.trade_wrapper .buy_item .content p span .scroll_Thumb:hover{background: #fd0202;}
+/* æ»šåŠ¨æ¡ç»“æŸ */
+/*æ»‘åŠ¨æ•ˆæžœ*/
+#buyList p:hover {background: rgb(249,242,221)}
+#sellList p:hover {background: rgb(249,242,221)}
+#logList p:hover {background: rgb(249,242,221)}
+#deal-log p:hover {background: rgb(249,242,221)}
+#not-deal p:hover {background: rgb(249,242,221)}
+#content_sel b {font-family: Arial, å¾®è½¯é›…é»‘;}
+.entrust_container .content .t1, .entrust_container .content .c1 {
+    text-align: left;
+    width: 50px;
+    padding-left: 25px;
+}
+.entrust_container .content .t2, .entrust_container .content .c2 {
+    text-align: left;
+    width: 74px;
+}
+.entrust_container .content .t3, .entrust_container .content .c3 {
+    text-align: left;
+    width: 118px;
+}
+.entrust_container .content .t4, .entrust_container .content .c4 {
+    text-align: left;
+}
+
+
+

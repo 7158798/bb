@@ -1,0 +1,17 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":zhgtrade-core")
+    testCompile "junit:junit:4.11"
+    testCompile "org.springframework:spring-test:$springVersion"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = 1.8
+}

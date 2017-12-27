@@ -1,0 +1,53 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0" xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <jsp:output omit-xml-declaration="yes" />
+
+    <jsp:directive.attribute name="pageSzie" type="java.lang.Integer" required="true" rtexprvalue="true" description="pageSzie"/>
+    <jsp:directive.attribute name="total" type="java.lang.Integer" required="true" rtexprvalue="true" description="total" />
+    <jsp:directive.attribute name="pageNow" type="java.lang.Integer" required="true" rtexprvalue="true" description="pageNow" />
+    <jsp:directive.attribute name="href" type="java.lang.String" required="true" rtexprvalue="true" description="href" />
+
+    <jsp:scriptlet>
+        int COUNT = 9;
+
+        int pageCount = (int)Math.ceil(total * 1.0 / pageSzie);
+        if (0 != pageCount){
+            int pageStart = 1;
+            int pageEnd = COUNT;
+
+            if(pageNow > COUNT / 2){
+                pageStart = pageNow - COUNT / 2;
+                pageEnd = pageNow + COUNT / 2;
+            }
+            if(pageEnd > pageCount){
+                pageEnd = pageCount;
+            }
+            request.setAttribute("pageStart", pageStart);
+            request.setAttribute("pageEnd", pageEnd);
+        }
+
+        request.setAttribute("pageCount", pageCount);
+
+    </jsp:scriptlet>
+
+    <c:if test="${pageCount != 0}">
+        <div class="page">
+            <ul>
+                <c:if test="${pageNow &gt; 1}">
+                    <li><a data-pjax="#container" href="${fn:replace(href, '#pageNumber', '1')}" data-pageNum="1" data-num="1">&lt;</a></li>
+                </c:if>
+                <c:forEach var="i" begin="${pageStart}" end="${pageEnd}">
+                    <c:set var="cls" value=""/>
+                    <c:if test="${i == pageNow}">
+                        <c:set var="cls" value='current_ss'/>
+                    </c:if>
+                    <li><a data-pjax="#container" href="${fn:replace(href, '#pageNumber', i + '')}" class="${cls}" data-pagenum="${i}" data-num="${pageCount}">${i}</a></li>
+                </c:forEach>
+                <c:if test="${pageNow &lt; pageCount}">
+                    <li><a data-pjax="#container" href="${fn:replace(href, '#pageNumber', pageCount + '')}" data-pagenum="${pageCount}" data-num="${pageCount}">&gt;</a></li>
+                </c:if>
+            </ul>
+        </div>
+    </c:if>
+
+</jsp:root>

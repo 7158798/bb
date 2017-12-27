@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+             http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!--<import resource="applicationContext-mongo.xml"/>-->
+
+	<util:map id="config">
+	</util:map>
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="serviceAdminMethod" expression=" execution(* com.ruizton.main.service.*.*.*(..))" />
+		<aop:advisor pointcut-ref="serviceAdminMethod" advice-ref="txAdvice" />
+	</aop:config>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:jdbc.properties"/>
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+
+	<!--<context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>-->
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<!-- <ref bean="dynamicDataSource" /> -->
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+         <props>        
+               <prop key="hibernate.dialect">${hibernate.dialect}</prop>          
+               <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+               
+               <prop key="hibernate.cache.use_second_level_cache">true</prop>  
+				<prop key="hibernate.cache.use_query_cache">true</prop>  
+				<!-- 设置二级缓存插件EHCache的Provider类-->  
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="hibernate.cache.region_prefix">encache_</prop>
+				<prop key="hibernate.cache.use_structured_entries">true</prop>  
+				<prop key="hibernate.generate_statistics">false</prop>
+<!--                 <prop key="hibernate.cache.use_query_cache">true</prop> -->
+<!--                 <prop key="hibernate.cache.use_second_level_cache">true</prop> -->
+<!--                 <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop> -->
+          </props>
+       </property>
+       <property name="packagesToScan" >
+       		<list>  
+                <value>com.ruizton.main.model</value>  
+               <!--  <value>com.ruizton.main.model.zhg_user</value> -->
+            </list>
+       </property>
+	</bean>
+	 
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass">
+			<value>${jdbc.driverClassName}</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>${jdbc.url}</value>
+		</property>
+		<property name="user">
+			<value>${jdbc.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.password}</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>${jdbc.maxPoolSize}</value>
+		</property>
+		<property name="minPoolSize">
+			<value>${jdbc.minPoolSize}</value>
+		</property>
+		<property name="initialPoolSize">
+			<value>${jdbc.initialPoolSize}</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>${jdbc.maxIdleTime}</value>
+		</property>
+	</bean>
+
+	
+	<context:annotation-config />
+
+	<bean id="constantMap" class="com.ruizton.main.comm.ConstantMap" scope="singleton" init-method="init"></bean>
+	<bean id="validateMap" class="com.ruizton.main.comm.ValidateMap" scope="singleton"></bean>
+	<bean class="com.ruizton.main.auto.RealTimeData" scope="singleton" init-method="init"></bean>
+	<bean class="com.ruizton.main.auto.OneDayData" scope="singleton"></bean>
+	<bean class="com.ruizton.main.auto.KlinePeriodData" scope="singleton" init-method="init"></bean>
+	<bean class="com.ruizton.util.UserSyn" scope="singleton"></bean>
+
+	<context:component-scan base-package="com.ruizton.main.service" />
+	<context:component-scan base-package="com.ruizton.main.dao" />
+
+	<context:component-scan base-package="com.ruizton.main.service.front" />
+	<context:component-scan base-package="com.ruizton.main.service.admin" />
+
+	<context:component-scan base-package="com.ruizton.main.auto" />
+	<context:component-scan base-package="com.ruizton.main.mq" />
+	<context:component-scan base-package="com.ruizton.main.cache.data" />
+	<bean class="com.ruizton.main.servlet.EmptyHttpServletRequestImpl"/>
+
+	<bean class="java.util.concurrent.Executors" factory-method="newCachedThreadPool"/>
+
+	<bean class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<!--<context:component-scan base-package="com.ruizton.main.service.admin" />-->
+	
+	<mvc:annotation-driven />
+
+</beans>

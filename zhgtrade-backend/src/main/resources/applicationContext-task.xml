@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="dateWalletStatisticTask" class="com.ruizton.main.admin.task.DateWalletStatisticTask"/>
+
+    <bean id="updateWallet" class="com.ruizton.main.admin.task.UserWalletDayTask"></bean>
+
+    <task:scheduler id="taskScheduler" pool-size="5" />
+    <task:scheduled-tasks scheduler="taskScheduler">
+        <!-- 钱包统计任务 -->
+        <task:scheduled ref="dateWalletStatisticTask" method="execute" initial-delay="1000" fixed-delay="3600000"/>
+        <!--<task:scheduled ref="dateWalletStatisticTask" method="execute" initial-delay="1000" fixed-delay="1000"/>-->
+        <!--更新用户每日剩余金额-->
+        <!--<task:scheduled ref="updateWallet" method="execute" cron="0 0/10 * * * ? "></task:scheduled>-->
+        <!--每天晚上11：50-->
+        <task:scheduled ref="updateWallet" method="execute" cron="0 50 23 * * ?"></task:scheduled>
+
+
+
+        <!--删除一个月前数据   每月一号 0：00：00-->
+        <task:scheduled ref="updateWallet" method="deleteMonthAgo" cron="0 0 0 1 * ?"></task:scheduled>
+        <!--<task:scheduled ref="updateWallet" method="deleteMonthAgo" cron="0/20 * * * * ?"></task:scheduled>-->
+    </task:scheduled-tasks>
+
+</beans>

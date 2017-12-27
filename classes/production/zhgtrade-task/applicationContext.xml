@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+             http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<import resource="classpath*:applicationContext-mongo.xml"/>
+	<import resource="classpath*:applicationContext-rabbitmq.xml"/>
+	<import resource="classpath*:applicationContext-redis.xml"/>
+	<import resource="classpath*:applicationContext-task.xml"/>
+	<import resource="classpath*:applicationContext-cron-task.xml"/>
+	<import resource="classpath*:applicationContext-dataSource.xml"/>
+	<import resource="classpath*:applicationContext-hibernate.xml"/>
+	<import resource="classpath*:applicationContext-tx.xml"/>
+	<import resource="classpath*:applicationContext-activity.xml"/>
+	<!--<import resource="classpath*:applicationContext-web.xml"/>-->
+
+	<util:map id="config">
+	</util:map>
+
+	<bean id="constantMap" class="com.ruizton.main.comm.ConstantMap" scope="singleton"/>
+	<bean id="validateMap" class="com.ruizton.main.comm.ValidateMap" scope="singleton"/>
+	<bean id="robotParser" class="com.ruizton.util.RobotParser" scope="singleton"/>
+
+	<!--微信文章-->
+	<!--<bean id="weixinTask" class="com.ruizton.task.AutoSaveWeixinTask"></bean>-->
+	<!-- 实时数据 -->
+	<bean class="com.ruizton.main.auto.RealTimeData" scope="singleton" init-method="init"></bean>
+	<!--比特币充值 -->
+	<bean class="com.ruizton.main.auto.RechargeBtcData" scope="singleton" init-method="init"></bean>
+	<!-- 交易量 -->
+	<bean class="com.ruizton.main.auto.OneDayData" scope="singleton"></bean>
+	<!-- k线图数据 -->
+	<bean class="com.ruizton.main.auto.KlinePeriodData" scope="singleton" init-method="init"></bean>
+	<!-- 用户同步 -->
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.ruizton.main.service" />
+	<context:component-scan base-package="com.ruizton.main.dao" />
+	<context:component-scan base-package="com.ruizton.main.cache" />
+
+	<context:component-scan base-package="com.ruizton.main.service.front" />
+	<context:component-scan base-package="com.ruizton.main.service.admin" />
+
+	<context:component-scan base-package="com.ruizton.main.auto" />
+	<context:component-scan base-package="com.ruizton.util" />
+	<context:component-scan base-package="com.zhgtrade.auto.task" />
+
+	<bean class="com.ruizton.util.SpringContextUtils"/>
+
+	<bean class="java.util.concurrent.Executors" factory-method="newFixedThreadPool">
+		<constructor-arg index="0" value="100"/>
+	</bean>
+
+	<bean class="com.ruizton.main.servlet.EmptyHttpServletRequestImpl"/>
+
+</beans>

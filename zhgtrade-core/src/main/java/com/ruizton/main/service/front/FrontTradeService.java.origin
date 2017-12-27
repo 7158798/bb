@@ -1,0 +1,781 @@
+package com.ruizton.main.service.front;
+
+import java.security.Key;
+import java.util.Date;
+import java.util.List;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.codec.binary.Base64;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ruizton.main.Enum.EntrustPlanStatusEnum;
+import com.ruizton.main.Enum.EntrustPlanTypeEnum;
+import com.ruizton.main.Enum.EntrustRobotStatusEnum;
+import com.ruizton.main.Enum.EntrustStatusEnum;
+import com.ruizton.main.Enum.EntrustTypeEnum;
+import com.ruizton.main.auto.RealTimeData;
+import com.ruizton.main.dao.FentrustDAO;
+import com.ruizton.main.dao.FentrustlogDAO;
+import com.ruizton.main.dao.FentrustplanDAO;
+import com.ruizton.main.dao.FfeesDAO;
+import com.ruizton.main.dao.FscoreDAO;
+import com.ruizton.main.dao.FsubscriptionDAO;
+import com.ruizton.main.dao.FsubscriptionlogDAO;
+import com.ruizton.main.dao.FuserDAO;
+import com.ruizton.main.dao.FvirtualcointypeDAO;
+import com.ruizton.main.dao.FvirtualwalletDAO;
+import com.ruizton.main.dao.FwalletDAO;
+import com.ruizton.main.model.Fentrust;
+import com.ruizton.main.model.Fentrustlog;
+import com.ruizton.main.model.Fentrustplan;
+import com.ruizton.main.model.Fscore;
+import com.ruizton.main.model.Fsubscription;
+import com.ruizton.main.model.Fsubscriptionlog;
+import com.ruizton.main.model.Fuser;
+import com.ruizton.main.model.Fvirtualwallet;
+import com.ruizton.main.model.Fwallet;
+import com.ruizton.util.Utils;
+
+@Service
+public class FrontTradeService {
+	private static final Logger log = LoggerFactory
+			.getLogger(FrontTradeService.class);
+
+	@Autowired
+	private FentrustDAO fentrustDAO;
+	@Autowired
+	private FentrustlogDAO fentrustlogDAO;
+	@Autowired
+	private FwalletDAO fwalletDAO;
+	@Autowired
+	private FvirtualcointypeDAO fvirtualcointypeDAO;
+	@Autowired
+	private RealTimeData realTimeData;
+	@Autowired
+	private FuserDAO fuserDAO;
+	@Autowired
+	private FvirtualwalletDAO fvirtualwalletDAO;
+	@Autowired
+	private FentrustplanDAO fentrustplanDAO;
+	@Autowired
+	private FfeesDAO ffeesDAO;
+	@Autowired
+	private FrontOthersService frontOthersService;
+	@Autowired
+	private FsubscriptionDAO fsubscriptionDAO;
+	@Autowired
+	private FsubscriptionlogDAO fsubscriptionlogDAO;
+	@Autowired
+	private FscoreDAO fscoreDAO;
+
+	public void updateDealMaking(Fentrust buy, Fentrust sell,
+			Fentrustlog buyLog, Fentrustlog sellLog, int id) {
+
+		boolean flag = false;
+		try {
+			fentrustlogDAO.save(buyLog);
+			fentrustlogDAO.save(sellLog);
+			double buyFee = 0D;
+			try {
+				if (0D != buy.getFamount()) {
+					buyFee = (buyLog.getFamount() / buy.getFamount())
+							* buy.getFfees();
+				}
+			} catch (Exception e) {
+			}
+			if (buy.isFisLimit()) {
+				buy.setFcount(buy.getFcount() + buyLog.getFcount());
+				buy.setFsuccessAmount(buy.getFsuccessAmount()
+						+ (buyLog.getFamount()));
+				buy.setFleftfees(buy.getFleftfees() - buyFee);
+				buy.setFlastUpdatTime(Utils.getTimestamp());
+				if (buy.getFamount() - buy.getFsuccessAmount() < 0.000001F) {
+					buy.setFstatus(EntrustStatusEnum.AllDeal);
+				} else {
+					buy.setFstatus(EntrustStatusEnum.PartDeal);
+				}
+				fentrustDAO.attachDirty(buy);
+			} else {
+				buy.setFleftCount(buy.getFleftCount() - buyLog.getFcount());
+				buy.setFsuccessAmount(buy.getFsuccessAmount()
+						+ (buyLog.getFamount()));
+				buy.setFlastUpdatTime(Utils.getTimestamp());
+				buy.setFleftfees(buy.getFleftfees() - buyFee);
+				if (buy.getFleftCount() < 0.000001F) {
+					buy.setFstatus(EntrustStatusEnum.AllDeal);
+				} else {
+					buy.setFstatus(EntrustStatusEnum.PartDeal);
+				}
+				fentrustDAO.attachDirty(buy);
+			}
+
+			double sellFee = 0D;
+			try {
+				if (0D != sell.getFcount()) {
+					sellFee = (buyLog.getFcount() / sell.getFcount())
+							* sell.getFfees();
+				}
+			} catch (Exception e) {
+			}
+			if (sell.isFisLimit()) {
+				sell.setFsuccessAmount(sell.getFsuccessAmount()
+						+ buyLog.getFamount());
+				sell.setFamount(sell.getFamount() + buyLog.getFamount());
+				sell.setFleftCount(sell.getFleftCount() - buyLog.getFcount());
+				sell.setFleftfees(sell.getFleftfees() - sellFee);
+				sell.setFlastUpdatTime(Utils.getTimestamp());
+				if (sell.getFleftCount() < 0.000001F) {
+					sell.setFstatus(EntrustStatusEnum.AllDeal);
+				} else {
+					sell.setFstatus(EntrustStatusEnum.PartDeal);
+				}
+				fentrustDAO.attachDirty(sell);
+			} else {
+				sell.setFleftCount(sell.getFleftCount() - buyLog.getFcount());
+				sell.setFsuccessAmount(sell.getFsuccessAmount()
+						+ (sellLog.getFamount()));
+				sell.setFleftfees(sell.getFleftfees() - sellFee);
+				sell.setFlastUpdatTime(Utils.getTimestamp());
+				if (sell.getFleftCount() < 0.000001F) {
+					sell.setFstatus(EntrustStatusEnum.AllDeal);
+				} else {
+					sell.setFstatus(EntrustStatusEnum.PartDeal);
+				}
+				fentrustDAO.attachDirty(sell);
+			}
+			
+			if( sell.getRobotStatus() == EntrustRobotStatusEnum.Normal && buy.getRobotStatus() == EntrustRobotStatusEnum.Normal){
+				// 更新钱包
+				Fwallet fbuyWallet = null;
+				Fwallet fsellWallet = null;
+				if (buy.getFuser().getFid() == sell.getFuser().getFid()) {
+					fbuyWallet = buy.getFuser().getFwallet();
+					fsellWallet = fbuyWallet;
+				} else {
+					fbuyWallet = buy.getFuser().getFwallet();
+					fsellWallet = sell.getFuser().getFwallet();
+				}
+	
+				fbuyWallet.setFfrozenRmb(fbuyWallet.getFfrozenRmb()
+						- buyLog.getFamount() - buyFee);
+				fbuyWallet.setFlastUpdateTime(Utils.getTimestamp());
+				this.fwalletDAO.attachDirty(fbuyWallet);
+	
+				fsellWallet.setFtotalRmb(fsellWallet.getFtotalRmb()
+						+ buyLog.getFamount());
+				fsellWallet.setFlastUpdateTime(Utils.getTimestamp());
+				this.fwalletDAO.attachDirty(fsellWallet);
+				
+				// 虚拟钱包
+				Fvirtualwallet fbuyVirtualwallet = null;
+				Fvirtualwallet fsellVirtualwallet = null;
+				if (buy.getFuser().getFid() == sell.getFuser().getFid()) {
+					fbuyVirtualwallet = this.fvirtualwalletDAO.findVirtualWallet(
+							buy.getFuser().getFid(), buy.getFvirtualcointype()
+									.getFid());
+					fsellVirtualwallet = fbuyVirtualwallet;
+				} else {
+					fbuyVirtualwallet = this.fvirtualwalletDAO.findVirtualWallet(
+							buy.getFuser().getFid(), buy.getFvirtualcointype()
+									.getFid());
+					fsellVirtualwallet = this.fvirtualwalletDAO.findVirtualWallet(
+							sell.getFuser().getFid(), sell.getFvirtualcointype()
+									.getFid());
+				}
+	
+				fbuyVirtualwallet.setFlastUpdateTime(Utils.getTimestamp());
+				fbuyVirtualwallet.setFtotal(fbuyVirtualwallet.getFtotal()
+						+ buyLog.getFcount());
+				this.fvirtualwalletDAO.attachDirty(fbuyVirtualwallet);
+	
+				fsellVirtualwallet.setFfrozen(fsellVirtualwallet.getFfrozen()
+						- buyLog.getFcount() - sellFee);
+				fsellVirtualwallet.setFlastUpdateTime(Utils.getTimestamp());
+				this.fvirtualwalletDAO.attachDirty(fsellVirtualwallet);
+	
+				if (buy.getFstatus() == EntrustStatusEnum.AllDeal) {
+					// 因为有人低价卖出，冻结剩余部分返回钱包
+					double left_amount = (buy.getFamount() - buy
+							.getFsuccessAmount()) + (buy.getFleftfees());
+					fbuyWallet.setFfrozenRmb(fbuyWallet.getFfrozenRmb()
+							- left_amount);
+					fbuyWallet
+							.setFtotalRmb(fbuyWallet.getFtotalRmb() + left_amount);
+					fbuyWallet.setFlastUpdateTime(Utils.getTimestamp());
+					this.fwalletDAO.attachDirty(fbuyWallet);
+				}
+			}
+			/*
+			 * //加入成功交易 this.realTimeData.addEntrustSuccessMap(id, sellLog) ;
+			 * //加入成功交易 this.realTimeData.addEntrustSuccessMap(id, buyLog) ;
+			 */
+
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+
+	}
+
+	public Fentrust findFentrustById(int id) {
+		return this.fentrustDAO.findById(id);
+	}
+
+	public List<Fentrustlog> findFentrustLogByFentrust(Fentrust fentrust) {
+		return this.fentrustlogDAO.findByProperty("fentrust.fid",
+				fentrust.getFid());
+	}
+
+	// 最新成交记录
+	public List<Fentrust> findLatestSuccessDeal(int coinTypeId,
+			int fentrustType, int count) {
+		return this.fentrustDAO.findLatestSuccessDeal(coinTypeId, fentrustType,
+				count);
+	}
+
+	public List<Fentrust> findAllGoingFentrust(int coinTypeId,
+			int fentrustType, boolean isLimit) {
+		return this.fentrustDAO.findAllGoingFentrust(coinTypeId, fentrustType,
+				isLimit);
+	}
+
+	// 获得24小时内的成交记录
+	public List<Fentrustlog> findLatestSuccessDeal24(int coinTypeId, int hour) {
+		List<Fentrustlog> list = this.fentrustlogDAO.findLatestSuccessDeal24(coinTypeId, 24);
+		if(list == null || list.size() == 0){
+			return null;
+		}
+		return list;
+	}
+
+	public Fentrust findLatestDeal(int coinTypeId) {
+		Fentrust fentrust = this.fentrustDAO.findLatestDeal(coinTypeId);
+		if(fentrust == null) return null;
+		return fentrust;
+	}
+
+	// 委托记录
+	public List<Fentrust> findFentrustHistory(int fuid, int fvirtualCoinTypeId,
+			int[] entrust_type, int first_result, int max_result, String order,
+			int entrust_status[], Date beginDate, Date endDate)
+			throws Exception {
+		List<Fentrust> list = this.fentrustDAO.getFentrustHistory(fuid,
+				fvirtualCoinTypeId, entrust_type, first_result, max_result,
+				order, entrust_status, beginDate, endDate);
+		for (Fentrust fentrust : list) {
+			fentrust.getFvirtualcointype().getFname();
+		}
+		return list;
+	}
+
+	// 计划委托
+	public List<Fentrustplan> findEntrustPlan(int type, int status[]) {
+		List<Fentrustplan> list = this.fentrustplanDAO.findEntrustPlan(type,
+				status);
+
+		return list;
+	}
+
+	// 委托买入
+	public Fentrust updateEntrustBuy(int coinTypeId, double tradeAmount,
+			double tradeCnyPrice, Fuser fuser, boolean fisLimit,int robotStatus,
+			HttpServletRequest req) throws Exception {
+
+		 
+		boolean flag = false;
+		Fwallet fwallet = this.fwalletDAO.findById(fuser.getFwallet().getFid());
+
+		double ffeeRate = 0d;/*this.ffeesDAO.findFfee(coinTypeId,
+				fuser.getFscore().getFlevel()).getFfee();*/
+		double ffee = 0F;
+
+		// 买入总价格
+		double totalTradePrice = 0F;
+		if (fisLimit) {
+			ffee = tradeAmount * ffeeRate;
+			totalTradePrice = tradeAmount - ffee;
+		} else {
+			ffee = tradeAmount * tradeCnyPrice * ffeeRate;
+			totalTradePrice = tradeAmount * tradeCnyPrice - ffee;
+		}
+		
+		if(robotStatus==EntrustRobotStatusEnum.Normal){
+			if (fwallet.getFtotalRmb() < (totalTradePrice + ffee)) {
+				return null;
+			}
+	
+			fwallet.setFtotalRmb(fwallet.getFtotalRmb() - (totalTradePrice + ffee));
+			fwallet.setFfrozenRmb(fwallet.getFfrozenRmb()
+					+ (totalTradePrice + ffee));
+			fwallet.setFlastUpdateTime(Utils.getTimestamp());
+			this.fwalletDAO.attachDirty(fwallet);
+		}
+		
+		Fentrust fentrust = new Fentrust();
+		if (fisLimit) {
+			fentrust.setFcount(0F);
+			fentrust.setFleftCount(0F);
+		} else {
+			fentrust.setFcount(tradeAmount * (1 - ffeeRate));
+			fentrust.setFleftCount(tradeAmount * (1 - ffeeRate));
+		}
+		fentrust.setFamount(totalTradePrice);
+		fentrust.setFfees(ffee);
+		fentrust.setFleftfees(ffee);
+		fentrust.setFcreateTime(Utils.getTimestamp());
+		fentrust.setFentrustType(EntrustTypeEnum.BUY);
+		fentrust.setFisLimit(fisLimit);
+		fentrust.setFlastUpdatTime(Utils.getTimestamp());
+		fentrust.setFprize(tradeCnyPrice);
+		fentrust.setFstatus(EntrustStatusEnum.Going);
+		fentrust.setFsuccessAmount(0F);
+		fentrust.setFhasSubscription(false);
+		fentrust.setFuser(fuser);
+		fentrust.setFvirtualcointype(this.fvirtualcointypeDAO
+				.findById(coinTypeId));
+		fentrust.setRobotStatus(robotStatus);
+		this.fentrustDAO.save(fentrust);
+
+		if (fisLimit) {
+			this.realTimeData.addEntrustLimitBuyMap(coinTypeId, fentrust);
+		} else {
+			this.realTimeData.addEntrustBuyMap(coinTypeId, fentrust);
+		}
+
+		flag = true;
+		
+		return fentrust;
+	}
+
+	// 委托卖出
+	public Fentrust updateEntrustSell(int coinTypeId, double tradeAmount,
+			double tradeCnyPrice, Fuser fuser, boolean fisLimit,int robotStatus,
+			HttpServletRequest req) throws Exception {
+
+
+		boolean flag = false;
+		
+		if(robotStatus==EntrustRobotStatusEnum.Normal){
+			Fvirtualwallet fvirtualwallet = this.fvirtualwalletDAO
+					.findVirtualWallet(fuser.getFid(), coinTypeId);
+			if (fvirtualwallet.getFtotal() < tradeAmount) {
+				return null;
+			}
+	
+			fvirtualwallet.setFtotal(fvirtualwallet.getFtotal() - tradeAmount);
+			fvirtualwallet.setFfrozen(fvirtualwallet.getFfrozen() + tradeAmount);
+			fvirtualwallet.setFlastUpdateTime(Utils.getTimestamp());
+			this.fvirtualwalletDAO.attachDirty(fvirtualwallet);
+		}
+		
+		double ffeeRate = this.ffeesDAO.findFfee(coinTypeId,
+				fuser.getFscore().getFlevel()).getFfee();
+		double ffee = tradeAmount * ffeeRate;
+		Fentrust fentrust = new Fentrust();
+		if (fisLimit) {
+			fentrust.setFamount(0F);
+		} else {
+			fentrust.setFamount((tradeAmount - ffee) * tradeCnyPrice);
+		}
+		fentrust.setFcount(tradeAmount - ffee);
+		fentrust.setFleftCount(tradeAmount - ffee);
+		fentrust.setFfees(ffee);
+		fentrust.setFleftfees(ffee);
+		fentrust.setFcreateTime(Utils.getTimestamp());
+		fentrust.setFentrustType(EntrustTypeEnum.SELL);
+		fentrust.setFisLimit(fisLimit);
+		fentrust.setFlastUpdatTime(Utils.getTimestamp());
+		fentrust.setFprize(tradeCnyPrice);
+		fentrust.setFstatus(EntrustStatusEnum.Going);
+		fentrust.setFsuccessAmount(0F);
+		fentrust.setFuser(fuser);
+		fentrust.setFhasSubscription(false);
+		fentrust.setFvirtualcointype(this.fvirtualcointypeDAO
+				.findById(coinTypeId));
+		fentrust.setRobotStatus(robotStatus);
+		this.fentrustDAO.save(fentrust);
+ 
+		if (fisLimit) {
+			this.realTimeData.addEntrustLimitSellMap(coinTypeId, fentrust);
+		} else {
+			this.realTimeData.addEntrustSellMap(coinTypeId, fentrust);
+		}
+
+		flag = true;
+		
+		return fentrust;
+		
+	}
+
+	// 委托记录
+	public List<Fentrust> findFentrustHistory(int fuid, int fvirtualCoinTypeId,
+			int[] entrust_type, int first_result, int max_result, String order,
+			int entrust_status[]) throws Exception {
+		List<Fentrust> list = this.fentrustDAO.getFentrustHistory(fuid,
+				fvirtualCoinTypeId, entrust_type, first_result, max_result,
+				order, entrust_status);
+		for (Fentrust fentrust : list) {
+			fentrust.getFvirtualcointype().getFname();
+		}
+		return list;
+	}
+
+	public int findFentrustHistoryCount(int fuid, int fvirtualCoinTypeId,
+			int[] entrust_type, int entrust_status[]) throws Exception {
+		return this.fentrustDAO.getFentrustHistoryCount(fuid,
+				fvirtualCoinTypeId, entrust_type, entrust_status);
+	}
+
+	public List<Fentrustplan> findFentrustplan(int fuser, int fvirtualcointype,
+			int[] fstatus, int firtResult, int maxResult, String order) {
+		return this.fentrustplanDAO.findFentrustplan(fuser, fvirtualcointype,
+				fstatus, firtResult, maxResult, order);
+	}
+
+	public Fentrustplan findFentrustplanById(int id) {
+		return this.fentrustplanDAO.findById(id);
+	}
+
+	public long findFentrustplanCount(int fuser, int fvirtualcointype,
+			int[] fstatus) {
+		return this.fentrustplanDAO.findFentrustplanCount(fuser,
+				fvirtualcointype, fstatus);
+	}
+
+	// 计划委托
+	public void updateTradePlanBuy(Fentrustplan fentrustplan, Fwallet fwallet,
+			HttpServletRequest req) throws Exception {
+
+	
+
+		try {
+			this.fentrustplanDAO.save(fentrustplan);
+			this.fwalletDAO.attachDirty(fwallet);
+			this.realTimeData.addEntrustPlanBuyMap(fentrustplan
+					.getFvirtualcointype().getFid(), fentrustplan);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+		return;
+	}
+
+	// 计划委托
+	public void updateTradePlanSell(Fentrustplan fentrustplan,
+			Fvirtualwallet fwallet, HttpServletRequest req) throws Exception {
+
+	
+		try {
+			this.fentrustplanDAO.save(fentrustplan);
+			this.fvirtualwalletDAO.attachDirty(fwallet);
+			this.realTimeData.addEntrustPlanSellMap(fentrustplan
+					.getFvirtualcointype().getFid(), fentrustplan);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+		return;
+	}
+
+	// 计划委托买入转正式委托
+	public void updateEntrustPlanBuy2Entrust(Fentrustplan fentrustplan,
+			Fentrust fentrust) throws Exception {
+		
+
+		fentrustplan = this.fentrustplanDAO.findById(fentrustplan.getFid());
+		boolean flag = false;
+		try {
+			Fuser fuser = this.fuserDAO.findById(fentrustplan.getFuser()
+					.getFid());
+			double feeRate = this.ffeesDAO.findFfee(
+					fentrustplan.getFvirtualcointype().getFid(),
+					fuser.getFscore().getFlevel()).getFfee();
+
+			double ffee = fentrustplan.getFamount() * feeRate;
+			double totalTradePrice = fentrustplan.getFamount() - ffee;
+
+			fentrust = new Fentrust();
+			fentrust.setFcreateTime(Utils.getTimestamp());
+			fentrust.setFentrustType(EntrustTypeEnum.BUY);
+			fentrust.setFisLimit(fentrustplan.isFisLimit());
+			fentrust.setFlastUpdatTime(Utils.getTimestamp());
+			fentrust.setFprize(fentrustplan.getFprize());
+			fentrust.setFstatus(EntrustStatusEnum.Going);
+			fentrust.setFhasSubscription(false);
+			fentrust.setFsuccessAmount(0F);
+			fentrust.setFuser(fuser);
+			fentrust.setFvirtualcointype(fentrustplan.getFvirtualcointype());
+			fentrust.setFamount(totalTradePrice);
+			fentrust.setFfees(ffee);
+			fentrust.setFleftfees(ffee);
+			if (fentrustplan.isFisLimit()) {
+				fentrust.setFleftCount(0F);
+				fentrust.setFcount(0F);
+			} else {
+				fentrust.setFleftCount(fentrustplan.getFcount() * (1 - feeRate));
+				fentrust.setFcount(fentrustplan.getFcount() * (1 - feeRate));
+			}
+
+			this.fentrustDAO.save(fentrust);
+
+			fentrustplan.setFstatus(EntrustPlanStatusEnum.Entrust);
+			fentrustplan.setFentrust(fentrust);
+			this.fentrustplanDAO.attachDirty(fentrustplan);
+
+			flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+
+		return;
+	}
+
+	// 计划委托卖出转正式委托
+	public void updateEntrustPlanSell2Entrust(Fentrustplan fentrustplan,
+			Fentrust fentrust) throws Exception {
+	
+
+		fentrustplan = this.fentrustplanDAO.findById(fentrustplan.getFid());
+		boolean flag = false;
+		try {
+			Fuser fuser = this.fuserDAO.findById(fentrustplan.getFuser()
+					.getFid());
+			double ffeeRate = this.ffeesDAO.findFfee(
+					fentrustplan.getFvirtualcointype().getFid(),
+					fuser.getFscore().getFlevel()).getFfee();
+			double ffee = fentrustplan.getFcount() * ffeeRate;
+
+			fentrust = new Fentrust();
+			fentrust.setFcreateTime(Utils.getTimestamp());
+			fentrust.setFentrustType(EntrustTypeEnum.SELL);
+			fentrust.setFisLimit(fentrustplan.isFisLimit());
+			fentrust.setFlastUpdatTime(Utils.getTimestamp());
+			fentrust.setFprize(fentrustplan.getFprize());
+			fentrust.setFstatus(EntrustStatusEnum.Going);
+			fentrust.setFsuccessAmount(0F);
+			fentrust.setFuser(fentrustplan.getFuser());
+			fentrust.setFvirtualcointype(fentrustplan.getFvirtualcointype());
+			fentrust.setFfees(ffee);
+			fentrust.setFhasSubscription(false);
+			fentrust.setFleftfees(ffee);
+			fentrust.setFcount(fentrustplan.getFcount() - ffee);
+			fentrust.setFleftCount(fentrustplan.getFcount() - ffee);
+			if (fentrust.isFisLimit()) {
+				fentrust.setFamount(0F);
+			} else {
+				fentrust.setFamount((fentrustplan.getFcount() - ffee)
+						* fentrustplan.getFprize());
+			}
+
+			this.fentrustDAO.save(fentrust);
+
+			fentrustplan.setFstatus(EntrustPlanStatusEnum.Entrust);
+			fentrustplan.setFentrust(fentrust);
+			this.fentrustplanDAO.attachDirty(fentrustplan);
+
+			flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+	}
+
+	public void updateCancelFentrust(Fentrust fentrust, Fuser fuser) {
+		
+
+		try {
+			Fwallet fwallet = fuser.getFwallet();
+			Fvirtualwallet fvirtualwallet = this.fvirtualwalletDAO
+					.findVirtualWallet(fuser.getFid(), fentrust
+							.getFvirtualcointype().getFid());
+			java.sql.Timestamp now = Utils.getTimestamp();
+
+			fentrust.setFlastUpdatTime(now);
+			fentrust.setFstatus(EntrustStatusEnum.Cancel);
+			this.fentrustDAO.attachDirty(fentrust);
+
+			if(fentrust.getRobotStatus() == EntrustRobotStatusEnum.Normal){
+				if (fentrust.getFentrustType() == EntrustTypeEnum.BUY) {
+					// 买
+					double amount = 0F;
+					double leftAmount = fentrust.getFamount()
+							- fentrust.getFsuccessAmount();
+					double leftFee = fentrust.getFleftfees();
+					amount = leftAmount + leftFee;
+	
+					fwallet.setFtotalRmb(fwallet.getFtotalRmb() + amount);
+					fwallet.setFfrozenRmb(fwallet.getFfrozenRmb() - amount);
+					fwallet.setFlastUpdateTime(now);
+					this.fwalletDAO.attachDirty(fwallet);
+	
+				} else {
+					// 卖
+					double count = 0F;
+					double leftCount = fentrust.getFleftCount();
+					double leftFees = fentrust.getFleftfees();
+					count = leftCount + leftFees;
+					fvirtualwallet.setFtotal(fvirtualwallet.getFtotal() + count);
+					fvirtualwallet.setFfrozen(fvirtualwallet.getFfrozen() - count);
+					fvirtualwallet.setFlastUpdateTime(now);
+					this.fvirtualwalletDAO.attachDirty(fvirtualwallet);
+	
+				}
+			}
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+	}
+
+	public void updateCancelEntrustPlan(Fentrustplan fentrustplan, Fuser fuser) {
+		
+
+		try {
+			Fwallet fwallet = fuser.getFwallet();
+			Fvirtualwallet fvirtualwallet = this.fvirtualwalletDAO
+					.findVirtualWallet(fuser.getFid(), fentrustplan
+							.getFvirtualcointype().getFid());
+			this.fentrustplanDAO.attachDirty(fentrustplan);
+
+			if (fentrustplan.getFtype() == EntrustPlanTypeEnum.BUY) {
+				double total = fentrustplan.getFamount();
+				fwallet.setFtotalRmb(fwallet.getFtotalRmb() + total);
+				fwallet.setFfrozenRmb(fwallet.getFfrozenRmb() - total);
+				fwallet.setFlastUpdateTime(Utils.getTimestamp());
+				this.fwalletDAO.attachDirty(fwallet);
+			} else {
+				double total = fentrustplan.getFcount();
+				fvirtualwallet.setFtotal(fvirtualwallet.getFtotal() + total);
+				fvirtualwallet.setFfrozen(fvirtualwallet.getFfrozen() - total);
+				fvirtualwallet.setFlastUpdateTime(Utils.getTimestamp());
+				this.fvirtualwalletDAO.attachDirty(fvirtualwallet);
+			}
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+
+	}
+
+	public Fsubscription findFsubscriptionById(int id) {
+		return this.fsubscriptionDAO.findById(id);
+	}
+
+	public Fsubscription findFirstSubscription(int type) {
+		Fsubscription fsubscription = null;
+		List<Fsubscription> fsubscriptions = this.fsubscriptionDAO.findByParam(
+				0, 1, " where fisopen=1 and ftype = " + type
+						+ " order by fid asc ", true, "Fsubscription");
+		if (fsubscriptions.size() > 0) {
+			fsubscription = fsubscriptions.get(0);
+		}
+		return fsubscription;
+	}
+
+	public List<Fsubscriptionlog> findFsubscriptionlogByParam(int firstResult,
+			int maxResults, String filter, boolean isFY) {
+		return this.fsubscriptionlogDAO.findByParam(firstResult, maxResults,
+				filter, isFY, "Fsubscriptionlog");
+	}
+
+	public List<Fsubscriptionlog> findFsubScriptionLog(Fuser fuser, int id) {
+		List<Fsubscriptionlog> fsubscriptionlogs = this.fsubscriptionlogDAO
+				.findByParam(0, 0, " where fuser.fid=" + fuser.getFid()
+						+ " and fsubscription.fid=" + id + " ", false,
+						"Fsubscriptionlog");
+		return fsubscriptionlogs;
+	}
+
+	public void updateSubscription(Fwallet fwallet,
+			Fvirtualwallet fvirtualwallet, Fsubscriptionlog fsubscriptionlog,
+			Fsubscription fsubscription) {
+		try {
+			this.fwalletDAO.attachDirty(fwallet);
+			this.fvirtualwalletDAO.attachDirty(fvirtualwallet);
+			this.fsubscriptionDAO.attachDirty(fsubscription);
+			this.fsubscriptionlogDAO.save(fsubscriptionlog);
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+	}
+
+	public List<Fentrust> findFentrustByParam(int firstResult, int maxResults,
+			String filter, boolean isFY) {
+		return this.fentrustDAO.findByParam(firstResult, maxResults, filter,
+				isFY, "Fentrust");
+	}
+
+	public int findFentrustByParamCount(String filter) {
+		return this.fentrustDAO.findByParamCount(filter, "Fentrust");
+	}
+	
+	public void updateFeeLog(Fentrust entrust,Fvirtualwallet fvirtualwallet) {
+		try {
+			this.fentrustDAO.attachDirty(entrust);
+			this.fvirtualwalletDAO.attachDirty(fvirtualwallet);
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+	}
+	
+	public void updateFeeLog(Fentrust entrust,Fwallet fwallet) {
+		try {
+			this.fentrustDAO.attachDirty(entrust);
+			this.fwalletDAO.attachDirty(fwallet);
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+	}
+	
+	public void updateSubscription(Fvirtualwallet fvirtualwalletCost ,Fvirtualwallet fvirtualwallet,
+			Fsubscriptionlog fsubscriptionlog,Fsubscription fsubscription){
+		try {
+			this.fvirtualwalletDAO.attachDirty(fvirtualwalletCost) ;
+			this.fvirtualwalletDAO.attachDirty(fvirtualwallet) ;
+			this.fsubscriptionDAO.attachDirty(fsubscription) ;
+			this.fsubscriptionlogDAO.save(fsubscriptionlog) ;
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+	}
+
+	public Fentrustlog getClosingPrice(int fvirtualcointype){
+		return this.fentrustlogDAO.getClosingEntrust(fvirtualcointype);
+	}
+	
+	public Fentrustlog getOpenningPrice(int fvirtualcointype){
+		return this.fentrustlogDAO.getOpenningEntrust(fvirtualcointype);
+	}
+	
+	public Fentrustlog getEntrustBeforeWeek(int fvirtualcointype){
+		return this.fentrustlogDAO.getEntrustBeforeWeek(fvirtualcointype);
+	}
+	
+	// 加密
+	private static final String KEY_ALGORITHM = "AES";
+	private static final String CIPHER_ALGORITHM = "AES/ECB/PKCS5Padding";
+
+	private static Key toKey(byte[] key) throws Exception {
+		return new SecretKeySpec(key, KEY_ALGORITHM);
+	}
+
+	private static String encrypt(String data, String key) throws Exception {
+		Key k = toKey(Base64.decodeBase64(key.getBytes())); // 还原密钥
+		Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM); // 实例化Cipher对象，它用于完成实际的加密操作
+		cipher.init(Cipher.ENCRYPT_MODE, k); // 初始化Cipher对象，设置为加密模式
+		return new String(Base64.encodeBase64(cipher.doFinal(data.getBytes()))); // 执行加密操作。加密后的结果通常都会用Base64编码进行传输
+	}
+
+	private static String decrypt(String data, String key) throws Exception {
+		Key k = toKey(Base64.decodeBase64(key.getBytes()));
+		Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM);
+		cipher.init(Cipher.DECRYPT_MODE, k); // 初始化Cipher对象，设置为解密模式
+		return new String(cipher.doFinal(Base64.decodeBase64(data.getBytes()))); // 执行解密操作
+	}
+}

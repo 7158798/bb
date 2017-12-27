@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--自动奖励TicketTask-->
+    <!--<bean id="autoAwardTask" class="com.ruizton.task.AutoAwardTask"/>-->
+    <!--初始化数据, 只会执行一次-->
+    <!--<bean id="loadInitDataTask" class="com.ruizton.task.LoadInitDataTask"/>-->
+    <!--同步最高，买价，卖价-->
+    <!--<bean class="com.ruizton.task.queue.SyncBuySellPriceQueue" depends-on="loadInitDataTask"/>-->
+    <!--初始化挂到数据-->
+    <!--<bean id="loadFentrustDataTask" class="com.ruizton.task.LoadFentrustDataTask" depends-on="loadInitDataTask"/>-->
+     <!--插入成交日志-->
+    <bean class="com.ruizton.task.queue.SyncFentrustLogDataQueue"/>
+    <!--初始化K线数据-->
+    <bean id="KlineDataTask" class="com.ruizton.main.auto.KlinePeriodData2"/>
+    <!--生成一次K线图-->
+     <bean id="autoMinuteKlineTask" class="com.ruizton.task.AutoMinuteKlineTask" depends-on="KlineDataTask"/>
+    <!--计算K线队列-->
+     <bean id="calculateMinuteKlineQueue" class="com.ruizton.task.queue.CalculateMinuteKlineQueue" depends-on="autoMinuteKlineTask"/>
+    <!--初始化挂单数据的撮合-->
+    <!--<bean class="com.ruizton.main.auto.AutoDealMaking" init-method="startMatchListener" depends-on="loadFentrustDataTask"/>-->
+    <!-- 定时清理深度数据 -->
+    <!--<bean class="com.ruizton.task.AutoClearDepthEntrustTask" depends-on="loadFentrustDataTask"/>-->
+    <!-- 深度合并消息队列 -->
+    <!--<bean id="depthCalculateQueue" class="com.ruizton.main.queue.DepthCalculateQueue"/>-->
+    <!-- 首页价格趋势图数据 -->
+    <bean id="priceTrendTaskExector" class="com.zhgtrade.auto.task.trend.PriceTrendTaskExector" init-method="init"/>
+
+    <bean class="com.ruizton.task.queue.RedisEmailQueue" init-method="start"/>
+
+    <bean class="com.ruizton.task.queue.RedisMessageQueue" init-method="start"/>
+
+    <bean id="walletTransferTask" class="com.zhgtrade.auto.task.transfer.WalletTransferTask" />
+    <task:scheduled-tasks>
+
+         <!--&lt;!&ndash; 每分钟清理一次深度表的无效数据 &ndash;&gt;-->
+         <!--<task:scheduled ref="depthCalculateQueue" method="clearInValidDepthDate" cron="0 * * * * ?"/>-->
+
+        <task:scheduled ref="calculateMinuteKlineQueue" method="execute" cron="0 * * * * ?"/>
+
+        <!-- 首页3天价格趋势 -->
+        <task:scheduled ref="priceTrendTaskExector" method="execute" cron="0 0 * * * ?" />
+
+        <!-- 转账 -->
+        <task:scheduled ref="walletTransferTask" method="execute" initial-delay="10000" fixed-delay="30000"  />
+    </task:scheduled-tasks>
+
+</beans>

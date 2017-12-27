@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cache="http://www.springframework.org/schema/cache" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+             http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-3.1.xsd
+             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+             http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath*:redis.properties"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+    </bean>
+
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg name="host" value="${redis.host}"/>
+        <constructor-arg name="port" value="${redis.port}"/>
+        <constructor-arg name="password" value="${redis.password}"/>
+        <constructor-arg name="poolConfig" ref="poolConfig"/>
+        <constructor-arg name="timeout" value="${redis.timeout}"/>
+        <constructor-arg name="database" value="${redis.database}"></constructor-arg>
+    </bean>
+
+    <context:annotation-config />
+
+    <!--<cache:annotation-driven cache-manager="cacheManager"/>-->
+
+    <!--<bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">-->
+        <!--<constructor-arg ref="redisTemplate"/>-->
+        <!--<property name="usePrefix" value="false"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">-->
+        <!--<property name="caches">-->
+            <!--<set>-->
+                <!--<bean class="com.ruizton.main.cache.RedisCache"><property name="name" value="realTime"/></bean>-->
+            <!--</set>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<cache:advice id="cacheAdvice" cache-manager="cacheManager">-->
+        <!--<cache:caching cache="realTime">-->
+            <!--<cache:cacheable method="getDataCount" key="'zhgtrade:cache:getDataCount'"/>-->
+            <!--<cache:cacheable method="getUserQty" key="'zhgtrade:cache:getUserQty'"/>-->
+            <!--<cache:cacheable method="getTradeAmt" key="'zhgtrade:cache:getTradeAmt'"/>-->
+            <!--<cache:cacheable method="getLatestDealDataList" key="'zhgtrade:cache:getLatestDealDataList'"/>-->
+            <!--<cache:cache-evict method="updateLatestDealData" key="'zhgtrade:cache:getLatestDealDataList'"/>-->
+            <!--<cache:cache-evict method="updateLatestDealData" key="'zhgtrade:cache:getLatestDealData.' + #p0.fid"/>-->
+            <!--<cache:cacheable method="getLatestDealData" key="'zhgtrade:cache:getLatestDealData.' + #p0"/>-->
+        <!--</cache:caching>-->
+    <!--</cache:advice>-->
+
+    <!--<aop:config proxy-target-class="false">-->
+        <!--<aop:advisor advice-ref="cacheAdvice" pointcut="execution(* com.ruizton.main.service.data.RealTimeDataService.*(..))"/>-->
+    <!--</aop:config>-->
+
+    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="${redis.maxTotal}" />
+        <property name="maxIdle" value="${redis.maxIdle}" />
+        <property name="minIdle" value="${redis.minIdle}" />
+        <property name="maxWaitMillis" value="${redis.maxWaitMillis}"/>
+        <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+    </bean>
+
+    <bean id="redisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value="${redis.host}"/>
+        <property name="port" value="${redis.port}"/>
+        <property name="timeout" value="${redis.timeout}"/>
+        <property name="poolConfig" ref="poolConfig"/>
+        <property name="password" value="${redis.password}"/>
+    </bean>
+    <bean id="stringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="redisConnectionFactory"/>
+        <property name="keySerializer" ref="stringRedisSerializer" />
+        <property name="hashKeySerializer" ref="stringRedisSerializer" />
+    </bean>
+
+    <!--<bean class="com.ruizton.main.mq.RedisMessageQueueServiceImpl"/>-->
+
+</beans>

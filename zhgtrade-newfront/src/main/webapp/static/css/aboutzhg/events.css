@@ -1,0 +1,98 @@
+body{background:#fff;}
+.banner .carousel{ position: relative; height: 420px;}
+.banner .carousel .item{position: absolute;  left: 0;  right: 0;  width: 100%;  height: 100%;  z-index: 1;  background-position: 50% 50%;}
+.banner ul{width:720px;height:200px;position:absolute;right:0px;top:50px;}
+.banner ul li a{float:left;padding:15px 40px;color:#fff;font-size:22px;margin-left:20px;border-radius:3px;text-decoration: none}
+.banner ul li a:hover{background:#fed136;}
+.banner ul .cur{background:#fed136;cursor: text}
+.events_wrapper{position: relative;}
+.events_wrapper .hanging{width: 200px; margin: 50px auto 0}
+.center_page{overflow:hidden;}
+.events_wrapper .content .item{position:relative;height:220px;}
+/*.events_wrapper .item img{position: absolute;top:0px;left:50%;margin-left: -90px;}*/
+.events_wrapper .item p{text-align:right;font-size:14px;line-height:1.5;color: #777;font-family: 宋体;}
+.events_wrapper .item .text{position:absolute;right:54%;max-width: 532px;}
+.events_wrapper .item .text p{max-width: 272px;padding-bottom: 5px;}
+.events_wrapper .tip:before,.events_wrapper .start:before{content: "";width: 0px;height: 180px;border: 1px solid #40aedf;display: block;position: absolute;top: -60px;left: 50%;margin-left: -2px;}
+.events_wrapper .start:before{top: -37px;}
+.events_wrapper .end_item:before{top: -158px;height: 275px;}
+.events_wrapper .item .time{width:155px;height:65px;float: right;}
+.events_wrapper .double .text{left:54%;right:0;}
+.events_wrapper .double .text p{text-align:left;}
+.events_wrapper .double .text .time{float:left;}
+.loading{width:190px;height:70px;line-height:70px;margin-left:-95px;position:relative;left:50%;font-size:16px;}
+.loading .loader{background:url(//s1.zhgtrade.com/static/images/aboutzhg/events/loader.gif) no-repeat;width:24px;height:24px;margin:24px;}
+.nomore{width:220px;height:188px;position:relative;left:50%;margin-left:-110px;background:url(//s1.zhgtrade.com/static/images/aboutzhg/events/nomore.png) no-repeat;}
+/*.time1{background:url(/static/images/aboutzhg/events/time_01.png) no-repeat;}
+.time2{background:url(/static/images/aboutzhg/events/time_02.png) no-repeat;}
+.time3{background:url(/static/images/aboutzhg/events/time_03.png) no-repeat;}
+.time4{background:url(/static/images/aboutzhg/events/time_04.png) no-repeat;}
+.time5{background:url(/static/images/aboutzhg/events/time_05.png) no-repeat;}
+.time6{background:url(/static/images/aboutzhg/events/time_06.png) no-repeat;}
+.time7{background:url(/static/images/aboutzhg/events/time_07.png) no-repeat;}
+.time8{background:url(/static/images/aboutzhg/events/time_08.png) no-repeat;}
+.time9{background:url(/static/images/aboutzhg/events/time_09.png) no-repeat;}
+.time10{background:url(/static/images/aboutzhg/events/time_10.png) no-repeat;}
+.time11{background:url(/static/images/aboutzhg/events/time_11.png) no-repeat;}
+.time12{background:url(/static/images/aboutzhg/events/time_12.png) no-repeat;}
+.time13{background:url(/static/images/aboutzhg/events/time_13.png) no-repeat;}
+.time14{background:url(/static/images/aboutzhg/events/time_14.png) no-repeat;}
+.time15{background:url(/static/images/aboutzhg/events/time_15.png) no-repeat;}
+.time16{background:url(/static/images/aboutzhg/events/time_16.png) no-repeat;}
+.time17{background:url(/static/images/aboutzhg/events/time_17.png) no-repeat;}
+.time18{background:url(/static/images/aboutzhg/events/time_18.png) no-repeat;}
+.time19{background:url(/static/images/aboutzhg/events/time_19.png) no-repeat;}
+.time20{background:url(/static/images/aboutzhg/events/time_20.png) no-repeat;}
+.time21{background:url(/static/images/aboutzhg/events/time_21.png) no-repeat;}
+.time22{background:url(/static/images/aboutzhg/events/time_22.png) no-repeat;}
+.time23{background:url(/static/images/aboutzhg/events/time_23.png) no-repeat;}
+.time24{background:url(/static/images/aboutzhg/events/time_24.png) no-repeat;}
+.time25{background:url(/static/images/aboutzhg/events/time_25.png) no-repeat;}
+.time26{background:url(/static/images/aboutzhg/events/time_26.png) no-repeat;}
+.time27{background:url(/static/images/aboutzhg/events/time_27.png) no-repeat;}
+.time28{background:url(/static/images/aboutzhg/events/time_28.png) no-repeat;}
+.time29{background:url(/static/images/aboutzhg/events/time_29.png) no-repeat;}
+.time30{background:url(/static/images/aboutzhg/events/time_30.png) no-repeat;}
+.time31{background:url(/static/images/aboutzhg/events/time_31.png) no-repeat;}
+.time32{background:url(/static/images/aboutzhg/events/time_32.png) no-repeat;}
+.time33{background:url(/static/images/aboutzhg/events/time_33.png) no-repeat;}*/
+
+.content{margin-bottom: 230px;}
+.content .top{height: 145px;width: 1200px;margin: 0 auto;text-align: center;}
+.content .top div{height: 145px;line-height: 145px;}
+.content .top .left_line span{display: inline-block;border-top: 1px solid #bbb;width: 450px;padding-bottom: 3.5px;}
+.content .top .left_block span{display: inline-block;width: 60px;background: #E7C049;height: 8px;}
+.content .top .center span{display: inline-block;width: 180px;text-align: center;font-size: 24px;}
+.content .top .right_line span{display: inline-block;border-top: 1px solid #bbb;width: 450px;padding-bottom: 3.5px;}
+.content .top .right_block span{display: inline-block;width: 60px;background: #AFCCD4;height: 8px;}
+
+.content .more a{clear:both;margin: 0 auto;display:block;width: 200px;height: 60px;line-height:60px;text-align:center;background: #40aedf;color: #fffffb;border-radius: 6px;-moz-border-radius: 6px;-webkit-border-radius: 6px;font-size: 22px;}
+.content .more span{display: inline-block;width: 40px;}
+
+.content .item .zhg{position: absolute;top:100px;left:50%;margin-left: -10px;}
+.content .item .text img{position: relative;padding: 20px;}
+.content .item .text .text_box{padding: 20px;}
+.content .text{border: 1px solid #40aedf;border-radius: 6px;-moz-border-radius: 6px;-webkit-border-radius: 6px;height: 220px;}
+.content .item .end{text-align:center;width: 110px;height: 110px;line-height: 110px;position: absolute;top:119px;left:50%;margin-left: -60px;border: 4px solid #b4dff2;border-radius: 58px;-moz-border-radius: 58px;-webkit-border-radius: 58px;}
+.content .item .end p{font-family: "Microsoft YaHei";font-size: 28px;color: #40aedf;width: 56px;height:76px;line-height: 35px;margin: 0 auto;}
+.content .item .text .time{font-family: "Hobo Std";font-size: 18px;color: #212121;width: auto;height:50px;line-height: 25px;float: right;display: block;}
+.content .double .text .time{float: left;}
+
+.content .item .text .left_mouth{position: absolute;top: 80px;right: -27px;}
+.content .item .text .right_mouth{position: absolute;top: 80px;left: -27px;}
+
+@media (min-width: 1200px) {
+    /*.content .item .text .text_box {*/
+        /*padding: 0px*/
+    /*}*/
+    /*.content .item .text img {*/
+        /*padding: 0px;*/
+    /*}*/
+}
+
+
+
+
+
+
+

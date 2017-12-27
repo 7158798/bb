@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--<bean class="com.ruizton.main.comm.ValidateMap"/>-->
+    <!--<bean class="com.ruizton.main.comm.ConstantMap"/>-->
+    <!--<bean class="com.ruizton.main.auto.KlinePeriodData"/>-->
+    <!--<bean class="com.ruizton.main.auto.OneDayData"/>-->
+    <!--<bean class="com.ruizton.main.auto.RealTimeData"/>-->
+
+    <!--<context:component-scan base-package="com.ruizton.main.dao"/>-->
+    <!--<context:component-scan base-package="com.ruizton.main.service"/>-->
+    <!--<context:component-scan base-package="com.ruizton.task.service"/>-->
+
+    <!--<bean id="initDataTask" class="com.ruizton.task.LoadInitDataTask"/>-->
+
+    <!--<bean class="com.ruizton.task.KlineDataTask"/>-->
+
+    <!--<task:scheduled-tasks>-->
+
+        <!--&lt;!&ndash;生成最新成交数据任务&ndash;&gt;-->
+        <!--<task:scheduled ref="latestDealDataTask" method="run" cron="0 0/2 * * * ?"/>-->
+
+    <!--</task:scheduled-tasks>-->
+
+</beans>
