@@ -1,5 +1,4 @@
 group 'com.zhgtrade'
-
 apply plugin: 'java'
 apply plugin: 'application'
 
