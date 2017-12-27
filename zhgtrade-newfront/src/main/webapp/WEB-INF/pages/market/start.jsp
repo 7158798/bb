@@ -207,7 +207,8 @@ Stoch RSI``
 
 	  window.$test = false;
 
-	  window.$symbol = "${fvirtualcointype.fid}";
+	  <%--window.$symbol = "${fvirtualcointype.fid}";--%>
+	  window.$symbol = location.search.replace('?symbol=','');
 
 	  window.$hsymbol = "RUIZCON ${fvirtualcointype.fShortName}\/CNY";
 

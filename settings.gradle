@@ -1,4 +1,4 @@
-rootProject.name = 'zhgtrade-parent'
+rootProject.name = 'trade-platform'
 include 'zhgtrade-backend'
 include 'zhgtrade-core'
 include 'zhgtrade-task'
