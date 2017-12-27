@@ -14,7 +14,8 @@ public class UserClient {
 		 
 		 System.out.print( us.getUserCount());
 	 }
-	 
+
+
 	 public static Long getUserCount(){ 
 		 UserServiceService userService = new UserServiceService() ;
 		 UserService us =  userService.getUserServicePort() ;
