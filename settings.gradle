@@ -1,4 +1,4 @@
-rootProject.name = 'trade-platform'
+rootProject.name = 'newsite'
 include 'zhgtrade-backend'
 include 'zhgtrade-core'
 include 'zhgtrade-task'
