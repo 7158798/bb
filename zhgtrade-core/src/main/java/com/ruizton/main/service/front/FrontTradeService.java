@@ -624,45 +624,21 @@ public class FrontTradeService {
             fentrust.setFstatus(EntrustStatusEnum.Cancel);
             fentrustDAO.attachDirty(fentrust);
 
-            if (fentrust.getRobotStatus() == EntrustRobotStatusEnum.Normal) {
-
-                if (fentrust.getFentrustType() == EntrustTypeEnum.BUY) {
-                    Fwallet fwallet = fuser.getFwallet();
-                    // 买
-//					double amount = 0F;
-                    double leftAmount = MathUtils.subtract(fentrust.getFamount(), fentrust.getFsuccessAmount());
-//					double leftFee = fentrust.getFleftfees();
-//					amount = leftAmount + leftFee;
-
-//                    fwallet.setFtotalRmb(MathUtils.add(fwallet.getFtotalRmb(), leftAmount));
-//                    fwallet.setFfrozenRmb(MathUtils.subtract(fwallet.getFfrozenRmb(), leftAmount));
-//                    fwallet.setFlastUpdateTime(now);
-//                    fwalletDAO.attachDirty(fwallet);
-                    int count = fwalletDAO.updateFwalletMoneyAndFrozen(fwallet.getFid(), leftAmount);
-                    if(1 != count){
-                        throw new RuntimeException();
-                    }
-                } else {
-                    // 卖
-
-//					//返还未交易部分的手续费
-//					double leftFee = fentrust.getFleftfees();
-//					fwallet.setFtotalRmb(fwallet.getFtotalRmb() + leftFee);
-//					fwallet.setFfrozenRmb(fwallet.getFfrozenRmb() - leftFee);
-//					fwalletDAO.attachDirty(fwallet);
-
-                    Fvirtualwallet fvirtualwallet = this.fvirtualwalletDAO.findVirtualWallet(fuser.getFid(), fentrust.getFvirtualcointype().getFid());
-
-                    double leftCount = fentrust.getFleftCount();
-//                    fvirtualwallet.setFtotal(MathUtils.add(fvirtualwallet.getFtotal(), leftCount));
-//                    fvirtualwallet.setFfrozen(MathUtils.subtract(fvirtualwallet.getFfrozen(), leftCount));
-//                    fvirtualwallet.setFlastUpdateTime(now);
-//                    fvirtualwalletDAO.attachDirty(fvirtualwallet);
-
-                    int count = fvirtualwalletDAO.updateRefund(fuser.getFid(), fvirtualwallet.getFvirtualcointype().getFid(), leftCount, Utils.getTimestamp());
-                    if(1 != count){
-                        throw new RuntimeException();
-                    }
+            if (fentrust.getFentrustType() == EntrustTypeEnum.BUY) {
+                // 买
+                double leftAmount = MathUtils.subtract(fentrust.getFamount(), fentrust.getFsuccessAmount());
+                Market market = fentrust.getMarket();
+                int count = fvirtualwalletDAO.updateRefund(fuser.getFid(), market.getBuyId(), leftAmount, Utils.getTimestamp());
+                if(1 != count){
+                    throw new RuntimeException();
+                }
+            } else {
+                // 卖
+                double leftCount = fentrust.getFleftCount();
+                Market market = fentrust.getMarket();
+                int count = fvirtualwalletDAO.updateRefund(fuser.getFid(), market.getSellId(), leftCount, Utils.getTimestamp());
+                if(1 != count){
+                    throw new RuntimeException();
                 }
             }
         } catch (Exception e) {
@@ -824,15 +800,15 @@ public class FrontTradeService {
      * 统计历史订单
      *
      * @param fuserId
-     * @param viCoinTypeId
+     * @param market
      * @param entrustType
      * @param status
      * @param beginDate
      * @param endDate
      * @return
      */
-    public int countFentrustHistory(Integer fuserId, Integer viCoinTypeId, Integer[] entrustType, Integer[] status, Date beginDate, Date endDate) {
-        return fentrustDAO.CountHistory(fuserId, viCoinTypeId, entrustType, status, beginDate, endDate);
+    public int countFentrustHistory(Integer fuserId, Integer market, Integer[] entrustType, Integer[] status, Date beginDate, Date endDate) {
+        return fentrustDAO.countHistory(fuserId, market, entrustType, status, beginDate, endDate);
     }
 
     /**
@@ -942,6 +918,30 @@ public class FrontTradeService {
 
         return fentrust;
 
+    }
+
+    /**
+     * 获取历史订单
+     *
+     * @param fuserId
+     * @param viCoinTypeId
+     * @param entrustType
+     * @param beginDate
+     * @param endDate
+     * @param pageNow
+     * @param pageSize
+     * @return
+     */
+    public List<Fentrust> findSuccessHistory(Integer fuserId, Integer viCoinTypeId, Integer entrustType, Date beginDate, Date endDate, int pageNow, int pageSize) {
+        if (pageNow < 1) {
+            pageNow = 1;
+        }
+        if (pageSize < 0 || pageSize > 200) {
+            pageSize = 20;
+        }
+
+        List<Fentrust> list = fentrustDAO.findSuccessHistory(fuserId, viCoinTypeId, entrustType, beginDate, endDate, (pageNow - 1) * pageSize, pageSize);
+        return list;
     }
 }
 

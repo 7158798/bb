@@ -2,6 +2,7 @@ $(function(){
     var placeholder = "手机验证码";
     var validate_type = "sms";
 
+    var type =1;
     function validatePhone(obj,type){
         var $this = $(obj);
         var flag = $this.data(_const.SUBMIT_FLAG);
@@ -358,7 +359,7 @@ $(function(){
     showPriceTrend();
 
     function loadDeals(sort){
-        $.get("/index/dealDatas.html", {sort : sort}, function(data){
+        $.get("/index/dealDatas.html", {sort : sort ,type :type}, function(data){
             data = $.trim(data);
             if(data){
                 $("#dealList").html(data);

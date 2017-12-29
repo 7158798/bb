@@ -102,9 +102,9 @@
     <div class="flow" id="top_nav">
         <div class="nav" id="nav">
             <div class="logo fl" style="position: relative;">
-                <a class="db" href="/"> <img src="${cdn}${requestScope.constant['logoImage']}" height="55px" alt="数字货币交易网站" title="众股logo"/>
+                <a class="db" href="/"> <img src="${cdn}${requestScope.constant['logoImage']}" height="55px" alt="58CC交易网站" title="58CClogo"/>
                 </a>
-                <img style="position: absolute;top:15px;left:215px;" src="${cdn}/static/images/logo_fill.png" alt="" />
+                <%--<img style="position: absolute;top:15px;left:215px;" src="${cdn}/static/images/logo_fill.png" alt="" />--%>
             </div>
             <c:choose>
                 <c:when test="${'header_about' == header_style}">

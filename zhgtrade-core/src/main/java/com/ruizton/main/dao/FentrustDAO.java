@@ -4,12 +4,7 @@ import static org.hibernate.criterion.Example.create;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.ruizton.main.model.Fentrustlog;
 import org.hibernate.Criteria;
@@ -171,6 +166,68 @@ public class FentrustDAO extends HibernateDaoSupport {
 			log.error("merge failed", re);
 			throw re;
 		}
+	}
+
+	/**
+	 * 订单历史记录
+	 *
+	 * @param fuserId
+	 * @param viCoinTypeId
+	 * @param entrustType
+	 * @param beginDate
+	 * @param endDate
+	 * @param firstResult
+	 * @param maxResult
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Fentrust> findSuccessHistory(Integer fuserId, Integer viCoinTypeId, Integer entrustType, Date beginDate, Date endDate, int firstResult, int maxResult){
+		StringBuilder hqlBuf = new StringBuilder("from Fentrust where 1=1");
+
+		if(null != fuserId){
+			hqlBuf.append(" and fuser.fid=:fuid");
+		}
+		if(null != viCoinTypeId){
+			hqlBuf.append(" and market.id=:coinTypeId");
+		}
+		if(Objects.nonNull(entrustType)){
+			hqlBuf.append(" and fentrustType=:type");
+		}
+		hqlBuf.append(" and (fstatus=3 or fstatus=4)");
+		if(null != beginDate){
+			hqlBuf.append(" and fcreateTime>=:beginDate");
+		}
+		if(null != endDate){
+			hqlBuf.append(" and fcreateTime<=:endDate");
+		}
+		hqlBuf.append(" and fsuccessAmount>0");
+		hqlBuf.append(" order by fid desc");
+
+		Query query = getSession().createQuery(hqlBuf.toString());
+
+		if(null != fuserId){
+			query.setParameter("fuid", fuserId);
+		}
+		if(null != viCoinTypeId){
+			query.setParameter("coinTypeId", viCoinTypeId);
+		}
+		if(Objects.nonNull(entrustType)){
+			query.setParameter("type", entrustType);
+		}
+		if(null != beginDate){
+			query.setParameter("beginDate", beginDate);
+		}
+		if(null != endDate){
+			query.setParameter("endDate", endDate);
+		}
+		if (-1 != firstResult) {
+			query.setFirstResult(firstResult);
+		}
+		if (-1 != maxResult) {
+			query.setMaxResults(maxResult);
+		}
+
+		return query.list();
 	}
 
 	public void attachDirty(Fentrust instance) {
@@ -763,25 +820,24 @@ public class FentrustDAO extends HibernateDaoSupport {
 		
 		return query.list();
 	}
-	
+
 	/**
 	 * 统计记录数
 	 * @param fuserId
-	 * @param viCoinTypeId
 	 * @param entrustType
 	 * @param status
 	 * @param beginDate
 	 * @param endDate
 	 * @return
 	 */
-	public int CountHistory(Integer fuserId, Integer viCoinTypeId, Integer[] entrustType, Integer[] status, Date beginDate, Date endDate){
-		StringBuilder hqlBuf = new StringBuilder("select count(*) from com.ruizton.main.model.Fentrust where 1=1");
-		
+	public int countHistory(Integer fuserId, Integer market, Integer[] entrustType, Integer[] status, Date beginDate, Date endDate){
+		StringBuilder hqlBuf = new StringBuilder("select count(*) from Fentrust where 1=1");
+
 		if(null != fuserId){
 			hqlBuf.append(" and fuser.fid=:fuid");
 		}
-		if(null != viCoinTypeId){
-			hqlBuf.append(" and fvirtualcointype.fid=:coinTypeId");
+		if(null != market){
+			hqlBuf.append(" and market.id=:coinTypeId");
 		}
 		if(!ObjectUtils.isEmpty(entrustType)){
 			if(1 == entrustType.length){
@@ -807,14 +863,14 @@ public class FentrustDAO extends HibernateDaoSupport {
 		if(null != endDate){
 			hqlBuf.append(" and fcreateTime<=:endDate");
 		}
-		
+
 		Query query = getSession().createQuery(hqlBuf.toString());
-		
+
 		if(null != fuserId){
 			query.setParameter("fuid", fuserId);
 		}
-		if(null != viCoinTypeId){
-			query.setParameter("coinTypeId", viCoinTypeId);
+		if(null != market){
+			query.setParameter("coinTypeId", market);
 		}
 		if(!ObjectUtils.isEmpty(entrustType)){
 			if(1 == entrustType.length){
@@ -842,10 +898,10 @@ public class FentrustDAO extends HibernateDaoSupport {
 		if(null != endDate){
 			query.setParameter("endDate", endDate);
 		}
-		
+
 		return ((Long)query.uniqueResult()).intValue();
 	}
-	
+
 	/**
 	 * 导出委托列表
 	 * 

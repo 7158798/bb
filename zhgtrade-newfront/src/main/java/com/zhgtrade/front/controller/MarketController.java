@@ -452,53 +452,44 @@ public class MarketController extends BaseController {
     public Object refreshUserInfo(HttpServletRequest request, @RequestParam(required = false, defaultValue = "0") int symbol) throws Exception {
         Map<String, Object> map = new HashMap<>();
 
-        // 检查币ID有效性
-        symbol = checkVirtualCoinId(symbol);
+        Market market = marketService.findById(symbol);
 
-        if (symbol == 0) {
+        if (market == null) {
             return map;
         }
 
+        map.put("symbol", symbol);
         map.put("recommendPrizesell", realTimeDataService.getHighestBuyPrize(symbol));//推荐卖出价
         map.put("recommendPrizebuy", realTimeDataService.getLowestSellPrize(symbol));//推荐买入价
 
         Fuser user = getSessionUser(request);
 
+        Fvirtualcointype fvirtualcointype = frontVirtualCoinService.findFvirtualCoinById(market.getBuyId());
         if (user != null) {
             map.put("isLogin", 1);
             map.put("needTradePasswd", isNeedTradePassword(request));
+            Fvirtualwallet virtualwallet = frontUserService.findVirtualWalletNative(user.getFid(), market.getSellId());
+            Fvirtualwallet btcWallet = frontUserService.findVirtualWalletNative(user.getFid(), market.getBuyId());
 
-            Fvirtualwallet virtualwallet = frontUserService.findVirtualWalletNative(user.getFid(), symbol);
 
-            // 这里原来是把用户ID当成钱包ID去拿钱包，但是经查实，数据对不上，改成通过钱包ID去拿钱包
-            Fwallet wallet = frontUserService.findFwalletByIdNative(user.getFwallet().getFid());
 
-            map.put("rmbtotal", wallet.getFtotalRmb());
-            map.put("rmbfrozen", wallet.getFfrozenRmb());
-            map.put("virtotal", virtualwallet.getFtotal());
-            map.put("virfrozen", virtualwallet.getFfrozen());
+            map.put("rmname",fvirtualcointype.getfShortName());
+            map.put("rmbtotal",  Double.valueOf(FormatUtils.formatCoin(btcWallet.getFtotal())));
+            map.put("rmbfrozen",   Double.valueOf(FormatUtils.formatCoin(btcWallet.getFfrozen())));
+            map.put("vtype", "btc");
+
+            map.put("virtotal",  Double.valueOf(FormatUtils.formatCoin(virtualwallet.getFtotal())));
+            map.put("virfrozen",   Double.valueOf(FormatUtils.formatCoin(virtualwallet.getFfrozen())));
 
             List entrustList = frontTradeService.getFentrustHistory(user.getFid(), symbol, 0, 5);
-
             List entrustListLog = frontTradeService.findFentrustHistory(user.getFid(), symbol, 0, 5);
-
-//            List entrustList = new ArrayList<>();
-//            List entrustListLog = new ArrayList<>();
-//
-//            for (Object fentrust : fentrusts) {
-//                entrustList.add(fentrust);
-//            }
-//
-//            for (Object fentrust : fentrustsLog) {
-//                entrustListLog.add(fentrust);
-//            }
-
             map.put("entrustList", entrustList);
             map.put("entrustListLog", entrustListLog);
         } else {
             map.put("isLogin", 0);
         }
 
+        map.put("rmname",fvirtualcointype.getfShortName());
         // 返回sessionid，用来做websocket权限验证
         map.put("token", request.getSession().getId());
 
@@ -613,6 +604,8 @@ public class MarketController extends BaseController {
             @RequestParam(required = false, defaultValue = "1") int symbol
     ){
         ModelAndView map = new ModelAndView();
+        Market market = marketService.findById(symbol);
+        symbol = market.getSellId();
         int total = frontOthersService.countArticleByCoinId(symbol);
         List<Farticle> list = frontOthersService.findArticleByCoinId(symbol, (currentPage - 1) * NUMBER_PER_PAGE, NUMBER_PER_PAGE);
         Fvirtualcointype fvirtualcointype = frontVirtualCoinService.findFvirtualCoinById(symbol);

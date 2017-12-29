@@ -11,28 +11,28 @@
 </div>
 <%--<!-- 警告结束 -->--%>
 <%--<!-- 友情连接开始 -->--%>
-<div>
-    <div class="team">
-        <div class="partner_title">
-            <ul>
-                <li class="zh">合作伙伴</li>
-                <li class="en"><span class="left"></span><span class="middle">Partners</span><span class="right"></span></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="link f18 center_page" style="margin-bottom:50px;">
-    <style>
-        .link .link_content a{display:inline-block;height:40px;overflow: hidden;}
-        .link .link_content a img{height:40px;}
-    </style>
-    <div class="link_content" style="overflow: hidden;height:auto;margin:0;">
-        <a href="http://www.qukuaidake.com/" title="区块达客" target="_blank"><img src="${resources}/static/images/friends/1_16.png"></a>
-        <a href="http://www.daca.asia" title="DACA区块链协会" target="_blank"><img src="${resources}/static/images/friends/1_09.png"></a>
-        <a href="http://yuanbao.com" title="元宝网" target="_blank"><img src="${resources}/static/images/friends/1_06.png"></a>
-        <a href="https://www.tzw.com" title="投资网" target="_blank"><img src="${resources}/static/images/friends/1_03.png"></a>
-        <a href="http://www.dacrs.com" title="智能坊" target="_blank"><img src="${resources}/static/images/friends/1_12.png"></a>
-        <a href="#" title="清華 i-Space" target="_blank"><img src="${resources}/static/images/friends/1_17.png"></a>
-    </div>
-</div>
+<%--<div>--%>
+    <%--<div class="team">--%>
+        <%--<div class="partner_title">--%>
+            <%--<ul>--%>
+                <%--<li class="zh">合作伙伴</li>--%>
+                <%--<li class="en"><span class="left"></span><span class="middle">Partners</span><span class="right"></span></li>--%>
+            <%--</ul>--%>
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</div>--%>
+<%--<div class="link f18 center_page" style="margin-bottom:50px;">--%>
+    <%--<style>--%>
+        <%--.link .link_content a{display:inline-block;height:40px;overflow: hidden;}--%>
+        <%--.link .link_content a img{height:40px;}--%>
+    <%--</style>--%>
+    <%--<div class="link_content" style="overflow: hidden;height:auto;margin:0;">--%>
+        <%--<a href="http://www.qukuaidake.com/" title="区块达客" target="_blank"><img src="${resources}/static/images/friends/1_16.png"></a>--%>
+        <%--<a href="http://www.daca.asia" title="DACA区块链协会" target="_blank"><img src="${resources}/static/images/friends/1_09.png"></a>--%>
+        <%--<a href="http://yuanbao.com" title="元宝网" target="_blank"><img src="${resources}/static/images/friends/1_06.png"></a>--%>
+        <%--<a href="https://www.tzw.com" title="投资网" target="_blank"><img src="${resources}/static/images/friends/1_03.png"></a>--%>
+        <%--<a href="http://www.dacrs.com" title="智能坊" target="_blank"><img src="${resources}/static/images/friends/1_12.png"></a>--%>
+        <%--<a href="#" title="清華 i-Space" target="_blank"><img src="${resources}/static/images/friends/1_17.png"></a>--%>
+    <%--</div>--%>
+<%--</div>--%>
 <%--<!-- 友情连接结束 -->--%>

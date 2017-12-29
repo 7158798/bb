@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="${resources}/static/css/common/style.css">
     <link rel="stylesheet" href="${resources}/static/css/common/animate.css"/>
     <link rel="stylesheet" href="${resources}/static/css/index.css"/>
+    <link rel="stylesheet" href="${resources}/static/css/coin_trade.css"/>
     <link rel="stylesheet" href="${resources}/static/css/announce.css"/>
     <script>var cdn = "${cdn}/";</script>
 </head>
@@ -148,87 +149,216 @@
 </div>
 
 <%--<!-- banner图结束 -->--%>
-<p style="font-size:14px;text-align: center;color:#ff0000;height:50px;line-height:50px;background:#f5f5f5;position:relative;">
-    <i class="iconfont" style="position:absolute;top:0px;left:50%;margin-left:-505px;color:#969696;">&#xe642;</i>
-    众股网提醒您：请不要投入超过自身风险承受能力的资金，不投资不了解的数字资产，谨防虚假宣传、电信诈骗，坚决抵制传销、洗钱等违法行为。
-</p>
+<%--<p style="font-size:14px;text-align: center;color:#ff0000;height:50px;line-height:50px;background:#f5f5f5;position:relative;">--%>
+    <%--<i class="iconfont" style="position:absolute;top:0px;left:50%;margin-left:-505px;color:#969696;">&#xe642;</i>--%>
+    <%--众股网提醒您：请不要投入超过自身风险承受能力的资金，不投资不了解的数字资产，谨防虚假宣传、电信诈骗，坚决抵制传销、洗钱等违法行为。--%>
+<%--</p>--%>
 <%--<!-- 最火排行开始 -->--%>
-<div class="hot_coin center_page clear">
-    <div class="hot_title">
+<%--<div class="hot_coin center_page clear">--%>
+    <%--<div class="hot_title">--%>
+        <%--&lt;%&ndash;<ul>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<li class="zh">本月十佳</li>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<li class="en"><span class="left"></span><span class="middle">Ranking</span><span class="right"></span></li>&ndash;%&gt;--%>
+        <%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
+    <%--</div>--%>
+    <%--<div class="content fl">--%>
+        <%--<div class="item item_fir clear">--%>
+            <%--<div class="fl item_leap item_leap1">币种</div>--%>
+            <%--<div class="fl item_leap item_leap2">--%>
+                <%--<span class="db fr cp mt5">--%>
+                    <%--<i data-sort="1" class="iconfont c_gray db">&#xe61c;</i>--%>
+                    <%--<i data-sort="2" class="iconfont c_gray db">&#xe61d;</i>--%>
+                <%--</span>--%>
+                <%--<span class="db fr  pointer cannot_select">最新价格(CNY)</span>--%>
+            <%--</div>--%>
+            <%--<div class="fl item_leap item_leap3">--%>
+                <%--<span class="db fr cp mt5">--%>
+                    <%--<i data-sort="17" class="iconfont c_gray db">&#xe61c;</i>--%>
+                    <%--<i data-sort="18" class="iconfont c_gray db">&#xe61d;</i>--%>
+                <%--</span>--%>
+                <%--<span class="db fr  pointer cannot_select">24h成交额(CNY)</span>--%>
+            <%--</div>--%>
+            <%--<div class="fl item_leap item_leap4">--%>
+                <%--<span class="db fr cp mt5">--%>
+                    <%--<i data-sort="3" class="iconfont c_gray db">&#xe61c;</i>--%>
+                    <%--<i data-sort="4" class="iconfont c_gray db">&#xe61d;</i>--%>
+                <%--</span>--%>
+                <%--<span class="db fr  pointer cannot_select">24h成交量</span>--%>
+            <%--</div>--%>
+            <%--<div class="fl item_leap item_leap5">--%>
+                <%--<span class="db fr cp mt5">--%>
+                    <%--<i data-sort="5" class="iconfont c_gray db">&#xe61c;</i>--%>
+                    <%--<i data-sort="6" class="iconfont c_gray db">&#xe61d;</i>--%>
+                <%--</span>--%>
+                <%--<span class="db fr  pointer cannot_select">总市值(CNY)</span>--%>
+            <%--</div>--%>
+            <%--<div class="fl item_leap item_leap6">--%>
+                <%--<span class="db fr cp mt5">--%>
+                    <%--<i data-sort="7" class="iconfont c_gray db">&#xe61c;</i>--%>
+                    <%--<i data-sort="8" class="iconfont c_gray db">&#xe61d;</i>--%>
+                <%--</span>--%>
+                <%--<span class="db fr  pointer cannot_select">日涨跌幅</span>--%>
+            <%--</div>--%>
+            <%--<div class="fl item_leap item_leap7">--%>
+                <%--<span class="db fr cp mt5">--%>
+                    <%--<i data-sort="9" class="iconfont c_gray db">&#xe61c;</i>--%>
+                    <%--<i data-sort="10" class="iconfont c_gray db">&#xe61d;</i>--%>
+                <%--</span>--%>
+                <%--<span class="db fr  pointer cannot_select">周涨跌幅</span>--%>
+            <%--</div>--%>
+            <%--&lt;%&ndash;<div class="fl item_leap item_leap8">价格趋势（3日）</div>--%>
+            <%--<div class="fl item_leap item_leap9"></div>&ndash;%&gt;--%>
+            <%--<div class="fl item_leap item_leap8">图表</div>--%>
+        <%--</div>--%>
+        <%--&lt;%&ndash;<!-- 循环开始 -->&ndash;%&gt;--%>
+        <%--<div id="dealList">--%>
+            <%--<%@include file="index_list_consult.jsp" %>--%>
+        <%--</div>--%>
+        <%--&lt;%&ndash;<!-- 循环结束 -->&ndash;%&gt;--%>
+    <%--</div>--%>
+    <%--&lt;%&ndash;<div class="consult fr slideBox">&ndash;%&gt;--%>
+        <%--&lt;%&ndash;<ul class="consult_hd clear">&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<li class="fir on">资讯</li>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<li class="" data-name="market">行情</li>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<li class="">项目路演</li>&ndash;%&gt;--%>
+        <%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
+        <%--&lt;%&ndash;<ul class="consult_bd">&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<li id="consult"></li>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<li id="tm_market" class="dn">&ndash;%&gt;--%>
+                <%--&lt;%&ndash;&lt;%&ndash;<span class="iconfont db" style="font-size:100px;margin-top:100px;color:#08a4d7;">&#xe63d;</span>&ndash;%&gt;&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<a href="http://news.zhgtrade.com/markets.html#btc"><div id="container" style="min-width: 310px; height: 420px; margin: 0 auto"></div></a>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<li id="pro" class="dn">&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<span class="iconfont db" style="font-size:100px;margin-top:100px;color:#08a4d7;">&#xe63d;</span>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
+        <%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
+    <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+<%--</div>--%>
+
+<div class="coin_wrapper center_page">
+    <div class="coin_title">
         <ul>
-            <li class="zh">本月十佳</li>
-            <li class="en"><span class="left"></span><span class="middle">Ranking</span><span class="right"></span></li>
-        </ul>
-    </div>
-    <div class="content fl">
-        <div class="item item_fir clear">
-            <div class="fl item_leap item_leap1">区块链资产</div>
-            <div class="fl item_leap item_leap2">
-                <span class="db fr cp mt5">
-                    <i data-sort="1" class="iconfont c_gray db">&#xe61c;</i>
-                    <i data-sort="2" class="iconfont c_gray db">&#xe61d;</i>
-                </span>
-                <span class="db fr  pointer cannot_select">最新价格(CNY)</span>
-            </div>
-            <div class="fl item_leap item_leap3">
-                <span class="db fr cp mt5">
-                    <i data-sort="17" class="iconfont c_gray db">&#xe61c;</i>
-                    <i data-sort="18" class="iconfont c_gray db">&#xe61d;</i>
-                </span>
-                <span class="db fr  pointer cannot_select">24h成交额(CNY)</span>
-            </div>
-            <div class="fl item_leap item_leap4">
-                <span class="db fr cp mt5">
-                    <i data-sort="3" class="iconfont c_gray db">&#xe61c;</i>
-                    <i data-sort="4" class="iconfont c_gray db">&#xe61d;</i>
-                </span>
-                <span class="db fr  pointer cannot_select">24h成交量</span>
-            </div>
-            <div class="fl item_leap item_leap5">
-                <span class="db fr cp mt5">
-                    <i data-sort="5" class="iconfont c_gray db">&#xe61c;</i>
-                    <i data-sort="6" class="iconfont c_gray db">&#xe61d;</i>
-                </span>
-                <span class="db fr  pointer cannot_select">总市值(CNY)</span>
-            </div>
-            <div class="fl item_leap item_leap6">
-                <span class="db fr cp mt5">
-                    <i data-sort="7" class="iconfont c_gray db">&#xe61c;</i>
-                    <i data-sort="8" class="iconfont c_gray db">&#xe61d;</i>
-                </span>
-                <span class="db fr  pointer cannot_select">日涨跌幅</span>
-            </div>
-            <div class="fl item_leap item_leap7">
-                <span class="db fr cp mt5">
-                    <i data-sort="9" class="iconfont c_gray db">&#xe61c;</i>
-                    <i data-sort="10" class="iconfont c_gray db">&#xe61d;</i>
-                </span>
-                <span class="db fr  pointer cannot_select">周涨跌幅</span>
-            </div>
-            <%--<div class="fl item_leap item_leap8">价格趋势（3日）</div>
-            <div class="fl item_leap item_leap9"></div>--%>
-            <div class="fl item_leap item_leap8">图表</div>
-        </div>
-        <%--<!-- 循环开始 -->--%>
-        <div id="dealList">
-            <%@include file="index_list_consult.jsp" %>
-        </div>
-        <%--<!-- 循环结束 -->--%>
-    </div>
-    <div class="consult fr slideBox">
-        <ul class="consult_hd clear">
-            <li class="fir on">资讯</li>
-            <li class="" data-name="market">行情</li>
-            <li class="">项目路演</li>
-        </ul>
-        <ul class="consult_bd">
-            <li id="consult"></li>
-            <li id="tm_market" class="dn">
-                <%--<span class="iconfont db" style="font-size:100px;margin-top:100px;color:#08a4d7;">&#xe63d;</span>--%>
-                <a href="http://news.zhgtrade.com/markets.html#btc"><div id="container" style="min-width: 310px; height: 420px; margin: 0 auto"></div></a>
+            <li data-type="1" class="fl cur">
+                <p class="f16 fb pt5">${name}交易区</p> <i class="iconfont">&#xe604;</i>
             </li>
-            <li id="pro" class="dn">
-                <span class="iconfont db" style="font-size:100px;margin-top:100px;color:#08a4d7;">&#xe63d;</span>
+            <%--<li data-type="2" class="fl">--%>
+                <%--<p class="f16 fb pt5">币三板</p> <i class="iconfont">&#xe604;</i>--%>
+            <%--</li>--%>
+        </ul>
+    </div>
+    <div class="coin_list">
+        <ul>
+            <!-- 币主板 -->
+            <li class="main">
+                <div class="item item_fir">
+                    <div class="fl item_leap">币种</div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl15 pointer cannot_select">最新价格(CNY)</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="1" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="2" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl10 pointer cannot_select">24h成交额(CNY)</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="17" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="18" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl25 pointer cannot_select">24h成交量</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="3" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="4" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl20 pointer cannot_select">总市值(CNY)</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="5" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="6" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl30 pointer cannot_select">日涨跌幅</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="7" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="8" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl30 pointer cannot_select">周涨跌幅</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="9" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="10" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">价格趋势（3日）</div>
+                    <div class="fl item_leap"></div>
+                </div>
+                <!-- 循环开始 -->
+                <div id="dealList1">
+                    <c:set var="coinType" value="1"/>
+                    <%@include file="index_list.jsp" %>
+                </div>
+                <!-- 循环结束 -->
+            </li>
+            <!-- 币三板 -->
+            <li class="dn">
+                <div class="item item_fir">
+                    <div class="fl item_leap">币种</div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl15 pointer cannot_select">最新价格(CNY)</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="1" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="2" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl10 pointer cannot_select">24h成交额(CNY)</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="17" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="18" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl25 pointer cannot_select">24h成交量</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="3" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="4" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl20 pointer cannot_select">总市值(CNY)</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="5" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="6" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl30 pointer cannot_select">日涨跌幅</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="7" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="8" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">
+                        <span class="db fl pl30 pointer cannot_select">周涨跌幅</span>
+                        <span class="db fl cp mt5">
+                            <i data-sort="9" class="iconfont c_gray db">&#xe61c;</i>
+                            <i data-sort="10" class="iconfont c_gray db">&#xe61d;</i>
+                        </span>
+                    </div>
+                    <div class="fl item_leap">价格趋势（3日）</div>
+                    <div class="fl item_leap"></div>
+                </div>
+                <!-- 循环开始 -->
+                <div id="dealList2">
+                    <c:set var="coinType" value="2"/>
+                    <%@include file="index_list.jsp" %>
+                </div>
+                <!-- 循环结束 -->
             </li>
         </ul>
     </div>
@@ -243,6 +373,7 @@
 <![endif]-->
 <script type="text/javascript" src="${resources}/static/js/jquery/jquery.flot.min.js"></script>
 <script type="text/javascript" src="${resources}/static/js/index.js?v=1.4"></script>
+<script src="${resources}/static/js/trade/coin.js"></script>
 <%@ include file="common/footer.jsp" %>
 </body>
 </html>

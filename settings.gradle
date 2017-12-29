@@ -9,4 +9,4 @@ include 'kline-job'
 include 'sms-email-job'
 include 'deal'
 include 'push'
-
+include 'chat'

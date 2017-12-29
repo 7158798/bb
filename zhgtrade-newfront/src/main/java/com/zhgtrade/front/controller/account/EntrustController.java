@@ -70,7 +70,7 @@ public class EntrustController extends BaseController {
             Fuser fuser = getSessionUser(request);
             Date start = StringUtils.hasText(startDate) ? DateUtils.formatDate(startDate) : null;
             Date end = StringUtils.hasText(endDate) ? DateUtils.formatDate(endDate) : null;
-            List<Fentrust> entrusts = frontTradeService.findFentrustHistory(fuser.getFid(), curCoin.getFid(), types, statuses, start, end, page, Constants.PAGE_ITEM_COUNT_20);
+            List<Fentrust> entrusts = frontTradeService.findSuccessHistory(fuser.getFid(), symbol, type, null, null, -1, 20);
             Map<Integer, Object> avgPriceMap = new HashMap<>(entrusts.size());
             for(Fentrust fentrust : entrusts){
                 if(EntrustStatusEnum.AllDeal == fentrust.getFstatus() || EntrustStatusEnum.PartDeal == fentrust.getFstatus()){

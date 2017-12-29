@@ -89,8 +89,8 @@ public class FinanceController extends BaseController {
     public String fundAccount(Map<String, Object> map, HttpServletRequest request) {
         Fuser fuser = getSessionUser(request);
         // 现金
-        Fwallet fwallet = frontUserService.findFwalletById(fuser.getFwallet().getFid());
-        map.put("wallet", fwallet);
+//        Fwallet fwallet = frontUserService.findFwalletById(fuser.getFwallet().getFid());
+//        map.put("wallet", fwallet);
         // 虚拟币资金
         Map<Integer, Fvirtualwallet> coinWallet = frontUserService.findVirtualWallet(fuser.getFid());
         List<Fvirtualwallet> wallets = new ArrayList<>(coinWallet.values());

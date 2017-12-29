@@ -38,7 +38,8 @@
             <c:forEach var="v" items="${farticles}" varStatus="status">
                 <div class="list">
                     <a href="/guide/article.html?id=${v.fid}">
-                        <i class="iconfont c_gray db fl">&#xe616;</i>
+                        <span style="float: left">${status.index +1}</span>
+                        <%--<i class="iconfont c_gray db fl">&#xe616;</i>--%>
                         <span class="db fl pl10 f15">${v.ftitle}</span>
                     </a>
                     <span class="db fr c_gray" style="font-size: 13px"><fmt:formatDate value="${v.flastModifyDate }" pattern="yyyy-MM-dd HH:mm:ss"/></span>

@@ -74,7 +74,7 @@ public class IndexController extends BaseController {
 		loadConstants(map);
 
 		// 最新排行
-		dealDatas(request, map, sort);
+		dealDatas(request, map, 1,sort);
 
 		loadCmsContent(request);
 
@@ -167,51 +167,84 @@ public class IndexController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/index/dealDatas", method = RequestMethod.GET)
-	public String dealDatas(HttpServletRequest request, Map<String, Object> map, @RequestParam(value = "sort", required = false, defaultValue = "19") int sort) {
+	public String dealDatas(HttpServletRequest request, Map<String, Object> map,
+							@RequestParam(value = "type", required = false, defaultValue = "1") int type,
+							@RequestParam(value = "sort", required = false, defaultValue = "19") int sort) {
 		List<LatestDealData> dealDatas = realTimeDataService.getLatestDealDataList();
-		List<LatestDealData> datas = new ArrayList<>(dealDatas);
+//		List<LatestDealData> datas = new ArrayList<>(dealDatas);
+//
+//		int listSize = 10;
+//
+//		// 先排序获取10条
+//		List<LatestDealData> list = new ArrayList<>(listSize);
+//		for(int i=0; i<datas.size(); i++){
+//			LatestDealData data = datas.get(i);
+//			if(data.isHomeShow() && list.size() < listSize){
+//				list.add(data);
+//				i --;
+//				i %= datas.size();
+//				datas.remove(data);
+//			}
+//		}
+//
+//		if(19 == sort){
+//			// 首页默认排序
+//			sortCoinRank(list, 19);
+//		}
+//
+//		// 不足10个 从排序中获取补足
+//		if(!CollectionUtils.isEmpty(datas) && list.size() < listSize){
+//			if(19 == sort){
+//				// 默认排序
+//				sortCoinRank(datas, 0);
+//			}
+//			int left = listSize - list.size();
+//			if(datas.size() > left){
+//				list.addAll(datas.subList(0, left));
+//			}else{
+//				list.addAll(datas);
+//			}
+//		}
+//
+//		if(19 != sort){
+//			sortCoinRank(list, sort);
+//		}
+//		List<LatestDealData> dealDatas = realTimeDataService.getLatestDealDataList();
+//		List<LatestDealData> ajaxDatas = new ArrayList<>(dealDatas.size());
+//		List<LatestDealData> mainDatas = new ArrayList<>(dealDatas.size());
+//		List<LatestDealData> leftDatas = new ArrayList<>(dealDatas.size());
+//		for(LatestDealData dealData : dealDatas){
+//			if(type == dealData.getCoinTradeType()){
+//				ajaxDatas.add(dealData);
+//			}
+//			if(1 == dealData.getCoinTradeType()){
+//				mainDatas.add(dealData);
+//			}else if(2 == dealData.getCoinTradeType()){
+//				leftDatas.add(dealData);
+//			}
+//		}
+//
+//		if(Utils.isAjax(request)){
+//			sortCoinRank(ajaxDatas, sort);
+//			map.put("dealDatas", dealDatas);
+//			return "index_list";
+//		}else{
+//			sortCoinRank(mainDatas, sort);
+//			map.put("mainDatas", dealDatas);
+//
+//			sortCoinRank(leftDatas, sort);
+//			map.put("leftDatas", leftDatas);
+//		}
 
-		int listSize = 10;
 
-		// 先排序获取10条
-		List<LatestDealData> list = new ArrayList<>(listSize);
-		for(int i=0; i<datas.size(); i++){
-			LatestDealData data = datas.get(i);
-			if(data.isHomeShow() && list.size() < listSize){
-				list.add(data);
-				i --;
-				i %= datas.size();
-				datas.remove(data);
-			}
-		}
 
-		if(19 == sort){
-			// 首页默认排序
-			sortCoinRank(list, 19);
-		}
-
-		// 不足10个 从排序中获取补足
-		if(!CollectionUtils.isEmpty(datas) && list.size() < listSize){
-			if(19 == sort){
-				// 默认排序
-				sortCoinRank(datas, 0);
-			}
-			int left = listSize - list.size();
-			if(datas.size() > left){
-				list.addAll(datas.subList(0, left));
-			}else{
-				list.addAll(datas);
-			}
-		}
-
-		if(19 != sort){
-			sortCoinRank(list, sort);
-		}
-
-		map.put("dealDatas", list);
+		map.put("dealDatas", dealDatas);
 		if(Utils.isAjax(request)){
 			return "index_list_consult";
+
+
 		}
+		map.put("name",dealDatas.get(0).getGroup());
 		return "index";
 	}
 

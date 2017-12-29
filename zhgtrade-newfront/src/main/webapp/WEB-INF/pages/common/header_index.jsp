@@ -5,9 +5,9 @@
         <li <c:if test="${'1' == menu_index}">class="current"</c:if>>
             <a href="/index.html" title=""><span>首页</span></a>
         </li>
-        <li <c:if test="${'2' == menu_index}">class="current"</c:if>>
-            <a href="/coin/index.html" title=""><span>交易中心</span></a>
-        </li>
+        <%--<li <c:if test="${'2' == menu_index}">class="current"</c:if>>--%>
+            <%--<a href="/coin/index.html" title=""><span>交易中心</span></a>--%>
+        <%--</li>--%>
         <%--<li <c:if test="${'3' == menu_index}">class="current"</c:if>><a href="/equity/index.html"--%>
         <%--title=""><span>权益交易</span></a></li>--%>
         <li <c:if test="${'4' == menu_index}">class="current"</c:if>><a href="/account/fund.html" title=""><span>财务中心</span></a>
@@ -16,7 +16,7 @@
         <%--title="http://www.zcfunding.com" target="_blank"><span>众筹平台</span></a></li>--%>
 
         <li <c:if test="${'6' == menu_index}">class="current"</c:if>><a href="/guide/help.html"
-                                                                        title=""><span>新手指南</span></a></li>
+                                                                        title=""><span>新闻中心</span></a></li>
         <style rel="stylesheet">
             #bit{position:relative;border:1px solid transparent;height:70px;z-index:2;}
             #bit span{color:#ff3030;}
@@ -27,7 +27,7 @@
             #consult_img{margin-top:10px;}
         </style>
 
-        <li class="ml45"><a href="http://news.zhgtrade.com" title="资讯平台"><img id="consult_img" src="${cdn}/static/images/index/consult.png" /></a></li>
+        <%--<li class="ml45"><a href="http://news.zhgtrade.com" title="资讯平台"><img id="consult_img" src="${cdn}/static/images/index/consult.png" /></a></li>--%>
         <%--<li id="bit" <c:if test="${'9' == menu_index}">class="current"</c:if>>--%>
         <%--<a href="/activity/btc_actor.html" target="_blank"><span style="" class="fb">比特风云专题</span></a>--%>
         <%--&lt;%&ndash;<dl class="dn">--%>

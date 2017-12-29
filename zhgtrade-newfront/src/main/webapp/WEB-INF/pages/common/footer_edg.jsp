@@ -5,7 +5,7 @@
         <div class="help fl">
             <ul>
                 <li class="fir">
-                    <a href="javascript:void(0)">认识众股</a>
+                    <a href="javascript:void(0)">关于我们</a>
                 </li>
                 <li class="">
                     <a href="/about/events.html">大事记</a>
@@ -123,6 +123,9 @@
         </ul>
     </div>
 </div>
+
+
+
 <%--<!-- 底部结束 -->--%>
 <%--<!-- 发起提问开始 -->--%>
 <%--<!-- 发起提问弹出窗 -->--%>

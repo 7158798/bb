@@ -9,6 +9,8 @@ $(function () {
         $("#change_to_mobile").show();
     }
 
+
+
     $("#change_to_mobile").click(function(){
         var date = new Date();
         date.setTime(date.getTime()+365*24*60*60*1000);
@@ -115,4 +117,11 @@ function submitQuestionOnPop() {
 
 }
 
-
+function chatClick() {
+    let display = $('#chatRoom').css('display');
+    if(display == 'none'){
+        $('#chatRoom').css('display','block');
+    }else {
+        $('#chatRoom').css('display','none');
+    }
+}
