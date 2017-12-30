@@ -102,7 +102,7 @@
     <div class="flow" id="top_nav">
         <div class="nav" id="nav">
             <div class="logo fl" style="position: relative;">
-                <a class="db" href="/"> <img src="${cdn}${requestScope.constant['logoImage']}" height="55px" alt="58CC交易网站" title="58CClogo"/>
+                <a class="db" href="/"> <img src="${resources}/static/images/logo.png" style="margin-top: -66px;height: 213px" alt="btc58交易网站" title="btc58logo"/>
                 </a>
                 <%--<img style="position: absolute;top:15px;left:215px;" src="${cdn}/static/images/logo_fill.png" alt="" />--%>
             </div>
