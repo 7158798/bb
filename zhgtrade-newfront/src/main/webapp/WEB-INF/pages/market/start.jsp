@@ -212,7 +212,9 @@ Stoch RSI``
 
 	  window.$hsymbol = "RUIZCON ${fvirtualcointype.fShortName}\/CNY";
 
-	  window.$theme_name = "dark";
+//	  window.$theme_name = "dark";
+
+        window.$theme_name = "dark";
 
 	  window.$debug = false;
 

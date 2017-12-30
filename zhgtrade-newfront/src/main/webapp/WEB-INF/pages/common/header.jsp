@@ -87,7 +87,7 @@
                 <%--<!-- 用户登录前 -->--%>
                 <div id="loginBar" class=" dn">
                     <div class="login fl">
-                        <a class="db fl" title="登录" id="login" href="javascript:void(0)"> <i class="iconfont">
+                        <a  class="db fl" title="登录"  href="/"> <i class="iconfont">
                             &#xe605;</i><span>登录</span>
                         </a>
                     </div>

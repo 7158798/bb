@@ -206,7 +206,7 @@ function() {
         rw: "#chart_info",
         jD: "#show_qr",
         IfRU: "5分",
-        pc: "/kline/sdepth.html?symbol=",
+        pc: "/kline/depth.html?symbol=",
         LA: "bottom",
         Pc: "</table>",
         UP: "rgba(255,255,255,0.4)",
@@ -3371,7 +3371,8 @@ function() {
                         }), void 0) : (Tn[Vo].addClass(t.EO), Pe = Tn[Vo], Yi())
                     }
                     // var e;
-                    Vo = 86400,// 默认加载一天K线
+                    // Vo = 86400,// 默认加载一天K线
+                    Vo = 60,// 默认加载一分K线
                     Di(Vo,
                     function() {
                         n((io = arguments[0], Go = arguments[1], io))
