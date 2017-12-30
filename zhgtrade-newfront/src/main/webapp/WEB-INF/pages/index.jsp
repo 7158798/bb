@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="${resources}/static/css/index.css"/>
     <link rel="stylesheet" href="${resources}/static/css/coin_trade.css"/>
     <link rel="stylesheet" href="${resources}/static/css/announce.css"/>
+    <link rel="stylesheet" href="${resources}/static/css/chat.css"/>
     <script>var cdn = "${cdn}/";</script>
 </head>
 <body>
@@ -364,6 +365,8 @@
         </ul>
     </div>
 </div>
+
+<%@include file="common/chat.jsp" %>
 
 <script src="${resources}/static/js/highcharts/highcharts.js"></script>
 

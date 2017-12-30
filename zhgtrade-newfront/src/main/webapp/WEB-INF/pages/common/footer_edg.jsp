@@ -87,12 +87,12 @@
     </div>
     <div class="tools dn" id="tools">
         <ul class="tool">
-            <li class="show_title" style="background-position:7px -249px;">
+            <%--<li class="show_title" style="background-position:7px -249px;">
                 <a class="db" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=${requestScope.constant['serviceQQ']}&site=qq&menu=yes">
                     <span class="info db">QQ客服</span>
                 </a>
-            </li>
-            <li class="show_group" style="overflow:visible;background-position:-82px -249px;">
+            </li>--%>
+            <%--<li class="show_group" style="overflow:visible;background-position:-82px -249px;">
                 <span class="info db">QQ群</span>
                 <dl class="group_tab dn">
                    <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=91cd9e73590d30369dc49889bfc2daf787f5bdc84cef4a361f07c0ea35d231a9"><dd>众股官方1群  436462447</dd></a>
@@ -109,16 +109,17 @@
                    <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ccd2e808af4772ab72c65f2e9f02a08849a817a73ec56e09a30ba9f9a3f9757a"><dd>众股官方12群  436804857</dd></a>
                    <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=2b0f85d3abded60fdbbee5054d1002dd64bdb72e944c246e95e5236a1210ad44"><dd>众股官方13群  433241024</dd></a>
                 </dl>
-            </li>
+            </li>--%>
             <li class="weixin" style="background-position: -82px -203px">
-                <img src="${resources}/static/images/index/weixin.jpg" class="dn">
+                aa
+                <%--<img src="${resources}/static/images/index/weixin.jpg" class="dn">--%>
             </li>
-            <li class="slidebox" style="background-position:7px -295px;">
+            <%--<li class="slidebox" style="background-position:7px -295px;">
                 <a href="tel:${requestScope.constant['telephone']}"><span class="db phone">${requestScope.constant['telephone']}</span></a>
-            </li>
-            <li class="show_title <c:if test="${!empty(sessionScope.login_user)}">send_message</c:if><c:if test="${empty(sessionScope.login_user)}">loginbeforesend</c:if>" style="background-position:7px -343px;">
+            </li>--%>
+           <%-- <li class="show_title <c:if test="${!empty(sessionScope.login_user)}">send_message</c:if><c:if test="${empty(sessionScope.login_user)}">loginbeforesend</c:if>" style="background-position:7px -343px;">
                 <span class="info db">我要反馈</span>
-            </li>
+            </li>--%>
             <li id="totop" style="height:0px;background-position:7px -389px;"></li>
         </ul>
     </div>
