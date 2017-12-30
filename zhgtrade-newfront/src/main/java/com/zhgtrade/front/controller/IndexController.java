@@ -244,7 +244,7 @@ public class IndexController extends BaseController {
 
 
 		}
-		map.put("name",dealDatas.get(0).getGroup());
+		map.put("name",dealDatas.size() > 0? dealDatas.get(0).getGroup():"ETH");
 		return "index";
 	}
 
