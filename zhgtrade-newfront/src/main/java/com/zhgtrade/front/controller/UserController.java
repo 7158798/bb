@@ -134,7 +134,8 @@ public class UserController extends BaseController {
                            @RequestParam(required = false) String loginName,
                            @RequestParam(required = false) String password,
                            @RequestParam(required = false) String phoneCode,
-                           @RequestParam(required = false, defaultValue = "false") boolean wxBind) {
+                           @RequestParam(required = false, defaultValue = "false") boolean wxBind,
+                           @RequestParam(required = false, defaultValue = "")String code) {
 
 
         JSONObject jsonObject = new JSONObject();
@@ -156,6 +157,7 @@ public class UserController extends BaseController {
             password = String.valueOf(object);
         }
 
+
         /*
          * result.resultCode == -1//用户名或密码错误 result.resultCode ==
 		 * -2//此ip登录频繁，请2小时后再试 result.resultCode == -3
@@ -176,49 +178,57 @@ public class UserController extends BaseController {
 
         //获取cookie是否是常用设备登录
         if (limitedCount > 0) {
-            // 优先远程登录
-            // 众股用户系统登录
-            Object retObj = ZhgUserSynUtils.synUserLogin(loginName, password);
-            if(retObj instanceof Fuser){
-                fuser = (Fuser) retObj;
-                if (fuser.getFstatus() == UserStatusEnum.NORMAL_VALUE){
-                    // 验证设备，返回null表示通过，返回一个JSONObject对象，说明不通过，把JSONObject对象返回给前段。
-                    JSONObject validateObject = validateDevice(request, response, loginName, password, phoneCode, jsonObject, fuser);
-                    if(validateObject != null){
-                        return validateObject;
-                    }
-                    jsonObject.accumulate("resultCode", 1);
-                    /*add by yujie */
-                    if(!StringUtils.hasText(fuser.getFtelephone()) && !StringUtils.hasText(fuser.getFemail())){
-                        jsonObject.accumulate("code", 1);
-                    }
-                    userLogined(request, fuser);
-
-                    // 微信绑定
-                    String wxOpenId = (String) request.getSession().getAttribute(Constants.WECHAT_OPEN_ID);
-                    if(wxBind && StringUtils.hasText(wxOpenId)){
-                        fuser.setWxOpenId(wxOpenId);
-                        frontUserService.updateFUser(fuser, request.getSession());
-                        request.getSession().removeAttribute(Constants.WECHAT_OPEN_ID);
-                    }
-                    // 登录后台处理线程
-                    messageQueueService.publish(QueueConstants.USER_LOGINED_BACK_QUEUE, new UserDto(fuser.getFid(), new Date()));
-
-                }else{
-                    jsonObject.accumulate("resultCode", 2);
-                }
+            //验证码判断
+            String imageCode = (String) request.getSession().getAttribute(Constants.IMAGE_CODE_KEY);
+            if(!code.equalsIgnoreCase(imageCode)){
+                // 图形验证码错误
+                this.frontValidateService.updateLimitCount(ip, CountLimitTypeEnum.LOGIN_PASSWORD);
+                jsonObject.accumulate("resultCode", 106);
                 return jsonObject;
             }
+            // 优先远程登录
+            // 众股用户系统登录
+//            Object retObj = ZhgUserSynUtils.synUserLogin(loginName, password);
+//            if(retObj instanceof Fuser){
+//                fuser = (Fuser) retObj;
+//                if (fuser.getFstatus() == UserStatusEnum.NORMAL_VALUE){
+//                    // 验证设备，返回null表示通过，返回一个JSONObject对象，说明不通过，把JSONObject对象返回给前段。
+//                    JSONObject validateObject = validateDevice(request, response, loginName, password, phoneCode, jsonObject, fuser);
+//                    if(validateObject != null){
+//                        return validateObject;
+//                    }
+//                    jsonObject.accumulate("resultCode", 1);
+//                    /*add by yujie */
+//                    if(!StringUtils.hasText(fuser.getFtelephone()) && !StringUtils.hasText(fuser.getFemail())){
+//                        jsonObject.accumulate("code", 1);
+//                    }
+//                    userLogined(request, fuser);
+//
+//                    // 微信绑定
+//                    String wxOpenId = (String) request.getSession().getAttribute(Constants.WECHAT_OPEN_ID);
+//                    if(wxBind && StringUtils.hasText(wxOpenId)){
+//                        fuser.setWxOpenId(wxOpenId);
+//                        frontUserService.updateFUser(fuser, request.getSession());
+//                        request.getSession().removeAttribute(Constants.WECHAT_OPEN_ID);
+//                    }
+//                    // 登录后台处理线程
+//                    messageQueueService.publish(QueueConstants.USER_LOGINED_BACK_QUEUE, new UserDto(fuser.getFid(), new Date()));
+//
+//                }else{
+//                    jsonObject.accumulate("resultCode", 2);
+//                }
+//                return jsonObject;
+//            }
 
             fuser = this.frontUserService.updateCheckLogin(fuser, ip);
             if (fuser != null) {
                 if (fuser.getFstatus() == UserStatusEnum.NORMAL_VALUE) {
 
                     // 验证设备，返回null表示通过，返回一个JSONObject对象，说明不通过，把JSONObject对象返回给前段。
-                    JSONObject validateObject = validateDevice(request, response, loginName, password, phoneCode, jsonObject, fuser);
-                    if(validateObject != null){
-                        return validateObject;
-                    }
+//                    JSONObject validateObject = validateDevice(request, response, loginName, password, phoneCode, jsonObject, fuser);
+//                    if(validateObject != null){
+//                        return validateObject;
+//                    }
                     jsonObject.accumulate("resultCode", 1);
                     /*add by yujie */
                     if(!StringUtils.hasText(fuser.getFtelephone()) && !StringUtils.hasText(fuser.getFemail())){
@@ -227,19 +237,19 @@ public class UserController extends BaseController {
                     userLogined(request, fuser);
 
                     // 从用户系统同步信息
-                    if(StringUtils.hasText(fuser.getZhgOpenId())){
-                        ZhgUserSynUtils.synUserInfo(fuser.getZhgOpenId());
-                    }else{
-                        ZhgUserSynUtils.synUserRegister(fuser);
-                    }
-
-                    // 微信绑定
-                    String wxOpenId = (String) request.getSession().getAttribute(Constants.WECHAT_OPEN_ID);
-                    if(wxBind && StringUtils.hasText(wxOpenId)){
-                        fuser.setWxOpenId(wxOpenId);
-                        frontUserService.updateFUser(fuser, request.getSession());
-                        request.getSession().removeAttribute(Constants.WECHAT_OPEN_ID);
-                    }
+//                    if(StringUtils.hasText(fuser.getZhgOpenId())){
+//                        ZhgUserSynUtils.synUserInfo(fuser.getZhgOpenId());
+//                    }else{
+//                        ZhgUserSynUtils.synUserRegister(fuser);
+//                    }
+//
+//                    // 微信绑定
+//                    String wxOpenId = (String) request.getSession().getAttribute(Constants.WECHAT_OPEN_ID);
+//                    if(wxBind && StringUtils.hasText(wxOpenId)){
+//                        fuser.setWxOpenId(wxOpenId);
+//                        frontUserService.updateFUser(fuser, request.getSession());
+//                        request.getSession().removeAttribute(Constants.WECHAT_OPEN_ID);
+//                    }
 
                     // 登录后台处理线程
                     messageQueueService.publish(QueueConstants.USER_LOGINED_BACK_QUEUE, new UserDto(fuser.getFid(), new Date()));

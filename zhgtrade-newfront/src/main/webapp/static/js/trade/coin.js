@@ -68,7 +68,7 @@ $(function(){
             }, 'json');
         }
     }
-    showPriceTrend();
+    // showPriceTrend();
 
     function loadDatas(sort){
         if(!sort) sort = 0;

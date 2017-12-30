@@ -105,14 +105,15 @@
                            data-min="6" data-max="20" placeholder="密码" id="indexLoginPwd"
                            onkeyup="onEnterClick('index_login_btn1');"/>
                 </p>
+                <p class="pt10">
+                    <input style="width: 155px" name="loginName"  id="index_img_code" class="pl5 img_code" type="text" placeholder="图形验证码"/>
+                    <img style="width: 90px;height: 40px;display: block;float: right;" class="image_code" id="index_image_code" title="换一换"/>
+                </p>
                 <p class="pt20">
-                    <%--<a href="javascript:void(0);" onclick="indexLogin(document.getElementById('indexLoginForm'));"--%>
-                       <%--class="login bg_blue"--%>
-                       <%--id="login_btn">登录</a> <a--%>
-                        <%--href="/user/to_reg" class="register bg_orange" id="button2">注册</a>--%>
                     <a style="border-radius: 0;width: 100%;" href="javascript:void(0);" id="index_login_btn1" class="login bg_orange">登录</a>
 
                  </p>
+
                  <p class="pt20">
                      <a class="f14 fl" style="display: inline;width: 72px;" href="/user/find_pwd.html">忘记密码？</a>
                      <a class="f14 fr" style="display: inline;width: 72px;" href="/user/to_reg">注册账号</a>
@@ -124,10 +125,10 @@
         <div class="top pl20" style="padding-left: 30px">安全验证</div>
         <div class="center">
             <p class="c_red f12 tac message" id="indexLoginTips2" style="margin-top: 10px;line-height:20px;height:20px;"></p>
-            <p class="pt10">
-                <input name="loginName"  id="index_img_code" class="pl5 img_code" type="text" placeholder="图形验证码"/>
-                <img class="image_code" id="index_image_code" title="换一换"/>
-            </p>
+            <%--<p class="pt10">--%>
+                <%--<input name="loginName"  id="index_img_code" class="pl5 img_code" type="text" placeholder="图形验证码"/>--%>
+                <%--<img class="image_code" id="index_image_code" title="换一换"/>--%>
+            <%--</p>--%>
             <p class="pt20">
                 <input name="password" id="index_code" class="pl5" type="text" placeholder="手机验证码" onkeyup="onEnterClick('index_login_btn2');"/>
                 <a href="javascript:void(0)" class="code" id="index_sendCode" data-name="发送">发送</a>

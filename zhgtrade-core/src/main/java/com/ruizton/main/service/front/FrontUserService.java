@@ -262,90 +262,90 @@ public class FrontUserService extends BaseService {
 	public Fuser updateCheckLogin(Fuser fuser,String ip){
 		//先同步该用户名
 		Fuser flag = null ;
-		if(Constants.ConnectUserDbFlag){
-			User user = UserClient.findByUsername(fuser.getFloginName());
-			List<Fuser> fusers = fuserDAO.findByProperty("floginName", fuser.getFloginName());
-			if(fusers!=null && fusers.size()>0){
-				flag = fusers.get(0);
-			}
-			if(flag != null ){
-				if(user != null){//判断是否更新本地信息
-					if(flag.getGlobalUserId()<=0){
-						flag.setGlobalUserId(user.getId());
-					}
-					boolean ret = Utils.isUserInfoEqual(user, flag);
-					if(ret == false){
-						flag.setFloginPassword(user.getPassword());
-						if(user.getEmail()==null || user.getEmail().length()==0){
-							fuser.setFisMailValidate(false);
-						}
-						flag.setFemail(user.getEmail());
-						if(user.getMobile()==null || user.getMobile().length()==0){
-							fuser.setFisTelephoneBind(false);
-						}
-						flag.setFtelephone(user.getMobile());
-					}
-					fuserDAO.attachDirty(flag);
-					
-				}else{//同步到远程服务器
-					user =  new User();
-					user.setUserName(flag.getFloginName());
-					user.setPassword(flag.getFloginPassword());
-					user.setEmail(flag.getFemail());
-					user.setMobile(flag.getFtelephone());
-					user.setSex(0);
-					user.setRegisterIp(flag.getFregisterIp());
-					user.setRegisterUrl("http://www.zhgtrade.com");
-					if(flag.getFregisterTime()==null)
-						user.setCreateTime(Utils.getTimeLong()/1000);
-					else
-						user.setCreateTime(flag.getFregisterTime().getTime()/1000);
-					user.setSourceUrl(flag.getFsourceUrl());
-					int globalUserId = UserClient.register(user);
-					if(globalUserId>0){
-						flag.setGlobalUserId(globalUserId); 
-						fuserDAO.attachDirty(flag);
-					}else{
-						System.out.println("远程注册"+fuser.getFloginName()+"失败"); 
-					}
-				}
-			}else{
-				if(user!=null){//远程用户同步到本地
-					flag = new Fuser(); 
-					flag.setFloginName(user.getUserName());
-					flag.setFloginPassword(user.getPassword());
-					if(user.getEmail()!=null){
-						flag.setFemail(user.getEmail()) ;
-						flag.setFnickName(user.getEmail().split("@")[0]) ; 
-					} else{
-						flag.setFnickName(user.getUserName());
-					}
-					flag.setFregisterTime(new Timestamp(user.getCreateTime()*1000)) ;
-					flag.setFloginPassword(user.getPassword()) ;
-					flag.setFtradePassword(null) ;
-					flag.setFstatus(UserStatusEnum.NORMAL_VALUE) ;
-					flag.setFlastLoginTime(Utils.getTimestamp()) ;
-					flag.setFlastUpdateTime(Utils.getTimestamp()) ;
-					flag.setFlastUpdateZhongdouTime(Utils.getTimestamp()) ;
-					flag.setFregisterIp(user.getRegisterIp());//注册IP 
-					flag.setFsourceUrl(user.getSourceUrl());//来源url
-					flag.setGlobalUserId(user.getId()); 
-					boolean saveFlag = false ;
-					try {
-						saveFlag = saveRegister(fuser) ; 
-	//					//推广
-	//					Factivitytype factivitytype = this.frontActivityService.findFactivityTypeById(ActivityTypeEnum.REGISTER) ;
-	//					this.frontActivityService.updateCompleteOneActivity(factivitytype, fuser) ;
-					} catch (Exception e) {
-						e.printStackTrace(); 
-					}
-				}else{//本地远程均不存在该用户
-					
-				}
-			}
-		}
+//		if(Constants.ConnectUserDbFlag){
+//			User user = UserClient.findByUsername(fuser.getFloginName());
+//			List<Fuser> fusers = fuserDAO.findByProperty("floginName", fuser.getFloginName());
+//			if(fusers!=null && fusers.size()>0){
+//				flag = fusers.get(0);
+//			}
+//			if(flag != null ){
+//				if(user != null){//判断是否更新本地信息
+//					if(flag.getGlobalUserId()<=0){
+//						flag.setGlobalUserId(user.getId());
+//					}
+//					boolean ret = Utils.isUserInfoEqual(user, flag);
+//					if(ret == false){
+//						flag.setFloginPassword(user.getPassword());
+//						if(user.getEmail()==null || user.getEmail().length()==0){
+//							fuser.setFisMailValidate(false);
+//						}
+//						flag.setFemail(user.getEmail());
+//						if(user.getMobile()==null || user.getMobile().length()==0){
+//							fuser.setFisTelephoneBind(false);
+//						}
+//						flag.setFtelephone(user.getMobile());
+//					}
+//					fuserDAO.attachDirty(flag);
+//
+//				}else{//同步到远程服务器
+//					user =  new User();
+//					user.setUserName(flag.getFloginName());
+//					user.setPassword(flag.getFloginPassword());
+//					user.setEmail(flag.getFemail());
+//					user.setMobile(flag.getFtelephone());
+//					user.setSex(0);
+//					user.setRegisterIp(flag.getFregisterIp());
+//					user.setRegisterUrl("http://www.zhgtrade.com");
+//					if(flag.getFregisterTime()==null)
+//						user.setCreateTime(Utils.getTimeLong()/1000);
+//					else
+//						user.setCreateTime(flag.getFregisterTime().getTime()/1000);
+//					user.setSourceUrl(flag.getFsourceUrl());
+//					int globalUserId = UserClient.register(user);
+//					if(globalUserId>0){
+//						flag.setGlobalUserId(globalUserId);
+//						fuserDAO.attachDirty(flag);
+//					}else{
+//						System.out.println("远程注册"+fuser.getFloginName()+"失败");
+//					}
+//				}
+//			}else{
+//				if(user!=null){//远程用户同步到本地
+//					flag = new Fuser();
+//					flag.setFloginName(user.getUserName());
+//					flag.setFloginPassword(user.getPassword());
+//					if(user.getEmail()!=null){
+//						flag.setFemail(user.getEmail()) ;
+//						flag.setFnickName(user.getEmail().split("@")[0]) ;
+//					} else{
+//						flag.setFnickName(user.getUserName());
+//					}
+//					flag.setFregisterTime(new Timestamp(user.getCreateTime()*1000)) ;
+//					flag.setFloginPassword(user.getPassword()) ;
+//					flag.setFtradePassword(null) ;
+//					flag.setFstatus(UserStatusEnum.NORMAL_VALUE) ;
+//					flag.setFlastLoginTime(Utils.getTimestamp()) ;
+//					flag.setFlastUpdateTime(Utils.getTimestamp()) ;
+//					flag.setFlastUpdateZhongdouTime(Utils.getTimestamp()) ;
+//					flag.setFregisterIp(user.getRegisterIp());//注册IP
+//					flag.setFsourceUrl(user.getSourceUrl());//来源url
+//					flag.setGlobalUserId(user.getId());
+//					boolean saveFlag = false ;
+//					try {
+//						saveFlag = saveRegister(fuser) ;
+//	//					//推广
+//	//					Factivitytype factivitytype = this.frontActivityService.findFactivityTypeById(ActivityTypeEnum.REGISTER) ;
+//	//					this.frontActivityService.updateCompleteOneActivity(factivitytype, fuser) ;
+//					} catch (Exception e) {
+//						e.printStackTrace();
+//					}
+//				}else{//本地远程均不存在该用户
+//
+//				}
+//			}
+//		}
 		
-		flag = null;
+//		flag = null;
 		try{
 			Map<String, Object> map = new HashMap<String, Object>() ;
 			if(fuser.getFloginName()!=null){
@@ -368,7 +368,7 @@ public class FrontUserService extends BaseService {
 			}
 		}catch(Exception e){
 			e.printStackTrace() ;
-			fuser = null ;
+//			fuser = null ;
 			throw new RuntimeException() ;
 		}
 		return flag ;

@@ -75,6 +75,10 @@ $(function(){
         }, 'json');
     }
 
+    function getImage() {
+        $("#index_image_code")[0].src = "/servlet/ValidateImageServlet?"+new Date().getTime();
+    }
+    getImage();
     $("#index_image_code").click(function(){
         $(this).get(0).src = "/servlet/ValidateImageServlet?"+new Date().getTime();
     });
@@ -109,6 +113,7 @@ $(function(){
         }
         var loginName = $("#indexLoginName").val();
         var password = $("#indexLoginPwd").val();
+        var code = $("#index_img_code").val();
         if(isEmpty(loginName)){
             $("#indexLoginTips1").html("用户名不能为空！");
             return;
@@ -117,14 +122,22 @@ $(function(){
             $("#indexLoginTips1").text("密码位数不小于6位数！");
             return;
         }
+        if(isEmpty(code)){
+            $("#indexLoginTips1").html("图形验证码不能为空！");
+            return;
+        }
         index_login_contoller1 = false;
-        $.post('/user/login',{password: password,loginName: loginName },function(result){
+        $.post('/user/login',{password: password,loginName: loginName,code : code },function(result){
             if(result!=null){
+                getImage();
                 index_login_contoller1 = true;
                 if(result.resultCode == 1){
                     jump(result);
                 }else if(result.resultCode == -1){
                     $("#indexLoginTips1").html("用户名或密码错误");
+                }else if(result.resultCode == 106){
+                    $("#indexLoginTips1").html("图形验证码错误！");
+
                 }else if(result.resultCode == -2){
                     $("#indexLoginTips1").html("此ip登录频繁，请2小时后再试");
                 }else if(result.resultCode == -3){

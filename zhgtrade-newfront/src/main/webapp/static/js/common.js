@@ -14,7 +14,7 @@
                     var time = new Date().getTime() - opt.startTime;
                     var args = ['time=' + time,'url=' + location.protocol + "//" + location.hostname + opt.url, "app=emhndHJhZGU="];
                     var img = new Image(1,1);
-                    img.src =location.protocol + '//www.zhgtrade.com/load.gif?' + args.join("&");
+                    // img.src =location.protocol + '//www.zhgtrade.com/load.gif?' + args.join("&");
 				}catch(e) {
                 	console.log("上传时间失败!");
 				}
