@@ -50,7 +50,10 @@
                     <div id="user_info" class="fl">
                         <div class="user_info clear cp" style="max-width: 275px">
                             <i class="iconfont db fl" style="width: 20px;display: inline-block">&#xe605;</i>
-                            <a class="db fl" href="/account/personalinfo.html"><span class="db fl ellipsis" style="max-width: 155px" name="loginName"></span><span class="ml5 db fl" name="userId"></span></a>
+                            <a class="db fl" href="/account/personalinfo.html">
+                                <span class="db fl ellipsis" style="max-width: 155px" name="loginName"></span>
+                                <span class="ml5 db fl" name="userId"></span>
+                            </a>
                             <a class="messagetip fl c_red dn" href="/account/message.html">未读消息</a>
                             <%--<a class="db f1 " href="/account/message.html">有未读消息</a>--%>
                             <%--<a class="db fl">${login_user}</a>--%>

@@ -7,8 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="${resources}/static/css/chat.css"/>
-<div class="chat-div" id="chatRoom">
-    <div style="    margin-left: 43%;color: #0AD5C1;font-size: 17px;">聊天室
+<div class="chat-div" id="chatRoom" style="display: none">
+    <div style="    margin-left: 43%;color: #0AD5C1;font-size: 17px;" >聊天室
         <span style="margin-left: 150px;cursor: pointer;color: red;" onclick="closeRoom()">关闭</span>
     </div>
     <ul class="chat-thread" id="content">
@@ -31,30 +31,33 @@
     </div>
 </div>
 
-<div  id="showRoom"  style="position: fixed;bottom: 5px;right: 2px;width: 75px;height: 30px;background-color: #269abc;">
-    <span style="color: white;cursor: pointer;font-size: ;: 15px;margin-top: 5px;margin-left: 15px">聊天室</span>
-</div>
+<%--<div  id="showRoom"  style="position: fixed;bottom: 5px;right: 2px;width: 75px;height: 30px;background-color: #269abc;">--%>
+    <%--聊天室--%>
+<%--</div>--%>
+
+<%--<button id="showRoom"  style="position: fixed;bottom: 5px;right: 2px;width: 75px;height: 30px;background-color: #269abc;">聊天室</button>--%>
 
 <script>
     function closeRoom() {
         $("#chatRoom").hide();
     }
     function initMessage() {
-        $.get("http://localhost:1000/getMessage",function (data) {
+        $.get("http://118.190.132.141:1000/getMessage",function (data) {
             var html = "";
             for (var i = 0; i < data.length; i++) {
 
-                html += "<li>" + data[i].message + "</li>";
+                html += "<li>" +data[i].name+": " +data[i].message + "</li>";
             }
             $("#content").html(html);
+            $('#content').scrollTop( $('#content')[0].scrollHeight + 30 );
         });
+
     }
     $(function(){
-
         $("#showRoom").click(function () {
             $("#chatRoom").show();
+            $('#content').scrollTop( $('#content')[0].scrollHeight + 30 );
         })
-
         connect();
     });
 
@@ -63,7 +66,7 @@
     function connect() {
         //判断当前浏览器是否支持WebSocket
         if('WebSocket' in window){
-            websocket = new WebSocket("ws://localhost:1000/websocket");
+            websocket = new WebSocket("ws://118.190.132.141:1000/websocket");
         }
         else{
             alert('Not support websocket')
@@ -85,7 +88,7 @@
 
         //连接关闭的回调方法
         websocket.onclose = function(){
-            setMessageInnerHTML("连接关闭");
+//            setMessageInnerHTML("连接关闭");
         };
 
         //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
@@ -97,11 +100,24 @@
     //将消息显示在网页上
     function setMessageInnerHTML(message){
         document.getElementById('content').innerHTML= document.getElementById('content').innerHTML + "<li>" + message + "</li>" ;
+        $('#content').scrollTop( $('#content')[0].scrollHeight + 30 );
     }
 
     //发送消息
     function send(){
+        var $loginedBar = $('#userInfoBar');
+        var id = $loginedBar.find('span[name="userId"]').text();
+        console.log(id)
         var message = document.getElementById('chatContent').value;
-        websocket.send(message+"##"+"-1");
+        if(message == null || message.toString().trim()==0){
+            return;
+        }
+        if(id!="" && id !=null){
+            message = message +"##" + id.split(":")[1];
+        }else {
+            message = message +"##" + "-1";
+        }
+        websocket.send(message);
+        $("#chatContent").val("");
     }
 </script>
