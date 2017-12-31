@@ -53,13 +53,19 @@
         });
 
     }
-    $(function(){
+    $(function() {
         $("#showRoom").click(function () {
             $("#chatRoom").show();
-            $('#content').scrollTop( $('#content')[0].scrollHeight + 30 );
+            $('#content').scrollTop($('#content')[0].scrollHeight + 30);
         })
         connect();
-    });
+
+        $(document).keydown(function (event) {
+            if (event.keyCode == 13) {
+                send();
+            }
+        });
+    })
 
 
     var websocket = null;
