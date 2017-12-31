@@ -19,8 +19,8 @@ import java.util.Map;
 
 /**
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2017/1/12
  */
 public class XmlUtils {

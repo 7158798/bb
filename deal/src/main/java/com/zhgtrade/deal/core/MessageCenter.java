@@ -19,8 +19,8 @@ import java.util.concurrent.ConcurrentSkipListSet;
 
 /**
  * 消息中心
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-05-11 18:40
  */
 public class MessageCenter implements MessageListener<FentrustData> {

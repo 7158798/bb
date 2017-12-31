@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/7/13
  */
 public class ApiBaseController {

@@ -250,7 +250,7 @@ public class FrontUserService extends BaseService {
 
 		this.validateMap.putMailMap(fuser.getFid()+"_"+SendMailTypeEnum.ValidateMail, emailvalidate) ;
 
-		//mq yujie
+		//mq xxp
 		Fuser new_fuser=new Fuser();
 		new_fuser.setFid(fuser.getFid());
 		validateemails.setFuser(new_fuser);
@@ -295,7 +295,7 @@ public class FrontUserService extends BaseService {
 //					user.setMobile(flag.getFtelephone());
 //					user.setSex(0);
 //					user.setRegisterIp(flag.getFregisterIp());
-//					user.setRegisterUrl("http://www.zhgtrade.com");
+//					user.setRegisterUrl("http://www.btc58.cc");
 //					if(flag.getFregisterTime()==null)
 //						user.setCreateTime(Utils.getTimeLong()/1000);
 //					else
@@ -656,7 +656,7 @@ public class FrontUserService extends BaseService {
 			
 			flag = true ;
 			
-			//mq  yujie
+			//mq  xxp
 			System.out.println("enter email validate");
 			Fuser new_fuser=new Fuser();
 			new_fuser.setFid(fuser.getFid());

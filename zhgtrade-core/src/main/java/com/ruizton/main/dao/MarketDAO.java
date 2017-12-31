@@ -12,8 +12,8 @@ import java.util.Objects;
 
 /**
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2017-09-26 17:00
  */
 @Repository

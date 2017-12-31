@@ -15,8 +15,8 @@ import java.sql.Timestamp;
 
 /**
  * 撮合引擎
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-05-10 14:32
  */
 public class MatchingEngineImpl implements MatchingEngine {

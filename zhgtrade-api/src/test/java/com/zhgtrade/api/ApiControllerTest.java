@@ -14,8 +14,8 @@ import java.util.TreeMap;
 
 /**
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/7/19
  */
 //@RunWith(SpringJUnit4ClassRunner.class)
@@ -25,8 +25,8 @@ public class ApiControllerTest {
     private String key = "ac0cd9f2304844ccaa0606bc4c6d95e7f";
     private String secret = "3c4af8d048c35daedf8fb4086e500122";
     private String host = "http://127.0.0.1:8090";
-//    private String host = "http://www.zhgtrade.com";
-//    private String host = "http://www.zhgtrade.com";
+//    private String host = "http://www.btc58.cc";
+//    private String host = "http://www.btc58.cc";
 
     @Test
     public void test(){

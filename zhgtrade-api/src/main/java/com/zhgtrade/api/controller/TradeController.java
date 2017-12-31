@@ -46,8 +46,8 @@ import java.util.Set;
 
 /**
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-04-12 14:02
  */
 @Controller

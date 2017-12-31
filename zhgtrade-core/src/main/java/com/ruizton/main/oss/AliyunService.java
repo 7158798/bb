@@ -7,8 +7,8 @@ import java.io.InputStream;
 /**
  * 阿里云OSS云存储
  * 提供简单的上传文件功能
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-04-07 19:17
  */
 public interface AliyunService {

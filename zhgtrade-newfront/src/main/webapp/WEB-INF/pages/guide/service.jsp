@@ -1,4 +1,4 @@
-<!-- 所有后台传输文章页面 author:yujie 2016-04-25 -->
+<!-- 所有后台传输文章页面 author:xxp 2016-04-25 -->
 <%--<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>--%>
 <%--<%@ include file="../common/header.jsp" %>--%>
 

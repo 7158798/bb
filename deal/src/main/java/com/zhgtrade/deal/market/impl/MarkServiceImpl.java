@@ -15,8 +15,8 @@ package com.zhgtrade.deal.market.impl;//package com.zhgtrade.deal.market.impl;
 //
 ///**
 // * 比特家
-// * CopyRight : www.zhgtrade.com
-// * Author : 林超（362228416@qq.com）
+// * CopyRight : www.btc58.cc
+// * Author : xxp
 // * Date： 2016-05-16 12:56
 // */
 //public class MarkServiceImpl implements MarkService {

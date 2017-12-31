@@ -107,7 +107,7 @@ public class FrontValidateService extends BaseService{
 			this.validateMap.putMailMap(ip+"_"+SendMailTypeEnum.FindPassword, emailvalidate) ;
 			flag = true ;
 			
-			//mq yujie
+			//mq xxp
 			System.out.println("enter email change psd");
 			Fuser new_fuser=new Fuser();
 			new_fuser.setFid(fuser.getFid());

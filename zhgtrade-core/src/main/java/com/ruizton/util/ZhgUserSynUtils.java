@@ -15,8 +15,8 @@ import java.util.TreeMap;
 
 /**
  * 比特家 用户系统同步信息
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/6/21
  */
 public class ZhgUserSynUtils {

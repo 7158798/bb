@@ -1,4 +1,4 @@
-<!-- 风险提示 author:yujie 2016-04-20 -->
+<!-- 风险提示 author:xxp 2016-04-20 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <!DOCTYPE HTML>

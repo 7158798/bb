@@ -15,8 +15,8 @@ import java.io.PrintWriter;
  * DESC: 处理未登录用户
  * <p/>
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin(1186270005@qq.com)
+ * CopyRight : www.btc58.cc
+ * Author : xxp(xxly68@qq.com)
  * Date： 2016-05-10 14:46
  */
 public class UserLoginInterceptor implements HandlerInterceptor {

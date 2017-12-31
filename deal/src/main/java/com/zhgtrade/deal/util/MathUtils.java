@@ -7,8 +7,8 @@ import java.math.BigDecimal;
  * Double类型计算
  * 精度精确到小数点后6位
  * 超过6位则进行四舍五入
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-04-24 20:03
  */
 public class MathUtils {

@@ -264,8 +264,8 @@ public class BaseController {
 	/**
 	 * 添加静态资源路径前缀
 	* 比特家
-	* CopyRight : www.zhgtrade.com
-	* Author : 俞杰（945351749@qq.com）
+	* CopyRight : www.btc58.cc
+	* Author : xxp（xxly68@qq.com）
 	* Date : 2016年4月7日 下午5:24:30
 	 */
 	@ModelAttribute

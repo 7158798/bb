@@ -19,13 +19,13 @@ import java.util.zip.GZIPOutputStream;
 /**
  * 字符串工具类
 * 比特家
-* CopyRight : www.zhgtrade.com
-* Author : 俞杰（945351749@qq.com）
+* CopyRight : www.btc58.cc
+* Author : xxp（xxly68@qq.com）
 * Date : 2016年3月30日 下午5:03:14
  */
 public class StringUtils extends org.springframework.util.StringUtils {
 	/**
-	 * yujie
+	 * xxp
 	 * 比特风云活动专用处理时间字符串为固定格式字符串
 	 */
 	public static String activityTimeFotmat(String time){
@@ -36,7 +36,7 @@ public class StringUtils extends org.springframework.util.StringUtils {
 		return activityTimeFormat;
 	}
 	/**
-	 *yujie 2016/06/23
+	 *xxp 2016/06/23
 	 * @description 百分比转换 如:String[] s=new String[]{"#.#####","#.####"};String str=getPercent(1,3,s);
 	 * @方法名 getPercent
 	 * @param num
@@ -67,7 +67,7 @@ public class StringUtils extends org.springframework.util.StringUtils {
 		String string = decimalFormat.format(dou);// 四舍五入，逢五进一
 		return string;
 	}
-	/*手机号 182****9071 yujie 2016/06/22*/
+	/*手机号 182****9071 xxp 2016/06/22*/
 	public static String hide_tel(String tel){
 		int pos=tel.indexOf("@");
 		if(pos!=-1){

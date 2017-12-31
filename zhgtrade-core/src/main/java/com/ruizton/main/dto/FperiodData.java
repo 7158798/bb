@@ -8,8 +8,8 @@ import java.util.Date;
 
 /**
  * K线数据
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-03-30 16:46
  */
 public class FperiodData implements Serializable, Comparable {

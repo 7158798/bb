@@ -11,8 +11,8 @@ import javax.annotation.PostConstruct;
 
 /**
  * 比特家 用户注册初始化账号
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/6/24
  */
 public class UserRegisterQueue implements MessageListener<Fuser> {

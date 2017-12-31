@@ -1,4 +1,4 @@
-<!-- 实时行情 author:yujie 2016-04-25 -->
+<!-- 实时行情 author:xxp 2016-04-25 -->
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>

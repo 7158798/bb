@@ -1,4 +1,4 @@
-<!-- 虚拟币充值页面author:yujie 2016-04-23 -->
+<!-- 虚拟币充值页面author:xxp 2016-04-23 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <!DOCTYPE HTML>

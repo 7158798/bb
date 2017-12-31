@@ -11,8 +11,8 @@ import java.util.Date;
 
 /**
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/12/27
  */
 @Entity(name = "new_year_red_wrapper")

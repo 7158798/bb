@@ -2,8 +2,8 @@ package com.zhgtrade.deal.core;
 
 /**
  * 异步任务
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-06-06 12:54
  */
 public interface SyncTaskService {

@@ -84,7 +84,7 @@ public class GuideController {
 	}
 
 	/**
-	 * yujie guide api
+	 * xxp guide api
 	 * @return
      */
 	@RequestMapping("/api")

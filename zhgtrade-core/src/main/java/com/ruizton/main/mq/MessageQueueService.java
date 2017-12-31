@@ -2,8 +2,8 @@ package com.ruizton.main.mq;
 
 /**
  * 消息队列服务
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-03-23 10:02
  */
 public interface MessageQueueService {

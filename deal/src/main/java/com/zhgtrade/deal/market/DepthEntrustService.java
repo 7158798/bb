@@ -7,8 +7,8 @@ import java.util.Set;
 
 /**
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-04-26 14:50
  */
 public interface DepthEntrustService {

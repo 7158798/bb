@@ -171,13 +171,13 @@
 <script src="${resources}/static/js/common.js"></script>
 <script src="${resources}/static/js/footer.js"></script>
 <script type="text/javascript">
-//    (function(){var time = new Date().getTime()-loadTime;var args = ['time=' + time,'url=' + location.href, "app=emhndHJhZGU="];var img = new Image(1, 1);img.src = location.protocol + '//www.zhgtrade.com/load.gif?' + args.join("&");})()
+//    (function(){var time = new Date().getTime()-loadTime;var args = ['time=' + time,'url=' + location.href, "app=emhndHJhZGU="];var img = new Image(1, 1);img.src = location.protocol + '//www.btc58.cc/load.gif?' + args.join("&");})()
 </script>
 <style>a[title="站长统计"]{display: none;}</style>
 <script src="//s11.cnzz.com/z_stat.php?id=1257639174&web_id=1257639174" language="JavaScript"></script>
 <div class="footer_safe">
     <a href="http://www.12377.cn/" target="_blank" class="icon fir"></a>
-    <a target="_blank" href="http://webscan.360.cn/index/checkwebsite/url/www.zhgtrade.com" class="icon s360"></a>
+    <a target="_blank" href="http://webscan.360.cn/index/checkwebsite/url/www.btc58.cc" class="icon s360"></a>
     <a target="_blank" href="http://www.cyberpolice.cn/wfjb/" class="icon sec"></a>
     <!--可信网站图片LOGO安装开始-->
     <span style="display:inline-block;position:relative;width:auto;">

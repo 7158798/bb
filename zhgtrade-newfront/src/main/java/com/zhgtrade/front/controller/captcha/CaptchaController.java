@@ -27,8 +27,8 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin（1186270005@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date：
  */
 

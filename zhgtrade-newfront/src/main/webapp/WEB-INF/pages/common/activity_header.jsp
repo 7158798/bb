@@ -1,4 +1,4 @@
-<%--<!-- 首页 author:yujie 2016-04-20 -->--%>
+<%--<!-- 首页 author:xxp 2016-04-20 -->--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.ruizton.util.SpringContextUtils" %>
 <%@ page import="com.ruizton.main.comm.ConstantMap" %>
@@ -15,7 +15,7 @@
     request.setAttribute("constant", constantMap.getMap());
 %>
 <input type="hidden" id="coinMainUrl" value="<%=basePath%>"/>
-<%--<!-- 头部开始 yujie 2016-04-20-->--%>
+<%--<!-- 头部开始 xxp 2016-04-20-->--%>
 <div class="header">
     <div class="head" style="background: #f8f8f8;">
         <div class="info">

@@ -1,4 +1,4 @@
-<!-- 安全中心页面author:yujie 2016-04-24 -->
+<!-- 安全中心页面author:xxp 2016-04-24 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <!DOCTYPE HTML>
@@ -183,11 +183,11 @@
                             </p>
                             <p>
                                 <span class="fir db fl">姓名：</span>
-                                <span class="db fl">俞杰</span>
+                                <span class="db fl">xxp</span>
                             </p>
                             <p>
                                 <span class="fir db fl">邮箱：</span>
-                                <span class="db fl">945351749@qq.com</span>
+                                <span class="db fl">xxly68@qq.com</span>
                             </p>
                             <p>
                                 <span class="fir db fl">用户等级：</span>
@@ -209,7 +209,7 @@
                             </div>
                             <p class="mt20">
                                 <span>真实姓名：</span>
-                                <span>俞杰 </span>
+                                <span>xxp </span>
                             </p>
                             <p>
                                 <span>证件类型：</span>

@@ -28,8 +28,8 @@ import java.util.List;
  * 春节红包活动
  *
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/12/27
  */
 @Service

@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * 比特家
  * 自动生成每分钟的K线
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-03-31 21:59
  */
 public class AutoMinuteKlineTask {

@@ -198,7 +198,7 @@ public class UserController extends BaseController {
 //                        return validateObject;
 //                    }
 //                    jsonObject.accumulate("resultCode", 1);
-//                    /*add by yujie */
+//                    /*add by xxp */
 //                    if(!StringUtils.hasText(fuser.getFtelephone()) && !StringUtils.hasText(fuser.getFemail())){
 //                        jsonObject.accumulate("code", 1);
 //                    }
@@ -230,7 +230,7 @@ public class UserController extends BaseController {
 //                        return validateObject;
 //                    }
                     jsonObject.accumulate("resultCode", 1);
-                    /*add by yujie */
+                    /*add by xxp */
                     if(!StringUtils.hasText(fuser.getFtelephone()) && !StringUtils.hasText(fuser.getFemail())){
                         jsonObject.accumulate("code", 1);
                     }

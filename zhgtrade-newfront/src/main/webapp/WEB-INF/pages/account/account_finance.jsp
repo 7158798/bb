@@ -1,4 +1,4 @@
-<!-- 个人账户页面author:yujie 2016-04-22 -->
+<!-- 个人账户页面author:xxp 2016-04-22 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <!DOCTYPE HTML>

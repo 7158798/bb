@@ -23,8 +23,8 @@ import java.util.Optional;
  * 资讯评论
  *
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/9/29
  */
 @Controller

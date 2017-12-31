@@ -173,7 +173,7 @@ public class UserSyn {
 			user.setMobile(fuser.getFtelephone());
 			user.setSex(0);
 			user.setRegisterIp(fuser.getFregisterIp());
-			user.setRegisterUrl("http://www.zhgtrade.com");
+			user.setRegisterUrl("http://www.btc58.cc");
 			if(fuser.getFregisterTime()==null)
 				user.setCreateTime(Utils.getTimeLong()/1000);
 			else

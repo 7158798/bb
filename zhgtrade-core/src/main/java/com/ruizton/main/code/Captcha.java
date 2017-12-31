@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 /**
  * 验证码
  * 
- * @author xuelin
+ * @author xxp
  * @date   2016年5月6日
  * @desc
  */

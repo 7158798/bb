@@ -7,8 +7,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/6/21
  */
 @RunWith(SpringJUnit4ClassRunner.class)

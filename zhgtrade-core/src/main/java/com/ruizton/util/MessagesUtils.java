@@ -70,7 +70,7 @@ public class MessagesUtils {
 			//System.out.println(post.getResponseBodyAsString());
 			//System.out.println(result.toString());
 			//System.out.println("发送短信：" + phone + " : " + content);
-			/*这个是什么意思  yujie  返回结果为result==1*/
+			/*这个是什么意思  xxp  返回结果为result==1*/
 
 			if(result.toString().indexOf("100")!=-1){
 				retCode = ReturnCode.SUCCESS ;

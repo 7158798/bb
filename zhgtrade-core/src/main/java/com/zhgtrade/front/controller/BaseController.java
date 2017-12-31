@@ -207,7 +207,7 @@ public class BaseController {
 			fvalidatemessage.setFuser(fuser) ;
 			fvalidatemessage.setFstatus(ValidateMessageStatusEnum.Not_send) ;
 			this.frontValidateService.addFvalidateMessage(fvalidatemessage) ;
-			//发送短信通知  yujie
+			//发送短信通知  xxp
 			Fuser fuser2=new Fuser();
 			fuser2.setFid(fuser.getFid());
 			fvalidatemessage.setFuser(fuser2) ;

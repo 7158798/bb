@@ -26,8 +26,8 @@ import java.util.List;
 /**
  * 比特家
  * 计算每分钟K线
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-03-31 22:10
  */
 public class CalculateMinuteKlineQueue {

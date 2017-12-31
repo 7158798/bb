@@ -37,8 +37,8 @@ import java.util.TreeMap;
 
 /**
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2017/1/12
  */
 @Controller

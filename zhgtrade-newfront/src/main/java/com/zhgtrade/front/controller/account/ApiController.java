@@ -27,8 +27,8 @@ import java.util.Map;
  * api
  *
  * 比特家
- * CopyRight : www.zhgtrade.com
- * Author : xuelin（1186270005@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date：
  */
 @Controller
@@ -43,7 +43,7 @@ public class ApiController extends BaseController {
     private final static int API_NUM = 5;
 
     /**
-     * yujie
+     * xxp
      * @return
      */
     @RequestMapping("/api")
