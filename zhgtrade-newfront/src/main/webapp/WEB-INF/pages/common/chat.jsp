@@ -38,6 +38,21 @@
 <%--<button id="showRoom"  style="position: fixed;bottom: 5px;right: 2px;width: 75px;height: 30px;background-color: #269abc;">聊天室</button>--%>
 
 <script>
+    //页面一加载
+    $(function() {
+        $("#showRoom").click(function () {
+            $("#chatRoom").show();
+            $('#content').scrollTop($('#content')[0].scrollHeight + 30);
+        });
+        connect();
+
+        $(document).keydown(function (event) {
+            if (event.keyCode == 13) {
+                send();
+            }
+        });
+    });
+
     function closeRoom() {
         $("#chatRoom").hide();
     }
@@ -53,20 +68,6 @@
         });
 
     }
-    $(function() {
-        $("#showRoom").click(function () {
-            $("#chatRoom").show();
-            $('#content').scrollTop($('#content')[0].scrollHeight + 30);
-        })
-        connect();
-
-        $(document).keydown(function (event) {
-            if (event.keyCode == 13) {
-                send();
-            }
-        });
-    })
-
 
     var websocket = null;
     function connect() {
