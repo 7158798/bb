@@ -88,7 +88,7 @@
                     <img src="${resources}/static/images/aboutzhg/newsmedis/2.jpg" width="380" height="220">
                     <div class="project_info">
                         <div>
-                            <p>招股科技微创新，Z-Watch闪耀新登场</p>
+                            <p>比特家科技微创新，Z-Watch闪耀新登场</p>
                         </div>
                     </div>
                 </a>
@@ -112,7 +112,7 @@
                     <img src="${resources}/static/images/aboutzhg/newsmedis/4.jpg" width="380" height="220">
                     <div class="project_info">
                         <div>
-                            <p>众股交易所：互联网金融创新思维</p>
+                            <p>比特家交易所：互联网金融创新思维</p>
                         </div>
                     </div>
                 </a>
@@ -155,7 +155,7 @@
                     <img src="${resources}/static/images/aboutzhg/newsmedis/8.jpg" width="380" height="220">
                     <div class="project_info">
                         <div>
-                            <p>清华学子双肩挑，招股科技显精彩</p>
+                            <p>清华学子双肩挑，比特家科技显精彩</p>
                         </div>
                     </div>
                 </a>
@@ -166,7 +166,7 @@
                     <img src="${resources}/static/images/aboutzhg/newsmedis/9.jpg" width="380" height="220">
                     <div class="project_info">
                         <div>
-                            <p>天使轮1500万，招股金服斩获国内区块链行业最大规模融资</p>
+                            <p>天使轮1500万，比特家斩获国内区块链行业最大规模融资</p>
                         </div>
                     </div>
 

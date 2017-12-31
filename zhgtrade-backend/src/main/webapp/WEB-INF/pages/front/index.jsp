@@ -163,9 +163,9 @@
 	
 <div id="zhong" style="height:280px;background: #F0F2F2 none repeat scroll 0% 0%;">
   <div id="zhong2">
-    <h1>选择众股，安全可信赖</h1>
+    <h1>选择比特家，安全可信赖</h1>
     <br/>
-    <p>截止到目前，众股注册人数<span class="ziti">${userQty }</span>人,累计交易额<span class="ziti">￥${tradeAmt }</span></p>
+    <p>截止到目前，比特家注册人数<span class="ziti">${userQty }</span>人,累计交易额<span class="ziti">￥${tradeAmt }</span></p>
     <div id="zhong21">
     <c:forEach items="${xx }" var="v">
     <img src="${staticFileUrl}/static/front/images/img_${v }.png" width="60" height="70">

@@ -272,7 +272,7 @@ $(function(){
             });
         },"json");
     }
-    /*众股资讯-资讯板块*/
+    /*比特家资讯-资讯板块*/
     // $.get("/index/consult",{size:"5"},function(data){
     //     var html = "";
     //     var $data = data.consult;

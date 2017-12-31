@@ -69,14 +69,14 @@
                     <a href="javascript:void(0)" target="_blank">工作时间：周一至周五 早9点半-晚6点</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)">公司邮箱：${requestScope.constant['email']}</a>
+                    <a href="javascript:void(0)">集团邮箱：${requestScope.constant['email']}</a>
                 </li>
 
             </ul>
         </div>
         <div class="contact fr clear">
             <div class="group_wrapper fl">
-                <img src="${resources}/static/images/index/weixin.jpg" alt="招股金服微信公众号 " width="105" height="105" titlte="招股微信" />
+                <img src="${resources}/static/images/index/weixin.jpg" alt="比特家微信公众号 " width="105" height="105" titlte="招股微信" />
             </div>
         </div>
     </div>
@@ -95,19 +95,19 @@
             <%--<li class="show_group" style="overflow:visible;background-position:-82px -249px;">
                 <span class="info db">QQ群</span>
                 <dl class="group_tab dn">
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=91cd9e73590d30369dc49889bfc2daf787f5bdc84cef4a361f07c0ea35d231a9"><dd>众股官方1群  436462447</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=6c66cddf9e0bc747ca77342dedcef3415636d2109d82c63b39aa424c59e7ed33"><dd>众股官方2群  469279756</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c7d786d1715161143a09ee543417c3cca04ce69e6b166c07a972881e52c57a41"><dd>众股官方3群  436865112</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ba04c26bcb3c01436fce306704fbcc2ea9a7775f4d30217855babff5e54626ce"><dd>众股官方4群  251987043</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=74a7ebc32d17b05bb3c4436ee90782619b11a79f88c9d2b69bcf1b7c561212c0"><dd>众股官方5群  436873356</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=20ecbb2876b4ee83ceb67bc58a3b47c66a85d02e6f966df949316a4cde50b720"><dd>众股官方6群  261908190</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ae30253f1683c5fc8e42dbd9882670a2d27429458ddb6d2d0eefb2d8a0cc2030"><dd>众股官方7群  433100822</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=a17d80156dad0a01c7f4ef5ae96d5c2d6e53a5b4243cabb5671b15f0a2be505f"><dd>众股官方8群  416291334</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=7714c3804b5fdd7c444306ccda6a819063fce7972515a4fd0232d1bb8048f3e6"><dd>众股官方9群  472747965</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ccd8a6a5c2ee37cefed3bc38c30d823f167dc2e22fb27431e88da6a672bfb25d"><dd>众股官方10群  512077889</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=8d3c39c84ea5bb4e7ac92f5c01afab89b6397f57d3b40dad63dabf149ee4ec63"><dd>众股官方11群  293932346</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ccd2e808af4772ab72c65f2e9f02a08849a817a73ec56e09a30ba9f9a3f9757a"><dd>众股官方12群  436804857</dd></a>
-                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=2b0f85d3abded60fdbbee5054d1002dd64bdb72e944c246e95e5236a1210ad44"><dd>众股官方13群  433241024</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=91cd9e73590d30369dc49889bfc2daf787f5bdc84cef4a361f07c0ea35d231a9"><dd>比特家官方1群  436462447</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=6c66cddf9e0bc747ca77342dedcef3415636d2109d82c63b39aa424c59e7ed33"><dd>比特家官方2群  469279756</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c7d786d1715161143a09ee543417c3cca04ce69e6b166c07a972881e52c57a41"><dd>比特家官方3群  436865112</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ba04c26bcb3c01436fce306704fbcc2ea9a7775f4d30217855babff5e54626ce"><dd>比特家官方4群  251987043</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=74a7ebc32d17b05bb3c4436ee90782619b11a79f88c9d2b69bcf1b7c561212c0"><dd>比特家官方5群  436873356</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=20ecbb2876b4ee83ceb67bc58a3b47c66a85d02e6f966df949316a4cde50b720"><dd>比特家官方6群  261908190</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ae30253f1683c5fc8e42dbd9882670a2d27429458ddb6d2d0eefb2d8a0cc2030"><dd>比特家官方7群  433100822</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=a17d80156dad0a01c7f4ef5ae96d5c2d6e53a5b4243cabb5671b15f0a2be505f"><dd>比特家官方8群  416291334</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=7714c3804b5fdd7c444306ccda6a819063fce7972515a4fd0232d1bb8048f3e6"><dd>比特家官方9群  472747965</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ccd8a6a5c2ee37cefed3bc38c30d823f167dc2e22fb27431e88da6a672bfb25d"><dd>比特家官方10群  512077889</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=8d3c39c84ea5bb4e7ac92f5c01afab89b6397f57d3b40dad63dabf149ee4ec63"><dd>比特家官方11群  293932346</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ccd2e808af4772ab72c65f2e9f02a08849a817a73ec56e09a30ba9f9a3f9757a"><dd>比特家官方12群  436804857</dd></a>
+                   <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=2b0f85d3abded60fdbbee5054d1002dd64bdb72e944c246e95e5236a1210ad44"><dd>比特家官方13群  433241024</dd></a>
                 </dl>
             </li>--%>
             <li class="weixin" id="showRoom"  style="background-position: -82px -203px">
@@ -171,13 +171,13 @@
 <script src="${resources}/static/js/common.js"></script>
 <script src="${resources}/static/js/footer.js"></script>
 <script type="text/javascript">
-//    (function(){var time = new Date().getTime()-loadTime;var args = ['time=' + time,'url=' + location.href, "app=emhndHJhZGU="];var img = new Image(1, 1);img.src = location.protocol + '//www.zhgtrade.com/load.gif?' + args.join("&");})()
+//    (function(){var time = new Date().getTime()-loadTime;var args = ['time=' + time,'url=' + location.href, "app=emhndHJhZGU="];var img = new Image(1, 1);img.src = location.protocol + '//www.btc58.cc/load.gif?' + args.join("&");})()
 </script>
 <style>a[title="站长统计"]{display: none;}</style>
 <script src="//s11.cnzz.com/z_stat.php?id=1257639174&web_id=1257639174" language="JavaScript"></script>
 <div class="footer_safe">
     <a href="http://www.12377.cn/" target="_blank" class="icon fir"></a>
-    <a target="_blank" href="http://webscan.360.cn/index/checkwebsite/url/www.zhgtrade.com" class="icon s360"></a>
+    <a target="_blank" href="http://webscan.360.cn/index/checkwebsite/url/www.btc58.cc" class="icon s360"></a>
     <a target="_blank" href="http://www.cyberpolice.cn/wfjb/" class="icon sec"></a>
     <!--可信网站图片LOGO安装开始-->
     <span style="display:inline-block;position:relative;width:auto;">

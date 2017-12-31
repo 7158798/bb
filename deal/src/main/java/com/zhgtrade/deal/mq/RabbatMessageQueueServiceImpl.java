@@ -15,8 +15,8 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * Rabbitmq impl
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-04-07 15:14
  */
 public class RabbatMessageQueueServiceImpl implements MessageQueueService {

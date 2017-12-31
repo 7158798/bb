@@ -1,4 +1,4 @@
-<!-- 搜索结果 author:yujie 2016-04-25 -->
+<!-- 搜索结果 author:xxp 2016-04-25 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <%@ taglib uri="/WEB-INF/tlds/activity.tld" prefix="yj" %>

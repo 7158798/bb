@@ -15,9 +15,9 @@ import java.util.Arrays;
 import java.util.Date;
 
 /**
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/12/28
  */
 @RunWith(SpringJUnit4ClassRunner.class)

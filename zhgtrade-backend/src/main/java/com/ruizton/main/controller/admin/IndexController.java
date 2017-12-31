@@ -475,7 +475,7 @@ public class IndexController extends BaseController {
 
 		// 保存发送记录
 		Fvalidatemessage fvalidatemessage = new Fvalidatemessage() ;
-		fvalidatemessage.setFcontent("您的众股后台短信登录验证码为：" + authCode.getCode());
+		fvalidatemessage.setFcontent("您的比特家后台短信登录验证码为：" + authCode.getCode());
 		fvalidatemessage.setFcreateTime(authCode.getDateTime()) ;
 		fvalidatemessage.setFphone(mobile) ;
 		fvalidatemessage.setFstatus(ValidateMessageStatusEnum.Not_send) ;

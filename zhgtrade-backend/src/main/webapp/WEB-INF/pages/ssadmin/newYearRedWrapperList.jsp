@@ -17,7 +17,7 @@
                 <option value="">全部</option>
                 <option <c:if test="${1 == param.type}">selected</c:if> value="1">七嘴八舌聊天</option>
                 <option <c:if test="${2 == param.type}">selected</c:if> value="2">资讯新闻评论</option>
-                <option <c:if test="${3 == param.type}">selected</c:if> value="3">众股交易</option>
+                <option <c:if test="${3 == param.type}">selected</c:if> value="3">比特家交易</option>
             </select>
         </div>
         <div class="buttonActive">
@@ -59,7 +59,7 @@
                     <c:choose>
                         <c:when test="${1 == i.type}">七嘴八舌聊天</c:when>
                         <c:when test="${2 == i.type}">资讯新闻评论</c:when>
-                        <c:when test="${3 == i.type}">众股交易</c:when>
+                        <c:when test="${3 == i.type}">比特家交易</c:when>
                     </c:choose>
                 </td>
                 <td>${i.amount}</td>

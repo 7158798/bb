@@ -22,9 +22,9 @@ import java.util.TreeSet;
 import java.util.concurrent.ExecutorService;
 
 /**
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-04-01 14:37
  */
 @Service("realTimeEntrustService")

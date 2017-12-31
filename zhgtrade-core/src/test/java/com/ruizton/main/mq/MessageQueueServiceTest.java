@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.ruizton.main.model.Fvalidateemail;
 /**
  * 监听短信
- * @author yujie
+ * @author xxp
  *
  */
 public class MessageQueueServiceTest {

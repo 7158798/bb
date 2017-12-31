@@ -26,9 +26,9 @@ import java.util.Map;
 
 /**
  * 币对冲
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : yujie（945351749@qq.com）
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp（xxly68@qq.com）
  * Date：
  */
 @Controller

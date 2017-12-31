@@ -1,4 +1,4 @@
-<!-- 币币交易页面author:yujie 2016-04-21 -->
+<!-- 币币交易页面author:xxp 2016-04-21 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <!DOCTYPE HTML>

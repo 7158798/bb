@@ -1,4 +1,4 @@
-<%--<!-- 首页 author:yujie 2016-04-20 -->--%>
+<%--<!-- 首页 author:xxp 2016-04-20 -->--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.ruizton.util.SpringContextUtils" %>
 <%@ page import="com.ruizton.main.comm.ConstantMap" %>
@@ -15,7 +15,7 @@
     request.setAttribute("constant", constantMap.getMap());
 %>
 <input type="hidden" id="coinMainUrl" value="<%=basePath%>"/>
-<%--<!-- 头部开始 yujie 2016-04-20-->--%>
+<%--<!-- 头部开始 xxp 2016-04-20-->--%>
 <div class="header">
     <div class="head" style="background: #f8f8f8;">
         <div class="info">
@@ -36,7 +36,7 @@ ${menu_index}客服热线</span> <span>${requestScope.constant['telephone']}</sp
                 <i class="fl iconfont" style="line-height: 30px;width: 20px;display: block">&#xe608;</i>
                 <a href="javascript:void(0)"> <span class="ml5">关注微信</span></a>
                 <div class="weixin dn">
-                    <img alt="众股微信" width="89" height="88" src="${resources}/static/images/index/weixin.jpg" title="众股微信二维码"/>
+                    <img alt="比特家微信" width="89" height="88" src="${resources}/static/images/index/weixin.jpg" title="比特家微信二维码"/>
                 </div>
             </div>
             <div class="fl worktime pl40">
@@ -106,7 +106,7 @@ ${menu_index}客服热线</span> <span>${requestScope.constant['telephone']}</sp
         <div class="nav" id="nav">
             <div class="logo fl">
                 <a class="db" href="/"> <img src="${cdn}${requestScope.constant['logoImage']}" height="55px" alt="数字货币交易网站"
-                                             title="众股logo"/>
+                                             title="比特家logo"/>
                 </a>
             </div>
 

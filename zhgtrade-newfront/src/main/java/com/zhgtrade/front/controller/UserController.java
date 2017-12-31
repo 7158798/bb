@@ -187,7 +187,7 @@ public class UserController extends BaseController {
                 return jsonObject;
             }
             // 优先远程登录
-            // 众股用户系统登录
+            // 比特家用户系统登录
 //            Object retObj = ZhgUserSynUtils.synUserLogin(loginName, password);
 //            if(retObj instanceof Fuser){
 //                fuser = (Fuser) retObj;
@@ -198,7 +198,7 @@ public class UserController extends BaseController {
 //                        return validateObject;
 //                    }
 //                    jsonObject.accumulate("resultCode", 1);
-//                    /*add by yujie */
+//                    /*add by xxp */
 //                    if(!StringUtils.hasText(fuser.getFtelephone()) && !StringUtils.hasText(fuser.getFemail())){
 //                        jsonObject.accumulate("code", 1);
 //                    }
@@ -230,7 +230,7 @@ public class UserController extends BaseController {
 //                        return validateObject;
 //                    }
                     jsonObject.accumulate("resultCode", 1);
-                    /*add by yujie */
+                    /*add by xxp */
                     if(!StringUtils.hasText(fuser.getFtelephone()) && !StringUtils.hasText(fuser.getFemail())){
                         jsonObject.accumulate("code", 1);
                     }
@@ -1003,7 +1003,7 @@ public class UserController extends BaseController {
             return map;
         }
 
-        // 众股用户系统
+        // 比特家用户系统
         /*if(ZhgUserSynUtils.mobileIsExist(mobile)){
             map.put("msg", "手机号已存在");
             return map;
@@ -1032,7 +1032,7 @@ public class UserController extends BaseController {
             return map;
         }
 
-        // 众股用户系统
+        // 比特家用户系统
         /*if(ZhgUserSynUtils.emailIsExist(email)){
             map.put("msg", "邮箱已存在");
             return map;

@@ -1,4 +1,4 @@
-<!-- 注册页面 author:yujie 2016-04-25 -->
+<!-- 注册页面 author:xxp 2016-04-25 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <!DOCTYPE HTML>
@@ -79,7 +79,7 @@
             <form id="loginForm" action="/user/zhgLogin.html" method="post">
                 <input type="hidden" name="token" value="${sessionScope.form_token}">
                 <ul>
-                    <li><span class="f16">我想绑定已有众股账号</span></li>
+                    <li><span class="f16">我想绑定已有比特家账号</span></li>
                     <li><span class="fir db fl">登录名</span><input class="fl db ml10" type="text" name="loginName" value="${param.loginName}"></li>
                     <li><span class="fir db fl">密码</span><input class="fl db ml10" type="password" name="password" value="${param.password}"></li>
                     <li><a class="db bg_orange btn fl" onclick="return onSubmitForm();" href="javascript:void(0);">登录并绑定</a><a class="db fl" href="/user/find_pwd.html">忘记密码？</a></li>
@@ -90,7 +90,7 @@
             <form id="directLogin" action="/user/zhgLogin.html" method="post">
                 <input type="hidden" name="token" value="${sessionScope.form_token}">
                 <ul>
-                    <li><span class="f16">还不是众股会员？</span></li>
+                    <li><span class="f16">还不是比特家会员？</span></li>
                     <li><a class="db bg_blue btn rbtn" onclick="document.getElementById('directLogin').submit();" href="javascript:void(0);">直接登录</a></li>
                 </ul>
             </form>
@@ -126,10 +126,10 @@
         <script>alert('该用户已绑定过');</script>
     </c:when>
     <c:when test="${104 == resultCode}">
-        <script>alert('请绑定已有众股账号');</script>
+        <script>alert('请绑定已有比特家账号');</script>
     </c:when>
     <c:when test="${105 == resultCode}">
-        <script>alert('请绑定已有众股账号');</script>
+        <script>alert('请绑定已有比特家账号');</script>
     </c:when>
     <c:when test="${-1 == resultCode}">
         <script>alert('您的用户名或密码错误');</script>

@@ -27,9 +27,9 @@ import java.util.Map;
 /**
  * 账单明细
  * <p/>
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : xuelin（1186270005@qq.com）
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date：
  */
 @Controller

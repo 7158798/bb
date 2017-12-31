@@ -5,9 +5,9 @@ import com.zhgtrade.deal.mq.MessageListener;
 
 /**
  * 深度合并消息队列监听
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date : 2016年5月12日 上午10:27:29
  */
 public interface DepthCalculateQueue extends MessageListener<FentrustData>, Runnable {

@@ -15,9 +15,9 @@ import java.io.PrintWriter;
 /**
  * DESC: 用户未认证
  * <p/>
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : xuelin(1186270005@qq.com)
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp(xxly68@qq.com)
  * Date： 2016-05-10 15:05
  */
 public class UserSecurityInterceptor implements HandlerInterceptor {

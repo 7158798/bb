@@ -52,7 +52,7 @@
 				<th width="70">开奖时间</th>
 				<th width="70">开奖间隔时间</th>
 				<th width="70">手续费比例</th>
-				<th width="70">公司下注比例</th>
+				<th width="70">集团下注比例</th>
 				<th width="100">创建时间</th>
 			</tr>
 		</thead>

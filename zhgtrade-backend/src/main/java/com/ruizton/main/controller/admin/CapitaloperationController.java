@@ -1045,7 +1045,7 @@ public class CapitaloperationController extends BaseController {
 					e.setCell(filed.ordinal(), capitalOperation.getFuser().getFemail());
 					break;
 				case 备注:
-					e.setCell(filed.ordinal(), "众股交易平台提现");
+					e.setCell(filed.ordinal(), "比特家交易平台提现");
 					break; 
 				default:
 					break;

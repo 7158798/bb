@@ -23,9 +23,9 @@ import java.util.concurrent.Executors;
  * 实时行情中心
  * 包含了所有币的实时数据（高、低、买、卖、量，深度挂单，累积买/卖单）
  * 采用Redis订阅实现数据更新通知，拉取最新数据
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2017-03-13 16:40
  */
 @Service

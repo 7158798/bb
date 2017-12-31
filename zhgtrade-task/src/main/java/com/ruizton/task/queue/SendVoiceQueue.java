@@ -27,9 +27,9 @@ import java.util.concurrent.LinkedBlockingDeque;
 /**
  * 语音验证码
  *
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/11/16
  */
 public class SendVoiceQueue implements MessageListener<Fvalidatemessage>, Runnable {
@@ -65,7 +65,7 @@ public class SendVoiceQueue implements MessageListener<Fvalidatemessage>, Runnab
         // 模板参数
         Fuser fuser = message.getFuser();
         if(null == fuser || !fuser.getFhasRealValidate()){
-            req.setTtsParamString("{\"name\":\"众股网用户\", \"number\":\"" + message.getFcontent() + "\"}");
+            req.setTtsParamString("{\"name\":\"比特家用户\", \"number\":\"" + message.getFcontent() + "\"}");
         }else{
             req.setTtsParamString("{\"name\":\"" + fuser.getFrealName() + "\", \"number\":\"" + message.getFcontent() + "\"}");
         }

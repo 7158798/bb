@@ -25,8 +25,8 @@ import java.util.List;
  * 去掉了@ModelAttribute这个性能杀死
  * 还去掉了注入HttpServletRequest这个奇葩的东西
  * 要获取这个对象必须通过方法级别的注入，能不用就不用
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date：
  */
 public class BaseJsonController {

@@ -12,9 +12,9 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import javax.annotation.PostConstruct;
 
 /**
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-04-14 10:02
  */
 public class RedisCache  implements Cache {

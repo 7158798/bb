@@ -1,4 +1,4 @@
-<!-- 重设密码页面 author:yujie 2016-04-25 -->
+<!-- 重设密码页面 author:xxp 2016-04-25 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <!DOCTYPE HTML>

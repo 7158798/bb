@@ -31,7 +31,7 @@ import java.util.TreeMap;
 /**
  * API拦截器 认证签约
  * 
- * @author xuelin
+ * @author xxp
  * @date 2016年4月15日
  * @desc
  */

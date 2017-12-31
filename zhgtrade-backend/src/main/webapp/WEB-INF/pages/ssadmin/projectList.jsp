@@ -104,14 +104,14 @@
             <th width="60" <%--orderField="createdTime"
                     <c:if test='${param.orderField == "createdTime" }'> class="${param.orderDirection}" </c:if>--%>>项目创建时间
             </th>
-            <th width="60" >公司名称
+            <th width="60" >集团名称
             </th>
-            <th width="60">公司地址</th>
+            <th width="60">集团地址</th>
             <th width="40" orderField="teamSize"
                     <c:if test='${param.orderField == "teamSize" }'> class="${param.orderDirection}" </c:if>>团队人数
             </th>
             <th width="60" orderField="companyCreatedTime"
-                    <c:if test='${param.orderField == "companyCreatedTime" }'> class="${param.orderDirection}" </c:if>>公司成立时间
+                    <c:if test='${param.orderField == "companyCreatedTime" }'> class="${param.orderDirection}" </c:if>>集团成立时间
             </th>
             <th width="60" <%--orderField="financingRound"
                     <c:if test='${param.orderField == "financingRound" }'> class="${param.orderDirection}" </c:if>--%>>融资轮次

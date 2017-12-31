@@ -26,9 +26,9 @@ public class RealTimeData {
 	}
 	/**
 	 * 添加买单
-	* 招股金服
-	* CopyRight : www.zhgtrade.com
-	* Author : 俞杰（945351749@qq.com）
+	* 比特家
+	* CopyRight : www.btc58.cc
+	* Author : xxp（xxly68@qq.com）
 	* Date : 2016年3月31日 上午10:29:37
 	 */
 	public void addEntrustBuyMap(int id,Fentrust fentrust) {
@@ -36,9 +36,9 @@ public class RealTimeData {
 	}
 	/**
 	 * 移除买单
-	* 招股金服
-	* CopyRight : www.zhgtrade.com
-	* Author : 俞杰（945351749@qq.com）
+	* 比特家
+	* CopyRight : www.btc58.cc
+	* Author : xxp（xxly68@qq.com）
 	* Date : 2016年3月31日 上午10:28:08
 	 */
 

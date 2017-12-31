@@ -1,4 +1,4 @@
-<!-- author:yujie 2016-04-22  -->
+<!-- author:xxp 2016-04-22  -->
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!-- 左边导航开始 -->
 <div class="account_left fl">

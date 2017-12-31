@@ -1,4 +1,4 @@
-<!-- 推广中心author:yujie 2016-04-24 -->
+<!-- 推广中心author:xxp 2016-04-24 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <!DOCTYPE HTML>

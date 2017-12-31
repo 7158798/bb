@@ -1,4 +1,4 @@
-<!-- 首页 author:yujie 2016-05-24 -->
+<!-- 首页 author:xxp 2016-05-24 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <!DOCTYPE html>
@@ -50,7 +50,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">June, 2016<br/>2016/6</p>
-                    <p class="cb">众股交易平台全新版亮相，对关键技术进行性能优化，保障了用户交易的流畅性和安全性。</p>
+                    <p class="cb">比特家交易平台全新版亮相，对关键技术进行性能优化，保障了用户交易的流畅性和安全性。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -63,7 +63,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">May, 2015<br/>2016/5</p>
-                    <p class="cb">深圳前海招股金融服务有限公司获得天使轮融资1500万，同时正式将控股深圳市招股科技有限公司。招股科技将集中精力负责区块链技术研究。</p>
+                    <p class="cb">前海招股金融服务获得天使轮融资1500万，同时正式将控股市比特家科技。比特家科技将集中精力负责区块链技术研究。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -76,7 +76,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">April, 2015<br/>2016/4</p>
-                    <p class="cb">招股金服领投院线大电影《比特风云》正式在众创园开启天使轮融资，此轮融资以众筹观影权+比特兑数字资产模式开展，一天之内完美完成280万的众筹金额。</p>
+                    <p class="cb">比特家领投院线大电影《比特风云》正式在众创园开启天使轮融资，此轮融资以众筹观影权+比特兑数字资产模式开展，一天之内完美完成280万的众筹金额。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -89,7 +89,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">March, 2016<br/>2016/3</p>
-                    <p class="cb">招股科技两项软件著作权申请成功。</p>
+                    <p class="cb">比特家科技两项软件著作权申请成功。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -128,7 +128,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">15th December, 2015<br/>2015/12/15</p>
-                    <p class="cb">招股金服投资拍摄《堕落神探》电影，并参加发布会。</p>
+                    <p class="cb">比特家投资拍摄《堕落神探》电影，并参加发布会。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -154,7 +154,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">16th November, 2015<br/>2015/11/16</p>
-                    <p class="cb">中国科技第一站---高交会，招股科技受邀在清华大学展会参展。</p>
+                    <p class="cb">中国科技第一站---高交会，比特家科技受邀在清华大学展会参展。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -167,7 +167,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">17th November, 2015<br/>2015/11/17</p>
-                    <p class="cb">招股科技晋级“创启未来”国际青年科技创业大赛：深圳赛区总决赛第四名。</p>
+                    <p class="cb">比特家科技晋级“创启未来”国际青年科技创业大赛：赛区总决赛第四名。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -180,7 +180,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">19th November, 2015<br/>2015/10/19</p>
-                    <p class="cb">全国“双创周”参展深圳展区活动，招股科技受邀在清华大学展会参展。</p>
+                    <p class="cb">全国“双创周”参展展区活动，比特家科技受邀在清华大学展会参展。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -193,7 +193,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">12th October, 2015<br/>2015/10/12</p>
-                    <p class="cb">深圳前海招股金融服务有限公司成立，公司定位于区块链金融和互联网金融服务。</p>
+                    <p class="cb">前海招股金融服务成立，集团定位于区块链金融和互联网金融服务。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -207,7 +207,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">18th September, 2015<br/>2015/9/18</p>
-                    <p class="cb">2015年9-10月，招股科技应邀参加南山区创业之星大赛，从2万家企业中杀进50强，晋级总决赛。</p>
+                    <p class="cb">2015年9-10月，比特家科技应邀参加南山区创业之星大赛，从2万家企业中杀进50强，晋级总决赛。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -220,7 +220,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">15th August, 2015<br/>2015/8/15</p>
-                    <p class="cb">招股科技入围深圳南山创业之星大赛-国际大学生联赛，成为币圈首支入选团队。</p>
+                    <p class="cb">比特家科技入围南山创业之星大赛-国际大学生联赛，成为币圈首支入选团队。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -233,7 +233,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">18th July, 2015<br/>2015/7/18</p>
-                    <p class="cb">招股科技搬迁到全新办公楼，地址位于风景秀丽的大学城外世外桃源创意园，塑造了良好的企业形象，招股科技全新起航。</p>
+                    <p class="cb">比特家科技搬迁到全新办公楼，地址位于风景秀丽的大学城外世外桃源创意园，塑造了良好的企业形象，比特家科技全新起航。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -246,7 +246,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">8th July, 2015<br/>2015/7/8</p>
-                    <p class="cb">招股科技喜获清华大学景芝创业大赛一等奖，得到了清华大学的高度重视、培养、支持。</p>
+                    <p class="cb">比特家科技喜获清华大学景芝创业大赛一等奖，得到了清华大学的高度重视、培养、支持。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -259,7 +259,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">29th June, 2015<br/>2015/6/29</p>
-                    <p class="cb">招股科技接受币圈知名媒体【比特帮】头条专访，招股科技公司展示了公司的自主品牌产品，并透露了众创币项目的规划，双方达成深度战略合作。</p>
+                    <p class="cb">比特家科技接受币圈知名媒体【比特帮】头条专访，比特家科技集团展示了集团的自主品牌产品，并透露了众创币项目的规划，双方达成深度战略合作。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -272,7 +272,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">18th June, 2015<br/>2015/6/18</p>
-                    <p class="cb">招股科技第二款智能新品：Z-Keyset蓝牙键盘，兼容安卓/IOS系统，极具性价比。Z-Keyset蓝牙键盘在众创币众筹活动中赠送出约100台，反响良好。</p>
+                    <p class="cb">比特家科技第二款智能新品：Z-Keyset蓝牙键盘，兼容安卓/IOS系统，极具性价比。Z-Keyset蓝牙键盘在众创币众筹活动中赠送出约100台，反响良好。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -285,7 +285,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">12th June, 2015<br/>2015/6/12</p>
-                    <p class="cb">招股科技公司申请了“招股科技”四类【商标】，成为正式具有法律效力的品牌。</p>
+                    <p class="cb">比特家科技集团申请了“比特家科技”四类【商标】，成为正式具有法律效力的品牌。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -311,7 +311,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">30th May, 2015<br/>2015/5/30</p>
-                    <p class="cb">Z-Watch赞助清华大学深圳研究生院校园歌手大赛，招股智能产品以及旗下数字货币招股币首次登陆高校。</p>
+                    <p class="cb">Z-Watch赞助清华大学研究生院校园歌手大赛，招股智能产品以及旗下数字货币招股币首次登陆高校。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -324,7 +324,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">24th May, 2015<br/>2015/5/24</p>
-                    <p class="cb">招股科技受邀参加深圳市龙岗国际青创节，获得广东卫视独家采访，力推招股币和Z-Watch 1S ，并现场销售100余台手表。</p>
+                    <p class="cb">比特家科技受邀参加市龙岗国际青创节，获得广东卫视独家采访，力推招股币和Z-Watch 1S ，并现场销售100余台手表。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -337,7 +337,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">8th May, 2015<br/>2015/5/8</p>
-                    <p class="cb">招股科技公司官网 www.zhaogukeji.com 强势上线研发和生产智能硬件产品，定位于提供全面智能化生活的解决方案。</p>
+                    <p class="cb">比特家科技集团官网 www.zhaogukeji.com 强势上线研发和生产智能硬件产品，定位于提供全面智能化生活的解决方案。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -350,7 +350,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">26th April, 2015<br/>2015/4/26</p>
-                    <p class="cb">招股科技受邀参加清华大学104周年校庆深圳校友会庆祝大会，CEO鄢傲受到清华校长邱勇接见，鄢傲汇报了公司规划和业绩，并展示Z-Watch。</p>
+                    <p class="cb">比特家科技受邀参加清华大学104周年校庆校友会庆祝大会，CEO鄢傲受到清华校长邱勇接见，鄢傲汇报了集团规划和业绩，并展示Z-Watch。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -363,7 +363,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">10th April, 2015<br/>2015/4/10</p>
-                    <p class="cb">招股科技与智能硬件公司合作，组建团队、投入巨资，开发Z-Watch智能手表。</p>
+                    <p class="cb">比特家科技与智能硬件集团合作，组建团队、投入巨资，开发Z-Watch智能手表。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -376,8 +376,8 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" style="top: 104px;" >
                 <div class="fr text_box" style="">
                     <p class="time">18th March, 2015<br/>2015/3/18</p>
-                    <p class="cb">深圳市招股科技有限公司成立（简称：招股科技），公司定位于打造数字货币和科技实体的开放生态链,
-                        是一家数字货币生态链服务与智能硬件相结合的高科技公司。公司采用合伙人负责制，目前有技术、营销、管理和财务等4个终身合伙人，
+                    <p class="cb">市比特家科技成立（简称：比特家科技），集团定位于打造数字货币和科技实体的开放生态链,
+                        是一家数字货币生态链服务与智能硬件相结合的高科技集团。集团采用合伙人负责制，目前有技术、营销、管理和财务等4个终身合伙人，
                         他们均来毕业于清华大学，并且具有多年的互联网金融、虚拟货币、物联网等方向的实践经验。
                     </p>
                 </div>

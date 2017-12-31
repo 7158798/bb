@@ -58,8 +58,8 @@
 				<th width="60" orderField="wechatNo" <c:if test='${param.orderField == "wechatNo" }'> class="${param.orderDirection}"</c:if>>微信号</th>
 				<th width="60" orderField="identifyNo" <c:if test='${param.orderField == "identifyNo" }'> class="${param.orderDirection}"</c:if>>身份证号</th>
 				<th width="40" orderField="job" <c:if test='${param.orderField == "job" }'> class="${param.orderDirection}"</c:if>>职业</th>
-				<th width="40" orderField="company" <c:if test='${param.orderField == "company" }'> class="${param.orderDirection}"</c:if>>公司</th>
-				<th width="40">公司地址</th>
+				<th width="40" orderField="company" <c:if test='${param.orderField == "company" }'> class="${param.orderDirection}"</c:if>>集团</th>
+				<th width="40">集团地址</th>
 				<th width="40" orderField="status" <c:if test='${param.orderField == "status" }'> class="${param.orderDirection}"</c:if>>审核状态</th>
 				<th width="40" orderField="createTime" <c:if test='${param.orderField == "createTime" }'> class="${param.orderDirection}"</c:if>>创建时间</th>
 				<th width="40" orderField="updateTime" <c:if test='${param.orderField == "updateTime" }'> class="${param.orderDirection}"</c:if>>更新时间</th>

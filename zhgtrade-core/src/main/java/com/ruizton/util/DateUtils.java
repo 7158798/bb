@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * 日期工具类
  * 
- * @author xuelin
+ * @author xxp
  * @date   2016年4月18日
  * @desc
  */
@@ -17,7 +17,7 @@ public abstract class DateUtils {
 	/**
 	 * 获取日期几分钟前，几年前
 	 * 方法名：getTimeFormat<BR>
-	 * 创建人：yujie <BR>
+	 * 创建人：xxp <BR>
 	 * 时间：2014年11月11日-下午10:27:54 <BR>
 	 * @param startTime
 	 * @return String<BR>
@@ -71,7 +71,7 @@ public abstract class DateUtils {
 	public final static String DEFAULT_FORMAT = "yyyy-MM-dd";
 
 	/**
-	 * 格式化日期  yujie 2016/06/22
+	 * 格式化日期  xxp 2016/06/22
 	 * @param date
 	 * @param format
      * @return

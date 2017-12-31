@@ -36,9 +36,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2017/1/12
  */
 @Controller
@@ -116,7 +116,7 @@ public class WechatPayController extends BaseController {
         paramMap.put("appid", constantMap.getString("weChatNewAppId"));
         paramMap.put("mch_id", constantMap.getString("weChatMchId"));
         paramMap.put("nonce_str", Utils.randomString(15));
-        paramMap.put("body", "众股网充值");
+        paramMap.put("body", "比特家充值");
         paramMap.put("out_trade_no", Constants.WECHAT_ORDER_NO_PREFIX + orderId);
         paramMap.put("total_fee", String.valueOf(amount * 100));
         paramMap.put("spbill_create_ip", Utils.getIpAddr(request));

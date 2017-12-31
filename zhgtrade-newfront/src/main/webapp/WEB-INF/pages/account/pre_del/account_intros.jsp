@@ -1,10 +1,10 @@
-<!-- 推广中心author:yujie 2016-04-24 -->
+<!-- 推广中心author:xxp 2016-04-24 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../../common/includes.jsp" %>
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>众股 - 推广中心</title>
+    <title>比特家 - 推广中心</title>
     <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
     <meta content=always name=referrer>
     <meta name='renderer' content='webkit' />

@@ -20208,7 +20208,7 @@
 	    var host = void 0;
 	    if (false) {
 	        protocol = 'wss';
-	        host = 'www.zhgtrade.com';
+	        host = 'www.btc58.cc';
 	    } else {
 	        protocol = 'ws';
 	        host = document.domain;

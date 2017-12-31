@@ -1,9 +1,9 @@
 package com.ruizton.main.Enum;
 
 /**
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/12/19
  */
 public enum RedWrapperStatus {

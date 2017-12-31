@@ -4,9 +4,9 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/6/22
  */
 public class ZhgUserSyn {

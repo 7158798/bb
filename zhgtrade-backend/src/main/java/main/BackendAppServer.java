@@ -11,9 +11,9 @@ import org.eclipse.jetty.webapp.Configuration;
 import org.eclipse.jetty.webapp.WebAppContext;
 
 /**
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-06-22 16:42
  */
 public class BackendAppServer {

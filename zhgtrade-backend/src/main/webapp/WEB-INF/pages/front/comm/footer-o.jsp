@@ -109,7 +109,7 @@
 				</a>
 				<ul>
 					<li>${requestScope.constant['companyWeb']}</li>
-					<li><a href="http://${requestScope.constant['companyWeb']}" target="_blank">公司官网</a>
+					<li><a href="http://${requestScope.constant['companyWeb']}" target="_blank">集团官网</a>
 					</li>
 				</ul>
 			</div>
@@ -118,8 +118,8 @@
 			<div id="di21">
 				<ul>
 					<li>
-						<h1>认识众股</h1></li>
-					<li><a href="${requestScope.constant['footerArticle1']}">公司简介</a>
+						<h1>认识比特家</h1></li>
+					<li><a href="${requestScope.constant['footerArticle1']}">集团简介</a>
 					</li>
 					<li><a href="${requestScope.constant['footerArticle2']}">法律声明</a>
 					</li>
@@ -168,7 +168,7 @@
 				<p>
 					<img src="${staticFileUrl}/static/front/images/img_72.jpg" width="115" height="115">
 				</p>
-				<p>招股科技</p>
+				<p>比特家科技</p>
 				<p>微信号：${requestScope.constant['weixin']}</p>
 			</div>
 		</div>

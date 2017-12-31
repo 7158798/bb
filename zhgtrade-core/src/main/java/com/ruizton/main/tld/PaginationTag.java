@@ -7,9 +7,9 @@ package com.ruizton.main.tld;
 //import java.io.IOException;
 //
 ///**
-// * 招股金服
-// * CopyRight : www.zhgtrade.com
-// * Author : xuelin
+// * 比特家
+// * CopyRight : www.btc58.cc
+// * Author : xxp
 // * Date： 2016/6/8
 // */
 //public class PaginationTag extends TagSupport {

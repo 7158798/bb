@@ -11,15 +11,15 @@ import com.ruizton.main.comm.KeyValues;
 import com.ruizton.main.dto.FentrustData;
 /**
  * 深度合并
-* 招股金服
-* CopyRight : www.zhgtrade.com
-* Author : 俞杰（945351749@qq.com）
+* 比特家
+* CopyRight : www.btc58.cc
+* Author : xxp（xxly68@qq.com）
 * Date : 2016年3月30日 下午5:03:00
  */
 public class DeepMergeUtil {
 	/**
      * 排序
-     * author yujie
+     * author xxp
      */
     public static Comparator<FentrustData> prizeComparatorDESC = new Comparator<FentrustData>() {
 		public int compare(FentrustData o1, FentrustData o2) {
@@ -54,7 +54,7 @@ public class DeepMergeUtil {
 	 * 深度计算
      * deep 保留位数
      * Set<FentrustData> 挂单列表
-     * author yujie
+     * author xxp
      */
     public static TreeSet<FentrustData> deepCaculate(int fvid,int type,Set<FentrustData> current_fentrustDatas ,int deep){
     	TreeSet<FentrustData> fentrustDatas;
@@ -98,9 +98,9 @@ public class DeepMergeUtil {
     }
     /**
      * 根据保留位数生成format字符串
-    * 招股金服
-    * CopyRight : www.zhgtrade.com
-    * Author : 俞杰（945351749@qq.com）
+    * 比特家
+    * CopyRight : www.btc58.cc
+    * Author : xxp（xxly68@qq.com）
     * Date : 2016年3月30日 下午5:04:39
      */
     public static String deepFormat(int i){

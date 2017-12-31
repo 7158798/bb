@@ -38,7 +38,7 @@
 				</dd>
 			</dl>
 			<dl>
-				<dt>公司下注比例：</dt>
+				<dt>集团下注比例：</dt>
 				<dd>
 					<input type="text" name="fbetRate" class="required number"
 						value="${fpopcorn.fbetRate }" /><span>%</span>

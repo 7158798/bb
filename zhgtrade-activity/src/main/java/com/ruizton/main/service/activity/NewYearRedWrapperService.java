@@ -27,9 +27,9 @@ import java.util.List;
 /**
  * 春节红包活动
  *
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/12/27
  */
 @Service
@@ -282,11 +282,11 @@ public class NewYearRedWrapperService {
         // 消息通知
         Fmessage fmessage = new Fmessage();
         if(NewYearRedWrapper.CHAT_TYPE == redWrapper.getType()){
-            fmessage.setFtitle("恭喜您，参与众股资讯七嘴八舌聊天获得" + redWrapper.getAmount() + "元新春红包！");
+            fmessage.setFtitle("恭喜您，参与比特家资讯七嘴八舌聊天获得" + redWrapper.getAmount() + "元新春红包！");
         }else if(NewYearRedWrapper.NEWS_COMMENT_TYPE == redWrapper.getType()){
-            fmessage.setFtitle("恭喜您，参与众股资讯新闻评论获得" + redWrapper.getAmount() + "元新春红包！");
+            fmessage.setFtitle("恭喜您，参与比特家资讯新闻评论获得" + redWrapper.getAmount() + "元新春红包！");
         }else if(NewYearRedWrapper.TRADE_TYPE == redWrapper.getType()){
-            fmessage.setFtitle("恭喜您，参与众股交易获得" + redWrapper.getAmount() + "元新春红包！");
+            fmessage.setFtitle("恭喜您，参与比特家交易获得" + redWrapper.getAmount() + "元新春红包！");
         }
         fmessage.setFstatus_s(fmessage.getFtitle());
         fmessage.setFcontent(fmessage.getFtitle());

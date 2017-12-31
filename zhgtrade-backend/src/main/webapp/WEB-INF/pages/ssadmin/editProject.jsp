@@ -74,17 +74,17 @@
                 </dd>
             </dl>
             <dl>
-                <dt>公司名称：</dt>
+                <dt>集团名称：</dt>
                 <dd>
                     <input type="text" name="companyName"  class=""
                            size="50"  value="${pro.companyName }"/>
                 </dd>
             </dl>
             <dl>
-                <dt>公司地址：</dt>
+                <dt>集团地址：</dt>
                 <dd>
                     <input type="text" name="companyLocation"  class=""
-                           size="50"  value="${pro.companyLocation}"/>(公司所在城市)
+                           size="50"  value="${pro.companyLocation}"/>(集团所在城市)
                 </dd>
             </dl>
             <dl>
@@ -116,7 +116,7 @@
                 </dd>
             </dl>
             <dl>
-                <dt>公司成立时间：</dt>
+                <dt>集团成立时间：</dt>
                 <dd>
                     <input type="text" name="companyCreatedTime" class="date"
                            readonly="true" dateFmt="yyyy-MM-dd" size="17" value="<fmt:formatDate value="${pro.companyCreatedTime}" pattern="yyyy-MM-dd" />" /> <a

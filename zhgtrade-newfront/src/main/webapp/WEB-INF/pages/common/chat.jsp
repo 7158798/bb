@@ -106,7 +106,17 @@
 
     //将消息显示在网页上
     function setMessageInnerHTML(message){
-        document.getElementById('content').innerHTML= document.getElementById('content').innerHTML + "<li>" + message + "</li>" ;
+        var html ="";
+        var $loginedBar = $('#userInfoBar');
+        var id = $loginedBar.find('span[name="userId"]').text();
+//        if(id.toString() == message.toString().split(":")[1]){
+//            html =  "<li class='your'>" + message + "</li>"
+//        }else {
+//            html =  "<li class='other'>" + message + "</li>"
+//        }
+
+        html =  "<li>" + message + "</li>"
+        document.getElementById('content').innerHTML= document.getElementById('content').innerHTML +html ;
         $('#content').scrollTop( $('#content')[0].scrollHeight + 30 );
     }
 

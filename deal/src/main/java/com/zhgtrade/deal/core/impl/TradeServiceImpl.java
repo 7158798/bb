@@ -18,9 +18,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 /**
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-06-12 13:53
  */
 public class TradeServiceImpl implements TradeService {

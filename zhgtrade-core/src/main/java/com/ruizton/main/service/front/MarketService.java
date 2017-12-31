@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2017-09-26 17:09
  */
 @Service

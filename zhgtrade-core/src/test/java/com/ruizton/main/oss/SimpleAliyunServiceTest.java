@@ -10,9 +10,9 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 /**
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-04-07 19:35
  */
 @RunWith(SpringJUnit4ClassRunner.class)

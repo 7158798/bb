@@ -5,10 +5,10 @@ import org.bson.types.ObjectId;
 import java.io.Serializable;
 
 /**
- * 招股金服
+ * 比特家
  * K线JSON数据
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-04-01 14:21
  */
 public class KlineData implements Serializable {

@@ -177,7 +177,7 @@ public class Fuser implements java.io.Serializable {
 
     private boolean fneedFee = true;        // 是否需要手续费
 
-    private String zhgOpenId;    // 众股用户系统openId
+    private String zhgOpenId;    // 比特家用户系统openId
     private String headImgUrl;
 
     private String wxOpenId;    // 微信openid

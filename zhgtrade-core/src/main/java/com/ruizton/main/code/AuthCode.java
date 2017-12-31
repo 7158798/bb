@@ -10,9 +10,9 @@ import java.sql.Timestamp;
 /**
  * 新版认证码
  *
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/11/15
  */
 public class AuthCode implements Serializable {

@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.annotation.PostConstruct;
 
 /**
- * 招股金服 用户注册初始化账号
- * CopyRight : www.zhgtrade.com
- * Author : xuelin
+ * 比特家 用户注册初始化账号
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016/6/24
  */
 public class UserRegisterQueue implements MessageListener<Fuser> {

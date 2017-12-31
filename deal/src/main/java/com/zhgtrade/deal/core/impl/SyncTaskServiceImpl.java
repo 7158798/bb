@@ -10,8 +10,8 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * 使用一个队列、线程来实现异步任务
- * CopyRight : www.zhgtrade.com
- * Author : 林超（362228416@qq.com）
+ * CopyRight : www.btc58.cc
+ * Author : xxp
  * Date： 2016-06-06 12:55
  */
 public class SyncTaskServiceImpl implements SyncTaskService, Runnable {

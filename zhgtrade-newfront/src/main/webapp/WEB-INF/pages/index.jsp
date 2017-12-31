@@ -1,4 +1,4 @@
-<%--<!-- 首页 author:yujie 2016-04-20 -->--%>
+<%--<!-- 首页 author:xxp 2016-04-20 -->--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="common/includes.jsp" %>
 <!DOCTYPE HTML>
@@ -153,7 +153,7 @@
 <%--<!-- banner图结束 -->--%>
 <%--<p style="font-size:14px;text-align: center;color:#ff0000;height:50px;line-height:50px;background:#f5f5f5;position:relative;">--%>
     <%--<i class="iconfont" style="position:absolute;top:0px;left:50%;margin-left:-505px;color:#969696;">&#xe642;</i>--%>
-    <%--众股网提醒您：请不要投入超过自身风险承受能力的资金，不投资不了解的数字资产，谨防虚假宣传、电信诈骗，坚决抵制传销、洗钱等违法行为。--%>
+    <%--比特家提醒您：请不要投入超过自身风险承受能力的资金，不投资不了解的数字资产，谨防虚假宣传、电信诈骗，坚决抵制传销、洗钱等违法行为。--%>
 <%--</p>--%>
 <%--<!-- 最火排行开始 -->--%>
 <%--<div class="hot_coin center_page clear">--%>

@@ -13,9 +13,9 @@ import java.util.List;
 /**
  * DESC:
  * <p/>
- * 招股金服
- * CopyRight : www.zhgtrade.com
- * Author : xuelin(1186270005@qq.com)
+ * 比特家
+ * CopyRight : www.btc58.cc
+ * Author : xxp(xxly68@qq.com)
  * Date： 2016-05-18 11:03
  */
 @Repository
