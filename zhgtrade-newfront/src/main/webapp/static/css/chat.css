@@ -8,9 +8,8 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     position: fixed;
-    top: 30px;
-    left: auto;
-    right: 1%;
+    bottom: 0px;
+    right: 5px;
     z-index: 999;
 }
 
