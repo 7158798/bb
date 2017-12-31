@@ -28,7 +28,7 @@
                                 '    <!--<a href="javascript:void(0)" class="iconfont close">&#xe632;</a>-->' +
                                 '<img class="break" id="open_year_red" src="//zhgtrade.oss-cn-qingdao.aliyuncs.com/images/new_year_red/open.png"" alt="">' +
                                 '    <p class="open">点击拆开</p>' +
-                                '    <p class="desc">恭喜您获得由众股网</p>' +
+                                '    <p class="desc">恭喜您获得由比特家</p>' +
                                 '    <p class="desc">提供的0.01~100元现金红包</p>' +
                                 '</div>' +
                                 '</div>' +
@@ -36,10 +36,10 @@
                                 '    <img class="bg bg2" src="//zhgtrade.oss-cn-qingdao.aliyuncs.com/images/new_year_red/bg2.png"" alt="">' +
                                 '    <div class="year_red_content">' +
                                 '    <a href="javascript:void(0)" class="iconfont close">&#xe677;</a>' +
-                                '<p class="detail fir">恭喜您获得由众股网</p>' +
+                                '<p class="detail fir">恭喜您获得由比特家</p>' +
                                 '    <p class="detail">提供的<span>' + data.amount + '元</span>红包</p>' +
                                 '<p class="res">您的红包已放入您的</p>' +
-                                '    <p class="res">众股网账户余额中，请查收</p>' +
+                                '    <p class="res">比特家账户余额中，请查收</p>' +
                                 '</div>' +
                                 '</div><div class="year_bg" id="year_bg"></div>';
                             $("body").append(html);

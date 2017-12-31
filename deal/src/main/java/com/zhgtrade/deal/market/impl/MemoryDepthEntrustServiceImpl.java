@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : 林超（362228416@qq.com）
  * Date： 2016-05-12 13:46

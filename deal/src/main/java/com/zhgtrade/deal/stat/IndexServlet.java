@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : 林超（362228416@qq.com）
  * Date： 2016-06-12 10:48

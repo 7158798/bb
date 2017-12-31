@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="m4 text-center">
-    <h1>众股网精心筛选创新区块链资产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为区块链革命贡献力量</h1>
+    <h1>比特家精心筛选创新区块链资产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为区块链革命贡献力量</h1>
     <div class="crs">
         <div class="cr">
             <span>01</span>

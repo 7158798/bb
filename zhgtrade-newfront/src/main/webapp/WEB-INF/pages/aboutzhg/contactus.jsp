@@ -48,9 +48,9 @@
 
     <div class="middle fl">
         <p><i class="iconfont c_blue mr15">&#xe633;</i><span>服务热线：${requestScope.constant['telephone']}</span></p>
-        <p><i class="iconfont c_blue mr15">&#xe632;</i><span>公司邮箱：${requestScope.constant['email']}</span></p>
+        <p><i class="iconfont c_blue mr15">&#xe632;</i><span>集团邮箱：${requestScope.constant['email']}</span></p>
         <p><i class="iconfont c_blue mr15">&#xe630;</i><span>邮政编码：${requestScope.constant['post']}</span></p>
-        <p><i class="iconfont c_blue mr15">&#xe631;</i><span>公司地址：${requestScope.constant['address']}</span></p>
+        <p><i class="iconfont c_blue mr15">&#xe631;</i><span>集团地址：${requestScope.constant['address']}</span></p>
     </div>
 
     <div class="right fr">

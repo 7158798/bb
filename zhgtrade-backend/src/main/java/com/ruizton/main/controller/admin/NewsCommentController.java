@@ -22,7 +22,7 @@ import java.util.Optional;
 /**
  * 资讯评论
  *
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : xuelin
  * Date： 2016/9/29

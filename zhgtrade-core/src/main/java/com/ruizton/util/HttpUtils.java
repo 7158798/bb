@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : xuelin
  * Date： 2016/6/21

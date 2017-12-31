@@ -3,7 +3,7 @@ package com.ruizton.main.Enum;
 /**
  * DESC: 网上充值类型
  * <p/>
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : xuelin(1186270005@qq.com)
  * Date： 2016-05-23 19:29

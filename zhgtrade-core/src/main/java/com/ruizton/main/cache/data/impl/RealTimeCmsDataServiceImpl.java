@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * DESC:
  * <p/>
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : xuelin(1186270005@qq.com)
  * Date： 2016-05-27 10:30

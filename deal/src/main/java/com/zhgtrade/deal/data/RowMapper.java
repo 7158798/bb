@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : 林超（362228416@qq.com）
  * Date： 2016-05-16 11:35

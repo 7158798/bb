@@ -69,7 +69,7 @@ public class Foperationlog implements java.io.Serializable {
 	}
 
 	// Property accessors
-	@GenericGenerator(name = "generator", strategy = "identity")//修正，应对众创提现至众股
+	@GenericGenerator(name = "generator", strategy = "identity")//修正，应对众创提现至比特家
 	@Id
 	@GeneratedValue(generator = "generator")
 	@Column(name = "fid", unique = true, nullable = false)

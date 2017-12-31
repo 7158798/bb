@@ -3,7 +3,7 @@ package com.ruizton.main.cache.data;
 import com.ruizton.main.model.Fperiod;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : 林超（362228416@qq.com）
  * Date： 2016-04-01 14:35

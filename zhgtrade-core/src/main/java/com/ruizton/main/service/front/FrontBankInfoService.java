@@ -23,7 +23,7 @@ public class FrontBankInfoService {
 	}
 	/**
 	* 根据状态查询Systembankinfo列表
-	* 招股金服
+	* 比特家
 	* CopyRight : www.zhgtrade.com
 	* Author : 俞杰（945351749@qq.com）
 	* Date : 2016年4月18日 下午1:05:56

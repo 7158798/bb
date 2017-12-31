@@ -162,7 +162,7 @@
     <div class="group">
         <div class="line"></div>
         <div class="lt"></div>
-        <h1>公司团队</h1>
+        <h1>集团团队</h1>
         <div class="rt"></div>
         <div class="line"></div>
     </div>
@@ -188,14 +188,14 @@
                         <p class="pic"><img src="${resources}/static/images/aboutzhg/managerteam/01.png" alt="鄢傲"></p>
                         <div class="tit">
                             <h1>
-                                鄢傲<span>招股金服合伙人</span>CEO
+                                鄢傲<span>比特家合伙人</span>CEO
                             </h1>
                         </div>
                         <p>籍贯：湖北天门</p>
                         <p>毕业院校：清华大学，研究生学历</p>
                         <div class="desc">
                             <p>在物联网领域累计发表多篇国际论文；曾工作于Hitachi（China）和招商银行总行，在物</p>
-                            <p>联网和数字货币领域具有多年的实践经验。主要负责公司的整体运营</p>
+                            <p>联网和数字货币领域具有多年的实践经验。主要负责集团的整体运营</p>
                             <p>管理、商务合作，并负责众筹项目甄选。</p>
                         </div>
                     </div>
@@ -207,14 +207,14 @@
                         <p class="pic"><img src="${resources}/static/images/aboutzhg/managerteam/02.png" alt="程超"></p>
                         <div class="tit">
                             <h1>
-                                程超<span>招股金服合伙人</span>CTO
+                                程超<span>比特家合伙人</span>CTO
                             </h1>
                         </div>
                         <p>籍贯：河南新县</p>
                         <p>毕业院校：清华大学，研究生学历</p>
                         <div class="desc">
                             <p>在混合网络及视频加密领域累计发表多篇国际论文，曾工作于网易游戏，并参与多项工程项目开发，具</p>
-                            <p>备丰富的研发经验。主要负责公司众股网、众创园等业务线的研发和业</p>
+                            <p>备丰富的研发经验。主要负责集团比特家、众创园等业务线的研发和业</p>
                             <p>务合作，并主导招股Z-Watch等智能硬件软件系统开发。</p>
                         </div>
                     </div>
@@ -226,15 +226,15 @@
                         <p class="pic"><img src="${resources}/static/images/aboutzhg/managerteam/03.png" alt="向忠胜"></p>
                         <div class="tit">
                             <h1>
-                                向忠胜<span>招股金服合伙人</span>CMO
+                                向忠胜<span>比特家合伙人</span>CMO
                             </h1>
                         </div>
                         <p>籍贯：江苏扬州</p>
                         <p>毕业院校：清华大学，研究生学历</p>
                         <div class="desc">
                             <p>在超大规模网络系统仿真领域累计发表了多篇国际论文，曾工作于Ericsson集团、意法半导体（中国）、</p>
-                            <p>华为控股公司，在网络营销和数字货币领域具有多年的实践经验。目前主要</p>
-                            <p>负责产品营销推广、新业务扩展、以及公司品牌维护。</p>
+                            <p>华为控股集团，在网络营销和数字货币领域具有多年的实践经验。目前主要</p>
+                            <p>负责产品营销推广、新业务扩展、以及集团品牌维护。</p>
                         </div>
                     </div>
                 </div>
@@ -245,14 +245,14 @@
                         <p class="pic"><img src="${resources}/static/images/aboutzhg/managerteam/04.png" alt="张国勇"></p>
                         <div class="tit">
                             <h1>
-                                张国勇<span>招股金服合伙人</span>CFO
+                                张国勇<span>比特家合伙人</span>CFO
                             </h1>
                         </div>
                         <p>籍贯：河南信阳</p>
                         <p>毕业院校：清华大学，研究生学历</p>
                         <div class="desc">
                             <p>在操作系统和系统级SoC设计领域累计发表了多篇国际论文；曾工作于联想集团和招商银行总行，</p>
-                            <p>在数字货币领域具有多年的实践经验。主要负责公司财务管理以及</p>
+                            <p>在数字货币领域具有多年的实践经验。主要负责集团财务管理以及</p>
                             <p>人力资源工作，并协助CEO统筹众筹项目甄选。</p>
                         </div>
                     </div>
@@ -264,13 +264,13 @@
                         <p class="pic"><img src="${resources}/static/images/aboutzhg/managerteam/05.png" alt="夏郑渠"></p>
                         <div class="tit">
                             <h1>
-                                夏郑渠<span>招股金服战略顾问</span>
+                                夏郑渠<span>比特家战略顾问</span>
                             </h1>
                         </div>
                         <p>&nbsp;</p>
                         <p>毕业院校：北京交通大学</p>
                         <div class="desc">
-                            <p>曾就职于华为，日海通讯以及宇顺电子股份有限公司，目前担任前海汇潮投资管理有限公司合伙人以及招股</p>
+                            <p>曾就职于华为，日海通讯以及宇顺电子股份，目前担任前海汇潮投资管理合伙人以及招股</p>
                             <p>金服首席战略顾问，在信息和金融领域拥有二十余年实战经验。</p>
                             <p>&nbsp;</p>
                         </div>
@@ -283,7 +283,7 @@
                         <%--<p class="pic"><img src="${resources}/static/images/aboutzhg/managerteam/06.png" alt="宋卫强"></p>--%>
                         <%--<div class="tit">--%>
                             <%--<h1>--%>
-                                <%--宋卫强<span>招股金服董事</span>--%>
+                                <%--宋卫强<span>比特家董事</span>--%>
                             <%--</h1>--%>
                         <%--</div>--%>
                         <%--<p>&nbsp;</p>--%>
@@ -308,9 +308,9 @@
                         <p>&nbsp;</p>
                         <p>毕业院校：江西大学(现南昌大学)法律系</p>
                         <div class="desc">
-                            <p>曾任中国平安保险股份有限公司总办法律顾问，广东益商律师事务所合伙人，现任北京市大成律师</p>
-                            <p>事务所深圳分所高级合伙人。专业领域包括金融、保险、房地</p>
-                            <p>产、公司法律事务，具有数十年从业经验。</p>
+                            <p>曾任中国平安保险股份总办法律顾问，广东益商律师事务所合伙人，现任北京市大成律师</p>
+                            <p>事务所分所高级合伙人。专业领域包括金融、保险、房地</p>
+                            <p>产、集团法律事务，具有数十年从业经验。</p>
                         </div>
                     </div>
                 </div>

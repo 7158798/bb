@@ -35,7 +35,7 @@ public class Utils {
 	private static final Logger log = LoggerFactory.getLogger(Utils.class);
 	/**
 	 * 不带电文件后缀名
-	* 招股金服
+	* 比特家
 	* CopyRight : www.zhgtrade.com
 	* Author : 俞杰（945351749@qq.com）
 	* Date : 2016年4月8日 上午11:55:18
@@ -48,7 +48,7 @@ public class Utils {
 	}
 	/**
 	 * 获取upload路径
-	* 招股金服
+	* 比特家
 	* CopyRight : www.zhgtrade.com
 	* Author : 俞杰（945351749@qq.com）
 	* Date : 2016年4月8日 下午12:01:25
@@ -62,7 +62,7 @@ public class Utils {
 	}
 	/**
 	 * 获取文件后缀名对应的文件类型
-	* 招股金服
+	* 比特家
 	* CopyRight : www.zhgtrade.com
 	* Author : 俞杰（945351749@qq.com）
 	* Date : 2016年4月12日 下午3:49:23
@@ -111,7 +111,7 @@ public class Utils {
 	}
 	/**
 	 * 上传文件到阿里云
-	* 招股金服
+	* 比特家
 	* CopyRight : www.zhgtrade.com
 	* Author : 俞杰（945351749@qq.com）
 	* Date : 2016年4月8日 下午12:02:15

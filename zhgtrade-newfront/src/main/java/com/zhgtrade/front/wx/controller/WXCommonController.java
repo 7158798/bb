@@ -37,7 +37,7 @@ import java.util.Map;
 /**
  * 非登陆情况下api
  *
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : xuelin
  * Date： 2016/11/1

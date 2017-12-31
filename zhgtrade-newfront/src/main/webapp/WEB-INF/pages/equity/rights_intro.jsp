@@ -627,7 +627,7 @@
 </div>
 <div class="mix_box">
     <ul class="title_block">
-        <li>众股网权益板块积极推动区块链</li>
+        <li>比特家权益板块积极推动区块链</li>
         <li>技术与实体资产的融合</li>
         <li>
             <div class="btns">
@@ -665,7 +665,7 @@
         <div class="fl title">
             <span class="title1">区块链资产2.0</span>
             <i></i>
-            <span class="title2">众股网带领数字货币进入价值投资新时代</span>
+            <span class="title2">比特家带领数字货币进入价值投资新时代</span>
         </div>
     </div>
 </div>

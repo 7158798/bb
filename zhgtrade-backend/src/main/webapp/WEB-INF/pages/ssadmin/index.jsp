@@ -25,7 +25,7 @@
 <base href="<%=basePath%>" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>众股交易平台</title>
+<title>比特家交易平台</title>
 
 <link href="static/ssadmin/js/themes/default/style.css" rel="stylesheet"
 	type="text/css" media="screen" />
@@ -265,7 +265,7 @@
 
 	<div id="footer">
 			Copyright &copy; 2015 - 2016 ZHAOGUKEJI.COM <a
-			href="http://www.zhaogukeji.com" title="深圳招股科技有限公司" target="_blank">深圳招股科技有限公司</a>
+			href="http://www.zhaogukeji.com" title="比特家科技" target="_blank">比特家科技</a>
 	</div>
 
 </body>

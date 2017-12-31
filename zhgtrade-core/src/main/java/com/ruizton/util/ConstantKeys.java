@@ -36,28 +36,28 @@ public class ConstantKeys {
 	public static final String USER_SYS_APP_ID = "zhgUserAppId";
 	// 修改用户信息
 	public static final String USER_SYS_MOD_URL = "zhgUserModifyUrl";
-	// 众股用户系统同步信息链接
+	// 比特家用户系统同步信息链接
 	public static final String USER_SYS_SYN_INFO_URL = "zhgUserSynInfoUrl";
-	// 众股用户系统注册信息链接
+	// 比特家用户系统注册信息链接
 	public static final String USER_SYS_REG_URL = "zhgUserSynRegisterUrl";
-	// 众股用户系统登录信息链接
+	// 比特家用户系统登录信息链接
 	public static final String USER_SYS_LOGIN_URL = "zhgUserLoginUrl";
-	// 众股用户系统秘钥
+	// 比特家用户系统秘钥
 	public static final String USER_SYS_APP_SECRET = "zhgUserAppSecret";
-	// 众股用户判断邮箱是否存在
+	// 比特家用户判断邮箱是否存在
 	public static final String USER_SYN_EMAIL_EXIST_URL = "zhgUserEmailIsExist";
-	// 众股用户判断手机号是否存在
+	// 比特家用户判断手机号是否存在
 	public static final String USER_SYN_MOBILE_EXIST_URL = "zhgUserMobileIsExist";
-	// 众股用户判断用户名是否存在
+	// 比特家用户判断用户名是否存在
 	public static final String USER_SYN_USERNAME_EXIST_URL = "zhgUserNameIsExist";
-	// 众股用户系统开关
+	// 比特家用户系统开关
 	public static final String USER_SYS_SYN_SWITCH = "zhgUserSynSwitch";
-	// 众股每天人民币提现次数
+	// 比特家每天人民币提现次数
 	public static final String DAY_DRAW_RMB_TIMES = "dayDrawRMBTimes";
-	// 众股每天虚拟币提现次数
+	// 比特家每天虚拟币提现次数
 	public static final String DAY_DRAW_COIN_TIMES = "dayDrawCoinTimes";
 
-	// 众股用户系统ip地址
+	// 比特家用户系统ip地址
 	public static final String USER_SYS_IPS = "userSystemIps";
 	public static final String USER_TRANSFER_SYSTEM_TAG = "userTransferSystemTag";
 	public static final String USER_TRANSFER_SYSTEM_SECRET = "userTransferSystemSecret";

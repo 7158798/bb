@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : 林超（362228416@qq.com）
  * Date： 2017-09-26 17:00

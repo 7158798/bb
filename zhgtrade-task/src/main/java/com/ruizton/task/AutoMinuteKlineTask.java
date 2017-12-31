@@ -5,7 +5,7 @@ import com.ruizton.main.mq.QueueConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * 招股金服
+ * 比特家
  * 自动生成每分钟的K线
  * CopyRight : www.zhgtrade.com
  * Author : 林超（362228416@qq.com）

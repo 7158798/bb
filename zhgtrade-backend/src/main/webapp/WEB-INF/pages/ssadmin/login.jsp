@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>众股管理平台</title>
+<title>比特家管理平台</title>
 <link href="/static/ssadmin/js/themes/css/login.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 <c:if test="${error != null}">
@@ -82,7 +82,7 @@ alert("${error}") ;
 		</div>
 		<div id="login_footer">
 			Copyright &copy; 2015 - 2016 ZHAOGUKEJI.COM <a
-			href="http://www.zhaogukeji.com" title="深圳招股科技有限公司" target="_blank">深圳招股科技有限公司</a>
+			href="http://www.zhaogukeji.com" title="比特家科技" target="_blank">比特家科技</a>
 		</div>
 	</div>
 <script src="/static/ssadmin/js/js/jquery-1.7.2.min.js"></script>

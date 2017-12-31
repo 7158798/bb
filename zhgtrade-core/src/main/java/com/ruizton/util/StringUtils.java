@@ -18,7 +18,7 @@ import java.util.zip.GZIPOutputStream;
 
 /**
  * 字符串工具类
-* 招股金服
+* 比特家
 * CopyRight : www.zhgtrade.com
 * Author : 俞杰（945351749@qq.com）
 * Date : 2016年3月30日 下午5:03:14

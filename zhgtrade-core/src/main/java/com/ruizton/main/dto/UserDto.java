@@ -3,7 +3,7 @@ package com.ruizton.main.dto;
 import java.util.Date;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : xuelin
  * Date： 2017/1/18

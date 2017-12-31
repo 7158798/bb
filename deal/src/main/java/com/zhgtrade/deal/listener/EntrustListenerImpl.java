@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.Arrays;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : 林超（362228416@qq.com）
  * Date： 2016-05-12 13:00

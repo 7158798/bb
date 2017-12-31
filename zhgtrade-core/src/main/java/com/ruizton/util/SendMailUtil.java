@@ -36,7 +36,7 @@ public class SendMailUtil {
 			message.setSentDate(new Date());
 			 String nick="";  
 		        try {  
-		            nick=javax.mail.internet.MimeUtility.encodeText("众股网");
+		            nick=javax.mail.internet.MimeUtility.encodeText("比特家");
 		        } catch (UnsupportedEncodingException e) {  
 		            e.printStackTrace();  
 		        }   

@@ -6,8 +6,8 @@
     <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
     <meta content=always name=referrer>
     <meta name='renderer' content='webkit'/>
-    <meta name="keywords" content="虚拟币,数字货币,股权众筹,科技众筹,招股科技,众股交易所">
-    <meta name="description" content="金融服务生活，智能改变世界。众股，致力于实现数字货币与科技实体的结合；依托招股科技实体公司，将以身作则，破除郁金香式的炒作，共建数字货币新蓝图。">
+    <meta name="keywords" content="虚拟币,数字货币,股权众筹,科技众筹,比特家科技,比特家交易所">
+    <meta name="description" content="金融服务生活，智能改变世界。比特家，致力于实现数字货币与科技实体的结合；依托比特家科技实体集团，将以身作则，破除郁金香式的炒作，共建数字货币新蓝图。">
     <link rel="icon" href="/favicon.ico"/>
     <link rel="shortcut icon" href="/favicon.ico"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>

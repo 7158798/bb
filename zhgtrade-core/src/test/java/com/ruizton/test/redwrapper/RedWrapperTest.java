@@ -13,7 +13,7 @@ import redis.clients.jedis.Response;
 import java.util.Set;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : xuelin
  * Date： 2016/12/26

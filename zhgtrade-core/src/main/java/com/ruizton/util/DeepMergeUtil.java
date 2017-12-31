@@ -11,7 +11,7 @@ import com.ruizton.main.comm.KeyValues;
 import com.ruizton.main.dto.FentrustData;
 /**
  * 深度合并
-* 招股金服
+* 比特家
 * CopyRight : www.zhgtrade.com
 * Author : 俞杰（945351749@qq.com）
 * Date : 2016年3月30日 下午5:03:00
@@ -98,7 +98,7 @@ public class DeepMergeUtil {
     }
     /**
      * 根据保留位数生成format字符串
-    * 招股金服
+    * 比特家
     * CopyRight : www.zhgtrade.com
     * Author : 俞杰（945351749@qq.com）
     * Date : 2016年3月30日 下午5:04:39

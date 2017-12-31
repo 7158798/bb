@@ -24,7 +24,7 @@ import java.net.URLEncoder;
 import java.util.List;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : xuelin
  * Date： 2017/1/18
@@ -56,7 +56,7 @@ public class UserLoginedBackQueue implements MessageListener<UserDto> {
         StringBuilder emailTmpl = new StringBuilder();
         emailTmpl.append("<div style=\"border:1px solid #CCC;background:#F4F4F4;width:100%;text-align:left\">");
         emailTmpl.append("<div style=\"border:none;background:#FCFCFC;padding:20px;color:#333;font-size:14px;\">");
-        emailTmpl.append("<p>尊敬的用户：</p><p>您好！</p><p>感谢您使用众股服务。系统监测到您的帐号");
+        emailTmpl.append("<p>尊敬的用户：</p><p>您好！</p><p>感谢您使用比特家服务。系统监测到您的帐号");
         emailTmpl.append(floginName);
         emailTmpl.append("出现异常登录行为，请对照登录时间，确认是否为您本人操作：</p>");
         emailTmpl.append("<table class=\"loginInfo\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin-top:20px;margin-bottom:20px;border-bottom:thin solid black;border-right:thin solid black;\"><tbody><tr><!--<th style=\"border-top:thin solid black;border-left:thin solid black;text-align:left;width:150px;font-weight:normal;padding:2px 0 2px 5px;font-size:12px;\">登录地点</th>--><th style=\"border-top:thin solid black;border-left:thin solid black;text-align:left;width:150px;font-weight:normal;padding:2px 0 2px 5px;font-size:12px;\">登录IP</th><th style=\"border-top:thin solid black;border-left:thin solid black;text-align:left;width:150px;font-weight:normal;padding:2px 0 2px 5px;font-size:12px;\">登录时间</th></tr><tr><!--<td style=\"border-top:thin solid black;border-left:thin solid black;text-align:left;width:150px;font-weight:normal;padding:2px 0 2px 5px;font-size:12px;\"></td>--><td style=\"border-top:thin solid black;border-left:thin solid black;text-align:left;width:150px;font-weight:normal;padding:2px 0 2px 5px;font-size:12px;\">");
@@ -125,7 +125,7 @@ public class UserLoginedBackQueue implements MessageListener<UserDto> {
         Fvalidateemail fvalidateemail = new Fvalidateemail();
         fvalidateemail.setFuser(fuser);
         fvalidateemail.setEmail(fuser.getFemail());
-        fvalidateemail.setFtitle("众股账号安全提醒") ;
+        fvalidateemail.setFtitle("比特家账号安全提醒") ;
         fvalidateemail.setFcontent(buildEmail(dto, fuser.getFloginName(), curLog));
         fvalidateemail.setFcreateTime(Utils.getTimestamp()) ;
         fvalidateemail.setFstatus(ValidateMailStatusEnum.Not_send) ;

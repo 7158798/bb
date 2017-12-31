@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 招股金服 CopyRight : www.zhgtrade.com Author : 林超（362228416@qq.com） Date：
+ * 比特家 CopyRight : www.zhgtrade.com Author : 林超（362228416@qq.com） Date：
  * 2016-04-26 15:50
  */
 @Controller
@@ -371,7 +371,7 @@ public class IndexController extends BaseController {
 	}
 
 	/**
-	 * 众股资讯
+	 * 比特家资讯
 	 * by yujie
 	 * @param size
 	 * @return

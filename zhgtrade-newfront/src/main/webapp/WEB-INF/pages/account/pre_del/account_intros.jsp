@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>众股 - 推广中心</title>
+    <title>比特家 - 推广中心</title>
     <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
     <meta content=always name=referrer>
     <meta name='renderer' content='webkit' />

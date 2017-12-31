@@ -4,7 +4,7 @@ import com.ruizton.main.service.admin.DateWalletStatisticService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : xuelin
  * Date： 2017/1/11

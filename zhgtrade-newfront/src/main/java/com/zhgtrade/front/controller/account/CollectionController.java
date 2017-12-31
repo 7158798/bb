@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * 我的收藏
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : yujie（945351749@qq.com）
  * Date：2016/07/04

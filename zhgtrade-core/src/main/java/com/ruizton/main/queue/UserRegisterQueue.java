@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.annotation.PostConstruct;
 
 /**
- * 招股金服 用户注册初始化账号
+ * 比特家 用户注册初始化账号
  * CopyRight : www.zhgtrade.com
  * Author : xuelin
  * Date： 2016/6/24

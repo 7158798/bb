@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : xuelin
  * Date： 2016/12/28

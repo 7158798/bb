@@ -103,7 +103,7 @@
 						<span class="db fl code">短信验证码</span>
 						<span class="db fl code ml10">语音验证码</span>
 					</p>--%>
-					<p class="f12 c_gray mt5 protocol">注册即视为同意  <a href="/about/index.html?id=9" class="c_blue">众股网注册协议</a></p>
+					<p class="f12 c_gray mt5 protocol">注册即视为同意  <a href="/about/index.html?id=9" class="c_blue">比特家注册协议</a></p>
 					<a id="mobile_submit_btn" class="confirm bg_blue db" onclick="toRegister(document.getElementById('cellphoneSubmit'));" href="javascript:void(0);">下一步</a>
 				</div>
 			</form>
@@ -165,7 +165,7 @@
 							<span class="c_gray"></span>
 						</span>
 					</p>
-					<p class="f12 c_gray mt5 protocol">注册即视为同意  <a href="/about/index.html?id=9" class="c_blue">众股网注册协议</a></p>
+					<p class="f12 c_gray mt5 protocol">注册即视为同意  <a href="/about/index.html?id=9" class="c_blue">比特家注册协议</a></p>
 					<a id="email_submit_btn" class="confirm bg_blue db" onclick="toRegister(document.getElementById('emailForm'));" href="javascript:void(0);">下一步</a>
 				</div>
 			</form>

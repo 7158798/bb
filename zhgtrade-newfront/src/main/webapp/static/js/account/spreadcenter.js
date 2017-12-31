@@ -12,7 +12,7 @@
     window._bd_share_config={
         "common":{
             "bdSnsKey":{},
-            "bdText":"众股网，安全可靠的数字货币交易网站，注册赢精彩",
+            "bdText":"比特家，安全可靠的数字货币交易网站，注册赢精彩",
             "bdMini":"3",
             "bdSign":"off",
             "bdUrl":url,

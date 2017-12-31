@@ -3,7 +3,7 @@ package com.zhgtrade.deal.util;
 import java.math.BigDecimal;
 
 /**
- * 招股金服
+ * 比特家
  * Double类型计算
  * 精度精确到小数点后6位
  * 超过6位则进行四舍五入

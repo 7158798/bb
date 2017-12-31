@@ -26,7 +26,7 @@ public class RealTimeData {
 	}
 	/**
 	 * 添加买单
-	* 招股金服
+	* 比特家
 	* CopyRight : www.zhgtrade.com
 	* Author : 俞杰（945351749@qq.com）
 	* Date : 2016年3月31日 上午10:29:37
@@ -36,7 +36,7 @@ public class RealTimeData {
 	}
 	/**
 	 * 移除买单
-	* 招股金服
+	* 比特家
 	* CopyRight : www.zhgtrade.com
 	* Author : 俞杰（945351749@qq.com）
 	* Date : 2016年3月31日 上午10:28:08

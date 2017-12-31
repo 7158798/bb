@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.TreeMap;
 
 /**
- * 招股金服 用户系统同步信息
+ * 比特家 用户系统同步信息
  * CopyRight : www.zhgtrade.com
  * Author : xuelin
  * Date： 2016/6/21
@@ -276,11 +276,11 @@ public class ZhgUserSynUtils {
                 // 用户名或密码错误
                 return "-1";
             }else{
-                logger.error("众股用户系统登录出错，响应内容：" + jsonResponse);
+                logger.error("比特家用户系统登录出错，响应内容：" + jsonResponse);
             }
         }catch (Exception e){
             e.printStackTrace();
-            logger.error("众股用户系统登录出错", e);
+            logger.error("比特家用户系统登录出错", e);
         }
 
         return "-2";

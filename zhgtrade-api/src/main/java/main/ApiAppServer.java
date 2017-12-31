@@ -18,7 +18,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 import java.util.Date;
 
 /**
- * 招股金服
+ * 比特家
  * CopyRight : www.zhgtrade.com
  * Author : 林超（362228416@qq.com）
  * Date： 2016-06-22 16:42

@@ -220,7 +220,7 @@
                         </p>
                         <a id="ali_fir_confirm" href="javascript:void(0);" class="tm_confirm" >确认充值</a>
                         <input type="hidden" value="6" name="type" id="ali_finType">
-                        <%--<p class="tm_info ">新用户可以前往众创园注册用户并绑定众股用户，在线充值后，提现到众股平台。<a href="/guide/article.html?id=34&currentPage=1&pageIndex=5" target="_blank" class="c_blue">在线充值教程链接</a></p>--%>
+                        <%--<p class="tm_info ">新用户可以前往众创园注册用户并绑定比特家用户，在线充值后，提现到比特家平台。<a href="/guide/article.html?id=34&currentPage=1&pageIndex=5" target="_blank" class="c_blue">在线充值教程链接</a></p>--%>
                         <div class="info f12 mt20">
                             <p class="pl40 c_gray" style="line-height: 20px;height: 20px;margin-top: 0px;">温馨提示：</p>
                             <p class="pl40 c_gray pr40" style="line-height: 20px;height: 20px;margin-top: 0px;">
@@ -308,7 +308,7 @@
                         </p>
                         <a id="fir_confirm" href="javascript:void(0);" class="tm_confirm" >确认充值</a>
                         <input type="hidden" value="4" name="type" id="finType">
-                        <%--<p class="tm_info ">新用户可以前往众创园注册用户并绑定众股用户，在线充值后，提现到众股平台。<a href="/guide/article.html?id=34&currentPage=1&pageIndex=5" target="_blank" class="c_blue">在线充值教程链接</a></p>--%>
+                        <%--<p class="tm_info ">新用户可以前往众创园注册用户并绑定比特家用户，在线充值后，提现到比特家平台。<a href="/guide/article.html?id=34&currentPage=1&pageIndex=5" target="_blank" class="c_blue">在线充值教程链接</a></p>--%>
                         <div class="info f12 mt20">
                             <p class="pl40 c_gray" style="line-height: 20px;height: 20px;margin-top: 0px;">温馨提示：</p>
                             <p class="pl40 c_gray pr40" style="line-height: 20px;height: 20px;margin-top: 0px;">
