@@ -110,7 +110,7 @@
                    <a class="db" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=2b0f85d3abded60fdbbee5054d1002dd64bdb72e944c246e95e5236a1210ad44"><dd>众股官方13群  433241024</dd></a>
                 </dl>
             </li>--%>
-            <li class="weixin" style="background-position: -82px -203px">
+            <li id="showRoom" class="weixin" style="background-position: -82px -203px">
                 aa
                 <%--<img src="${resources}/static/images/index/weixin.jpg" class="dn">--%>
             </li>
