@@ -39,6 +39,9 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+//war {
+//    exclude '**/static'
+//}
 war {
-    exclude '**/static'
+    archiveName 'ROOT.war'
 }
