@@ -189,10 +189,10 @@
 		<div class="content2">
 			<div class="wrap2">
 				<ul>
-					<!--<p style="font-size:12px;padding:0 10px;">参与众筹的用户请先前往众创园 "
+					<!--<p style="font-size:12px;padding:0 10px;">参与众筹的用户请先前往Bithome "
 							<span style="color:#ee0000;">个人设置</span>—<span style="color:#ee0000;">绑定比特家</span>
 							" 绑定比特家用户ID和用户名</p>-->
-					<!-- <p style="font-size:10px;padding:0 10px;">1、放假期间大家可以从众创园在线充值提现到比特家；</p>
+					<!-- <p style="font-size:10px;padding:0 10px;">1、放假期间大家可以从Bithome在线充值提现到比特家；</p>
 					<p style="font-size:10px;padding:0 10px;">2、比特家A群已满，欢迎大家加入B,C群；</p>
 					<p style="font-size:10px;padding:0 10px;">3、招股提前给各位拜年啦，祝大家猴年发大财！过年别忘了炒币哦。</p>
 					<a href="http://www.zcfunding.com">前往查看吧</a> -->

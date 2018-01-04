@@ -180,7 +180,7 @@ public class WalletTransferService {
         fwalletDAO.updateFwalletMoney(fuser.getFwallet().getFid(), transfer.getAmount());
 
         Fmessage fmessage = new Fmessage();
-        fmessage.setFcontent("您从众创园接收到人民币转账" + FormatUtils.formatCNY(transfer.getAmount()) + "元");
+        fmessage.setFcontent("您从Bithome接收到人民币转账" + FormatUtils.formatCNY(transfer.getAmount()) + "元");
         fmessage.setFcreateTime(Utils.getTimestamp());
         fmessage.setFreceiver(fuser);
         fmessage.setFstatus(MessageStatusEnum.NOREAD_VALUE);
@@ -205,7 +205,7 @@ public class WalletTransferService {
         Fvirtualcointype fvirtualcointype = fvirtualcointypeDAO.findById(transfer.getVirtualCoinId());
 
         Fmessage fmessage = new Fmessage();
-        fmessage.setFcontent("您从众创园接收到虚拟货币(" + fvirtualcointype.getFname() + ")转账" + FormatUtils.formatCoin(transfer.getAmount()) + "个");
+        fmessage.setFcontent("您从Bithome接收到虚拟货币(" + fvirtualcointype.getFname() + ")转账" + FormatUtils.formatCoin(transfer.getAmount()) + "个");
         fmessage.setFcreateTime(Utils.getTimestamp());
         fmessage.setFreceiver(fuser);
         fmessage.setFstatus(MessageStatusEnum.NOREAD_VALUE);

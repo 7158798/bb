@@ -39,7 +39,7 @@
         <div class="finance_wrapper">
             <div class="finance_container">
                 <input type="hidden" id="wallet_balance" name="wallet_balance" value="${fns:formatCoin(wallet.ftotal)}">
-                <h1 class="ml40">资金转移到众创园</h1>
+                <h1 class="ml40">资金转移到Bithome</h1>
                 <div class="content">
                     <div class="coin_wrapper">
                         <div class="coin_container  fl">
@@ -126,7 +126,7 @@
                     <div class="info ml40 f12 c_gray">
                         <p style="line-height: 20px;">重要提示：</p>
                         <p style="line-height: 20px;">1、资金转移手续费为0； </p>
-                        <p style="line-height: 20px;">2、系统自动将资金转移到众创园对应账户。</p>
+                        <p style="line-height: 20px;">2、系统自动将资金转移到Bithome对应账户。</p>
                     </div>
                     <div class="warning f12 c_red p1em" style="left: 590px;">
                         <i class="iconfont c_red">&#xe601;</i>

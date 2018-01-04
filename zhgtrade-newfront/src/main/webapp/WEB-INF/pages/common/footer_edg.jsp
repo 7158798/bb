@@ -63,14 +63,14 @@
                     <a href="javascript:void(0)">客服QQ：${requestScope.constant['serviceQQ']}</a>
                 </li>
                 <li class="">
-                    <a href="javascript:void(0)">客服电话：${requestScope.constant['telephone']}</a>
+                    <a href="javascript:void(0)">商务邮箱：${requestScope.constant['telephone']}</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)" target="_blank">工作时间：周一至周五 早9点半-晚6点</a>
+                    <a href="javascript:void(0)" target="_blank">工作时间：周一至周五 早9点-晚6点</a>
                 </li>
-                <li>
+               <%-- <li>
                     <a href="javascript:void(0)">集团邮箱：${requestScope.constant['email']}</a>
-                </li>
+                </li>--%>
 
             </ul>
         </div>

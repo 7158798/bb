@@ -20,10 +20,10 @@
     <div class="head" style="background: #f8f8f8;">
         <div class="info">
             <%--<input type="hidden" id="forward_url" value="${sessionScope.forward_url}">--%>
-            <div class="phone fl">
+           <%-- <div class="phone fl">
                 <i class="iconfont" style="width: 20px;display: inline-block">&#xe603;</i> <span>${header_type}
 ${menu_index}客服热线</span> <span>${requestScope.constant['telephone']}</span>
-            </div>
+            </div>--%>
 
             <div class="fl qq_line" id="qq">
                 <i class="fl iconfont" style="line-height: 25px;width: 20px;display: block">&#xe628;</i>
@@ -32,15 +32,15 @@ ${menu_index}客服热线</span> <span>${requestScope.constant['telephone']}</sp
                 </a>
             </div>
 
-            <div class="fl weixin_wrapper pl40" id="weixin">
+           <%-- <div class="fl weixin_wrapper pl40" id="weixin">
                 <i class="fl iconfont" style="line-height: 30px;width: 20px;display: block">&#xe608;</i>
                 <a href="javascript:void(0)"> <span class="ml5">关注微信</span></a>
                 <div class="weixin dn">
                     <img alt="比特家微信" width="89" height="88" src="${resources}/static/images/index/weixin.jpg" title="比特家微信二维码"/>
                 </div>
-            </div>
+            </div>--%>
             <div class="fl worktime pl40">
-                <span>工作时间：9:30 - 18:00</span>
+                <span>工作时间：9:00 - 18:00</span>
             </div>
 
             <div class="login_reg fr">
