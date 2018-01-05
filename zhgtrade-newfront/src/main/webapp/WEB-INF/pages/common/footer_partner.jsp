@@ -1,6 +1,6 @@
 <%--<!-- 警告开始 -->--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="warning center_page" style="background: white;">
+<%--<div class="warning center_page" style="background: white;">
     <div class="info">
         <i class="db fl iconfont c_red">&#xe601;</i>
         <span class="db fl">风险提示：</span>
@@ -8,7 +8,7 @@
     </div>
     <div class="text"><p>区块链资产（数字货币和数字权益）交易具有极高的风险（预挖、暴涨暴跌、庄家操控、团队解散、技术缺陷等），据国家五部委《关于防范比特币风险的通知》，比特家仅为区块链资产的爱好者提供一个自由的网上交换平台，对资产的投资价值不承担任何审查、担保、赔偿的责任，如果您不能接受，请不要进行交易！谢谢！</p>
     </div>
-</div>
+</div>--%>
 <%--<!-- 警告结束 -->--%>
 <%--<!-- 友情连接开始 -->--%>
 <%--<div>--%>

@@ -16,6 +16,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="${resources}/static/css/common/reset.css">
 	<link rel="stylesheet" type="text/css" href="${resources}/static/css/common/style.css">
+	<link rel="stylesheet" type="text/css" href="${resources}/static/css/exchange.css">
 	<%--<link rel="stylesheet" href="${resources}/static/css/common/animate.css"/>--%>
 	<link rel="stylesheet" href="${resources}/static/css/market.css"/>
 	<style>
@@ -91,21 +92,28 @@
 	</div>
 </div>
 <div class="center_page">
-	<c:if test="${!empty tradeTips}">
+	<%--<c:if test="${!empty tradeTips}">
 		<div class="info mt10" style="height: 20px;line-height: 20px;">
 			<i class="db fl iconfont c_red"></i>
 			<span class="db fl f12 c_red ml5">${tradeTips}</span>
 		</div>
-	</c:if>
+	</c:if>--%>
 	<div class="cb"></div>
 	<ul id="title_sel" class="f16 mt5">
 		<li class="fl cur">交易${vdata.fname}</li>
-		<li class="fl">${vdata.fname}行情</li>
+		<%--<li class="fl">${vdata.fname}行情</li>
 		<li class="fl">了解${vdata.fname}</li>
-		<li class="fl">市场动态</li>
+		<li class="fl">市场动态</li>--%>
 		<%--<li class="fl">行情对比</li>
 		<li class="fl">币对冲</li>--%>
 	</ul>
+
+
+
+
+
+
+
 	<ul id="content_sel">
 		<!-- 交易币 -->
 		<li style="cursor:pointer;">
@@ -126,6 +134,7 @@
 
 				</div>
 			</div>
+
 			<div class="info fr">
 				<!-- 金钱信息 -->
 				<div class="money_info" id="user-wallet">
@@ -142,7 +151,7 @@
 			</div>
 			<div class="cb"></div>
 		</li>
-		<!-- 币行情 -->
+		<%--<!-- 币行情 -->
 		<li class="dn">
 			<div class="quotes tac " style="margin-bottom: 40px; line-height:500px;padding-top: 20px;" id="market-charts">
 
@@ -155,7 +164,7 @@
 		<!-- 市场动态 -->
 		<li class="dn" id="news-div">
 
-		</li>
+		</li>--%>
 		<!-- 行情对比 -->
 		<%--<li class="dn" id="compare-div">
 			<%@ include file="compare.jsp"%>
@@ -165,6 +174,202 @@
 			<%@ include file="hedging.jsp"%>
 		</li>--%>
 	</ul>
+
+		<%--新增样式，搞不定直接注释掉--%>
+		<div class="trade_wrap"><!-- unlogin trade_panel -->
+			<div class="trade_panel trade_panel_logout">
+				<div class="mod mod_trade" id="mod_trade_logout">
+					<div class="mod_hd clear_fix">
+						<div class="fees_rule"><p><a href="/about/fee" target="_blank">费率</a></p></div>
+					</div>
+					<div class="mod_bd clear_fix">
+						<div class="panel">
+							<div class="hd"><a class="logout" href="/zh-cn/login/">登录</a> 或 <a class="logout"
+																							   href="/zh-cn/register/">注册</a>
+								开始交易
+							</div>
+							<div class="bd">
+								<div>
+									<div class="input_text"><b class="label">买入价</b><label><input type="text"
+									> <span
+											class="upper unit" unit="show_buy_quote_logout">usdt</span></label><strong
+											class="msg"></strong><!--<p class="math_price"></p>--></div>
+									<div class="input_text input_text_amount"><b class="label">买入量</b><label><input type="text"
+									>
+                                <span class="unit u"><em class="uppercase"
+														 lazyfill="">etc</em></span></label><strong
+											class="msg"></strong></div>
+									<div class="input_range limit_buy_logout buy_color"></div>
+									<div class="amount_range uppercase"><span class="min"><span class="min_num">0</span><em
+											lazyfill="" data-template=""> etc</em></span> <span
+											class="max"><span class="max_num">0.0000</span><em lazyfill=""
+																							   data-template=""> etc</em></span>
+									</div>
+									<div class="total"><p>交易额 <span></span></p>
+										<p class="transform_total"></p></div>
+									<div class="submit">
+										<button  class="btn_buy color_buy_bg"
+												 lazyfill="买入">
+											买入etc
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel sell_panel">
+							<div class="hd"><a class="logout" href="/zh-cn/login/">登录</a> 或 <a class="logout"
+																							   href="/zh-cn/register/">注册</a>
+								开始交易
+							</div>
+							<div class="bd">
+								<div>
+									<div class="input_text"><b class="label">卖出价</b><label><input type="text"
+									> <span
+											class="upper unit" unit="show_sell_quote_logout">usdt</span></label><strong
+											class="msg"></strong><!--<p class="math_price"></p>--></div>
+									<div class="input_text input_text_amount"><b class="label">卖出量</b><label><input type="text"
+									>
+                                <span class="unit"><em class="uppercase"
+													   lazyfill="">etc</em></span></label><strong
+											class="msg"></strong></div>
+									<div class="input_range limit_sell_logout sell_color"></div>
+									<div class="amount_range uppercase"><span class="min"><span class="min_num">0</span><em
+											lazyfill="" data-template=""> etc</em></span> <span
+											class="max"><span class="max_num">0.0000</span><em lazyfill=""
+																							   data-template=" "> etc</em></span>
+									</div>
+									<div class="total"><p>交易额 <span></span></p>
+										<p class="transform_total"></p></div>
+									<div class="submit">
+										<button  class="btn_sell color_sell_bg"
+												 lazyfill="卖出">
+											卖出etc
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div><!-- end unlogin trade_panel -->
+
+			<div class="order_book table-container">
+				<div class="head"><p class="title">最新价 <span id="tickerClose">33.53</span> <em class="uppercase"
+																							   lazyfill="">usdt</em>
+					<span id="tickerCny" class="ticker-transform">≈ 217.56 CNY</span></p></div>
+				<div class="ex-depth">
+					<div id="market_depth">
+						<dl>
+							<dt class="header"><span class="title"></span> <span class="price">价格(USDT)</span> <span
+									class="amount">数量<em class="uppercase">(etc)</em></span> <span>累计<em
+									class="uppercase">(etc)</em></span></dt>
+							<dd data-info="33.84">
+								<div class="inner"><span class="title color-sell">卖 7</span> <span class="price">33.84</span>
+									<span class="amount">19.0000</span> <span>176.3547</span> <b class="color-sell-bg"
+																								 style="width: 16.8858869534305%"></b>
+								</div>
+							</dd>
+							<dd data-info="33.80">
+								<div class="inner"><span class="title color-sell">卖 6</span> <span class="price">33.80</span>
+									<span class="amount">13.3552</span> <span>157.3547</span> <b class="color-sell-bg"
+																								 style="width: 11.869178812655528%"></b>
+								</div>
+							</dd>
+							<dd data-info="33.78">
+								<div class="inner"><span class="title color-sell">卖 5</span> <span class="price">33.78</span>
+									<span class="amount">7.8795</span> <span>143.9995</span> <b class="color-sell-bg"
+																								style="width: 7.002755065766086%"></b>
+								</div>
+							</dd>
+							<dd data-info="33.77">
+								<div class="inner"><span class="title color-sell">卖 4</span> <span class="price">33.77</span>
+									<span class="amount">6.4000</span> <span>136.1200</span> <b class="color-sell-bg"
+																								style="width: 5.6878777106292215%"></b>
+								</div>
+							</dd>
+							<dd data-info="33.70">
+								<div class="inner"><span class="title color-sell">卖 3</span> <span class="price">33.70</span>
+									<span class="amount">13.0000</span> <span>129.7200</span> <b class="color-sell-bg"
+																								 style="width: 11.553501599715608%"></b>
+								</div>
+							</dd>
+							<dd data-info="33.69">
+								<div class="inner"><span class="title color-sell">卖 2</span> <span class="price">33.69</span>
+									<span class="amount">4.2000</span> <span>116.7200</span> <b class="color-sell-bg"
+																								style="width: 3.732669747600427%"></b>
+								</div>
+							</dd>
+							<dd data-info="33.68">
+								<div class="inner"><span class="title color-sell">卖 1</span> <span class="price">33.68</span>
+									<span class="amount">112.5200</span> <span>112.5200</span> <b class="color-sell-bg"
+																								  style="width: 100%"></b></div>
+							</dd>
+						</dl>
+						<div class="dl-hr">
+							<hr>
+							<hr>
+						</div>
+						<dl>
+							<dd name="depth-item" data-info="33.48">
+								<div class="inner"><span class="title color-buy">买 1</span> <span class="price">33.48</span>
+									<span class="amount">59.3055</span> <span>59.3055</span> <b class="color-buy-bg"
+																								style="width: 52.70662993245646%"></b>
+								</div>
+							</dd>
+							<dd name="depth-item" data-info="33.47">
+								<div class="inner"><span class="title color-buy">买 2</span> <span class="price">33.47</span>
+									<span class="amount">26.0081</span> <span>85.3136</span> <b class="color-buy-bg"
+																								style="width: 23.11420191965873%"></b>
+								</div>
+							</dd>
+							<dd name="depth-item" data-info="33.45">
+								<div class="inner"><span class="title color-buy">买 3</span> <span class="price">33.45</span>
+									<span class="amount">9.6576</span> <span>94.9712</span> <b class="color-buy-bg"
+																							   style="width: 8.583007465339495%"></b>
+								</div>
+							</dd>
+							<dd name="depth-item" data-info="33.42">
+								<div class="inner"><span class="title color-buy">买 4</span> <span class="price">33.42</span>
+									<span class="amount">35.0081</span> <span>129.9793</span> <b class="color-buy-bg"
+																								 style="width: 31.11277995023107%"></b>
+								</div>
+							</dd>
+							<dd name="depth-item" data-info="33.41">
+								<div class="inner"><span class="title color-buy">买 5</span> <span class="price">33.41</span>
+									<span class="amount">26.8000</span> <span>156.7793</span> <b class="color-buy-bg"
+																								 style="width: 23.817987913259866%"></b>
+								</div>
+							</dd>
+							<dd name="depth-item" data-info="33.40">
+								<div class="inner"><span class="title color-buy">买 6</span> <span class="price">33.40</span>
+									<span class="amount">0.3836</span> <span>157.1629</span> <b class="color-buy-bg"
+																								style="width: 0.34091717028083895%"></b>
+								</div>
+							</dd>
+							<dd name="depth-item" data-info="33.38">
+								<div class="inner"><span class="title color-buy">买 7</span> <span class="price">33.38</span>
+									<span class="amount">6.4000</span> <span>163.5629</span> <b class="color-buy-bg"
+																								style="width: 5.6878777106292215%"></b>
+								</div>
+							</dd>
+						</dl>
+					</div>
+					<div class="link-group clearFix">
+						<div id="depth_select" class="depth-select">深度 <span id="depth_step">0.000001</span>
+							<ul>
+								<li class="active" data-depth="0">0.000001</li>
+								<li data-depth="1">0.00001</li>
+								<li data-depth="2">0.0001</li>
+							</ul>
+						</div>
+						<a href="../depth/?trade=exchange" lazyfill="attr" data-attr="href"
+						   data-template="../depth/?trade=>">更多</a></div>
+				</div>
+			</div>
+		</div>
+
+
 	<!-- 买盘 买盘 成交记录 -->
 	<div class="entrust_wrapper tac">
 		<div class="fl entrust_container">
