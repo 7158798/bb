@@ -76,7 +76,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">April, 2015<br/>2016/4</p>
-                    <p class="cb">比特家领投院线大电影《比特风云》正式在众创园开启天使轮融资，此轮融资以众筹观影权+比特兑数字资产模式开展，一天之内完美完成280万的众筹金额。</p>
+                    <p class="cb">比特家领投院线大电影《比特风云》正式在Bithome开启天使轮融资，此轮融资以众筹观影权+比特兑数字资产模式开展，一天之内完美完成280万的众筹金额。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -102,7 +102,7 @@
                 <img class="right_mouth" src="${resources}/static/images/aboutzhg/events/right.png" >
                 <div class="fl text_box" style="">
                     <p class="time">January, 2015<br/>2016/1</p>
-                    <p class="cb">众创园新模式首次开始为中小企业提供融资服务，燊活馆的燊活积分项目1周之内完成500万融资，再次证明众创园众筹+交易新模式的市场影响力。</p>
+                    <p class="cb">Bithome新模式首次开始为中小企业提供融资服务，燊活馆的燊活积分项目1周之内完成500万融资，再次证明Bithome众筹+交易新模式的市场影响力。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -115,7 +115,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">December, 2015<br/>2015/12</p>
-                    <p class="cb">众创园新模式首次切入影视领域，《堕落神探》电影众筹1天之内完成20万众筹额度。</p>
+                    <p class="cb">Bithome新模式首次切入影视领域，《堕落神探》电影众筹1天之内完成20万众筹额度。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -141,7 +141,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">15th November, 2015<br/>2015/11/15</p>
-                    <p class="cb">众创园改版上线，新平台将众筹业务划分为币创投，回报众筹和企业众筹三大版块。</p>
+                    <p class="cb">Bithome改版上线，新平台将众筹业务划分为币创投，回报众筹和企业众筹三大版块。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 
@@ -298,7 +298,7 @@
                 <img class="left_mouth" src="${resources}/static/images/aboutzhg/events/left.png" >
                 <div class="fr text_box" style="">
                     <p class="time">1st June, 2015<br/>2015/6/1</p>
-                    <p class="cb">众创园全新上线，平台定位于流动性数字资产众筹，对接交易平台，解决了众筹的提前退出问题。</p>
+                    <p class="cb">Bithome全新上线，平台定位于流动性数字资产众筹，对接交易平台，解决了众筹的提前退出问题。</p>
                 </div>
             </div>
             <img class="zhg" src="${resources}/static/images/aboutzhg/events/zhg.png" width="20" height="20" 

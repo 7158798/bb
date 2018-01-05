@@ -34,7 +34,7 @@
             <a id="box_login_btn" href="javascript:void(0);" class="confirm c_white">登录</a>
             <p class="f12 opertaion">
                 <a href="/user/find_pwd.html" class="c_orange">忘记密码？</a> <span class="pl40">没有账号？</span> <a
-                    href="/user/to_reg.html" class="c_orange">立即注册？</a>
+                    href="/user/reg.html" class="c_orange">立即注册？</a>
             </p>
             <input type="hidden" id="forwardUrl" value="${empty forwardUrl ? "/" : forwardUrl}">
         </form>

@@ -52,7 +52,7 @@
                 <c:out value="bigImage${i}"></c:out>
             </c:set>
             <c:if test="${!empty requestScope.constant[key] and requestScope.constant[key] != '#'}">
-                <div class="item hand <c:choose><c:when test="${first_index == s.index}">active</c:when><c:otherwise>dn</c:otherwise></c:choose>" style="background-image: url(${cdn}${requestScope.constant[key]});"></div>
+                <div class="item hand <c:choose><c:when test="${first_index == s.index}">active</c:when><c:otherwise>dn</c:otherwise></c:choose>" style="background-image: linear-gradient(-180deg, #1a1454 0%, #0e81a5 100%);"></div>
             </c:if>
         </c:forEach>
     </div>
@@ -92,7 +92,7 @@
 <%--<!-- 未登录 -->--%>
 <div id="unloginBox" class="center_page login_relative logined_box dn">
     <div class="login_wrapper f16" style="height: 210px;" id="index_login_wrapper1">
-        <div class="top pl20" style="padding-left: 30px">登录本站</div>
+        <div class="top pl20" style="padding-left: 30px">登录Bithome</div>
         <div class="center">
             <form id="indexLoginForm" action="/user/login.html" method="post">
                 <p class="c_red f12 tac message" id="indexLoginTips1" style="margin-top: 10px;line-height:20px;height:20px;"></p>

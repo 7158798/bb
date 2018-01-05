@@ -3,7 +3,7 @@
 <div class="footer" id="footer">
     <div class="information clear">
         <div class="help fl">
-            <ul>
+           <%-- <ul>
                 <li class="fir">
                     <a href="javascript:void(0)">关于我们</a>
                 </li>
@@ -19,25 +19,27 @@
                 <li>
                     <a href="/about/contact.html">联系我们</a>
                 </li>
-            </ul>
+            </ul>--%>
             <ul>
-                <li class="fir">
+               <%-- <li class="fir">
                     <a href="javascript:void(0)">新手帮助</a>
-                </li>
+                </li>--%>
                 <li class="">
                     <a href="${requestScope.constant['footerArticle1']}">充值提现</a>
                 </li>
                 <li class="">
                     <a href="${requestScope.constant['footerArticle2']}">充币提币</a>
                 </li>
-                <li>
-                    <a href="${requestScope.constant['footerArticle3']}">交易规则</a>
-                </li>
-                <li>
-                    <a href="${requestScope.constant['footerArticle4']}">用户协议</a>
-                </li>
             </ul>
-            <ul class="">
+               <ul>
+                   <li>
+                       <a href="${requestScope.constant['footerArticle3']}">交易规则</a>
+                   </li>
+                   <li>
+                       <a href="${requestScope.constant['footerArticle4']}">用户协议</a>
+                   </li>
+               </ul>
+           <%-- <ul class="">
                 <li class="fir">
                     <a href="javascript:void(0)">商务合作</a>
                 </li>
@@ -54,37 +56,41 @@
                     <a href="${requestScope.constant['footerArticle8']}">英才招募</a>
                 </li>
 
-            </ul>
+            </ul>--%>
             <ul class="last">
-                <li class="fir">
+                <%--<li class="fir">
                     <a href="javascript:void(0)">联系我们</a>
-                </li>
+                </li>--%>
                 <li class="">
                     <a href="javascript:void(0)">客服QQ：${requestScope.constant['serviceQQ']}</a>
                 </li>
                 <li class="">
-                    <a href="javascript:void(0)">客服电话：${requestScope.constant['telephone']}</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)" target="_blank">工作时间：周一至周五 早9点半-晚6点</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">集团邮箱：${requestScope.constant['email']}</a>
+                    <a href="javascript:void(0)">商务邮箱：${requestScope.constant['telephone']}</a>
                 </li>
 
+               <%-- <li>
+                    <a href="javascript:void(0)">集团邮箱：${requestScope.constant['email']}</a>
+                </li>--%>
+
             </ul>
+
+               <ul class="last">
+                   <li>
+                       <a href="javascript:void(0)" target="_blank">工作时间：09:00-18:00</a>
+                   </li>
+               </ul>
         </div>
-        <div class="contact fr clear">
+       <%-- <div class="contact fr clear">
             <div class="group_wrapper fl">
                 <img src="${resources}/static/images/index/weixin.jpg" alt="比特家微信公众号 " width="105" height="105" titlte="招股微信" />
             </div>
-        </div>
+        </div>--%>
     </div>
     <div class="copyright">${requestScope.constant['webinfo'].fcopyRights }</div>
-    <div class="change_to_mobile dn" id="change_to_mobile">
+    <%--<div class="change_to_mobile dn" id="change_to_mobile">
         <i class="iconfont db fl">&#xe646;</i>
         <span class="db fl">进入手机版</span>
-    </div>
+    </div>--%>
     <div class="tools dn" id="tools">
         <ul class="tool">
             <%--<li class="show_title" style="background-position:7px -249px;">
@@ -175,15 +181,15 @@
 </script>
 <style>a[title="站长统计"]{display: none;}</style>
 <script src="//s11.cnzz.com/z_stat.php?id=1257639174&web_id=1257639174" language="JavaScript"></script>
-<div class="footer_safe">
-    <a href="http://www.12377.cn/" target="_blank" class="icon fir"></a>
-    <a target="_blank" href="http://webscan.360.cn/index/checkwebsite/url/www.btc58.cc" class="icon s360"></a>
-    <a target="_blank" href="http://www.cyberpolice.cn/wfjb/" class="icon sec"></a>
-    <!--可信网站图片LOGO安装开始-->
-    <span style="display:inline-block;position:relative;width:auto;">
-        <a href="https://ss.knet.cn/verifyseal.dll?sn=e17022244030066726oe9m000000&amp;ct=df&amp;a=1&amp;pa=0.02793734461092079" id="kx_verify" tabindex="-1" target="_blank" kx_type="图标式" style="display:inline-block;">
-            <img src="//zhgtrade.oss-cn-qingdao.aliyuncs.com/img/knet/cnnic.png" style="border:none;" oncontextmenu="return false;" alt="可信网站">
-        </a>
-    </span>
-    <!--可信网站图片LOGO安装结束-->
-</div>
+<%--<div class="footer_safe">--%>
+    <%--<a href="http://www.12377.cn/" target="_blank" class="icon fir"></a>--%>
+    <%--<a target="_blank" href="http://webscan.360.cn/index/checkwebsite/url/www.btc58.cc" class="icon s360"></a>--%>
+    <%--<a target="_blank" href="http://www.cyberpolice.cn/wfjb/" class="icon sec"></a>--%>
+    <%--<!--可信网站图片LOGO安装开始-->--%>
+    <%--<span style="display:inline-block;position:relative;width:auto;">--%>
+        <%--<a href="https://ss.knet.cn/verifyseal.dll?sn=e17022244030066726oe9m000000&amp;ct=df&amp;a=1&amp;pa=0.02793734461092079" id="kx_verify" tabindex="-1" target="_blank" kx_type="图标式" style="display:inline-block;">--%>
+            <%--<img src="//zhgtrade.oss-cn-qingdao.aliyuncs.com/img/knet/cnnic.png" style="border:none;" oncontextmenu="return false;" alt="可信网站">--%>
+        <%--</a>--%>
+    <%--</span>--%>
+    <%--<!--可信网站图片LOGO安装结束-->--%>
+<%--</div>--%>

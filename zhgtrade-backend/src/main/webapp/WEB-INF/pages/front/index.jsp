@@ -97,7 +97,7 @@
 				<div class="dzbg"></div>
 					<div class="dz">
 						<div id="deng">
-							<div class="deng">登录本站 </div>
+							<div class="deng">登录Bithome</div>
 							<div class="deng">
 								<label for="textfield"></label> <input name="indexLoginName"
 									placeholder="请输入邮箱地址" type="text" onfocus="javascript:indexLoginNameOnfocus();" onblur="indexLoginNameOnblur(this)" onkeydown="javascript:clearTig(this)" onkeyup="javascript:emailOnkeyUp(this);" class="wenben" id="indexLoginName" />

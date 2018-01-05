@@ -85,7 +85,7 @@
                         <li class="fl li_separator"></li>
                         <li id="bank_li" data-index="2" class="db fl f16 fb <c:if test="${2 == type}">cur</c:if>"><a data-pjax="#container" href="/account/chargermb.html?type=2">手动银行卡充值</a></li>
                         <li class="fl li_separator"></li>
-                        <li data-index="3" class="db fl f16 fb <c:if test="${3 == type}">cur</c:if>"><a data-pjax="#container" href="/account/chargermb.html?type=3">众创园转账</a></li>
+                        <li data-index="3" class="db fl f16 fb <c:if test="${3 == type}">cur</c:if>"><a data-pjax="#container" href="/account/chargermb.html?type=3">Bithome转账</a></li>
                     </ul>
                 </div>
                 <input type="hidden" id="minMoney" value="<fmt:formatNumber value="${minRecharge}" pattern="#.##" />" />
@@ -220,7 +220,7 @@
                         </p>
                         <a id="ali_fir_confirm" href="javascript:void(0);" class="tm_confirm" >确认充值</a>
                         <input type="hidden" value="6" name="type" id="ali_finType">
-                        <%--<p class="tm_info ">新用户可以前往众创园注册用户并绑定比特家用户，在线充值后，提现到比特家平台。<a href="/guide/article.html?id=34&currentPage=1&pageIndex=5" target="_blank" class="c_blue">在线充值教程链接</a></p>--%>
+                        <%--<p class="tm_info ">新用户可以前往Bithome注册用户并绑定比特家用户，在线充值后，提现到比特家平台。<a href="/guide/article.html?id=34&currentPage=1&pageIndex=5" target="_blank" class="c_blue">在线充值教程链接</a></p>--%>
                         <div class="info f12 mt20">
                             <p class="pl40 c_gray" style="line-height: 20px;height: 20px;margin-top: 0px;">温馨提示：</p>
                             <p class="pl40 c_gray pr40" style="line-height: 20px;height: 20px;margin-top: 0px;">
@@ -308,7 +308,7 @@
                         </p>
                         <a id="fir_confirm" href="javascript:void(0);" class="tm_confirm" >确认充值</a>
                         <input type="hidden" value="4" name="type" id="finType">
-                        <%--<p class="tm_info ">新用户可以前往众创园注册用户并绑定比特家用户，在线充值后，提现到比特家平台。<a href="/guide/article.html?id=34&currentPage=1&pageIndex=5" target="_blank" class="c_blue">在线充值教程链接</a></p>--%>
+                        <%--<p class="tm_info ">新用户可以前往Bithome注册用户并绑定比特家用户，在线充值后，提现到比特家平台。<a href="/guide/article.html?id=34&currentPage=1&pageIndex=5" target="_blank" class="c_blue">在线充值教程链接</a></p>--%>
                         <div class="info f12 mt20">
                             <p class="pl40 c_gray" style="line-height: 20px;height: 20px;margin-top: 0px;">温馨提示：</p>
                             <p class="pl40 c_gray pr40" style="line-height: 20px;height: 20px;margin-top: 0px;">
@@ -329,7 +329,7 @@
                     <%--<div class="tm_account <c:if test="${3 != type}">dn</c:if>">
                         <p class="tm_money ml40">
                             <span class="db fl f14">跳转到： </span>
-                            <a target="_blank" href="http://www.zcfunding.com/index.php?ctl=transfer" class="c_blue f14">众创园</a>
+                            <a target="_blank" href="http://www.zcfunding.com/index.php?ctl=transfer" class="c_blue f14">Bithome</a>
                         </p>
                     </div>--%>
                     <!-- 支付宝结果 -->

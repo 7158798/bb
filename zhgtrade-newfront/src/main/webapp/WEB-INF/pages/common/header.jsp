@@ -22,7 +22,7 @@
         <div class="info">
             <%--<input type="hidden" id="forward_url" value="${sessionScope.forward_url}">--%>
             <div class="phone fl">
-                <i class="iconfont" style="width: 20px;display: inline-block">&#xe603;</i> <span>客服热线</span> <span>${requestScope.constant['telephone']}</span>
+                <i class="iconfont" style="width: 20px;display: inline-block">&#xe632;</i> <span>服务邮箱</span> <span>${requestScope.constant['telephone']}</span>
             </div>
             <div class="fl qq_line" id="qq">
                 <a href="http://wpa.qq.com/msgrd?v=3&uin=${requestScope.constant['serviceQQ']}&site=qq&menu=yes" target="_blank">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="fl worktime pl40">
-                <span>工作时间：9:30 - 18:00</span>
+                <span>工作时间：9:00 - 18:00</span>
             </div>
             <div class="login_reg fr">
                 <%--<!-- 用户登录后 -->--%>
@@ -95,7 +95,7 @@
                         </a>
                     </div>
                     <div class="reg fl">
-                        <a href="/user/to_reg.html" class="db fl" title="注册"> <i class="iconfont">&#xe606;</i><span>注册</span>
+                        <a href="/user/reg.html" class="db fl" title="注册"> <i class="iconfont">&#xe606;</i><span>注册</span>
                         </a>
                     </div>
                 </div>

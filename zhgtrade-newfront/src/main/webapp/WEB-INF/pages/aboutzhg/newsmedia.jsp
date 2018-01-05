@@ -132,7 +132,7 @@
                     <img src="${resources}/static/images/aboutzhg/newsmedis/6.jpg" width="380" height="220">
                     <div class="project_info">
                         <div>
-                            <p>币圈再现劲旅 众创园卧虎藏龙</p>
+                            <p>币圈再现劲旅 Bithome卧虎藏龙</p>
                         </div>
                     </div>
                 </a>
@@ -145,7 +145,7 @@
                     <img src="${resources}/static/images/aboutzhg/newsmedis/7.jpg" width="380" height="220">
                     <div class="project_info">
                         <div>
-                            <p>“众创园”开辟互联网金融新领域</p>
+                            <p>“Bithome”开辟互联网金融新领域</p>
                         </div>
                     </div>
                 </a>

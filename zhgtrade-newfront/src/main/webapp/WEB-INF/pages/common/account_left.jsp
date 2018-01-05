@@ -112,12 +112,12 @@
 				<span class="pl10 db tac f14">消息中心</span>
 			</a>
 		</dd>
-		<dd <c:if test="${'18' == dd_index}">class="cur"</c:if>>
+		<%--<dd <c:if test="${'18' == dd_index}">class="cur"</c:if>>
 			<a href="/account/api.html">
-				<%--<i class="icon icon_3_3 db fl"></i>--%>
+				&lt;%&ndash;<i class="icon icon_3_3 db fl"></i>&ndash;%&gt;
 				<span class="pl10 db tac f14">API申请</span>
 			</a>
-		</dd>
+		</dd>--%>
 		<!-- 我的收藏开始 -->
 		<dt <c:if test="${'4' == dt_index}">class="cur"</c:if>>
 			<i class="icon icon_4 fl db"></i>
