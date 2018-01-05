@@ -23,25 +23,23 @@
 //import java.util.Calendar;
 //
 //public class RobotDealGenerating implements Runnable {
-
+//
 //	@SuppressWarnings("unused")
 //	private static final Logger log = LoggerFactory.getLogger(RobotDealGenerating.class);
 //
 //	private RealTimeData realTimeData;
 //	private FrontTradeService frontTradeService;
 //	private FrontVirtualCoinService frontVirtualCoinService;
-//	private FrontTradeJsonController frontTradeJsonController;
 //	private FrontUserService frontUserService;
 //	private RobotParser parser;
 //	private final Fvirtualcointype fvirtualcointype;
 //
-//	public RobotDealGenerating(RealTimeData realTimeData, FrontTradeService frontTradeService, FrontVirtualCoinService frontVirtualCoinService, FrontTradeJsonController frontTradeJsonController,
+//	public RobotDealGenerating(RealTimeData realTimeData, FrontTradeService frontTradeService, FrontVirtualCoinService frontVirtualCoinService ,
 //			FrontUserService frontUserService, RobotParser parser, Fvirtualcointype fvirtualcointype) {
 //		super();
 //		this.realTimeData = realTimeData;
 //		this.frontTradeService = frontTradeService;
 //		this.frontVirtualCoinService = frontVirtualCoinService;
-//		this.frontTradeJsonController = frontTradeJsonController;
 //		this.frontUserService = frontUserService;
 //		this.parser = parser;
 //		this.fvirtualcointype = fvirtualcointype;
@@ -199,19 +197,6 @@
 //			return null;
 //		}
 //
-//		Flimittrade limittrade = frontTradeJsonController.isLimitTrade(fvirtualcointype.getFid());
-//		double upPrice = 0d;
-//		double downPrice = 0d;
-//		if (limittrade != null) {
-//			upPrice = limittrade.getFupprice();
-//			downPrice = limittrade.getFdownprice();
-//			if (downPrice < 0)
-//				downPrice = 0;
-//			if (tradeCnyPrice > upPrice || tradeCnyPrice < downPrice) {
-//				return null;
-//			}
-//		}
-//
 //		if (tradeAmount < 0.0001D) {
 //			return null;
 //		}
@@ -224,7 +209,6 @@
 //		try {
 //			if (entrustType == EntrustTypeEnum.BUY) {
 //				System.out.println("委托买入挂单：挂单种类：" + symbol);
-//
 //				Fentrust buyFentrust = frontTradeService.updateEntrustBuy(symbol, tradeAmount, tradeCnyPrice, fuser, limited == 1, robotStatus, null);
 //				frontTradeService.sentToMongoAndMQBuy(limited == 1, symbol, buyFentrust);
 //				return buyFentrust;

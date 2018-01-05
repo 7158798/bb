@@ -4,6 +4,7 @@
 //import java.util.concurrent.ExecutorService;
 //import java.util.concurrent.TimeUnit;
 //
+//import com.ruizton.util.Constants;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,6 @@
 //import com.ruizton.main.Enum.EntrustRobotStatusEnum;
 //import com.ruizton.main.Enum.EntrustTypeEnum;
 //import com.ruizton.main.Enum.VirtualCoinTypeStatusEnum;
-//import com.ruizton.main.dto.Constants;
 //import com.ruizton.main.dto.FentrustData;
 //import com.ruizton.main.model.Fvirtualcointype;
 //import com.ruizton.main.service.BaseService;

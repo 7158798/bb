@@ -6,7 +6,6 @@
 //import com.ruizton.main.Enum.EntrustStatusEnum;
 //import com.ruizton.main.Enum.EntrustTypeEnum;
 //import com.ruizton.main.Enum.VirtualCoinTypeStatusEnum;
-//import com.ruizton.main.controller.front.FrontTradeJsonController;
 //import com.ruizton.main.model.*;
 //import com.ruizton.main.service.front.FrontTradeService;
 //import com.ruizton.main.service.front.FrontUserService;
@@ -38,8 +37,6 @@
 //	private FrontTradeService frontTradeService;
 //	@Autowired
 //	private FrontVirtualCoinService frontVirtualCoinService;
-//	@Autowired
-//	private FrontTradeJsonController frontTradeJsonController;
 //	@Autowired
 //	private FrontUserService frontUserService;
 //	@Autowired
@@ -231,20 +228,6 @@
 //		if (fvirtualcointype == null || !fvirtualcointype.isFisShare() || fvirtualcointype.getFstatus() == VirtualCoinTypeStatusEnum.Abnormal) {
 //			return null;
 //		}
-//
-//		Flimittrade limittrade = frontTradeJsonController.isLimitTrade(fvirtualcointype.getFid());
-//		double upPrice = 0d;
-//		double downPrice = 0d;
-//		if (limittrade != null) {
-//			upPrice = limittrade.getFupprice();
-//			downPrice = limittrade.getFdownprice();
-//			if (downPrice < 0)
-//				downPrice = 0;
-//			if (tradeCnyPrice > upPrice || tradeCnyPrice < downPrice) {
-//				return null;
-//			}
-//		}
-//
 //		if (tradeAmount < 0.0001D) {
 //			return null;
 //		}

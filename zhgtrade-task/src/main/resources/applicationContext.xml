@@ -53,6 +53,8 @@
 	<context:component-scan base-package="com.ruizton.util" />
 	<context:component-scan base-package="com.zhgtrade.auto.task" />
 
+	<bean class="com.ruizton.main.auto.AutoEntrust"></bean>
+
 	<bean class="com.ruizton.util.SpringContextUtils"/>
 
 	<bean class="java.util.concurrent.Executors" factory-method="newFixedThreadPool">

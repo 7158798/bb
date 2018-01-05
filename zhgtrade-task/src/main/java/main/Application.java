@@ -1,5 +1,6 @@
 package main;
 
+import com.ruizton.main.auto.AutoEntrust;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -25,6 +26,8 @@ public class Application {
 //            for (String bean : beans) {
 //                System.out.println(bean);
 //            }
+            AutoEntrust autoEntrust = context.getBean(AutoEntrust.class);
+            autoEntrust.init();
             System.out.println("started!");
             logger.info("start task application successful " + (System.currentTimeMillis() - beginTime) + "ms");
         } catch (Exception e) {
