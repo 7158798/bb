@@ -42,12 +42,12 @@
         </div>
     </c:forEach>
     <div class="menu <c:if test='${nav_name==1}'> bt1 cur</c:if>">
-    <li class="level1">
+    <%--<li class="level1">
         <a href="/guide/api.html">
             <span>API</span>
             <i class="dn iconfont c_blue fl">&#xe60c;</i>
         </a>
-    </li>
+    </li>--%>
     </div>
     <div class="search">
         <input type="text" class="db fl" name="keyword" value="${fn:escapeXml(keyword)}" placeholder="搜索" />

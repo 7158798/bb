@@ -95,7 +95,7 @@
                         </a>
                     </div>
                     <div class="reg fl">
-                        <a href="/user/to_reg.html" class="db fl" title="注册"> <i class="iconfont">&#xe606;</i><span>注册</span>
+                        <a href="/user/reg.html" class="db fl" title="注册"> <i class="iconfont">&#xe606;</i><span>注册</span>
                         </a>
                     </div>
                 </div>

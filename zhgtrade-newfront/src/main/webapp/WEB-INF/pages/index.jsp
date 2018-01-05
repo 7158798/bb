@@ -52,7 +52,7 @@
                 <c:out value="bigImage${i}"></c:out>
             </c:set>
             <c:if test="${!empty requestScope.constant[key] and requestScope.constant[key] != '#'}">
-                <div class="item hand <c:choose><c:when test="${first_index == s.index}">active</c:when><c:otherwise>dn</c:otherwise></c:choose>" style="background-image: url(${cdn}${requestScope.constant[key]});"></div>
+                <div class="item hand <c:choose><c:when test="${first_index == s.index}">active</c:when><c:otherwise>dn</c:otherwise></c:choose>" style="background-image: linear-gradient(-180deg, #1a1454 0%, #0e81a5 100%);"></div>
             </c:if>
         </c:forEach>
     </div>

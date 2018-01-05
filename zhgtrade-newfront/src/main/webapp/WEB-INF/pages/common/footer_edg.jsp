@@ -87,10 +87,10 @@
         </div>--%>
     </div>
     <div class="copyright">${requestScope.constant['webinfo'].fcopyRights }</div>
-    <div class="change_to_mobile dn" id="change_to_mobile">
+    <%--<div class="change_to_mobile dn" id="change_to_mobile">
         <i class="iconfont db fl">&#xe646;</i>
         <span class="db fl">进入手机版</span>
-    </div>
+    </div>--%>
     <div class="tools dn" id="tools">
         <ul class="tool">
             <%--<li class="show_title" style="background-position:7px -249px;">
@@ -181,15 +181,15 @@
 </script>
 <style>a[title="站长统计"]{display: none;}</style>
 <script src="//s11.cnzz.com/z_stat.php?id=1257639174&web_id=1257639174" language="JavaScript"></script>
-<div class="footer_safe">
-    <a href="http://www.12377.cn/" target="_blank" class="icon fir"></a>
-    <a target="_blank" href="http://webscan.360.cn/index/checkwebsite/url/www.btc58.cc" class="icon s360"></a>
-    <a target="_blank" href="http://www.cyberpolice.cn/wfjb/" class="icon sec"></a>
-    <!--可信网站图片LOGO安装开始-->
-    <span style="display:inline-block;position:relative;width:auto;">
-        <a href="https://ss.knet.cn/verifyseal.dll?sn=e17022244030066726oe9m000000&amp;ct=df&amp;a=1&amp;pa=0.02793734461092079" id="kx_verify" tabindex="-1" target="_blank" kx_type="图标式" style="display:inline-block;">
-            <img src="//zhgtrade.oss-cn-qingdao.aliyuncs.com/img/knet/cnnic.png" style="border:none;" oncontextmenu="return false;" alt="可信网站">
-        </a>
-    </span>
-    <!--可信网站图片LOGO安装结束-->
-</div>
+<%--<div class="footer_safe">--%>
+    <%--<a href="http://www.12377.cn/" target="_blank" class="icon fir"></a>--%>
+    <%--<a target="_blank" href="http://webscan.360.cn/index/checkwebsite/url/www.btc58.cc" class="icon s360"></a>--%>
+    <%--<a target="_blank" href="http://www.cyberpolice.cn/wfjb/" class="icon sec"></a>--%>
+    <%--<!--可信网站图片LOGO安装开始-->--%>
+    <%--<span style="display:inline-block;position:relative;width:auto;">--%>
+        <%--<a href="https://ss.knet.cn/verifyseal.dll?sn=e17022244030066726oe9m000000&amp;ct=df&amp;a=1&amp;pa=0.02793734461092079" id="kx_verify" tabindex="-1" target="_blank" kx_type="图标式" style="display:inline-block;">--%>
+            <%--<img src="//zhgtrade.oss-cn-qingdao.aliyuncs.com/img/knet/cnnic.png" style="border:none;" oncontextmenu="return false;" alt="可信网站">--%>
+        <%--</a>--%>
+    <%--</span>--%>
+    <%--<!--可信网站图片LOGO安装结束-->--%>
+<%--</div>--%>
