@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: sunpeng
@@ -5,44 +6,30 @@
   Time: 15:33
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"  %>
 <link rel="stylesheet" href="${resources}/static/css/chat.css"/>
 <div class="chat-div" id="chatRoom" style="display: none">
-    <div style="    margin-left: 43%;color: #0AD5C1;font-size: 17px;" >聊天室
-        <span style="margin-left: 150px;cursor: pointer;color: red;" onclick="closeRoom()">关闭</span>
+    <div style="    margin-left: 0%;color: #08a3d7;font-size: 17px;" >
+        <span>聊天室</span>
+        <span style="float:right;margin-right: 10px;cursor: pointer;color: #08a3d7;" onclick="closeRoom()">关闭</span>
     </div>
-    <ul class="chat-thread" id="content">
-        <%--<li>Are we meeting today?</li>--%>
-        <%--<li>yes, what time suits you?</li>--%>
-        <%--<li>I was thinking after lunch, I have a meeting in the morning</li>--%>
-        <%--<li>Are we meeting today?</li>--%>
-        <%--<li>yes, what time suits you?</li>--%>
-        <%--<li>I was thinking after lunch, I have a meeting in the morning</li>--%>
-        <%--<li>Are we meeting today?</li>--%>
-        <%--<li>yes, what time suits you?</li>--%>
-        <%--<li>I was thinking after lunch, I have a meeting in the morning</li>--%>
-        <%--<li>Are we meeting today?</li>--%>
-        <%--<li>yes, what time suits you?</li>--%>
-        <%--<li>I was thinking after lunch, I have a meeting in the morning</li>--%>
+    <ul class="chat-thread" id="content11">
     </ul>
-    <div style="height: 8%">
-        <textarea  id="chatContent" class="chat_conten_style" ></textarea>
-        <div class="send_style" onclick="send()">发送</div>
+    <div style="height: 27px;width: 103%">
+        <input type="text" id="chatContent" class="chat_conten_style"/>
+        <div class="send_style" onclick="send()">
+            <div style="color: white;font-size: 16px;margin-left: 10px;margin-top: 5px" >发送</div>
+        </div>
     </div>
 </div>
-
-<%--<div  id="showRoom"  style="position: fixed;bottom: 5px;right: 2px;width: 75px;height: 30px;background-color: #269abc;">--%>
-    <%--聊天室--%>
-<%--</div>--%>
-
-<%--<button id="showRoom"  style="position: fixed;bottom: 5px;right: 2px;width: 75px;height: 30px;background-color: #269abc;">聊天室</button>--%>
 
 <script>
     //页面一加载
     $(function() {
         $("#showRoom").click(function () {
             $("#chatRoom").show();
-            $('#content').scrollTop($('#content')[0].scrollHeight + 30);
+            $("#chatContent").focus();
+            $('#content11').scrollTop($('#content11')[0].scrollHeight + 30);
         });
         connect();
 
@@ -57,14 +44,15 @@
         $("#chatRoom").hide();
     }
     function initMessage() {
-        $.get("http://118.190.132.141:1000/getMessage",function (data) {
+//        $.get("http://118.190.132.141:1000/getMessage",function (data) {
+        $.get("http://60.205.211.129:1000/getMessage",function (data) {
             var html = "";
             for (var i = 0; i < data.length; i++) {
 
-                html += "<li>" +data[i].name+": " +data[i].message + "</li>";
+                html += "<li> <div class='name'>" +data[i].date.toString().substring(11,19) +" " +data[i].name+ "</div> <div class='message'>" +data[i].message + "</div></li>";
             }
-            $("#content").html(html);
-            $('#content').scrollTop( $('#content')[0].scrollHeight + 30 );
+            $("#content11").html(html);
+            $('#content11').scrollTop( $('#content11')[0].scrollHeight + 30 );
         });
 
     }
@@ -73,7 +61,8 @@
     function connect() {
         //判断当前浏览器是否支持WebSocket
         if('WebSocket' in window){
-            websocket = new WebSocket("ws://118.190.132.141:1000/websocket");
+//            websocket = new WebSocket("ws://118.190.132.141:1000/websocket");
+            websocket = new WebSocket("ws://60.205.211.129:1000/websocket");
         }
         else{
             alert('Not support websocket')
@@ -106,18 +95,11 @@
 
     //将消息显示在网页上
     function setMessageInnerHTML(message){
-        var html ="";
-        var $loginedBar = $('#userInfoBar');
-        var id = $loginedBar.find('span[name="userId"]').text();
-//        if(id.toString() == message.toString().split(":")[1]){
-//            html =  "<li class='your'>" + message + "</li>"
-//        }else {
-//            html =  "<li class='other'>" + message + "</li>"
-//        }
-
-        html =  "<li>" + message + "</li>"
-        document.getElementById('content').innerHTML= document.getElementById('content').innerHTML +html ;
-        $('#content').scrollTop( $('#content')[0].scrollHeight + 30 );
+        var html;
+        var mes = message.toString().split("$");
+        html =  "<li> <div class='name'>"+mes[2] +"  "+mes[0] +"</div> <div class='message'>" +mes[1] + "</div></li>"
+        document.getElementById('content11').innerHTML= document.getElementById('content11').innerHTML +html ;
+        $('#content11').scrollTop( $('#content11')[0].scrollHeight + 30 );
     }
 
     //发送消息

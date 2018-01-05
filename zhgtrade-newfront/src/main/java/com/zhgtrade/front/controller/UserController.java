@@ -420,7 +420,8 @@ public class UserController extends BaseController {
      */
     @RequestMapping(value = "/to_reg", method = RequestMethod.GET)
     public String toRegister() {
-        return "user/register_risk";
+//        return "user/register_risk";
+        return "user/register";
     }
 
     /**

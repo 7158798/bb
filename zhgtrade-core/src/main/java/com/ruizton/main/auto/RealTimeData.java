@@ -1,9 +1,16 @@
 package com.ruizton.main.auto;
 
+import com.alibaba.fastjson.JSONArray;
+import com.ruizton.main.Enum.EntrustRobotStatusEnum;
 import com.ruizton.main.cache.data.RealTimeDataService;
 import com.ruizton.main.dto.FentrustData;
 import com.ruizton.main.model.Fentrust;
+import com.ruizton.util.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.TreeSet;
 
 //实时数据
 public class RealTimeData {

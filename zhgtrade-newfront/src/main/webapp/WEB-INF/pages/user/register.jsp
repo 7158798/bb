@@ -68,15 +68,15 @@
 							<span class="c_gray"></span>
 						</span>
 					</p>
-					<%--<p class="mt20">
+					<p class="mt20">
 						<span class="db fl fir">邀请码：</span>
 						<input data-isyes="1" id="cell_invite_code" name="inviteCode" type="text" class="db fl" value="${intro}"/>
 						<span class="info f12 db fl ml10">
 							<i class="iconfont"></i>
 							<span class="c_gray"></span>
 						</span>
-					</p>--%>
-					<input data-isyes="1" id="cell_invite_code" type="hidden" name="inviteCode" class="db fl" value="${intro}" />
+					</p>
+					<%--<input data-isyes="1" id="cell_invite_code" type="hidden" name="inviteCode" class="db fl" value="${intro}" />--%>
 					<p class="mt20">
 						<span class="db fl fir"><span class="c_red">*  </span>短信验证码：</span>
 						<input id="cell_vetify_code" name="vetifyCode" type="text" class="db fl" require="true" data-name="验证码" data-min="4" data-max="6" onkeydown="onEnterClick('mobile_submit_btn');" />
