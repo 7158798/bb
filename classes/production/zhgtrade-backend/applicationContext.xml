@@ -313,16 +313,16 @@
 	<!--<bean class="com.ruizton.main.auto.AutoDealingOneDayData" scope="singleton" init-method="init"></bean>-->
 	<!--<bean class="com.ruizton.main.auto.AutoDealMaking" scope="singleton" init-method="init"></bean>-->
 	<!--<bean class="com.ruizton.main.auto.AutoDealGenerating" scope="singleton" init-method="init"></bean>-->
-	<!--<bean class="com.ruizton.main.auto.AutoEntrust" scope="singleton" init-method="init"></bean>-->
+	<bean class="com.ruizton.main.auto.AutoEntrust" scope="singleton" init-method="init"></bean>
 	<!-- 交易量 -->
-	<bean class="com.ruizton.main.auto.OneDayData" scope="singleton"></bean>
+	<!--<bean class="com.ruizton.main.auto.OneDayData" scope="singleton"></bean>-->
 	<!--<bean class="com.ruizton.util.AutoFentrustSubscription" scope="singleton"></bean>-->
 	<!--<bean class="com.ruizton.util.AutoCancelFentrust" scope="singleton"></bean>-->
 	<!--<bean class="com.ruizton.util.HedgingUtils" scope="singleton"></bean>-->
 	<!-- k线图数据 -->
-	<bean class="com.ruizton.main.auto.KlinePeriodData" scope="singleton" init-method="init"></bean>
+	<!--<bean class="com.ruizton.main.auto.KlinePeriodData" scope="singleton" init-method="init"></bean>-->
 	<!-- 用户同步 -->
-	<bean class="com.ruizton.util.UserSyn" scope="singleton"></bean>
+	<!--<bean class="com.ruizton.util.UserSyn" scope="singleton"></bean>-->
 	
 		<!-- 爆米花 -->
 <!-- 	<bean class="com.ruizton.main.auto.AutoPopcorn" scope="singleton"></bean> -->

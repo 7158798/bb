@@ -1,6 +1,16 @@
 package main;
 
+import com.alibaba.druid.support.http.WebStatFilter;
 import com.zhgtrade.deal.core.MessageCenter;
+import com.zhgtrade.deal.http.RpcServlet;
+import org.eclipse.jetty.server.Connector;
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
+import org.eclipse.jetty.server.handler.HandlerCollection;
+import org.eclipse.jetty.servlet.FilterHolder;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -64,6 +74,31 @@ public class AppServer {
         messageCenter.init();
 
 //        server.getClass().getMethod("join").invoke(server);
+
+
+        ServletContextHandler servletContext = new ServletContextHandler();
+        servletContext.setContextPath("/");
+
+        Server server = new Server();
+        ServerConnector connector = new ServerConnector(server);
+        connector.setPort(1001);
+        server.setConnectors(new Connector[] { connector });
+        HandlerCollection handlerCollection = new HandlerCollection();
+
+        ServletContextHandler springMvcHandler = new ServletContextHandler();
+        springMvcHandler.setContextPath("/");
+        springMvcHandler.addServlet(new ServletHolder("rpc-servlet", RpcServlet.class), "/*");
+        // WEB监控
+        FilterHolder webStatFilter = new FilterHolder(new WebStatFilter());
+        webStatFilter.setInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+        springMvcHandler.addFilter(webStatFilter, "/*", null);
+
+        handlerCollection.setHandlers(new Handler[]{springMvcHandler});
+
+        server.setHandler(handlerCollection);
+
+        server.start();
+        server.join();
 
     }
 
