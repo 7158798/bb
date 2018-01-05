@@ -92,7 +92,7 @@
 <%--<!-- 未登录 -->--%>
 <div id="unloginBox" class="center_page login_relative logined_box dn">
     <div class="login_wrapper f16" style="height: 210px;" id="index_login_wrapper1">
-        <div class="top pl20" style="padding-left: 30px">登录本站</div>
+        <div class="top pl20" style="padding-left: 30px">登录Bithome</div>
         <div class="center">
             <form id="indexLoginForm" action="/user/login.html" method="post">
                 <p class="c_red f12 tac message" id="indexLoginTips1" style="margin-top: 10px;line-height:20px;height:20px;"></p>
