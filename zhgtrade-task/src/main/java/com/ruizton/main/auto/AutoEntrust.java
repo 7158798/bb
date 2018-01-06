@@ -4,6 +4,7 @@ import antlr.collections.impl.LList;
 import com.ruizton.main.Enum.EntrustRobotStatusEnum;
 import com.ruizton.main.Enum.EntrustTypeEnum;
 import com.ruizton.main.Enum.VirtualCoinTypeStatusEnum;
+import com.ruizton.main.cache.data.RealTimeDataService;
 import com.ruizton.main.cache.data.impl.RealTimeEntrustDepthServiceImpl;
 import com.ruizton.main.model.Fentrust;
 import com.ruizton.main.model.Fuser;
@@ -13,10 +14,7 @@ import com.ruizton.main.service.front.FrontTradeService;
 import com.ruizton.main.service.front.FrontUserService;
 import com.ruizton.main.service.front.FrontVirtualCoinService;
 import com.ruizton.main.service.front.MarketService;
-import com.ruizton.util.HttpUtils;
-import com.ruizton.util.MathUtils;
-import com.ruizton.util.RobotParser;
-import com.ruizton.util.Utils;
+import com.ruizton.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +44,9 @@ public class AutoEntrust {
 
 	@Autowired
 	private RealTimeEntrustDepthServiceImpl realTimeEntrustDepthService;
+
+	@Autowired
+	private RealTimeDataService realTimeDataService;
 
 	private boolean isUpdateCancel = false;
 
@@ -82,12 +83,16 @@ public class AutoEntrust {
 				}else{
 
 					if(!isUpdateCancel){//取消所有未成交的robotStatus=2的挂单
-						List<Fvirtualcointype> list = frontVirtualCoinService.findFvirtualCoinType(VirtualCoinTypeStatusEnum.Normal);
-						for(Fvirtualcointype fvirtualcointype : list){
-							int vid = fvirtualcointype.getFid();
-//							realTimeData.updateCancleBuyEntrust(vid, EntrustRobotStatusEnum.Robot2);
-//							realTimeData.updateCancleSellEntrust(vid, EntrustRobotStatusEnum.Robot2);
+						List<Market> markets = marketService.findByStatus(1);
+						Fuser fuser = frontUserService.findById(3699) ;
+
+						//
+						List<Fentrust> fentrusts = frontTradeService.findByUserId(3699);
+						for (Fentrust fentrust : fentrusts){
+							frontTradeService.updateCancelFentrust(fentrust,fuser);
+							realTimeDataService.removeEntrustBuyMap(fentrust.getMarket().getId(), fentrust);
 						}
+
 						isUpdateCancel =  true;
 					}
 
@@ -101,18 +106,6 @@ public class AutoEntrust {
 			}
 		}
 
-	}
-	public static Map<String, Object> beanToMap(Fentrust fentrust) {
-		Map<String, Object> params = new HashMap<>();
-		try {
-			params.put("status",fentrust.getFstatus());
-			params.put("prize",fentrust.getFprize());
-			params.put("leftCount",fentrust.getFleftCount());
-			params.put("amount",fentrust.getFamount());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return params;
 	}
 
 	private Map<String, Object> getMap(int id, int status, double prize , double leftCount, double amount , int type){
@@ -130,54 +123,48 @@ public class AutoEntrust {
 
 		try{
 
-			List<Market> markets = marketService.findAll();
+			List<Market> markets = marketService.findByStatus(1);
 			for (Market market : markets){
-
-//			}
-
-//			List<Fvirtualcointype> list = frontVirtualCoinService.findFvirtualCoinType(VirtualCoinTypeStatusEnum.Normal);
-//			for(Fvirtualcointype fvirtualcointype : list){
-//				int vid = fvirtualcointype.getFid();
 				int vid = market.getId();
 				double highestBuyPrice = realTimeEntrustDepthService.getHighestBuyPrizeExceptRobot(vid) - 0.0001D;
 				double lowestSellPrice = realTimeEntrustDepthService.getLowestSellPrizeExceptRobot(vid) + 0.0001D;
 				double latest20BuyPrice = realTimeEntrustDepthService.getLastestNBuyPrice(vid,10);
 				double latest20SellPrice = realTimeEntrustDepthService.getLastestNSellPrice(vid,10);
 
-
 				int N = (int) (Math.random()*10);
-				//ArrayList<Fentrust> sellEntrusts = new ArrayList<Fentrust>();
 				for(int i=0; i<N; i++){
 					double sellPrice = getPriceBiggerThan(lowestSellPrice,latest20SellPrice-lowestSellPrice);
 					double sellCount = getCount(sellPrice,Utils.guassian(amount/2,amount));
-//					Fentrust fentrust = btcTradeSubmit(0,vid,sellCount,sellPrice,EntrustTypeEnum.SELL,EntrustRobotStatusEnum.Robot2);
+					Fentrust fentrust = btcTradeSubmit(0,vid,sellCount,sellPrice,EntrustTypeEnum.SELL,EntrustRobotStatusEnum.Robot2);
 					//发送到redis
-//					HttpUtils.sendPostRequest("http://127.0.0.1:1001", beanToMap(fentrust));
-					double total = MathUtils.multiply(sellCount,sellPrice);
-					HttpUtils.sendPostRequest("http://127.0.0.1:1001", getMap(vid,1, sellPrice,sellCount,total,EntrustTypeEnum.SELL));
+					frontTradeService.sendToQueue(false, vid, fentrust);
+//					double total = MathUtils.multiply(sellCount,sellPrice);
+//					HttpUtils.sendPostRequest("http://127.0.0.1:1001", getMap(vid,1, sellPrice,sellCount,total,EntrustTypeEnum.SELL));
 				}
 				for(int i=0; i<N; i++){
 					double buyPrice = getPriceLessThan(highestBuyPrice,highestBuyPrice-latest20BuyPrice);
 					double buyCount = getCount(buyPrice,Utils.guassian(amount/2,amount));
-//					Fentrust fentrust = btcTradeSubmit(0,vid,buyCount,buyPrice,EntrustTypeEnum.BUY,EntrustRobotStatusEnum.Robot2);
-//
-//					HttpUtils.sendPostRequest("http://127.0.0.1:1001", beanToMap(fentrust));
+					Fentrust fentrust = btcTradeSubmit(0,vid,buyCount,buyPrice,EntrustTypeEnum.BUY,EntrustRobotStatusEnum.Robot2);
 
-					double total = MathUtils.multiply(buyPrice,buyCount);
-					HttpUtils.sendPostRequest("http://127.0.0.1:1001", getMap(vid,1, buyPrice,buyCount,total,EntrustTypeEnum.BUY));
+					frontTradeService.sendToQueue(false, vid, fentrust);
+//					double total = MathUtils.multiply(buyPrice,buyCount);
+//					HttpUtils.sendPostRequest("http://127.0.0.1:1001", getMap(vid,1, buyPrice,buyCount,total,EntrustTypeEnum.BUY));
 				}
 			}
 		}catch(Exception e){
 			if(!isUpdateCancel){//取消所有未成交的robotStatus=2的挂单
-				List<Fvirtualcointype> list = frontVirtualCoinService.findFvirtualCoinType(VirtualCoinTypeStatusEnum.Normal);
-				for(Fvirtualcointype fvirtualcointype : list){
-					int vid = fvirtualcointype.getFid();
-//					realTimeData.updateCancleBuyEntrust(vid, EntrustRobotStatusEnum.Robot2);
-//					realTimeData.updateCancleSellEntrust(vid, EntrustRobotStatusEnum.Robot2);
+				List<Market> markets = marketService.findByStatus(1);
+				Fuser fuser = frontUserService.findById(3699) ;
+
+				//
+				List<Fentrust> fentrusts = frontTradeService.findByUserId(3699);
+				for (Fentrust fentrust : fentrusts){
+					frontTradeService.updateCancelFentrust(fentrust,fuser);
+					realTimeDataService.removeEntrustBuyMap(fentrust.getMarket().getId(), fentrust);
 				}
+
 				isUpdateCancel =  true;
 			}
-
 			new Thread(new entrustWork()).start();
 		}
 	}
@@ -211,32 +198,29 @@ public class AutoEntrust {
 									@RequestParam(required=true)int entrustType, //买卖类型
 									@RequestParam(required=true)int robotStatus //机器人状态
 	){
-
 		tradeAmount = Utils.getDouble(tradeAmount, 4) ;
 		tradeCnyPrice = Utils.getDouble(tradeCnyPrice, 4) ;
-
-		Fvirtualcointype fvirtualcointype = this.frontVirtualCoinService.findFvirtualCoinById(symbol) ;
-		if(fvirtualcointype==null || !fvirtualcointype.isFisShare() || fvirtualcointype.getFstatus()==VirtualCoinTypeStatusEnum.Abnormal){
+		Market market = marketService.findById(symbol);
+		if (market == null || market.getStatus() == Market.STATUS_Abnormal) {
 			return null;
 		}
 
-
-		if(tradeAmount<0.0001D){
+		if (market.getTradeStatus() == Market.TRADE_STATUS_Abnormal) {
 			return null;
 		}
 
-		if(tradeCnyPrice<0.0001D){
+		//是否开放交易
+		if (!MarketUtils.openTrade(market.getTradeTime())) {
 			return null;
 		}
 
-//		Fuser fuser = frontUserService.findById(Constants.RobotID) ;
 		Fuser fuser = frontUserService.findById(3699) ;
 		try {
 
 			if(entrustType==EntrustTypeEnum.BUY){
-				return this.frontTradeService.updateEntrustBuy2(tradeAmount, tradeCnyPrice, fuser, limited==1,robotStatus,fvirtualcointype) ;
+				return this.frontTradeService.updateEntrustBuy2(tradeAmount, tradeCnyPrice, fuser, limited==1,robotStatus,market) ;
 			}else if(entrustType==EntrustTypeEnum.SELL){
-				return this.frontTradeService.updateEntrustSell2(symbol, tradeAmount, tradeCnyPrice, fuser, limited==1,robotStatus,fvirtualcointype) ;
+				return this.frontTradeService.updateEntrustSell2(symbol, tradeAmount, tradeCnyPrice, fuser, limited==1,robotStatus,market) ;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

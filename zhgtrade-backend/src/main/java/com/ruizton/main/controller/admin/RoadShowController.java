@@ -1,27 +1,11 @@
 package com.ruizton.main.controller.admin;
 
-import com.alibaba.druid.stat.TableStat;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.ruizton.main.comm.ConstantMap;
 import com.ruizton.main.oss.AliyunService;
 import com.ruizton.util.GuavaUtils;
-import com.ruizton.util.HttpClientUtils;
 import com.ruizton.util.InformationApiUtils;
-import com.ruizton.util.Utils;
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntity;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.CharsetUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

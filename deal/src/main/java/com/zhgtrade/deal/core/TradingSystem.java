@@ -180,6 +180,94 @@ public class TradingSystem implements Runnable {
         }
     }
 
+    private void matchRobotBuy(FentrustData buy){
+        boolean flag = true;
+        Integer id = buy.getFviFid();
+        while (flag) {
+            SortedSet<FentrustData> sellList = entrustSellMap.get(id);
+            log.debug("matchBuy {}, sell list size = {}", buy.getFid(), (sellList == null ? 0 : sellList.size()));
+
+            if (sellList == null || sellList.size() == 0) {
+                flag = false;
+            } else {
+                FentrustData sell = sellList.first();
+                if(sell.getRobotStatus() != 2){ //不是机器人不撮合
+                    break;
+                }else {
+                    Double sellFprize = sell.getFprize();
+                    Double buyFprize = buy.getFprize();
+                    if (sellFprize > buyFprize) {
+                        log.debug("sell price = {} is greater than buy price = {} match end", sellFprize, buyFprize);
+                        break;
+                    }
+                    // 成交量大于O，才代表撮合成功
+                    double successCount = engine.updateDealMaking(buy, sell, buy.getFviFid());
+                    log.debug("updateDealMaking result successCount = {}, buy = {}, leftCount = {}, status = {}, sell = {}, leftCount = {}, status = {}", successCount, buy.getFid(), buy.getFleftCount(), buy.getFstatus(), sell.getFid(), sell.getFleftCount(), sell.getFstatus());
+
+                    if (buy.getFstatus() == EntrustStatusEnum.AllDeal || buy.getFstatus() == EntrustStatusEnum.Cancel) {
+                        log.debug("remove buy = {} from map match end.", buy.getFid());
+                        flag = false;
+                        entrustMap.remove(buy.getFid());
+                    }
+                    if (sell.getFstatus() == EntrustStatusEnum.AllDeal || sell.getFstatus() == EntrustStatusEnum.Cancel) {
+                        log.debug("remove sell = {} from map", sell.getFid());
+                        sellList.remove(sell);
+                        entrustMap.remove(sell.getFid());
+                    }
+
+                    boolean success = updateEntrust(sell, buy, successCount);
+                    if (!success) {
+                        break;
+                    }
+                }
+            }
+        }
+        addToSortedSet(entrustBuyMap, buy);
+    }
+
+    private void matchRobotSell(FentrustData sell){
+        boolean flag = true;
+        Integer id = sell.getFviFid();
+        while (flag) {
+            SortedSet<FentrustData> buyList = entrustBuyMap.get(id);
+            log.debug("matchSell {}, buy list size = {}", sell.getFid(), (buyList == null ? 0 : buyList.size()));
+            if (buyList == null || buyList.size() == 0) {
+                flag = false;
+            } else {
+                FentrustData buy = buyList.first();
+                if(buy.getRobotStatus() != 2){  //不是机器人不撮合
+                    break;
+                }else {
+                    Double buyFprize = buy.getFprize();
+                    Double sellFprize = sell.getFprize();
+                    if (sellFprize > buyFprize) {
+                        log.debug("sell price = {} is greater than buy price = {} match end.", sellFprize, buy.getFprize());
+                        break;
+                    }
+                    // 成交量大于O，才代表撮合成功
+                    double successCount = engine.updateDealMaking(buy, sell, buy.getFviFid());
+                    log.debug("updateDealMaking result successCount = {}, buy = {}, leftCount = {}, status = {}, sell = {}, leftCount = {}, status = {}", successCount, buy.getFid(), buy.getFleftCount(), buy.getFstatus(), sell.getFid(), sell.getFleftCount(), sell.getFstatus());
+                    if (sell.getFstatus() == EntrustStatusEnum.AllDeal || sell.getFstatus() == EntrustStatusEnum.Cancel) {
+                        log.debug("remove sell = {} from map match end.", sell.getFid());
+                        flag = false;
+                        entrustMap.remove(sell.getFid());
+                    }
+                    if (buy.getFstatus() == EntrustStatusEnum.AllDeal || buy.getFstatus() == EntrustStatusEnum.Cancel) {
+                        log.debug("remove buy = {} from map", buy.getFid());
+                        buyList.remove(buy);
+                        entrustMap.remove(buy.getFid());
+                    }
+
+                    boolean success = updateEntrust(sell, buy, successCount);
+                    if (!success) {
+                        break;
+                    }
+                }
+            }
+        }
+        addToSortedSet(entrustSellMap, sell);
+    }
+
     private void matchBuy(FentrustData buy) {
         boolean flag = true;
         Integer id = buy.getFviFid();
@@ -319,7 +407,7 @@ public class TradingSystem implements Runnable {
 
     public void sendEmail(FentrustData entrust) {
         Map<String, String> email = new HashMap<>();
-        email.put("email", "362228416@qq.com");
+        email.put("email", "948114632@qq.com");
         email.put("ftitle", "撮合引擎报警");
         email.put("fcontent", "撮合失败，账户可能出现异常，异常用户ID: " + entrust.getFuid() + ", 订单ID: " + entrust.getFid());
 
@@ -429,9 +517,17 @@ public class TradingSystem implements Runnable {
             try {
                 FentrustData fentrust = entrustQueue.take();
                 if (fentrust.getFentrustType() == EntrustTypeEnum.BUY) {
-                    matchBuy(fentrust);
+                    if(fentrust.getRobotStatus() == 2){ //jiqiren
+                        matchRobotBuy(fentrust);
+                    }else {
+                        matchBuy(fentrust);
+                    }
                 } else {
-                    matchSell(fentrust);
+                    if(fentrust.getRobotStatus() == 2){ //jiqiren
+                        matchRobotSell(fentrust);
+                    }else {
+                        matchSell(fentrust);
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();

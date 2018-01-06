@@ -1,19 +1,12 @@
 package com.ruizton.main.controller.admin;
 
-import com.alibaba.druid.stat.TableStat;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.ruizton.main.comm.ConstantMap;
 import com.ruizton.main.model.Fuser;
-import com.ruizton.main.model.InformationArticle;
-import com.ruizton.main.model.KeywordIndexInfo;
-import com.ruizton.main.model.KeywordInfo;
 import com.ruizton.main.service.admin.UserService;
 import com.ruizton.util.*;
-import com.zhguser.service.User;
-import org.apache.regexp.RE;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.*;
 
@@ -29,8 +21,7 @@ import java.util.*;
  * Created by sunpeng on 2017/1/4.
  */
 @Controller
-@RequestMapping("/ssadmin")
-public class ContributionController {
+@RequestMapping("/ssadmin")public class ContributionController {
     private static final int COIN_VENTURE_ID = 5;
     private static final int PROJECT_ID = 15;
     private String informationUrl;

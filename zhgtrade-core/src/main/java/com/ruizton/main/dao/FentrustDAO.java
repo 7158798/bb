@@ -731,6 +731,11 @@ public class FentrustDAO extends HibernateDaoSupport {
 		String sql = "select fe from Fentrust fe,Fvirtualcointype fv where fe.fstatus != 4 and fe.fvirtualcointype.fid = fv.fid and fe.robotStatus = ? and fe.fvirtualcointype.fid = ?";
 		return (List<Fentrust>) getHibernateTemplate().find(sql, robotStatus, id);
 	}
+
+	public List<Fentrust> findByUserId(int id){
+		Query query = getSession().createQuery("from Fentrust where fuser.fid = "+id);
+		return query.list();
+	}
 	
 	/**
 	 * 订单历史记录

@@ -15,15 +15,11 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpServletRequest;
 
 import com.ruizton.main.model.*;
-import com.ruizton.main.service.admin.SystemArgsService;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import com.google.common.base.Preconditions;
-import com.ruizton.main.Enum.EntrustPlanStatusEnum;
-import com.ruizton.main.Enum.EntrustPlanTypeEnum;
 import com.ruizton.main.Enum.EntrustRobotStatusEnum;
 import com.ruizton.main.Enum.EntrustStatusEnum;
 import com.ruizton.main.Enum.EntrustTypeEnum;
@@ -391,7 +387,7 @@ public class FrontTradeService {
     }
 
     // 委托买入，改进版
-    public Fentrust updateEntrustBuy2(double tradeAmount, double tradeCnyPrice, Fuser fuser, boolean fisLimit, int robotStatus, Fvirtualcointype fvirtualcointype) throws Exception {
+    public Fentrust updateEntrustBuy2(double tradeAmount, double tradeCnyPrice, Fuser fuser, boolean fisLimit, int robotStatus, Market market) throws Exception {
 
 //		boolean flag = false;
 //		Fwallet fwallet = this.fwalletDAO.findById(fuser.getFwallet().getFid());
@@ -444,7 +440,7 @@ public class FrontTradeService {
         fentrust.setFsuccessAmount(0F);
         fentrust.setFhasSubscription(false);
         fentrust.setFuser(fuser);
-        fentrust.setFvirtualcointype(fvirtualcointype);
+        fentrust.setMarket(market);
         fentrust.setRobotStatus(robotStatus);
         this.fentrustDAO.save(fentrust);
 
@@ -456,7 +452,7 @@ public class FrontTradeService {
     // 委托卖出，改进版
     public Fentrust updateEntrustSell2(int coinTypeId, double tradeAmount,
                                        double tradeCnyPrice, Fuser fuser, boolean fisLimit, int robotStatus,
-                                       Fvirtualcointype fvirtualcointype) throws Exception {
+                                       Market market) throws Exception {
 
 
         if (robotStatus == EntrustRobotStatusEnum.Normal) {
@@ -499,7 +495,7 @@ public class FrontTradeService {
         fentrust.setFsuccessAmount(0F);
         fentrust.setFuser(fuser);
         fentrust.setFhasSubscription(false);
-        fentrust.setFvirtualcointype(fvirtualcointype);
+        fentrust.setMarket(market);
         fentrust.setRobotStatus(robotStatus);
         this.fentrustDAO.save(fentrust);
 
@@ -726,6 +722,10 @@ public class FrontTradeService {
      */
     public List<Fentrust> findByCoinTypeAndRobotStatus(int id, int robotStatus) {
         return fentrustDAO.findByRobotStatus(id, robotStatus);
+    }
+
+    public List<Fentrust> findByUserId(int id){
+        return fentrustDAO.findByUserId(id);
     }
 
     /**
