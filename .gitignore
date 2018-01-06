@@ -8,3 +8,5 @@
 /build/
 /classes/
 /logs/
+gradlew
+gradlew.bat
