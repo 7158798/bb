@@ -16,7 +16,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="${resources}/static/css/common/reset.css">
 	<link rel="stylesheet" type="text/css" href="${resources}/static/css/common/style.css">
-	<link rel="stylesheet" type="text/css" href="${resources}/static/css/exchange.css">
+	<link rel="stylesheet" type="text/css" href="${resources}/static/css/exchange.css?v=11111">
 	<%--<link rel="stylesheet" href="${resources}/static/css/common/animate.css"/>--%>
 	<link rel="stylesheet" href="${resources}/static/css/market.css"/>
 	<style>
