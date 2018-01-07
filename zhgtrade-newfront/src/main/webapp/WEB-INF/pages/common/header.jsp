@@ -75,12 +75,12 @@
                                 </ul>
                             </div>
                             <div class="mywallet_btn_box">
-                                <a href="/account/chargermb.html">充值</a>
-                                <a href="/account/withdrawCny.html">提现</a> <a
-                                    href="/account/entrusts.html">委托管理</a>
-                                <a href="/account/fund.html">个人财务</a>
+                                <a href="/account/chargermb.html" target="_self">充值</a>
+                                <a href="/account/withdrawCny.html" target="_self">提现</a> <a
+                                    href="/account/entrusts.html" target="_self">委托管理</a>
+                                <a href="/account/fund.html" target="_self">个人财务</a>
                             </div>
-                            <a href="/account/message.html"> <i class="iconfont c_blue">&#xe614;</i>
+                            <a href="/account/message.html" target="_self"> <i class="iconfont c_blue">&#xe614;</i>
                                 <span>系统消息</span>
                                 <div class="information c_red f16" id="unReadInformation"></div>
                             </a>
@@ -90,12 +90,12 @@
                 <%--<!-- 用户登录前 -->--%>
                 <div id="loginBar" class=" dn">
                     <div class="login fl">
-                        <a  class="db fl" title="登录"  href="/"> <i class="iconfont">
+                        <a  class="db fl" title="登录" target="_self"  href="/"> <i class="iconfont">
                             &#xe605;</i><span>登录</span>
                         </a>
                     </div>
                     <div class="reg fl">
-                        <a href="/user/reg.html" class="db fl" title="注册"> <i class="iconfont">&#xe606;</i><span>注册</span>
+                        <a href="/user/reg.html" target="_self" class="db fl" title="注册"> <i class="iconfont">&#xe606;</i><span>注册</span>
                         </a>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
     <div class="flow" id="top_nav">
         <div class="nav" id="nav">
             <div class="logo fl" style="position: relative;">
-                <a class="db" href="/"> <img src="${resources}/static/images/logo.png" style="margin-top: -66px;height: 213px" alt="btc58交易网站" title="btc58logo"/>
+                <a class="db" href="/" target="_self"> <img src="${resources}/static/images/logo.png" style="margin-top: -66px;height: 213px" alt="btc58交易网站" title="btc58logo"/>
                 </a>
                 <%--<img style="position: absolute;top:15px;left:215px;" src="${cdn}/static/images/logo_fill.png" alt="" />--%>
             </div>
