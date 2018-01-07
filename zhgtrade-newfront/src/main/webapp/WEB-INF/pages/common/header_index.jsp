@@ -3,19 +3,19 @@
 <div id="top_menubar" class="top_nav fr" style="position:relative;">
     <ul>
         <li <c:if test="${'1' == menu_index}">class="current"</c:if>>
-            <a href="/index.html" title=""><span>首页</span></a>
+            <a href="/index.html" title="" target="_self"><span>首页</span></a>
         </li>
         <%--<li <c:if test="${'2' == menu_index}">class="current"</c:if>>--%>
             <%--<a href="/coin/index.html" title=""><span>交易中心</span></a>--%>
         <%--</li>--%>
         <%--<li <c:if test="${'3' == menu_index}">class="current"</c:if>><a href="/equity/index.html"--%>
         <%--title=""><span>权益交易</span></a></li>--%>
-        <li <c:if test="${'4' == menu_index}">class="current"</c:if>><a href="/account/fund.html" title=""><span>财务中心</span></a>
+        <li <c:if test="${'4' == menu_index}">class="current"</c:if>><a href="/account/fund.html" target="_self" title=""><span>财务中心</span></a>
         </li>
         <%--<li <c:if test="${'5' == menu_index}">class="current"</c:if>><a href="http://www.zcfunding.com"--%>
         <%--title="http://www.zcfunding.com" target="_blank"><span>众筹平台</span></a></li>--%>
 
-        <li <c:if test="${'6' == menu_index}">class="current"</c:if>><a href="/guide/help.html"
+        <li <c:if test="${'6' == menu_index}">class="current"</c:if>><a href="/guide/help.html" target="_self"
                                                                         title=""><span>新闻中心</span></a></li>
         <style rel="stylesheet">
             #bit{position:relative;border:1px solid transparent;height:70px;z-index:2;}

@@ -25,6 +25,7 @@
 		#detail-div ::selection{background:#08a3d7;color:#fff;}
 		input::selection{background:#08a3d7;color:#fff;}
 	</style>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body>
 <%@ include file="../common/header.jsp"%>
@@ -110,11 +111,6 @@
 	</ul>--%>
 
 
-
-
-
-
-
 	<ul id="content_sel">
 		<!-- 交易币 -->
 		<li style="cursor:pointer;">
@@ -122,35 +118,33 @@
 				<div id="container" style="height:490px; min-width:310px; padding: 6px 0px;">
 					<div class="marketImageNew" id="marketImageNew" style="display: block;">
 						<iframe frameborder="0" border="0" width="100%" height="490" id="klineFullScreen" data-src="/market/kline.html?symbol=${symbol }"></iframe>
-						<%--<a class="openfullscreen" id="openfullscreen" href="javascript:void(0)" onclick="javascropt:klineFullScreenOpen()" title="全屏" style="display:block;"></a>--%>
-						<%--<a class="closefullscreen" id="closefullscreen" href="javascript:void(0)" onclick="javascropt:klineFullScreenClose()" title="退出全屏" style="display:none"></a>--%>
 					</div>
 				</div>
 			</div>
-			<div class="trade_wrapper fl">
-				<div class="item buy_item fl" id="buy-content">
+			<%--<div class="trade_wrapper fl">--%>
+				<%--<div class="item buy_item fl" id="buy-content">--%>
 
-				</div>
-				<div class="item sell_item fl" id="sell-content">
+				<%--</div>--%>
+				<%--<div class="item sell_item fl" id="sell-content">--%>
 
-				</div>
-			</div>
+				<%--</div>--%>
+			<%--</div>--%>
 
-			<div class="info fr">
-				<!-- 金钱信息 -->
-				<div class="money_info" id="user-wallet">
+			<%--<div class="info fr">--%>
+				<%--<!-- 金钱信息 -->--%>
+				<%--<div class="money_info" id="user-wallet">--%>
 
-				</div>
-				<!-- 未成交 -->
-				<div class="dealing deal tac" id="not-deal">
+				<%--</div>--%>
+				<%--<!-- 未成交 -->--%>
+				<%--<div class="dealing deal tac" id="not-deal">--%>
 
-				</div>
-				<!-- 已成交 -->
-				<div class="dealed deal tac" id="deal-log">
+				<%--</div>--%>
+				<%--<!-- 已成交 -->--%>
+				<%--<div class="dealed deal tac" id="deal-log">--%>
 
-				</div>
-			</div>
-			<div class="cb"></div>
+				<%--</div>--%>
+			<%--</div>--%>
+			<%--<div class="cb"></div>--%>
 		</li>
 		<%--<!-- 币行情 -->
 		<li class="dn">
@@ -186,8 +180,8 @@
 					<div class="mod_bd clear_fix">
 						<div class="panel">
 							<div class="hd" ng-if="user.isLogin == 0">
-								<a class="logout" href="/">登录</a> 或
-								<a class="logout" href="/user/reg.html">注册</a> 开始交易
+								<a class="logout" href="/" target="_self">登录</a> 或
+								<a class="logout" href="/user/reg.html" target="_self" >注册</a> 开始交易
 							</div>
 							<div class="hd hd_login" ng-if="user.isLogin == 1">
 								<span>可用</span>
@@ -215,9 +209,10 @@
 										</label>
 										<strong class="msg"></strong>
 									</div>
-									<div ng-if="user.needTradePasswd">
+									<div ng-show="user.needTradePasswd">
 										<span class="label" style="font-size:14px;">交易密码</span>
-										<input style="box-sizing: border-box; border-radius: 3px;margin-left:40px; height: 40px;width: 70%;font-size: 16px;" ng-model="tradePassword" type="password">
+										<input style="box-sizing: border-box; border-radius: 3px;margin-left:40px; height: 40px;width: 70%;font-size: 16px;"
+											   ng-model="tradePassword" type="password">
 									</div>
 									<div class="input_range limit_buy_logout buy_color"></div>
 									<div class="amount_range uppercase"><span class="min"><span class="min_num">0</span><em
@@ -227,7 +222,9 @@
 									<div class="total"><p>交易额 <span>{{buyAmount | currency :'': 4}} {{::user.rmbname}}</span></p>
 										<p class="transform_total"></p>
 									</div>
-									<div  ng-model="buyErrorMessage" style="font-size: 12px;height: 25px"></div>
+									<div ng-if="showTip"  style="font-size: 12px;height: 25px">
+										<span style="color: red">{{buyErrorMessage}}</span>
+									</div>
 									<div class="submit">
 										<button  class="btn_buy color_buy_bg" ng-click = "createOrder('buy')">
 											买入{{::user.virname}}
@@ -238,8 +235,8 @@
 						</div>
 						<div class="panel sell_panel">
 							<div class="hd" ng-if="user.isLogin == 0" >
-								<a class="logout" href="/">登录</a> 或
-								<a class="logout" href="/user/reg.html">注册</a> 开始交易
+								<a class="logout" href="/" target="_self">登录</a> 或
+								<a class="logout" href="/user/reg.html" target="_self">注册</a> 开始交易
 							</div>
 							<div class="hd hd_login" ng-if = "user.isLogin == 1">
 								<span>可用</span>
@@ -262,9 +259,10 @@
                                 <span class="unit"><em class="uppercase"
 													   lazyfill="">{{user.virname}}</em></span></label><strong
 											class="msg"></strong></div>
-									<div ng-if="user.needTradePasswd">
+									<div ng-show="user.needTradePasswd">
 										<span class="label" style="font-size:14px;">交易密码</span>
-										<input style="box-sizing: border-box; border-radius: 3px;margin-left:40px; height: 40px;width: 70%;font-size: 16px;" ng-model="tradePassword" type="password">
+										<input style="box-sizing: border-box; border-radius: 3px;margin-left:40px; height: 40px;width: 70%;font-size: 16px;"
+											   ng-model="tradePassword" type="password">
 									</div>
 									<div class="input_range limit_sell_logout sell_color"></div>
 									<div class="amount_range uppercase"><span class="min"><span class="min_num">0</span><em
@@ -275,7 +273,7 @@
 									<div class="total"><p>交易额 <span>{{sellAmount | currency :'': 4}} {{::user.rmbname}}</span></p>
 										<p class="transform_total"></p>
 									</div>
-									<div ng-model="sellErrorMessage" style="font-size: 12px; height: 25px"></div>
+									<div ng-if="showTip"  ng-model="sellErrorMessage" style="font-size: 12px; height: 25px"></div>
 									<div class="submit">
 										<button  class="btn_sell color_sell_bg" ng-click = "createOrder('sell')">
 											卖出{{::user.virname}}
@@ -422,69 +420,6 @@
 			</div>
 			<div class="cb"></div>
 		</div>
-
-
-
-
-	<!-- 买盘 买盘 成交记录 -->
-	<%--<div class="entrust_wrapper tac">
-		<div class="fl entrust_container">
-			<div class="title f20">委托信息</div>
-
-			<div style="position: absolute;margin-top: -50px;margin-left: 188px;">
-				<span style="padding:14px 5px;float:left;font-size: 14px;">深度合并</span>
-				<select style="margin-top:10px;float:left;font-size: 14px;" id="deep_select_area">
-					<option value="4" selected="">默认</option>
-					<option value="3">保留三位小数</option>
-					<option value="2">保留两位小数</option>
-					<option value="1">保留一位小数</option>
-					<option value="0">取整</option>
-				</select>
-			</div>
-
-			<div class="content">
-				<p class="fir bg_gray">
-					<span class="db t1 fl">买入</span>
-					<span class="db t2 fl">价格</span>
-					<span class="db t3 fl">数量</span>
-					<span class="db t4 fl">折合人民币</span>
-				</p>
-				<div id="buyList">
-				</div>
-			</div>
-		</div>
-		<div class="fl entrust_container">
-			<div class="title f20">
-
-			</div>
-
-			<div class="content">
-				<p class="fir bg_gray">
-					<span class="db t1 fl">卖出</span>
-					<span class="db t2 fl">价格</span>
-					<span class="db t3 fl">数量</span>
-					<span class="db t4 fl">折合人民币</span>
-				</p>
-				<div id="sellList">
-				</div>
-			</div>
-		</div>
-		<div class="fl entrust_container entrust_log">
-			<div class="title f20">成交历史</div>
-			<div class="content">
-				<p class="fir bg_gray">
-					<span class="db lt1 fl">成交时间</span>
-					<span class="db lt2 fl">买/卖</span>
-					<span class="db lt3 fl">成交价</span>
-					<span class="db lt4 fl">成交量</span>
-					<span class="db lt5 fl">总金额</span>
-				</p>
-				<div id="logLista">
-				</div>
-			</div>
-		</div>
-		<div class="cb"></div>
-	</div>--%>
 </div>
 <script type="text/javascript">
 	var vtype = {
@@ -493,7 +428,8 @@
 		symbol: '${vdata.fid}'
 	}
 </script>
-<script src="${resources}/static/js/angular/angualr.js"></script>
+
+<%--<script src="${resources}/static/js/angular/angualr.js"></script>--%>
 <script src="${resources}/static/js/market/newtradeController.js"></script>
 <%--<script src="${resources}/static/js/market/newtrade.js"></script>--%>
 <%--<script type="text/javascript" src="//cdn.bootcss.com/react/0.14.7/react.js"></script>--%>

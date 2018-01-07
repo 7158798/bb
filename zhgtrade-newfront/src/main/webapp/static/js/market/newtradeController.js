@@ -5,7 +5,7 @@ app.config(['$locationProvider', function($locationProvider) {
         requireBase: false
     });
 }]);
-app.controller("newtradeController",['$scope', '$http','$location',function($scope,$http,$location){
+app.controller("newtradeController",['$scope', '$http','$location','$timeout',function($scope,$http,$location,$timeout){
     $scope.marketId = $location.search().symbol;
     //推荐买一价   卖一价
     $scope.sellPrice = 0;
@@ -24,7 +24,7 @@ app.controller("newtradeController",['$scope', '$http','$location',function($sco
                 $scope.buyPrice = $scope.user.recommendPrizebuy;
                 $scope.sellPrice = $scope.user.recommendPrizesell;
             })
-    };
+    }
     getUserInfo();
 
     $scope.buyOrders =[];
@@ -94,6 +94,7 @@ app.controller("newtradeController",['$scope', '$http','$location',function($sco
     }
     connectWs();
 
+    $scope.showTip = false;
     var WARN_TEXT = {
         '-1': "最小交易数量为：",
         '-2': "密码错误",
@@ -129,6 +130,7 @@ app.controller("newtradeController",['$scope', '$http','$location',function($sco
             };
             $http.post('/market/buyBtcSubmit', $.param(data), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
                 .then(function(res){
+                    $scope.showTip = true;
                     var msg = res.data.msg ? res.data.msg : "";
                     if (res.data.resultCode !== 0) {
                         setErrorMessage(type, WARN_TEXT[res.data.resultCode] + msg)
@@ -146,6 +148,7 @@ app.controller("newtradeController",['$scope', '$http','$location',function($sco
             };
             $http.post('/market/sellBtcSubmit', $.param(data), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
                 .then(function(res){
+                    $scope.showTip = true;
                     var msg = res.data.msg ? res.data.msg : "";
                     if (res.data.resultCode !== 0) {
                         setErrorMessage(type, WARN_TEXT[res.data.resultCode] + msg)
@@ -155,6 +158,9 @@ app.controller("newtradeController",['$scope', '$http','$location',function($sco
                     }
                 })
         }
+        $timeout(function () {
+            $scope.showTip = false;
+        },500);
     };
 
     $scope.cancelOrder = function(order) {
