@@ -307,8 +307,65 @@
 		</div>
 
 
+
+		<!-- 新买盘 买盘 成交记录 -->
+		<div class="entrust_wrapper tac">
+			<div class="float_left entrust_container entrust_log" style="margin-right: 0px">
+				<div class="content" style="height: 507px">
+					<p class="ptitle_font">成交记录</p>
+					<p class="fir bg_gray">
+						<span class="db lt1 fl">成交时间</span>
+						<span class="db lt2 fl">买/卖</span>
+						<span class="db lt3 fl">成交价</span>
+						<span class="db lt4 fl">成交量</span>
+						<span class="db lt5 fl">总金额</span>
+					</p>
+					<div id="logList">
+					</div>
+				</div>
+			</div>
+			<div class="float_right entrust_container entrust_log" >
+				<div class="content" style="    width: 760px; margin-left: -370px; height: 200px;margin-bottom: 5px">
+					<p class="ptitle_font">当前委托</p>
+					<p class="fir bg_gray">
+						<span class="db lt1 fl">成交时间</span>
+						<span class="db lt5 fl">交易对</span>
+						<span class="db lt2 fl">买/卖</span>
+						<span class="db lt3 fl">成交价</span>
+						<span class="db lt4 fl">数量</span>
+						<span class="db lt4 fl">委托总额</span>
+						<span class="db lt5 fl">已成交</span>
+						<span class="db lt7 fl">未成交</span>
+						<span class="db lt5 fl">操作</span>
+					</p>
+					<div id="logList4">
+					</div>
+				</div>
+				<div class="content" style="    width: 760px; margin-left: -370px; height: 300px;">
+					<p class="ptitle_font">我的委托历史</p>
+					<p class="fir bg_gray">
+						<span class="db lt1 fl">成交时间</span>
+						<span class="db lt5 fl">交易对</span>
+						<span class="db lt2 fl">买/卖</span>
+						<span class="db lt3 fl">成交价</span>
+						<span class="db lt4 fl">数量</span>
+						<span class="db lt4 fl">委托总额</span>
+						<span class="db lt5 fl">已成交</span>
+						<span class="db lt7 fl">状态</span>
+						<span class="db lt5 fl">操作</span>
+					</p>
+					<div id="logList6">
+					</div>
+				</div>
+			</div>
+			<div class="cb"></div>
+		</div>
+
+
+
+
 	<!-- 买盘 买盘 成交记录 -->
-	<div class="entrust_wrapper tac">
+	<%--<div class="entrust_wrapper tac">
 		<div class="fl entrust_container">
 			<div class="title f20">委托信息</div>
 
@@ -360,12 +417,12 @@
 					<span class="db lt4 fl">成交量</span>
 					<span class="db lt5 fl">总金额</span>
 				</p>
-				<div id="logList">
+				<div id="logLista">
 				</div>
 			</div>
 		</div>
 		<div class="cb"></div>
-	</div>
+	</div>--%>
 </div>
 <script type="text/javascript">
 	var vtype = {

@@ -1157,3 +1157,13 @@ background-color: #1f963d;
 .color-buy{
   color:#1f963d;
 }
+.ptitle_font{
+  color: #7A98F7;
+  font-size: 16px;
+}
+.cotent_size{
+  width: 760px; margin-left: -370px; height: 200px;
+}
+.cotent_size2{
+  width: 760px; margin-left: -370px; height: 300px;
+}

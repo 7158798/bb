@@ -91,7 +91,7 @@
 .entrust_wrapper{padding-bottom:40px;}
 .entrust_container{width:330px;margin-right:50px;}
 .entrust_container .title{height:80px;line-height:100px;color:#333;text-align:left;}
-.entrust_container .content{border:1px solid #ccc;width:360px;height: 568px}
+.entrust_container .content{border:1px solid #0d86ff33;width:360px;height: 568px}
 .entrust_container .content p{height:25px;line-height:25px;cursor: pointer}
 .entrust_container .content p.fir{color:#666;height:40px;line-height:40px;}
 .entrust_container .content p span{width:89px;height:25px;}
