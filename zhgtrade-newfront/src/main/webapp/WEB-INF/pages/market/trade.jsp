@@ -378,6 +378,17 @@
 						<span class="db lt5 fl">操作</span>
 					</p>
 					<div id="logList4">
+						<p >
+							<span class="db lt1 fl">11-15 15:37:18</span>
+							<span class="db lt5 fl">ETH/ETC</span>
+							<span class="db lt2 fl">买入</span>
+							<span class="db lt3 fl">2.0000</span>
+							<span class="db lt4 fl">1.0000</span>
+							<span class="db lt4 fl">2.00</span>
+							<span class="db lt5 fl">0</span>
+							<span class="db lt7 fl">1</span>
+							<span class="db lt5 fl">撤销</span>
+						</p>
 					</div>
 				</div>
 				<div class="content" style="    width: 760px; margin-left: -370px; height: 300px;">
@@ -394,6 +405,17 @@
 						<span class="db lt5 fl">操作</span>
 					</p>
 					<div id="logList6">
+						<p >
+							<span class="db lt1 fl">11-15 15:37:18</span>
+							<span class="db lt5 fl">ETH/ETC</span>
+							<span class="db lt2 fl">买入</span>
+							<span class="db lt3 fl">2.0000</span>
+							<span class="db lt4 fl">1.0000</span>
+							<span class="db lt4 fl">2.00</span>
+							<span class="db lt5 fl">1</span>
+							<span class="db lt7 fl">已完成</span>
+							<span class="db lt5 fl">详情</span>
+						</p>
 					</div>
 				</div>
 			</div>
