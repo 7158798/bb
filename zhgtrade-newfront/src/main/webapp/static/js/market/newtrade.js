@@ -4,6 +4,7 @@ $(function () {
     var marketId = $("#symbol").val();
     //界面第一次后台获取挂单信息
     getFentrusts(marketId);
+    getUserInfo(marketId);
 
     //链接socket
     function connectWs() {
@@ -14,8 +15,8 @@ $(function () {
             var buy = JSON.parse(msg);
             var buy_html = "";
             for (var i = 0; i < buy.length; i++) {
-                buy_html += "<dd name= 'depth-item' data-info= " +buy[i][0].toFixed(4) +"><div class='inner'><span class='title color-buy'>"
-                    +"买" + "</span> <span class='price'>"+buy[i][0].toFixed(4)+"</span>"
+                buy_html += "<dd name= 'depth-item'  onclick='click_order(this)' data-info= " +buy[i][0].toFixed(4) +"><div class='inner'><span class='title color-buy'>"
+                    +"买"+ (i+1) + "</span> <span class='price'>"+buy[i][0].toFixed(4)+"</span>"
                     +"<span class='amount'>" +buy[i][1].toFixed(4)+ "</span><span>" +buy[i][2].toFixed(4) +"</span></div></dd>";
             }
             $("#buy_fentrust").html(buy_html);
@@ -23,9 +24,9 @@ $(function () {
         order_socket.on('entrust-sell', function (msg) {
             var sell = JSON.parse(msg);
             var sell_html = "";
-            for (var i = 0; i < sell.length; i++) {
-                sell_html += "<dd name= 'depth-item' data-info= " +sell[i][0].toFixed(4) +"><div class='inner'><span class='title color-sell'>"
-                    +"卖" + "</span> <span class='price'>"+sell[i][0].toFixed(4)+"</span>"
+            for (var i = sell.length-1; i >= 0; i--) {
+                sell_html += "<dd name= 'depth-item' onclick='click_order(this)' data-info= " +sell[i][0].toFixed(4) +"><div class='inner'><span class='title color-sell'>"
+                    +"卖" +(i+1) + "</span> <span class='price'>"+sell[i][0].toFixed(4)+"</span>"
                     +"<span class='amount'>" +sell[i][1].toFixed(4)+ "</span><span>" +sell[i][2].toFixed(4) +"</span></div></dd>";
             }
             $("#sell_fentrust").html(sell_html);
@@ -63,17 +64,45 @@ function getFentrusts(symbol) {
         var buy_html = "";
         var sell_html = "";
         for (var i = 0; i < buy.length; i++) {
-            buy_html += "<dd name= 'depth-item' data-info= " +buy[i][0].toFixed(4) +"><div class='inner'><span class='title color-buy'>"
+            buy_html += "<dd name= 'depth-item' onclick='click_order(this)' data-info= " +buy[i][0].toFixed(4) +"><div class='inner'><span class='title color-buy'>"
             +"买" + "</span> <span class='price'>"+buy[i][0].toFixed(4)+"</span>"
             +"<span class='amount'>" +buy[i][1].toFixed(4)+ "</span><span>" +buy[i][2].toFixed(4) +"</span></div></dd>";
         }
-        for (var i = 0; i < sell.length; i++) {
-
-            sell_html += "<dd name= 'depth-item' data-info= " +sell[i][0].toFixed(4) +"><div class='inner'><span class='title color-sell'>"
+        for (var i = sell.length-1; i >= 0; i--) {
+            sell_html += "<dd name= 'depth-item' onclick='click_order(this)' data-info= " +sell[i][0].toFixed(4) +"><div class='inner'><span class='title color-sell'>"
                 +"卖" + "</span> <span class='price'>"+sell[i][0].toFixed(4)+"</span>"
                 +"<span class='amount'>" +sell[i][1].toFixed(4)+ "</span><span>" +sell[i][2].toFixed(4) +"</span></div></dd>";
         }
         $("#sell_fentrust").html(sell_html);
         $("#buy_fentrust").html(buy_html);
+    })
+}
+//点击订单事件
+function click_order(event) {
+    var _this = $(event);
+    var price = _this.attr("data-info");
+    console.log(price)
+}
+
+//获取用户信息
+function getUserInfo(symbol) {
+    $.getJSON("/market/refreshUserInfo",{symbol:symbol},function (data) {
+        if(data.isLogin == 1){
+            $("[name = 'loginHidden']").each(function (index,elem) {
+                $(elem).hide();
+            });
+            //同时显示余额
+            var html = "";
+            html+= "<span>可用</span> <b class=\"sell_available\" >"+ data.virtotal.toFixed(4)+"</b>"
+            +"<em class='uppercase' >"+data.virname+"</em>"
+            +"<div style=\"float: right;\"> <span>冻结</span> <b class=\"sell_available\" >"
+            +data.virfrozen.toFixed(4) +"</b><em class=\"uppercase\" >"+data.virname+"</em></div>";
+            $("#coin_info").html(html);
+            var rmhtml = "<span>可用</span> <b class=\"sell_available\" >"+ data.rmbtotal.toFixed(4)+"</b>"
+                +"<em class='uppercase' >"+data.rmbname+"</em>"
+                +"<div style=\"float: right;\"> <span>冻结</span> <b class=\"sell_available\" >"
+                +data.rmbfrozen.toFixed(4) +"</b><em class=\"uppercase\" >"+data.rmbname+"</em></div>";
+            $("#rm_info").html(rmhtml);
+        }
     })
 }

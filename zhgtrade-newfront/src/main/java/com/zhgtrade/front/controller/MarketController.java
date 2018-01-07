@@ -464,7 +464,8 @@ public class MarketController extends BaseController {
 
         Fuser user = getSessionUser(request);
 
-        Fvirtualcointype fvirtualcointype = frontVirtualCoinService.findFvirtualCoinById(market.getBuyId());
+        Fvirtualcointype rmcointype = frontVirtualCoinService.findFvirtualCoinById(market.getBuyId());
+        Fvirtualcointype vircointype = frontVirtualCoinService.findFvirtualCoinById(market.getSellId());
         if (user != null) {
             map.put("isLogin", 1);
             map.put("needTradePasswd", isNeedTradePassword(request));
@@ -473,7 +474,6 @@ public class MarketController extends BaseController {
 
 
 
-            map.put("rmname",fvirtualcointype.getfShortName());
             map.put("rmbtotal",  Double.valueOf(FormatUtils.formatCoin(btcWallet.getFtotal())));
             map.put("rmbfrozen",   Double.valueOf(FormatUtils.formatCoin(btcWallet.getFfrozen())));
             map.put("vtype", "btc");
@@ -489,7 +489,9 @@ public class MarketController extends BaseController {
             map.put("isLogin", 0);
         }
 
-        map.put("rmname",fvirtualcointype.getfShortName());
+        map.put("rmname",rmcointype.getfShortName());
+        map.put("rmbname",rmcointype.getfShortName());
+        map.put("virname",vircointype.getfShortName());
         // 返回sessionid，用来做websocket权限验证
         map.put("token", request.getSession().getId());
 

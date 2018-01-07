@@ -477,7 +477,7 @@ table.table {
         font-size: 12px;
         white-space: nowrap;
         display: table-cell;
-        width: 33%; }
+        width: 31%; }
     .ex-depth dl dt {
       table-layout: fixed;
       padding-right: 6px; }

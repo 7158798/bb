@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <!DOCTYPE HTML>
-<html>
+<html ng-app = "myapp" ng-controller = "newtradeController">
 <head>
 	<title>${vdata.fname}￥${last} - ${fns:getProperty('site_title')}</title>
 	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
@@ -184,68 +184,100 @@
 					</div>
 					<div class="mod_bd clear_fix">
 						<div class="panel">
-							<div class="hd"><a class="logout" href="/zh-cn/login/">登录</a> 或 <a class="logout"
-																							   href="/zh-cn/register/">注册</a>
-								开始交易
+							<div class="hd" ng-if="user.isLogin == 0">
+								<a class="logout" href="/">登录</a> 或
+								<a class="logout" href="/user/reg.html">注册</a> 开始交易
+							</div>
+							<div class="hd hd_login" ng-if="user.isLogin == 1">
+								<span>可用</span>
+								<b class="sell_available" >{{user.rmbtotal}}</b>
+								<em class='uppercase' >{{::user.rmbname}}</em>
+								<div style="float: right;">
+									<span>冻结</span>
+									<b class="sell_available" >{{user.rmbfrozen}}</b>
+									<em class="uppercase" >{{::user.rmbname}}</em>
+								</div>
 							</div>
 							<div class="bd">
 								<div>
-									<div class="input_text"><b class="label">买入价</b><label><input type="text"
-									> <span
-											class="upper unit" unit="show_buy_quote_logout">usdt</span></label><strong
+									<div class="input_text"><b class="label"  >买入价</b><label >
+										<input ng-model="buyPrice" > <span
+											class="upper unit" unit="show_buy_quote_logout">{{user.rmbname}}</span></label><strong
 											class="msg"></strong><!--<p class="math_price"></p>--></div>
-									<div class="input_text input_text_amount"><b class="label">买入量</b><label><input type="text"
-									>
-                                <span class="unit u"><em class="uppercase"
-														 lazyfill="">etc</em></span></label><strong
-											class="msg"></strong></div>
-									<div class="input_range limit_buy_logout buy_color">
+									<div class="input_text input_text_amount">
+										<b class="label">买入量</b>
+										<label>
+										<input  ng-model="buyCount" ng-change="countChange(0)">
+											<span class="unit u">
+												<em class="uppercase" >{{user.virname}}</em>
+											</span>
+										</label>
+										<strong class="msg"></strong>
 									</div>
-
+									<div ng-if="user.needTradePasswd">
+										<span class="label" style="font-size:14px;">交易密码</span>
+										<input style="box-sizing: border-box; border-radius: 3px;margin-left:40px; height: 40px;width: 70%;font-size: 16px;" ng-model="tradePassword" type="password">
+									</div>
+									<div class="input_range limit_buy_logout buy_color"></div>
 									<div class="amount_range uppercase"><span class="min"><span class="min_num">0</span><em
-											lazyfill="" data-template=""> etc</em></span> <span
-											class="max"><span class="max_num">0.0000</span><em lazyfill=""
-																							   data-template=""> etc</em></span>
+											lazyfill="" data-template=""> {{::user.virname}}</em></span> <span
+											class="max"><span class="max_num">0.0000</span><em> {{::user.virname}}</em></span>
 									</div>
-									<div class="total"><p>交易额 <span></span></p>
-										<p class="transform_total"></p></div>
+									<div class="total"><p>交易额 <span>{{buyAmount | currency :'': 4}} {{::user.rmbname}}</span></p>
+										<p class="transform_total"></p>
+									</div>
+									<div  ng-model="buyErrorMessage" style="font-size: 12px;height: 25px"></div>
 									<div class="submit">
-										<button  class="btn_buy color_buy_bg"
-												 lazyfill="买入">
-											买入etc
+										<button  class="btn_buy color_buy_bg" ng-click = "createOrder('buy')">
+											买入{{::user.virname}}
 										</button>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel sell_panel">
-							<div class="hd"><a class="logout" href="/zh-cn/login/">登录</a> 或 <a class="logout"
-																							   href="/zh-cn/register/">注册</a>
-								开始交易
+							<div class="hd" ng-if="user.isLogin == 0" >
+								<a class="logout" href="/">登录</a> 或
+								<a class="logout" href="/user/reg.html">注册</a> 开始交易
+							</div>
+							<div class="hd hd_login" ng-if = "user.isLogin == 1">
+								<span>可用</span>
+								<b class=\"sell_available\" >{{user.virtotal}}</b>
+								<em class='uppercase' >{{user.virname}}</em>
+								<div style="float: right;">
+									<span>冻结</span>
+									<b class="sell_available" >{{user.virfrozen}}</b>
+									<em class=\"uppercase\" >{{user.virname}}</em>
+								</div>
 							</div>
 							<div class="bd">
 								<div>
-									<div class="input_text"><b class="label">卖出价</b><label><input type="text"
-									> <span
-											class="upper unit" unit="show_sell_quote_logout">usdt</span></label><strong
+									<div class="input_text"><b class="label">卖出价</b><label>
+										<input ng-model="sellPrice"> <span
+											class="upper unit" unit="show_sell_quote_logout">{{user.rmbname}}</span></label><strong
 											class="msg"></strong><!--<p class="math_price"></p>--></div>
-									<div class="input_text input_text_amount"><b class="label">卖出量</b><label><input type="text"
-									>
+									<div class="input_text input_text_amount"><b class="label">卖出量</b><label>
+										<input ng-model="sellCount" ng-change="countChange(0)">
                                 <span class="unit"><em class="uppercase"
-													   lazyfill="">etc</em></span></label><strong
+													   lazyfill="">{{user.virname}}</em></span></label><strong
 											class="msg"></strong></div>
+									<div ng-if="user.needTradePasswd">
+										<span class="label" style="font-size:14px;">交易密码</span>
+										<input style="box-sizing: border-box; border-radius: 3px;margin-left:40px; height: 40px;width: 70%;font-size: 16px;" ng-model="tradePassword" type="password">
+									</div>
 									<div class="input_range limit_sell_logout sell_color"></div>
 									<div class="amount_range uppercase"><span class="min"><span class="min_num">0</span><em
 											lazyfill="" data-template=""> etc</em></span> <span
 											class="max"><span class="max_num">0.0000</span><em lazyfill=""
 																							   data-template=" "> etc</em></span>
 									</div>
-									<div class="total"><p>交易额 <span></span></p>
-										<p class="transform_total"></p></div>
+									<div class="total"><p>交易额 <span>{{sellAmount | currency :'': 4}} {{::user.rmbname}}</span></p>
+										<p class="transform_total"></p>
+									</div>
+									<div ng-model="sellErrorMessage" style="font-size: 12px; height: 25px"></div>
 									<div class="submit">
-										<button  class="btn_sell color_sell_bg"
-												 lazyfill="卖出">
-											卖出etc
+										<button  class="btn_sell color_sell_bg" ng-click = "createOrder('sell')">
+											卖出{{::user.virname}}
 										</button>
 									</div>
 								</div>
@@ -263,15 +295,18 @@
 				<div class="ex-depth">
 					<div id="market_depth" >
 							<dl >
-								<dt class="header"><span class="title"></span> <span class="price">价格(USDT)</span> <span
-										class="amount">数量<em class="uppercase">(etc)</em></span> <span>累计<em
-										class="uppercase">(etc)</em></span>
+								<dt class="header"><span class="title"></span> <span class="price">价格</span> <span
+										class="amount">数量<em class="uppercase"></em></span> <span>累计<em
+										class="uppercase"></em></span>
 								</dt>
-								<div style="height:205px;overflow-y: auto;" id="sell_fentrust">
-									<dd data-info="33.84">
-										<div class="inner"><span class="title color-sell">卖 7</span> <span class="price">33.84</span>
-											<span class="amount">19.0000</span> <span>176.3547</span> <b class="color-sell-bg"
-																										 style="width: 16.8858869534305%"></b>
+								<div style="height:205px;overflow-y: auto;">
+									<dd data-info="{{sell[0]}}" ng-repeat="sell in sellOrders | orderBy: sell[0]:'desc' " ng-click="clickOrder(sell)" ng-cloak="">
+										<div class="inner" >
+											<span class="title color-sell">卖 {{sell.length-$index+2}}</span>
+											<span class="price">{{sell[0] | currency:'':4}}</span>
+											<span class="amount">{{sell[1] | currency:'':4}}</span>
+											<span>{{sell[2] | currency:'':4}}</span>
+											<b class="color-sell-bg" style="width: 16.8858869534305%"></b>
 										</div>
 									</dd>
 								</div>
@@ -282,10 +317,14 @@
 							<hr>
 						</div>
 						<div style="height:205px;overflow-y: auto;">
-							<dl id="buy_fentrust">
-								<dd name="depth-item" data-info="33.48">
-									<div class="inner"><span class="title color-buy">买 1</span> <span class="price">33.48</span>
-										<span class="amount">59.3055</span> <span>59.3055</span> <b class="color-buy-bg" style="width: 52.70662993245646%"></b>
+							<dl ng-repeat="buy in buyOrders "  ng-click="clickOrder(buy)" ng-cloak="" >
+								<dd name="depth-item" data-info="{{buy[0]}}">
+									<div class="inner">
+										<span class="title color-buy">买{{$index+1}}</span>
+										<span class="price">{{buy[0] | currency:'':4}}</span>
+										<span class="amount">{{buy[1] | currency:'':4}}</span>
+										<span>{{buy[2] | currency:'':4}}</span>
+										<b class="color-buy-bg" style="width: 52.70662993245646%"></b>
 									</div>
 								</dd>
 							</dl>
@@ -374,7 +413,9 @@
 		symbol: '${vdata.fid}'
 	}
 </script>
-<script src="${resources}/static/js/market/newtrade.js"></script>
+<script src="${resources}/static/js/angular/angualr.js"></script>
+<script src="${resources}/static/js/market/newtradeController.js"></script>
+<%--<script src="${resources}/static/js/market/newtrade.js"></script>--%>
 <%--<script type="text/javascript" src="//cdn.bootcss.com/react/0.14.7/react.js"></script>--%>
 <%--<script type="text/javascript" src="//cdn.bootcss.com/react/0.14.7/react-dom.js"></script>--%>
 
