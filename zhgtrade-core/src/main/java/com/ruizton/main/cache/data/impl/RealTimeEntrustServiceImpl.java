@@ -108,6 +108,7 @@ public class RealTimeEntrustServiceImpl implements RealTimeEntrustService {
         data.setFprize(fentrust.getFprize());
         data.setFviFid(id);
         data.setFstatus(fentrust.getFstatus());
+        data.setFuid(fentrust.getFuser().getFid());
         removeEntrustBuyMap(id, data);
     }
 

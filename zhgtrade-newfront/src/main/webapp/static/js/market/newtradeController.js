@@ -153,7 +153,7 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
                     }
                     $timeout(function () {
                         $scope.showTip = false;
-                    },500);
+                    },1000);
                 })
         } else {
             var data = {
@@ -176,7 +176,7 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
                     }
                     $timeout(function () {
                         $scope.showTip = false;
-                    },500);
+                    },1000);
                 })
         }
 

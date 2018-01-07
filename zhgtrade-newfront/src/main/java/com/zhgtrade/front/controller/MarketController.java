@@ -495,7 +495,10 @@ public class MarketController extends BaseController {
 
             map.put("virtotal",  Double.valueOf(FormatUtils.formatCoin(virtualwallet.getFtotal())));
             map.put("virfrozen",   Double.valueOf(FormatUtils.formatCoin(virtualwallet.getFfrozen())));
-
+            List entrustList = frontTradeService.getFentrustHistory(user.getFid(), symbol, 0, 10);
+            List entrustListLog = frontTradeService.findFentrustHistory(user.getFid(), symbol, 0, 15);
+            map.put("entrustList", entrustList);
+            map.put("entrustListLog", entrustListLog);
 
         } else {
             map.put("isLogin", 0);

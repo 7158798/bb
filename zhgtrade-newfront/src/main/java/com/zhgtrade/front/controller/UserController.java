@@ -235,6 +235,12 @@ public class UserController extends BaseController {
                         jsonObject.accumulate("code", 1);
                     }
                     userLogined(request, fuser);
+                    Cookie loginCookie = new Cookie("uid", fuser.getFid()+"");
+                    loginCookie.setPath("/");
+//                    loginCookie.setDomain("");
+                    loginCookie.setMaxAge(7 * 24 * 60 * 60);
+                    loginCookie.setHttpOnly(true);
+                    response.addCookie(loginCookie);
 
                     // 从用户系统同步信息
 //                    if(StringUtils.hasText(fuser.getZhgOpenId())){
@@ -379,6 +385,7 @@ public class UserController extends BaseController {
     }
 
     protected void userLogined(HttpServletRequest request, Fuser fuser){
+
         // 清理估值缓存
         request.getSession().removeAttribute(Constants.USER_ASSET);
 

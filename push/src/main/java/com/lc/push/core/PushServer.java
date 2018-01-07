@@ -197,7 +197,7 @@ public class PushServer implements MessageListener<String>, ConnectListener, Dis
     }
 
     private String getUserInfoFromWebServer(int fviFid, String sid) {
-        return HttpUtils.get(siteUrl + "/api/v2/market/refreshUserInfo?symbol=" + fviFid, sid);
+        return HttpUtils.get(siteUrl + "/market/refreshUserInfo?symbol=" + fviFid, sid);
     }
 
     private String getTickerFromWebServer(int fviFid) {
@@ -217,7 +217,6 @@ public class PushServer implements MessageListener<String>, ConnectListener, Dis
     }
 
     private void pushEntrustData(String channel, String message) {
-        System.out.println("@@@@@@@@");
         // 推送挂单数据
         String[] params = channel.split(":");
         int fviFid = Integer.valueOf(params[0]);

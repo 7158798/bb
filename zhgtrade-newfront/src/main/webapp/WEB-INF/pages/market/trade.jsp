@@ -273,7 +273,9 @@
 									<div class="total"><p>交易额 <span>{{sellAmount | currency :'': 4}} {{::user.rmbname}}</span></p>
 										<p class="transform_total"></p>
 									</div>
-									<div ng-if="showTip"  ng-model="sellErrorMessage" style="font-size: 12px; height: 25px"></div>
+									<div ng-if="showTip"   style="font-size: 12px; height: 25px">
+										<span style="color: red">{{sellErrorMessage}}</span>
+									</div>
 									<div class="submit">
 										<button  class="btn_sell color_sell_bg" ng-click = "createOrder('sell')">
 											卖出{{::user.virname}}
@@ -301,7 +303,7 @@
 								<div style="height:205px;overflow-y: auto;">
 									<dd data-info="{{sell[0]}}" ng-repeat="sell in sellOrders | orderBy: sell[0]:'desc' " ng-click="clickOrder(sell)" ng-cloak="">
 										<div class="inner" >
-											<span class="title color-sell">卖 {{sell.length-$index+2}}</span>
+											<span class="title color-sell">卖 {{sellOrders.length-$index}}</span>
 											<span class="price">{{sell[0] | currency:'':4}}</span>
 											<span class="amount">{{sell[1] | currency:'':4}}</span>
 											<span>{{sell[2] | currency:'':4}}</span>
