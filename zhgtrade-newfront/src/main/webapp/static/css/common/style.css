@@ -76,7 +76,7 @@
 .team .partner_title .zh{font-size: 24px;}
 .team .partner_title .en{margin-top: 8px;margin-bottom: 32px;}
 .team .partner_title .en .middle{width: 100px;padding: 0 22px;}
-.team .partner_title{font-family: "Microsoft YaHei";font-size: 14px;color: #08a4d7;}
+.team .partner_title{font-family: "Microsoft YaHei";font-size: 14px;color: rgba(254, 116, 31, 0.9);}
 .team .partner_title .en .left{display:inline-block;width: 50px;height: 2px;line-height:2px;background: #fe741f;vertical-align: middle;}
 .team .partner_title .en .right{display:inline-block;width: 50px;height: 2px;line-height:2px;background: #fe741f;vertical-align: middle;}
 /*.team .team_btn{display:block;float:left;color:#333;margin-left:28px;width: 100px;height: 36px;line-height: 36px;text-align: center;border:2px solid #333;border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;}*/

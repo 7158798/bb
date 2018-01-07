@@ -56,8 +56,8 @@
 .coin_list .item .icon{width:20px;height:20px;margin:15px 0 0 5px;background-repeat:no-repeat;}
 .coin_list .item_fir{color:#000;font-weight: 500;}
 .coin_list .item_fir .item_leap .iconfont{line-height: 24px;width: 15px;height: 7px; font-size: 12px;}
-.coin_list .item .item_leap a{width:78px;height:26px;line-height:26px;color:#08a4d7;margin:6px auto;display:table;background: #FFF;border: 1px solid #08a4d7;}
-.coin_list .item .item_leap a:hover{color:#FFF;background: #08a4d7;}
+.coin_list .item .item_leap a{width:78px;height:26px;line-height:26px;color:rgba(254, 116, 31, 0.9);margin:6px auto;display:table;background: #FFF;border: 1px solid rgba(254, 116, 31, 0.9);}
+.coin_list .item .item_leap a:hover{color:#FFF;background: rgba(254, 116, 31, 0.9);}
 .coin_list .item .trend{width: 133px;height: 40px;}
 /* 币主板 */
 /* .coin_list li.main .item{height:100px;line-height:100px;} */

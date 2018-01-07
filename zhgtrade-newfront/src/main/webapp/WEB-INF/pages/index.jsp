@@ -227,11 +227,11 @@
         <%--&lt;%&ndash;<ul class="consult_bd">&ndash;%&gt;--%>
             <%--&lt;%&ndash;<li id="consult"></li>&ndash;%&gt;--%>
             <%--&lt;%&ndash;<li id="tm_market" class="dn">&ndash;%&gt;--%>
-                <%--&lt;%&ndash;&lt;%&ndash;<span class="iconfont db" style="font-size:100px;margin-top:100px;color:#08a4d7;">&#xe63d;</span>&ndash;%&gt;&ndash;%&gt;--%>
+                <%--&lt;%&ndash;&lt;%&ndash;<span class="iconfont db" style="font-size:100px;margin-top:100px;color:rgba(254, 116, 31, 0.9);">&#xe63d;</span>&ndash;%&gt;&ndash;%&gt;--%>
                 <%--&lt;%&ndash;<a href="http://news.zhgtrade.com/markets.html#btc"><div id="container" style="min-width: 310px; height: 420px; margin: 0 auto"></div></a>&ndash;%&gt;--%>
             <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
             <%--&lt;%&ndash;<li id="pro" class="dn">&ndash;%&gt;--%>
-                <%--&lt;%&ndash;<span class="iconfont db" style="font-size:100px;margin-top:100px;color:#08a4d7;">&#xe63d;</span>&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<span class="iconfont db" style="font-size:100px;margin-top:100px;color:rgba(254, 116, 31, 0.9);">&#xe63d;</span>&ndash;%&gt;--%>
             <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
         <%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
     <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
