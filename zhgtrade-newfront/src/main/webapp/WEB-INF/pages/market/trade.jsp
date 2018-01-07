@@ -464,7 +464,12 @@
 	}()
 	
 	function showfee() {
-        window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
+        window.wxc.xcConfirm("请输入信息", window.wxc.xcConfirm.typeEnum.input,{
+            onOk:function(v){
+                console.log(v);
+            }
+        });
+//        window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
     }
 </script>
 <script src="${resources}/static/js/market/collect.js"></script>

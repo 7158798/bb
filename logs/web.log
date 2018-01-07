@@ -3966,3 +3966,20 @@ Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立
 	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:504)
 	at org.eclipse.jetty.io.ChannelEndPoint.flush(ChannelEndPoint.java:177)
 	... 76 more
+0    [07-一月-2018 20:04:07] WARN  (DeprecationWarning.java:43) org.eclipse.jetty.util.DeprecationWarning  - Using @Deprecated Class org.springframework.web.util.Log4jConfigListener
+18691 [07-一月-2018 20:04:26] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fsystemargs]; using defaults.
+18722 [07-一月-2018 20:04:26] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.FTypeDetail]; using defaults.
+18753 [07-一月-2018 20:04:26] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Ffriendlink]; using defaults.
+18800 [07-一月-2018 20:04:26] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Farticletype]; using defaults.
+18879 [07-一月-2018 20:04:26] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fwebbaseinfo]; using defaults.
+18895 [07-一月-2018 20:04:26] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fintrolinfo]; using defaults.
+19005 [07-一月-2018 20:04:26] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Flimittrade]; using defaults.
+19020 [07-一月-2018 20:04:26] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fabout]; using defaults.
+19107 [07-一月-2018 20:04:26] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.TradeApi]; using defaults.
+19141 [07-一月-2018 20:04:26] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Farticle]; using defaults.
+19713 [07-一月-2018 20:04:27] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.org.hibernate.cache.UpdateTimestampsCache]; using defaults.
+19713 [07-一月-2018 20:04:27] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.org.hibernate.cache.StandardQueryCache]; using defaults.
+22869 [07-一月-2018 20:04:30] WARN  (CacheManager.java:611) net.sf.ehcache.CacheManager  - Creating a new instance of CacheManager using the diskStorePath "C:\Users\ADMINI~1\AppData\Local\Temp\" which is already used by an existing CacheManager.
+The source of the configuration was net.sf.ehcache.config.generator.ConfigurationSource$InputStreamConfigurationSource@6b71e98f.
+The diskStore path for this CacheManager will be set to C:\Users\ADMINI~1\AppData\Local\Temp\\ehcache_auto_created_1515326670381.
+To avoid this warning consider using the CacheManager factory methods to create a singleton CacheManager or specifying a separate ehcache configuration (ehcache.xml) for each CacheManager instance.
