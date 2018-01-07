@@ -30,7 +30,7 @@ public class RedisMessageQueueServiceImpl implements MessageQueueService {
                     log.trace("subscribe {}", JSON.toJSONString(channels));
                     subscribeRedis(listener, channels);
                 } catch (Exception e) {
-                    log.error("subscribe {} error, reason ", JSON.toJSONString(channels), e.getStackTrace()[0]);
+                    log.error("subscribe {} error, reason {}", JSON.toJSONString(channels), e.getStackTrace()[0]);
                 }
                 try {
                     Thread.sleep(3000);

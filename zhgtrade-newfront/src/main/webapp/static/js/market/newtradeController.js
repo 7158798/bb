@@ -23,6 +23,9 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
                 console.log($scope.user);
                 $scope.buyPrice = $scope.user.recommendPrizebuy;
                 $scope.sellPrice = $scope.user.recommendPrizesell;
+                if($scope.user.isLogin === 1){
+                    getUserFentrust($scope.marketId);
+                }
             })
     }
     getUserInfo();
@@ -32,14 +35,14 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
 
     //获取所有挂单
     function getFentrusts(symbol) {
-        $http.get("/market/depth?symbol="+symbol)
+        $http.get("/market/marketRefresh?symbol="+symbol)
             .then(function (result) {
-                $scope.buyOrders = result.data.return.asks;
-                $scope.sellOrders = result.data.return.bids;
-                console.log($scope.user);
+                $scope.buyOrders = result.data.buyDepthList;
+                $scope.sellOrders = result.data.sellDepthList;
+                $scope.recentDealList = result.data.recentDealList;
             })
     };
-    getFentrusts($scope.marketId);
+    // getFentrusts($scope.marketId);
 
     //点击挂单事件
     $scope.clickOrder = function(order){
@@ -57,27 +60,35 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
         }
     };
 
-     // order_socket; //全局socket
+     var order_socket; //全局socket
     //链接socket
     function connectWs() {
-        $scope.host = "127.0.0.1:9092";
-        $scope.order_socket && $scope.order_socket.close();
-        $scope.order_socket = io(location.protocol + '//' + $scope.host + '/trade?deep=4&token=dev&symbol=' + $scope.marketId, {transports: ['websocket', 'pull']});
-
-        $scope.order_socket.on('entrust-buy', function (msg) {
+        var host = "127.0.0.1:9092";
+        order_socket && order_socket.close();
+        order_socket = io(location.protocol + '//' + host + '/trade?deep=4&token=dev&symbol=' + $scope.marketId, {transports: ['websocket', 'pull']});
+        var _on = order_socket.on;
+        order_socket.on = function(event, fn) {
+            _on.call(order_socket, event, function(msg){
+                $scope.$apply(function(){
+                    fn(msg)
+                })
+            })
+        };
+        order_socket.on('entrust-buy', function (msg) {
             $scope.buyOrders = eval(msg);
         });
-        $scope.order_socket.on('entrust-sell', function (msg) {
+        order_socket.on('entrust-sell', function (msg) {
             $scope.sellOrders = JSON.parse(msg);
         });
-        $scope. order_socket.on('entrust-log', function (msg) {
+        order_socket.on('entrust-log', function (msg) {
+            $scope.recentDealList = JSON.parse(msg);
         });
-        $scope.order_socket.on('real', function (msg) {
+        order_socket.on('real', function (msg) {
             // var ticker = eval("(" + msg + ")")
             // $scope.selectedPair.lastDealPrize = ticker.last
             // $scope.selectedPair.volumn = ticker.vol
         });
-        $scope.order_socket.on('entrust-update', function (msg) {
+        order_socket.on('entrust-update', function (msg) {
             var newData = eval("(" + msg + ")");
             if ($scope.marketId === newData.symbol) {
                 $scope.user.rmbfrozen = newData.rmbfrozen;
@@ -118,6 +129,7 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
     };
 
     $scope.createOrder = function(type) {
+        $scope.showTip = true;
         if (!checkLogin(type) || !checkOrder(type)) {
             return;
         }
@@ -130,14 +142,18 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
             };
             $http.post('/market/buyBtcSubmit', $.param(data), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
                 .then(function(res){
-                    $scope.showTip = true;
                     var msg = res.data.msg ? res.data.msg : "";
                     if (res.data.resultCode !== 0) {
                         setErrorMessage(type, WARN_TEXT[res.data.resultCode] + msg)
                     } else {
+                        $scope.buyCount = 0;
+                        $scope.buyPrice = 0;
                         $scope.user.needTradePasswd = false;
                         setErrorMessage(type, "购买成功");
                     }
+                    $timeout(function () {
+                        $scope.showTip = false;
+                    },500);
                 })
         } else {
             var data = {
@@ -153,32 +169,36 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
                     if (res.data.resultCode !== 0) {
                         setErrorMessage(type, WARN_TEXT[res.data.resultCode] + msg)
                     } else {
+                        $scope.sellCount = 0;
+                        $scope.sellPrice = 0;
                         $scope.user.needTradePasswd = false;
                         setErrorMessage(type, "出售成功");
                     }
+                    $timeout(function () {
+                        $scope.showTip = false;
+                    },500);
                 })
         }
-        $timeout(function () {
-            $scope.showTip = false;
-        },500);
+
     };
 
-    $scope.cancelOrder = function(order) {
-        $http.post('market/cancelEntrust', $.param({id: order[3]}), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+    $scope.cancelOrder = function(id) {
+        $http.post('/market/cancelEntrust', $.param({id: id}), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
             .then()
     };
 
     function setErrorMessage(type, msg) {
         if (type === 'buy') {
-            $scope.buyErrorMessage = msg || ''
+            $scope.buyErrorMessage = msg ;
         } else {
-            $scope.sellErrorMessage = msg || ''
+            $scope.sellErrorMessage = msg;
         }
     }
     function checkLogin(type) {
         if (!$scope.user || $scope.user.isLogin !== 1) {
+
             setErrorMessage(type, "请登录");
-            return false
+            return false;
         }
         return true
     }
@@ -204,5 +224,15 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
         }
         return true
     }
+
+    //获取用户订单记录
+    function getUserFentrust(symbol) {
+        $http.get("/market/userFentrust?symbol="+symbol)
+            .then(function (result) {
+                $scope.userOrders = result.data.entrustList;
+                $scope.userOrderLogs = result.data.entrustListLog;
+            })
+    }
+
 
 }]);

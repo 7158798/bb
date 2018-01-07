@@ -230,7 +230,7 @@
 
         var socket;
         function connectWs() {
-            socket && socket.close()
+            socket && socket.close();
             socket = io(location.protocol + '//' + host + '/trade?deep=4&token=dev&symbol=' + $scope.selectedPair.fid, {transports: ['websocket', 'pull']});
             // ng fix
             var _on = socket.on

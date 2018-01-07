@@ -54,7 +54,7 @@ public class RealDataServiceImpl implements RealDataService {
                 sb.append(",\"");
                 sb.append(SIMPLE_DATE_FORMAT.format(row.getFcreateTime()));
                 sb.append("\",");
-                sb.append(row.getfEntrustType() + 1);
+                sb.append(row.getfEntrustType());
                 sb.append("]");
             }
         }

@@ -201,7 +201,7 @@ public class PushServer implements MessageListener<String>, ConnectListener, Dis
     }
 
     private String getTickerFromWebServer(int fviFid) {
-        return HttpUtils.get(siteUrl + "/api/v2/market/real?symbol=" + fviFid, null);
+        return HttpUtils.get(siteUrl + "/market/real?symbol=" + fviFid, null);
     }
 
     private void pushRealPrice(String channel) {
@@ -217,6 +217,7 @@ public class PushServer implements MessageListener<String>, ConnectListener, Dis
     }
 
     private void pushEntrustData(String channel, String message) {
+        System.out.println("@@@@@@@@");
         // 推送挂单数据
         String[] params = channel.split(":");
         int fviFid = Integer.valueOf(params[0]);

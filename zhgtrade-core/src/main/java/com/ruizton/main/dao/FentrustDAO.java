@@ -13,11 +13,7 @@ import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projection;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -362,38 +358,38 @@ public class FentrustDAO extends HibernateDaoSupport {
 	}
 
 	public List getFentrustHistory(int fuid, int fviFid, int first, int max) {
-		List<Map<String, Object>> list = jdbcTemplate.queryForList("select fEntrustType, fPrize, fleftCount, fId from fentrust where FUs_fId = ? and fVi_fId = ? and (fStatus = ? or fStatus = ?) order by fid desc limit ?, ?", fuid, fviFid, EntrustStatusEnum.Going, EntrustStatusEnum.PartDeal, first, max);
-		List ret = new ArrayList<>(list.size());
-		list.forEach(map -> {
-			ret.add(new Object[]{map.get("fEntrustType"), map.get("fPrize"), map.get("fleftCount"), map.get("fId")});
-		});
-		return ret;
-//		SQLQuery query = getSession().createSQLQuery("select fEntrustType, fPrize, fleftCount, fId from fentrust where FUs_fId = ? and fVi_fId = ? and (fStatus = ? or fStatus = ?) order by fid desc");
-//		query.setParameter(0, fuid);
-//		query.setParameter(1, fviFid);
-//		query.setParameter(2, EntrustStatusEnum.Going);
-//		query.setParameter(3, EntrustStatusEnum.PartDeal);
-//		query.setFirstResult(first);
-//		query.setMaxResults(max);
-//		List list = query.list();
-//		return list;
+//		List<Map<String, Object>> list = jdbcTemplate.queryForList("select fEntrustType, fPrize, fleftCount, fId from fentrust where FUs_fId = ? and fVi_fId = ? and (fStatus = ? or fStatus = ?) order by fid desc limit ?, ?", fuid, fviFid, EntrustStatusEnum.Going, EntrustStatusEnum.PartDeal, first, max);
+//		List ret = new ArrayList<>(list.size());
+//		list.forEach(map -> {
+//			ret.add(new Object[]{map.get("fEntrustType"), map.get("fPrize"), map.get("fleftCount"), map.get("fId")});
+//		});
+//		return ret;
+		SQLQuery query = getSession().createSQLQuery("select * from fentrust where FUs_fId = ? and fVi_fId = ? and (fStatus = ? or fStatus = ?) order by fid desc");
+		query.setParameter(0, fuid);
+		query.setParameter(1, fviFid);
+		query.setParameter(2, EntrustStatusEnum.Going);
+		query.setParameter(3, EntrustStatusEnum.PartDeal);
+		query.setFirstResult(first);
+		query.setMaxResults(max);
+		List list = query.setResultTransformer(CriteriaSpecification.ALIAS_TO_ENTITY_MAP).list();
+		return list;
 	}
 
 	public List<Fentrust> findFentrustHistory(int fuid, int fviFid, int first, int max) {
-		List<Map<String, Object>> list = jdbcTemplate.queryForList("select fEntrustType, fPrize, (fCount-fleftCount) fCount, fId, fStatus,fsuccessAmount from fentrust where FUs_fId = ? and fVi_fId = ? AND fsuccessAmount > 0 and (fStatus = ? or fStatus = ? ) order by fid desc limit ?, ?", fuid, fviFid, EntrustStatusEnum.AllDeal, EntrustStatusEnum.Cancel, first, max);
-		List ret = new ArrayList<>(list.size());
-		list.forEach(map -> {
-			ret.add(new Object[]{map.get("fEntrustType"), map.get("fPrize"), map.get("fCount"), map.get("fId"), map.get("fStatus"), map.get("fsuccessAmount")});
-		});
-		return ret;
-//		SQLQuery query = getSession().createSQLQuery("select fEntrustType, fPrize, fCount, fId, fStatus from fentrust where FUs_fId = ? and fVi_fId = ? and (fStatus = ?) order by fid desc");
-//		query.setParameter(0, fuid);
-//		query.setParameter(1, fviFid);
-//		query.setParameter(2, EntrustStatusEnum.AllDeal);
-//		query.setFirstResult(first);
-//		query.setMaxResults(max);
-//		List list = query.list();
-//		return list;
+//		List<Map<String, Object>> list = jdbcTemplate.queryForList("select fEntrustType, fPrize, (fCount-fleftCount) fCount, fId, fStatus,fsuccessAmount from fentrust where FUs_fId = ? and fVi_fId = ? AND fsuccessAmount > 0 and (fStatus = ? or fStatus = ? ) order by fid desc limit ?, ?", fuid, fviFid, EntrustStatusEnum.AllDeal, EntrustStatusEnum.Cancel, first, max);
+//		List ret = new ArrayList<>(list.size());
+//		list.forEach(map -> {
+//			ret.add(new Object[]{map.get("fEntrustType"), map.get("fPrize"), map.get("fCount"), map.get("fId"), map.get("fStatus"), map.get("fsuccessAmount")});
+//		});
+//		return ret;
+		SQLQuery query = getSession().createSQLQuery("select * from fentrust where FUs_fId = ? and fVi_fId = ? and (fStatus = ?) order by fid desc");
+		query.setParameter(0, fuid);
+		query.setParameter(1, fviFid);
+		query.setParameter(2, EntrustStatusEnum.AllDeal);
+		query.setFirstResult(first);
+		query.setMaxResults(max);
+		List list = query.setResultTransformer(CriteriaSpecification.ALIAS_TO_ENTITY_MAP).list();
+		return list;
 	}
 	
 	public List<Fentrust> getFentrustHistory(

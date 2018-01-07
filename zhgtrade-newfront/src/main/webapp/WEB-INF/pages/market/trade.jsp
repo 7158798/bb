@@ -254,9 +254,9 @@
 											class="upper unit" unit="show_sell_quote_logout">{{user.rmbname}}</span></label><strong
 											class="msg"></strong><!--<p class="math_price"></p>--></div>
 									<div class="input_text input_text_amount"><b class="label">卖出量</b><label>
-										<input ng-model="sellCount" ng-change="countChange(0)">
-                                <span class="unit"><em class="uppercase"
-													   lazyfill="">{{user.virname}}</em></span></label><strong
+										<input ng-model="sellCount" ng-change="countChange(1)">
+                                <span class="unit"><em class="uppercase">{{user.virname}}</em>
+								</span></label><strong
 											class="msg"></strong></div>
 									<div ng-show="user.needTradePasswd">
 										<span class="label" style="font-size:14px;">交易密码</span>
@@ -349,7 +349,7 @@
 		<div class="entrust_wrapper tac">
 			<div class="float_left entrust_container entrust_log" style="margin-right: 0px">
 				<div class="content" style="height: 507px">
-					<p class="ptitle_font">成交记录</p>
+					<p class="ptitle_font" style="padding-left: 20px;text-align: left">成交记录</p>
 					<p class="fir bg_gray">
 						<span class="db lt1 fl">成交时间</span>
 						<span class="db lt2 fl">买/卖</span>
@@ -357,13 +357,22 @@
 						<span class="db lt4 fl">成交量</span>
 						<span class="db lt5 fl">总金额</span>
 					</p>
-					<div id="logList">
+					<div style="width: 103%;height: 500px;overflow-y: scroll;">
+						<p class="fir " ng-repeat="data in recentDealList">
+							<span class="db lt1 fl">{{data[2] | date: 'MM-dd HH:mm:ss'}}</span>
+							<%--#fd0202--%>
+							<span ng-if="data[3] == 1" class="db lt2 fl" style="color: #fd0202;">{{data[3] == 0? '买':'卖'}}</span>
+							<span ng-if="data[3] == 0" class="db lt2 fl" style="color: #1f963d;">{{data[3] == 0? '买':'卖'}}</span>
+							<span class="db lt3 fl">{{data[0] | currency : '' : 4}}</span>
+							<span class="db lt4 fl">{{data[1] | currency : '' : 4}}</span>
+							<span class="db lt5 fl">{{data[1] * data[0] | currency : '' : 4}}</span>
+						</p>
 					</div>
 				</div>
 			</div>
 			<div class="float_right entrust_container entrust_log" >
-				<div class="content" style="    width: 760px; margin-left: -370px; height: 200px;margin-bottom: 5px">
-					<p class="ptitle_font">当前委托</p>
+				<div class="content" style="    width: 760px; margin-left: -370px; height: 234px;margin-bottom: 5px">
+					<p class="ptitle_font" style="padding-left: 20px;text-align: left">当前委托</p>
 					<p class="fir bg_gray">
 						<span class="db lt1 fl">成交时间</span>
 						<span class="db lt5 fl">交易对</span>
@@ -375,23 +384,24 @@
 						<span class="db lt7 fl">未成交</span>
 						<span class="db lt5 fl">操作</span>
 					</p>
-					<div id="logList4">
-						<p >
-							<span class="db lt1 fl">11-15 15:37:18</span>
-							<span class="db lt5 fl">ETH/ETC</span>
-							<span class="db lt2 fl">买入</span>
-							<span class="db lt3 fl">2.0000</span>
-							<span class="db lt4 fl">1.0000</span>
-							<span class="db lt4 fl">2.00</span>
-							<span class="db lt5 fl">0</span>
-							<span class="db lt7 fl">1</span>
-							<span class="db lt5 fl">撤销</span>
+					<div style="overflow-y: auto;height: 195px;width: 101%;">
+						<p ng-repeat=" data in userOrders">
+							<span class="db lt1 fl">{{data.fCreateTime| date:'MM-dd HH:mm:ss'}}</span>
+							<span class="db lt5 fl">{{user.virname}}/{{user.rmbname}}</span>
+							<span class="db lt2 fl" ng-if="data.fEntrustType == 0" style="color: #1f963d;">买入</span>
+							<span class="db lt2 fl" ng-if="data.fEntrustType == 1" style="color: #fd0202;">卖出</span>
+							<span class="db lt3 fl">{{data.fPrize | currency : '' : 4}}</span>
+							<span class="db lt4 fl">{{data.fCount | currency : '' : 4}}</span>
+							<span class="db lt4 fl">{{data.fAmount| currency : '' : 4}}</span>
+							<span class="db lt5 fl">{{data.fsuccessAmount | currency : '' : 4}}</span>
+							<span class="db lt7 fl">{{(data.fAmount- data.fsuccessAmount) | currency : '' : 4}}</span>
+							<span class="db lt5 fl" ng-click = "cancelOrder(data.fId)">撤销</span>
 						</p>
 					</div>
 				</div>
 				<div class="content" style="    width: 760px; margin-left: -370px; height: 300px;">
-					<p class="ptitle_font">我的委托历史</p>
-					<p class="fir bg_gray">
+					<p class="ptitle_font" style="padding-left: 20px;text-align: left;margin-top: 50px">我的委托历史</p>
+					<p class="fir bg_gray" >
 						<span class="db lt1 fl">成交时间</span>
 						<span class="db lt5 fl">交易对</span>
 						<span class="db lt2 fl">买/卖</span>
@@ -402,17 +412,18 @@
 						<span class="db lt7 fl">状态</span>
 						<span class="db lt5 fl">操作</span>
 					</p>
-					<div id="logList6">
-						<p >
-							<span class="db lt1 fl">11-15 15:37:18</span>
-							<span class="db lt5 fl">ETH/ETC</span>
-							<span class="db lt2 fl">买入</span>
-							<span class="db lt3 fl">2.0000</span>
-							<span class="db lt4 fl">1.0000</span>
-							<span class="db lt4 fl">2.00</span>
-							<span class="db lt5 fl">1</span>
-							<span class="db lt7 fl">已完成</span>
-							<span class="db lt5 fl">详情</span>
+					<div style="overflow-y: auto;height: 195px;width: 101%; " >
+						<p ng-repeat=" data in userOrderLogs">
+							<span class="db lt1 fl">{{data.fCreateTime| date:'MM-dd HH:mm:ss'}}</span>
+							<span class="db lt5 fl">{{user.virname}}/{{user.rmbname}}</span>
+							<span class="db lt2 fl" ng-if="data.fEntrustType == 0" style="color:#1f963d;">买入</span>
+							<span class="db lt2 fl" ng-if="data.fEntrustType == 1" style="color:#fd0202;">卖出</span>
+							<span class="db lt3 fl">{{data.fPrize | currency : '' : 4}}</span>
+							<span class="db lt4 fl">{{data.fCount | currency : '' : 4}}</span>
+							<span class="db lt4 fl">{{data.fAmount| currency : '' : 4}}</span>
+							<span class="db lt5 fl">{{data.fsuccessAmount | currency : '' : 4}}</span>
+							<span class="db lt7 fl">{{(data.fAmount- data.fsuccessAmount) | currency : '' : 4}}</span>
+							<span class="db lt5 fl" ng-click = "cancelOrder(data.fId)">详情</span>
 						</p>
 					</div>
 				</div>

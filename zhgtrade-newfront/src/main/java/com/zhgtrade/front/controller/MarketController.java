@@ -17,6 +17,7 @@ import com.ruizton.main.service.admin.VirtualCoinService;
 import com.ruizton.main.service.front.*;
 import com.ruizton.util.*;
 import com.ruizton.util.StringUtils;
+import com.zhguser.service.GetUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -446,6 +447,22 @@ public class MarketController extends BaseController {
         return false;
     }
 
+    @ResponseBody
+    @RequestMapping("/userFentrust")  //用户委托信息
+    public Object userFentrust(HttpServletRequest request, int symbol){
+        Fuser user = getSessionUser(request);
+        Map map = new HashMap();
+        if(user == null){
+            map.put("code",-1);
+            return map;
+        }
+        List entrustList = frontTradeService.getFentrustHistory(user.getFid(), symbol, 0, 10);
+        List entrustListLog = frontTradeService.findFentrustHistory(user.getFid(), symbol, 0, 15);
+        map.put("entrustList", entrustList);
+        map.put("entrustListLog", entrustListLog);
+        map.put("code",200);
+        return map;
+    }
 
     @ResponseBody
     @RequestMapping("/refreshUserInfo")
@@ -472,8 +489,6 @@ public class MarketController extends BaseController {
             Fvirtualwallet virtualwallet = frontUserService.findVirtualWalletNative(user.getFid(), market.getSellId());
             Fvirtualwallet btcWallet = frontUserService.findVirtualWalletNative(user.getFid(), market.getBuyId());
 
-
-
             map.put("rmbtotal",  Double.valueOf(FormatUtils.formatCoin(btcWallet.getFtotal())));
             map.put("rmbfrozen",   Double.valueOf(FormatUtils.formatCoin(btcWallet.getFfrozen())));
             map.put("vtype", "btc");
@@ -481,10 +496,7 @@ public class MarketController extends BaseController {
             map.put("virtotal",  Double.valueOf(FormatUtils.formatCoin(virtualwallet.getFtotal())));
             map.put("virfrozen",   Double.valueOf(FormatUtils.formatCoin(virtualwallet.getFfrozen())));
 
-//            List entrustList = frontTradeService.getFentrustHistory(user.getFid(), symbol, 0, 5);
-//            List entrustListLog = frontTradeService.findFentrustHistory(user.getFid(), symbol, 0, 5);
-//            map.put("entrustList", entrustList);
-//            map.put("entrustListLog", entrustListLog);
+
         } else {
             map.put("isLogin", 0);
         }
@@ -509,9 +521,7 @@ public class MarketController extends BaseController {
     @ResponseBody
     @RequestMapping("/marketRefresh")
     public Object marketRefresh(@RequestParam(required = false, defaultValue = "0") int symbol, @RequestParam(required = false, defaultValue = "4") int deep) throws Exception {
-
         Map<String, Object> map = new HashMap<>();
-
         Object[] successEntrusts = this.realTimeDataService.getEntrustSuccessMap(symbol).toArray();
         Object buyEntrusts = JSONArray.parse(this.realTimeDataService.getBuyDepthMap(symbol, deep));
         Object sellEntrusts = JSONArray.parse(this.realTimeDataService.getSellDepthMap(symbol, deep));
