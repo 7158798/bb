@@ -131,9 +131,9 @@
 	ReactDom.render(React.createElement(Provider, { component: SellContent, store: MarketStore, eventName: 'User' }), document.getElementById('sell-content'));
 
 	// 买单委托列表
-	ReactDom.render(React.createElement(Provider, { component: BuyEntrustList, store: MarketStore, eventName: 'Market' }), document.getElementById('buyList'));
+	// ReactDom.render(React.createElement(Provider, { component: BuyEntrustList, store: MarketStore, eventName: 'Market' }), document.getElementById('buyList'));
 	// 卖单委托列表
-	ReactDom.render(React.createElement(Provider, { component: SellEntrustList, store: MarketStore, eventName: 'Market' }), document.getElementById('sellList'));
+	// ReactDom.render(React.createElement(Provider, { component: SellEntrustList, store: MarketStore, eventName: 'Market' }), document.getElementById('sellList'));
 	// 成交日志
 	ReactDom.render(React.createElement(Provider, { component: EntrustLog, store: MarketStore, eventName: 'Market' }), document.getElementById('logList'));
 

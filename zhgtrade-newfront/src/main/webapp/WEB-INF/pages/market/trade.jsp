@@ -41,7 +41,7 @@
 							<span><c:choose><c:when test="${isCollected==1}">已收藏</c:when><c:otherwise>收藏</c:otherwise></c:choose></span>
 						</span>
 					</p>
-					<i class="db fl iconfont rotate_icon c_blue mr25 cp" id="coin_sel">&#xe611;</i>
+					<i class="db fl iconfont rotate_icon c_blue mr25 cp" style="margin-left: 12px" id="coin_sel">&#xe611;</i>
 				</div>
 				<div class="coin_sel_box dn">
 					<ul>
@@ -63,27 +63,27 @@
 				</div>
 			</div>
 
-			<div class="price c_blue f30 fl" id="last-price">${last}</div>
+			<div class="price c_blue f26 fl" id="last-price">${last}</div>
 			<div class="data fl">
 				<ul>
 					<li>
-						<p class="f22 c_red" id="high-price">${high}</p>
+						<p class="f20 c_red" id="high-price">${high}</p>
 						<p>最高价</p>
 					</li>
 					<li>
-						<p class="f22 c_green" id="low-price">${low}</p>
+						<p class="f20 c_green" id="low-price">${low}</p>
 						<p>最低价</p>
 					</li>
 					<li>
-						<p class="f22" id="buy-price">${buy}</p>
+						<p class="f20" id="buy-price">${buy}</p>
 						<p>买价</p>
 					</li>
 					<li>
-						<p class="f22" id="sell-price">${sell}</p>
+						<p class="f20" id="sell-price">${sell}</p>
 						<p>卖价</p>
 					</li>
 					<li>
-						<p class="f22" id="vol-price">${vol}</p>
+						<p class="f20" id="vol-price">${vol}</p>
 						<p>成交量</p>
 					</li>
 				</ul>
@@ -99,14 +99,14 @@
 		</div>
 	</c:if>--%>
 	<div class="cb"></div>
-	<ul id="title_sel" class="f16 mt5">
+	<%--<ul id="title_sel" class="f16 mt5">
 		<li class="fl cur">交易${vdata.fname}</li>
-		<%--<li class="fl">${vdata.fname}行情</li>
+		&lt;%&ndash;<li class="fl">${vdata.fname}行情</li>
 		<li class="fl">了解${vdata.fname}</li>
-		<li class="fl">市场动态</li>--%>
-		<%--<li class="fl">行情对比</li>
-		<li class="fl">币对冲</li>--%>
-	</ul>
+		<li class="fl">市场动态</li>&ndash;%&gt;
+		&lt;%&ndash;<li class="fl">行情对比</li>
+		<li class="fl">币对冲</li>&ndash;%&gt;
+	</ul>--%>
 
 
 
@@ -346,8 +346,65 @@
 		</div>
 
 
+
+		<!-- 新买盘 买盘 成交记录 -->
+		<div class="entrust_wrapper tac">
+			<div class="float_left entrust_container entrust_log" style="margin-right: 0px">
+				<div class="content" style="height: 507px">
+					<p class="ptitle_font">成交记录</p>
+					<p class="fir bg_gray">
+						<span class="db lt1 fl">成交时间</span>
+						<span class="db lt2 fl">买/卖</span>
+						<span class="db lt3 fl">成交价</span>
+						<span class="db lt4 fl">成交量</span>
+						<span class="db lt5 fl">总金额</span>
+					</p>
+					<div id="logList">
+					</div>
+				</div>
+			</div>
+			<div class="float_right entrust_container entrust_log" >
+				<div class="content" style="    width: 760px; margin-left: -370px; height: 200px;margin-bottom: 5px">
+					<p class="ptitle_font">当前委托</p>
+					<p class="fir bg_gray">
+						<span class="db lt1 fl">成交时间</span>
+						<span class="db lt5 fl">交易对</span>
+						<span class="db lt2 fl">买/卖</span>
+						<span class="db lt3 fl">成交价</span>
+						<span class="db lt4 fl">数量</span>
+						<span class="db lt4 fl">委托总额</span>
+						<span class="db lt5 fl">已成交</span>
+						<span class="db lt7 fl">未成交</span>
+						<span class="db lt5 fl">操作</span>
+					</p>
+					<div id="logList4">
+					</div>
+				</div>
+				<div class="content" style="    width: 760px; margin-left: -370px; height: 300px;">
+					<p class="ptitle_font">我的委托历史</p>
+					<p class="fir bg_gray">
+						<span class="db lt1 fl">成交时间</span>
+						<span class="db lt5 fl">交易对</span>
+						<span class="db lt2 fl">买/卖</span>
+						<span class="db lt3 fl">成交价</span>
+						<span class="db lt4 fl">数量</span>
+						<span class="db lt4 fl">委托总额</span>
+						<span class="db lt5 fl">已成交</span>
+						<span class="db lt7 fl">状态</span>
+						<span class="db lt5 fl">操作</span>
+					</p>
+					<div id="logList6">
+					</div>
+				</div>
+			</div>
+			<div class="cb"></div>
+		</div>
+
+
+
+
 	<!-- 买盘 买盘 成交记录 -->
-	<div class="entrust_wrapper tac">
+	<%--<div class="entrust_wrapper tac">
 		<div class="fl entrust_container">
 			<div class="title f20">委托信息</div>
 
@@ -399,12 +456,12 @@
 					<span class="db lt4 fl">成交量</span>
 					<span class="db lt5 fl">总金额</span>
 				</p>
-				<div id="logList">
+				<div id="logLista">
 				</div>
 			</div>
 		</div>
 		<div class="cb"></div>
-	</div>
+	</div>--%>
 </div>
 <script type="text/javascript">
 	var vtype = {
