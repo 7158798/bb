@@ -17,6 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="${resources}/static/css/common/reset.css">
 	<link rel="stylesheet" type="text/css" href="${resources}/static/css/common/style.css">
 	<link rel="stylesheet" type="text/css" href="${resources}/static/css/exchange.css?v=11111">
+	<link rel="stylesheet" type="text/css" href="${resources}/static/css/jquery/xcConfirm.css">
 	<%--<link rel="stylesheet" href="${resources}/static/css/common/animate.css"/>--%>
 	<link rel="stylesheet" href="${resources}/static/css/market.css"/>
 	<style>
@@ -180,7 +181,7 @@
 			<div class="trade_panel trade_panel_logout">
 				<div class="mod mod_trade" id="mod_trade_logout">
 					<div class="mod_hd clear_fix">
-						<div class="fees_rule"><p><a href="/about/fee" target="_blank">费率</a></p></div>
+						<div class="fees_rule"><p><a href="javascript:showfee()" target="_blank">费率</a></p></div>
 					</div>
 					<div class="mod_bd clear_fix">
 						<div class="panel">
@@ -525,8 +526,14 @@
 			}
 		})
 	}()
+	
+	function showfee() {
+        window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
+    }
 </script>
 <script src="${resources}/static/js/market/collect.js"></script>
+<script src="${resources}/static/js/jquery/jquery-1.9.0.min.js"></script>
+<script src="${resources}/static/js/jquery/xcConfirm.js"></script>
 
 
 <%--<script src="http://localhost/js/lib/react.js"></script>--%>
