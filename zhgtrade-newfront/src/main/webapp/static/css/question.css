@@ -83,7 +83,7 @@
 	width:150px;
 	height:32px;
 	line-height:32px;
-	background:#0096e0;
+	background:rgba(254, 116, 31, 0.9);
 	margin-left:180px;
 	margin-top:30px;
 	
@@ -92,7 +92,7 @@
 .questionButtonblue:hover{
 	color:#fff;
 	text-decoration: none;
-	background:#0096e0;
+	background:rgba(254, 116, 31, 0.9);
 }
 
 .questionButtonblue1{
@@ -104,7 +104,7 @@
 	width:150px;
 	height:32px;
 	line-height:32px;
-	background:#0096e0;
+	background:rgba(254, 116, 31, 0.9);
 	margin-right:8px;
 	float:right;
 	
@@ -113,7 +113,7 @@
 .questionButtonblue1:hover{
 	color:#fff;
 	text-decoration: none;
-	background:#0096e0;
+	background:rgba(254, 116, 31, 0.9);
 }
 
 .queryQuestion{

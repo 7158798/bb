@@ -5,22 +5,22 @@
 	<dl>
 		<!-- 财务管理 选中效果只需加cur样式-->
 		<dt <c:if test="${'1' == dt_index}">class="cur"</c:if>>
-			<i class="icon icon_1 fl db"></i>
+			<%--<i class="icon icon_1 fl db"></i>--%>
 			<span class="pl20 fl f16 db">财务管理</span>
 			<i class="fr dn iconfont c_blue">&#xe60c;</i>
 		</dt>
-		<dd <c:if test="${'2' == dd_index}">class="cur"</c:if>>
+		<%--<dd <c:if test="${'2' == dd_index}">class="cur"</c:if>>
 			<a href="/account/chargermb.html">
-				<%--<i class="icon icon_1_2 db fl"></i>--%>
+				&lt;%&ndash;<i class="icon icon_1_2 db fl"></i>&ndash;%&gt;
 				<span class="pl10 db f14 tac">人民币充值</span>
 			</a>
 		</dd>
 		<dd <c:if test="${'3' == dd_index}">class="cur"</c:if>>
 			<a href="/account/withdrawCny.html">
-				<%--<i class="icon icon_1_1 db fl"></i>--%>
+				&lt;%&ndash;<i class="icon icon_1_1 db fl"></i>&ndash;%&gt;
 				<span class="pl10 db f14 tac">人民币提现</span>
 			</a>
-		</dd>
+		</dd>--%>
 		<dd <c:if test="${'4' == dd_index}">class="cur"</c:if>>
 			<a href="/account/chargeBtc.html">
 				<%--<i class="icon icon_1_4 db fl"></i>--%>
@@ -33,12 +33,12 @@
 				<span class="pl10 db f14 tac">虚拟币提现</span>
 			</a>
 		</dd>
-		<dd <c:if test="${'20' == dd_index}">class="cur"</c:if>>
+		<%--<dd <c:if test="${'20' == dd_index}">class="cur"</c:if>>
 			<a href="/account/transfer.html">
-				<%--<i class="icon icon_1_3 db fl"></i>--%>
+				&lt;%&ndash;<i class="icon icon_1_3 db fl"></i>&ndash;%&gt;
 				<span class="pl10 db f14 tac">资金转移</span>
 			</a>
-		</dd>
+		</dd>--%>
 		<dd <c:if test="${'1' == dd_index}">class="cur"</c:if>>
 			<a href="/account/fund.html">
 				<%--<i class="icon icon_1_5 db fl"></i>--%>
@@ -59,7 +59,7 @@
 		</dd>
 		<!-- 基本设置开始 -->
 		<dt <c:if test="${'2' == dt_index}">class="cur"</c:if>>
-			<i class="icon icon_2 fl db"></i>
+			<%--<i class="icon icon_2 fl db"></i>--%>
 			<span class="pl20 fl db f16 ">基本设置</span>
 			<i class="fr dn iconfont c_blue">&#xe60c;</i>
 		</dt>
@@ -88,10 +88,10 @@
 			</a>
 		</dd>--%>
 
-		<!-- 网站助手开始 -->
+		<!-- 帮助中心开始 -->
 		<dt <c:if test="${'3' == dt_index}">class="cur"</c:if>>
-			<i class="icon icon_3 fl db"></i>
-			<span class="pl20 fl db f16 ">网站助手</span>
+			<%--<i class="icon icon_3 fl db"></i>--%>
+			<span class="pl20 fl db f16 ">帮助中心</span>
 			<i class="fr dn iconfont c_blue">&#xe60c;</i>
 		</dt>
 		<%--<dd <c:if test="${'13' == dd_index}">class="cur"</c:if>>--%>
@@ -103,7 +103,7 @@
 		<dd <c:if test="${'14' == dd_index}">class="cur"</c:if>>
 			<a href="/account/questionColumn.html">
 				<%--<i class="icon icon_3_2 db fl"></i>--%>
-				<span class="pl10 db tac f14">问题列表</span>
+				<span class="pl10 db tac f14">工单列表</span>
 			</a>
 		</dd>
 		<dd <c:if test="${'15' == dd_index}">class="cur"</c:if>>
@@ -119,7 +119,7 @@
 			</a>
 		</dd>--%>
 		<!-- 我的收藏开始 -->
-		<dt <c:if test="${'4' == dt_index}">class="cur"</c:if>>
+		<%--<dt <c:if test="${'4' == dt_index}">class="cur"</c:if>>
 			<i class="icon icon_4 fl db"></i>
 			<span class="pl20 fl db f16 ">我的收藏</span>
 			<i class="fr dn iconfont c_blue">&#xe60c;</i>
@@ -128,7 +128,7 @@
 			<a href="/account/collection.html">
 				<span class="pl10 db tac f14">关注币种</span>
 			</a>
-		</dd>
+		</dd>--%>
 		<!-- 币对冲开始 -->
 		<%--<dt <c:if test="${'5' == dt_index}">class="cur"</c:if>>
 			<i class="icon icon_5 fl db"></i>

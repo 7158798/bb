@@ -369,9 +369,9 @@
 	height:20px;
 	line-height:20px;
 	text-align:center;
-	border-top:1px solid #0096e0;
-	border-left:1px solid #0096e0;
-	border-right:1px solid #0096e0;
+	border-top:1px solid rgba(254, 116, 31, 0.9);
+	border-left:1px solid rgba(254, 116, 31, 0.9);
+	border-right:1px solid rgba(254, 116, 31, 0.9);
 	margin-right:6px;
 }
 
@@ -382,9 +382,9 @@
 	height:20px;
 	line-height:20px;
 	text-align:center;
-	border-top:1px solid #0096e0;
-	border-left:1px solid #0096e0;
-	border-right:1px solid #0096e0;
+	border-top:1px solid rgba(254, 116, 31, 0.9);
+	border-left:1px solid rgba(254, 116, 31, 0.9);
+	border-right:1px solid rgba(254, 116, 31, 0.9);
 	margin-right:6px;
 }
 

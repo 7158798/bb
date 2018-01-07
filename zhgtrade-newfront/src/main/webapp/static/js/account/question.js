@@ -276,7 +276,7 @@ $(function () {
     }
 
 
-    //问题列表点击展开
+    //工单列表点击展开
     $("#question-list").on('click', '.singlerow', function () {
         var $parent = $(this).parents("tr");
         $parent.find(".singlerow").addClass("dn");
@@ -284,7 +284,7 @@ $(function () {
     })
 
 
-    //问题列表点击collapse
+    //工单列表点击collapse
     $("#question-list").on('click', '.multirow', function () {
         var $parent = $(this).parents("tr");
         $parent.find(".multirow").addClass("dn");
@@ -293,7 +293,7 @@ $(function () {
 
     //
 
-    //异步刷新问题列表
+    //异步刷新工单列表
     $("#question-list").on('click', '.unsolved', function () {
 
         var $this = $(this);
@@ -384,7 +384,7 @@ $(function () {
         })
 
 
-        //问题列表点击collapse
+        //工单列表点击collapse
         $(".multirow").on('click', function () {
             // $(this).removeClass("multirow").addClass("singlerow");
             var $parent = $(this).parents("tr");

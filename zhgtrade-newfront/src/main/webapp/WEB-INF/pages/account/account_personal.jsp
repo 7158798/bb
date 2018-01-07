@@ -47,13 +47,13 @@
                     <iframe class="dn" name="upload_image"></iframe>
                     <form id="upload_head_image" target="upload_image" action="/account/upload_head_img.html" method="post" enctype="multipart/form-data">
                         <p>
-                            <span style="width: 80px; height: 80px;border: 1px solid #ddd; position: relative;margin-left: 110px;" class="db">
+                            <span style="width: 80px; height: 80px;border: 1px solid #30c2ff24; position: relative;margin-left: 110px;" class="db">
                                 <c:choose>
                                     <c:when test="${!empty headImgUrl}">
                                         <img id="headImage" style="position: absolute;top: 0;left: 0;" width="80" height="80" src="${cdn}/${headImgUrl}">
                                     </c:when>
                                     <c:otherwise>
-                                        <img id="headImage" style="position: absolute;top: 0;left: 0;" width="80" height="80" src="${cdn}/static/images/default_head.jpg">
+                                        <img id="headImage" style="position: absolute;top: 0;left: 0;" width="80" height="80" src="">
                                     </c:otherwise>
                                 </c:choose>
                                 <input id="headImageBtn" name="head_img" onchange="uploadImg()" title="更换头像" style="position: absolute;top: 0;left: 0;width: 80px; height: 80px;opacity:0;filter:alpha(opacity=0);background:none;cursor: pointer;" accept=".gif,.jpg,.jpeg,.png" type="file">

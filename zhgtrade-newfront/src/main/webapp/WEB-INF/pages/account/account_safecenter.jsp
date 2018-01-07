@@ -47,9 +47,9 @@
                         <div class="content clear">
                             <!-- 短信验证 -->
                             <div class="item  fl">
-                                <div class="safe_info" style="color:#999;position:absolute;top:40px;left:160px;font-size:12px;">
+                               <%-- <div class="safe_info" style="color:#999;position:absolute;top:40px;left:160px;font-size:12px;">
                                     PS:已绑定手机号无法使用，请联系<a class="c_blue" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=${requestScope.constant['serviceQQ']}&site=qq&menu=yes">QQ客服</a>
-                                </div>
+                                </div>--%>
                                 <div class="border_blue_2 clear container">
                                 <c:choose>
                                     <c:when test="${fuser.fisTelephoneBind}">
@@ -61,7 +61,7 @@
                                 </c:choose>
                                 <div class="text db fl">
                                     <p class="t_title">短信验证</p>
-                                    <i class="icon db" style="background-position: -3px -15px"></i>
+                                   <%-- <i class="icon db" style="background-position: -3px -15px"></i>--%>
                                     <p class="f12 c_gray t_content tal">提现，修改密码，及安全设置时用以收取验证短信。</p>
                                 </div>
                                 </div>
@@ -91,7 +91,7 @@
                                 </c:choose>
                                 <div class="text db fl">
                                     <p class="t_title">邮箱验证</p>
-                                    <i class="icon db" style="background-position: -117px -15px"></i>
+                                   <%-- <i class="icon db" style="background-position: -117px -15px"></i>--%>
                                     <p class="f12 c_gray t_content">用于登陆和找回密码。</p>
                                 </div>
                                 </div>
@@ -121,7 +121,7 @@
                                 </c:choose>
                                 <div class="text db fl">
                                     <p class="t_title">登录密码</p>
-                                    <i class="icon db" style="background-position: -255px -15px"></i>
+                                   <%-- <i class="icon db" style="background-position: -255px -15px"></i>--%>
                                     <p class="f12 c_gray t_content tal">开通短信验证才能进行设置。</p>
                                 </div>
                                 </div>
@@ -151,7 +151,7 @@
                                 </c:choose>
                                 <div class="text db fl">
                                     <p class="t_title">交易密码</p>
-                                    <i class="icon db" style="background-position: -365px -15px"></i>
+                                   <%-- <i class="icon db" style="background-position: -365px -15px"></i>--%>
                                     <p class="f12 c_gray t_content tal">开通短信验证才能进行设置。</p>
                                 </div>
                                 </div>

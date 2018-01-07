@@ -22,8 +22,8 @@
 	<link rel="stylesheet" href="${resources}/static/css/market.css"/>
 	<style>
 		::selection{background:transparent;}
-		#detail-div ::selection{background:#08a3d7;color:#fff;}
-		input::selection{background:#08a3d7;color:#fff;}
+		#detail-div ::selection{background:rgba(254, 116, 31, 0.9);color:#fff;}
+		input::selection{background:rgba(254, 116, 31, 0.9);color:#fff;}
 	</style>
 	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>

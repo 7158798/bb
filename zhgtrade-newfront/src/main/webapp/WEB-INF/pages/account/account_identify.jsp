@@ -55,7 +55,7 @@
                         <div class="ml70">
                             <div class="fl">
                                 手持身份证正面<span class="c_blue" style="font-weight: bold;">(必选)：</span>
-                                <div class="mt5" style="width: 202px;height: 152px;border: 1px dashed #08a3d7;position: relative;">
+                                <div class="mt5" style="width: 202px;height: 152px;border: 1px dashed rgba(254, 116, 31, 0.9);position: relative;">
                                     <i class="db identify_icon" style="background-position-x: -124px;background-position-y: -243px;width: 38px;height: 37px;margin: 40px auto 0;"></i>
                                     <span class="db c_gray" style="margin-left: 60px;margin-top: 15px;">选择图片上传</span>
                                     <form id="fIdentityPathForm" target="upload_image" action="/account/upload_auth_img.html" method="post" enctype="multipart/form-data">
@@ -76,7 +76,7 @@
                         <div class="ml70">
                             <div class="fl">
                                 手持身份证反面<span class="c_blue" style="font-weight: bold;">(必选)：</span>
-                                <div class="mt5" style="width: 202px;height: 152px;border: 1px dashed #08a3d7;position: relative;">
+                                <div class="mt5" style="width: 202px;height: 152px;border: 1px dashed rgba(254, 116, 31, 0.9);position: relative;">
                                     <i class="db identify_icon" style="background-position-x: -124px;background-position-y: -243px;width: 38px;height: 37px;margin: 40px auto 0;"></i>
                                     <span class="db c_gray" style="margin-left: 60px;margin-top: 15px;">选择图片上传</span>
                                     <form id="fIdentityPath2Form" target="upload_image" action="/account/upload_auth_img.html" method="post" enctype="multipart/form-data">
@@ -103,7 +103,7 @@
                     <iframe class="dn" name="upload_image"></iframe>
                     <%--<form id="upload_head_image" target="upload_image" action="/account/upload_head_img.html" method="post" enctype="multipart/form-data">
                         <p>
-                            <span style="width: 80px; height: 80px;border: 1px solid #ddd; position: relative;margin-left: 110px;" class="db">
+                            <span style="width: 80px; height: 80px;border: 1px solid #30c2ff24; position: relative;margin-left: 110px;" class="db">
                                 <c:choose>
                                     <c:when test="${!empty headImgUrl}">
                                         <img id="headImage" style="position: absolute;top: 0;left: 0;" width="80" height="80" src="${cdn}/${headImgUrl}">

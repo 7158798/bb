@@ -62,13 +62,13 @@ ${menu_index}客服热线</span> <span>${requestScope.constant['telephone']}</sp
                             <div class="clear">
                                 <ul class="balance_list fl">
                                     <h4>可用余额</h4>
-                                    <li><i class="iconfont db fl c_blue">&#xe61a;</i> <strong class="db fl pl5">人民币：</strong>
+                                    <li><i class="iconfont db fl c_blue">&#xe61a;</i> <strong class="db fl pl5">折合：</strong>
                                                 <span class="c_green db fl" name="totalRMB"></span>
                                     </li>
                                 </ul>
                                 <ul class="freeze_list fl">
                                     <h4>委托冻结</h4>
-                                    <li><i class="iconfont c_blue db fl">&#xe619;</i> <strong class="db fl pl5">人民币：</strong>
+                                    <li><i class="iconfont c_blue db fl">&#xe619;</i> <strong class="db fl pl5">折合：</strong>
                                                 <span class="c_red db fl" name="frozenRMB"></span>
                                     </li>
                                 </ul>

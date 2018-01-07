@@ -1,4 +1,4 @@
-    <!-- 问题列表页面author:xxp 2016-04-24 -->
+    <!-- 工单列表页面author:xxp 2016-04-24 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <!DOCTYPE HTML>
@@ -41,7 +41,7 @@
 				</ul>
 				<div class="send_message cp">
 					<i class="icon db fl"></i>
-					<span class="db fl">我要提问</span>
+					<span class="db fl">提交工单</span>
 				</div>
 			</div>
 			<ul id="content" class="mt20">

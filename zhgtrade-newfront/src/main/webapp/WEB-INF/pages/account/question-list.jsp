@@ -21,8 +21,8 @@
             <li class="fl li_separator"></li>
             <li class="fl f16 fb">
                 <div class="send_message cp">
-                    <i class="icon db fl"></i>
-                    <span class="db fl">我要提问</span>
+                   <%-- <i class="icon db fl"></i>--%>
+                    <span class="db fl">提交工单</span>
                 </div>
             </li>
         </ul>
@@ -32,9 +32,9 @@
         <li>
             <div class="content">
                 <div class="Tenbody">
-                    <div style="border-bottom:1px dashed #000000;"></div>
+                    <div ></div>
                     <table class="questionlist">
-                        <tr style="border-bottom: 1px solid gray;">
+                        <tr style="border-bottom: 1px solid #30c2ff30;">
                             <th width="80">问题编号</th>
                             <th width="110">问题类型</th>
                             <th width="200">问题描述</th>

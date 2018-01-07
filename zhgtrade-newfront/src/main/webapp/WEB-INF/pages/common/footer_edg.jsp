@@ -138,7 +138,7 @@
 <%--<!-- 发起提问弹出窗 -->--%>
 <div id="send_message_box" class="float_box dn" style="top:200px;left:500px;">
     <div class="f_title pl10">
-        <h3 class="db fl">我要提问</h3>
+        <h3 class="db fl">提交工单</h3>
         <i class="iconfont c_gray db fr close">&#xe609;</i>
     </div>
     <div class="f_content">
@@ -163,7 +163,7 @@
             </p>
             <div>
                 <span style="color: red;padding-left: 115px;" id="errorMsg">&nbsp;</span><br>
-                <a onclick="submitQuestionOnPop()" class="questionButtonblue" href="javascript:void(0)">提交问题</a>
+                <a onclick="submitQuestionOnPop()" class="questionButtonblue" href="javascript:void(0)">提交工单</a>
             </div>
         </form>
     </div>

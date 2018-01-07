@@ -154,8 +154,8 @@ public class SharePlanService {
 				this.shareplanlogDAO.attachDirty(sharePlanLog);
 				
 				Fmessage msg = new Fmessage();
-				msg.setFcontent("网站分红，每个分红币分红："+oneAmount+",参与分红数量:"+total+",平台总币数："+totalQty+",一共分得人民币："+totalShareAmt);
-				msg.setFtitle("网站分红，一共分得人民币："+totalShareAmt+"，请注意查收");
+				msg.setFcontent("网站分红，每个分红币分红："+oneAmount+",参与分红数量:"+total+",平台总币数："+totalQty+",一共分得bth："+totalShareAmt);
+				msg.setFtitle("网站分红，一共分得bth："+totalShareAmt+"，请注意查收");
 				msg.setFcreateTime(Utils.getTimestamp());
 				msg.setFreceiver(fvirtualwallet.getFuser());
 				msg.setFstatus(MessageStatusEnum.NOREAD_VALUE);

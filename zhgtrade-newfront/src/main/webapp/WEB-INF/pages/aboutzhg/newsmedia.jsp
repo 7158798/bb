@@ -42,7 +42,7 @@
             .center .middle .news .project_info{  width: 100%;  height: 100%;  background: rgba(0,0,0,0);  position: absolute;  left: 0;  top: 220px;  height:40px;  }
             .center .middle .news .project_info div{  position:absolute;  top:0px;left:0px;z-index:2; /*transition: all 0.4s ease-out 0s;*/  }
             .center .middle .news p {  height:40px;  line-height:40px;  text-align: center;  font-size: 14px;  color: black;  width:380px;  }
-            .center .middle .news .project_info:after{  width: 0px;  height: 40px;  display:block;  position:absolute;top:0px;left:0px;  content: "";  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;  background-color: #08a3d7;  z-index:1;  }
+            .center .middle .news .project_info:after{  width: 0px;  height: 40px;  display:block;  position:absolute;top:0px;left:0px;  content: "";  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;  background-color: rgba(254, 116, 31, 0.9);  z-index:1;  }
             .center .middle .news a:hover p{  color: #feffff;  }
             .center .middle a:hover .project_info:after {  width: 380px;  }
         </style>
