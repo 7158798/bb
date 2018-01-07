@@ -34,7 +34,7 @@
     <!-- 个人财务开始 -->
     <div class="account_right fl">
         <div class="finance_wrapper fill_right">
-            <!-- 人民币余额 -->
+            <%--<!-- 人民币余额 -->
             <div class="finance_container">
                 <h1 class="ml50">个人财务</h1>
                 <div class="content">
@@ -58,7 +58,7 @@
                     </div>
                     <div class="cb"></div>
                 </div>
-            </div>
+            </div>--%>
             <!-- 虚拟币余额 -->
             <div class="coin_acccount">
                 <div class="fir item">

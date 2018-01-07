@@ -129,14 +129,14 @@ input{padding-left:5px;}
 .space5{display: inline-block;width: 5px;}
 /* é¢œè‰²å®šä¹‰ */
 .c_white{color:#fff;}
-.c_blue{color:#08a3d7;}
+.c_blue{color:rgba(254, 116, 31, 0.9);}
 .c_black{color:#000;}
 a.c_blue:hover{decoration:underline;}
 .bg_ccc{background:#ccc;}
 .bg_gray{background:#f1f1f1;}
 .bg_verygray{background:grey;}
 .bg_red{background:#fd0202;}
-.bg_blue{background:#08a3d7;}
+.bg_blue{background:rgba(254, 116, 31, 0.9);}
 .bg_blue:hover{background:#30c2ff;}
 .bg_green{background:#1f963d;}
 .bg_orange{background:#fe741f;}
@@ -148,10 +148,10 @@ a.c_blue:hover{decoration:underline;}
 .c_green{color:#1f963d;}
 .c_gray{color:#969696;}
 .c_orange{color:#fe741f;}
-.b_l_blue{border-left:5px solid #08a3d7;}
+.b_l_blue{border-left:5px solid rgba(254, 116, 31, 0.9);}
 .border_gray{border:1px solid #ccc;}
 .border_blue{border:1px solid #ddf5ff;}
-.border_blue_2{border:2px solid #08a3d7;}
+.border_blue_2{border:2px solid rgba(254, 116, 31, 0.9);}
 .border_orange{border:1px solid #fce7e7;}
 .bg_light_blue{background:#f7fbfd;}
 /* æŒ‰é’®å®šä¹‰ */
@@ -164,7 +164,7 @@ a.c_blue:hover{decoration:underline;}
 .page {width:auto;height:26px;padding: 5px 0px 10px;text-align: center;float:right;font-size:12px;}
 .page li{  padding:2px 2px 0px; float:left;line-height:20px;}
 .page li a,.pagel li a:hover,.page .current_ss{ border:1px solid #ccc; padding:2px 7px 0px; float:left; text-decoration:none; color:#000;}
-.page li a:hover,.page .current_ss{ text-decoration:none;background:#0096e0; color:#fff;}
+.page li a:hover,.page .current_ss{ text-decoration:none;background:rgba(254, 116, 31, 0.9); color:#fff;}
 .page .page-jump .txt{width: 30px;height: 20px;line-height:20px;border:1px solid #7E9DB9; ime-mode:disabled;text-align:center; vertical-align:middle; }
 .page .page-jump .btn{height: 22px;line-height:18px;width: 45px;text-align:center;*vertical-align:middle;}
 /*css3å­—ä½“æ ·å¼*/
@@ -195,7 +195,7 @@ a.c_blue:hover{decoration:underline;}
 .bcomti{ font-size:16px;text-align:center; color:#000;padding:10px;}
 .bcoma{margin:auto;width:180px;}
 .bcoma a{ width:74px; height:30px; line-height:30px; border-radius:4px; margin:30px 6px 0; color:#fff; text-align:center; display:inline-block}
-.bc_abut1{ background:#08a3d7}
+.bc_abut1{ background:rgba(254, 116, 31, 0.9)}
 .bc_abut1:hover{background:#30c2ff;color:#fff;}
 .bc_abut2{ background:#ACA4A4;}
 .bc_abut2:hover{background:#cacaca;color:#fff;}

@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/includes.jsp" %>
 <div class="fill_right account_newscenter">
-    <h1 class="ml40 f22" style="margin-top: 1em; color: black">消息中心</h1>
+    <h1 class="ml40 f22" style="margin-top: 1em;">消息列表</h1>
     <div class="news_operation f12">
         <a href="javascript:void(0)" id="delete_news">删除</a>
         <a href="javascript:void(0)" id="flag_all">全部标记为已读</a>
@@ -11,7 +11,7 @@
         <div class="Tenbody">
             <div style="border-bottom:1px dashed #000000;"></div>
             <table id="news">
-                <tr style="border-bottom: 1px solid gray;">
+                <tr style="border-bottom: 1px solid #30c2ff30;">
                     <th width="50" id="selectAll" style="font-weight: 400"><i class="iconfont c_gray cp">&#xe620;</i><i class="iconfont c_blue cp dn">&#xe621;</i></th>
                     <th width="80">状态</th>
                     <th width="240">标题</th>

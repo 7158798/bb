@@ -27,7 +27,7 @@
     <div class="account_nav">
         <a href="/" class="f12 c_blue">首页</a>
         <i class="yjt">&gt;</i>
-        <a href="javascript:void(0)" class="f12 c_blue">网站助手</a>
+        <a href="javascript:void(0)" class="f12 c_blue">帮助中心</a>
         <i class="yjt">&gt;</i>
         <a href="javascript:void(0)" class="f12 c_gray">消息中心</a>
     </div>

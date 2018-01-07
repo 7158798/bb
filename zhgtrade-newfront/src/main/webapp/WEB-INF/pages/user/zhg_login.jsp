@@ -28,7 +28,7 @@
         }
 
         .login_box {
-            border: 1px solid #ddd;
+            border: 1px solid #30c2ff24;
             color: #333;
             margin: 40px auto;
         }

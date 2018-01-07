@@ -63,7 +63,7 @@
 								style="border-top:1px solid #e6e6e6;width:152px;margin:0px 10px;"></div>
 							<div style="padding-top:5px;color:#565c66;" class="clear">
 								<div style="height:30px;line-height:30px;padding-left:19px;">
-									<span class="fwq questionAnswer1">网站助手</span>
+									<span class="fwq questionAnswer1">帮助中心</span>
 								</div>
 								<ul class="">
 									<!--   <li><a class="bannerFaq" href="/user/apply.html">申请F币圈子</a></li> -->
@@ -71,7 +71,7 @@
 										href="/question/question.html">发起提问</a>
 									</li>
 									<li><a class="bannerQuestionList"
-										href="/question/questionColumn.html">问题列表</a>
+										href="/question/questionColumn.html">工单列表</a>
 									</li>
 									<li><a class="bannerQuestionList"
 										href="/question/message.html">消息中心</a>

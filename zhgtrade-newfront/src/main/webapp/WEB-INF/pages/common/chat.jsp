@@ -9,9 +9,9 @@
 <%@ page contentType="text/html;charset=UTF-8"  %>
 <link rel="stylesheet" href="${resources}/static/css/chat.css"/>
 <div class="chat-div" id="chatRoom" style="display: none">
-    <div style="    margin-left: 0%;color: #08a3d7;font-size: 17px;" >
+    <div style="    margin-left: 0%;color: rgba(254, 116, 31, 0.9);font-size: 17px;" >
         <span>聊天室</span>
-        <span style="float:right;margin-right: 10px;cursor: pointer;color: #08a3d7;" onclick="closeRoom()">关闭</span>
+        <span style="float:right;margin-right: 10px;cursor: pointer;color: rgba(254, 116, 31, 0.9);" onclick="closeRoom()">关闭</span>
     </div>
     <ul class="chat-thread" id="content11">
     </ul>

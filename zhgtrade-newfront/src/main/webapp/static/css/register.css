@@ -2,7 +2,7 @@
 	2015-04-25 author:xxp
 */
 /*风险提示开始*/
-.register_wrapper,.registe_risk{width:800px;color:#333;margin:40px auto;border:1px solid #ddd;padding:20px 50px;}
+.register_wrapper,.registe_risk{width:800px;color:#333;margin:40px auto;border:1px solid #30c2ff24;padding:20px 50px;}
 .registe_risk h1{height:100px;line-height:100px;}
 .registe_risk p.text{line-height:35px;}
 .registe_risk p.fir{line-height:25px;}
@@ -11,14 +11,14 @@
 /*注册页面开始*/
 .register_wrapper ul.fir{width:400px;height:50px;margin:60px auto;}
 .register_wrapper ul.fir li{line-height:50px;}
-.register_wrapper ul.fir li.cur{border-bottom:5px solid #08a3d7;}
+.register_wrapper ul.fir li.cur{border-bottom:5px solid rgba(254, 116, 31, 0.9);}
 .register_wrapper ul.sec,.register_wrapper .sec{width:900px;margin-left:182px;padding-bottom:40px; }
 .register_wrapper .item p{height:40px;line-height:40px;}
 .register_wrapper .item p span.fir{width:120px;text-align:right;}
 .register_wrapper .item p select{border-radius:2px 0px 0px 2px;width:85px;height:42px;}
 .register_wrapper .item p input{border-radius:2px;width:230px;height:40px;}
 .register_wrapper .item p input.fir{border-radius:0 2px 2px 0;width:145px;border-width:1px 1px 1px 0px;}
-.register_wrapper .item p .time{line-height:40px;padding:0px 20px;border:1px solid #ddd;border-radius:3px;}
+.register_wrapper .item p .time{line-height:40px;padding:0px 20px;border:1px solid #30c2ff24;border-radius:3px;}
 .register_wrapper .item p .code{font-size:12px;padding:10px;border:1px solid #ccc;border-radius:3px;line-height:1;background:#e6e6e6;}
 .register_wrapper .item p .code:hover{background:#e5e5e5;}
 .register_wrapper .item p .code:hover{background:#999;}

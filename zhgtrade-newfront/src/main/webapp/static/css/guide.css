@@ -9,22 +9,22 @@ body{background:white;}
 /* 新手帮助结束 */
 /* 左边导航开始 */
 /*.guide_left{position:relative; width: 200px;float:left;margin-bottom:0px;color:#333; height: auto; background-color: white}*/
-.guide_left{position:relative;width:200px;border:1px solid #ddd;margin-bottom:40px;color:#333;background-color: white;}
+.guide_left{position:relative;width:200px;border:1px solid #30c2ff24;margin-bottom:40px;color:#333;background-color: white;}
 .icon{background:url(//s1.zhgtrade.com/static/images/account/icon.png) no-repeat;}
 .guide_left li{cursor:pointer;height:50px;line-height:50px;}
-/*.guide_left li{border-right:1px solid #ddd;cursor:pointer;height:50px;line-height:50px;}*/
-/*.guide_left li{border-top:1px solid #ddd;}*/
+/*.guide_left li{border-right:1px solid #30c2ff24;cursor:pointer;height:50px;line-height:50px;}*/
+/*.guide_left li{border-top:1px solid #30c2ff24;}*/
 .guide_left a{display:block;height: 50px;}
 .guide_left li:hover{background:#e9e9e9;}
-.guide_left li.cur{background:white;border-top:1px solid #ddd;border-bottom:1px solid #ddd;border-right:0px;border-left:5px solid #08a3d7;}
-.guide_left li.cur span{color:#08a3d7;}
+.guide_left li.cur{background:white;border-top:1px solid #30c2ff24;border-bottom:1px solid #30c2ff24;border-right:0px;border-left:5px solid rgba(254, 116, 31, 0.9);}
+.guide_left li.cur span{color:rgba(254, 116, 31, 0.9);}
 .guide_left li.cur i{display: block}
-.guide_left li.cur .iconfont{color:#08a3d7;}
+.guide_left li.cur .iconfont{color:rgba(254, 116, 31, 0.9);}
 
 /* 左边导航结束 */
 /* 右边开始 */
-/*.guide_right{background:#fff;line-height:25px;margin-bottom:0px;width:70%;float:right;border:1px solid #ddd;border-width:1px 1px 1px 0px;padding:0px 40px;}*/
-.guide_right{min-height: 500px;margin-left:30px;background:#fff;margin-bottom:40px;color:#333;font-size:14px;width: 905px;border:1px solid #ddd;border-width:1px 1px 1px 1px;line-height: 25px;}
+/*.guide_right{background:#fff;line-height:25px;margin-bottom:0px;width:70%;float:right;border:1px solid #30c2ff24;border-width:1px 1px 1px 0px;padding:0px 40px;}*/
+.guide_right{min-height: 500px;margin-left:30px;background:#fff;margin-bottom:40px;color:#333;font-size:14px;width: 905px;border:1px solid #30c2ff24;border-width:1px 1px 1px 1px;line-height: 25px;}
 .guide_right .title{height:50px;line-height:50px;font-size: 22px; font-weight: 900; color: #000000; margin-top: 0.5em}
 .guide_right .content{padding:10px 0px;line-height: 40px}
 .guide_right .content .list{height:40px;line-height:40px;}
@@ -48,7 +48,7 @@ body{background:white;}
 .page { width:auto; height:26px; padding:5px 0 10px; text-align: center; float:right; font-size:12px;}
 .page li{  padding:2px 2px 0px; float:left;line-height:20px;}
 .page li a,.pagel li a:hover,.page .current_ss{ border:1px solid #ccc; padding:2px 7px 0px; float:left; text-decoration:none; color:#000;}
-.page li a:hover,.page .current_ss{ background:#0096e0; color:#fff;}
+.page li a:hover,.page .current_ss{ background:rgba(254, 116, 31, 0.9); color:#fff;}
 .page .page-jump .txt{width: 30px;height: 20px;line-height:20px;border:1px solid #7E9DB9; ime-mode:disabled;text-align:center; vertical-align:middle; }
 .page .page-jump .btn{height: 22px;line-height:18px;width: 45px;text-align:center;*vertical-align:middle;}
 
@@ -69,7 +69,7 @@ body{background:white;}
 .guide_left .articleIndex .cur{color: #08A3D7}
 
 /*搜索文章内容*/
-.guide_right .content a{color: #08a3d7;}
+.guide_right .content a{color: rgba(254, 116, 31, 0.9);}
 .guide_right .content a:hover{text-decoration: underline}
 /*API*/
 .api{margin-top: 30px;}
@@ -97,10 +97,10 @@ table td{padding-left: 20px;border-top: 1px solid #e4e4e4;line-height: 30px;font
 .search_result a{text-align:left;font-size:16px;}
 .search_result p{word-wrap: break-word;font-size:13px;word-break: break-all;}
 
-.bt1 { border-top: 1px solid #ddd;  }
-.bb1 {border-bottom: 1px solid #ddd;  }
-.btb1 {border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;  }
-.guide_left {  position: relative;  width: 200px;  border: 1px solid #ddd;  margin-bottom: 40px;  color: #333;  background-color: white;  }
+.bt1 { border-top: 1px solid #30c2ff24;  }
+.bb1 {border-bottom: 1px solid #30c2ff24;  }
+.btb1 {border-top: 1px solid #30c2ff24; border-bottom: 1px solid #30c2ff24;  }
+.guide_left {  position: relative;  width: 200px;  border: 1px solid #30c2ff24;  margin-bottom: 40px;  color: #333;  background-color: white;  }
 .guide_left .menu .level1 {  list-style: none  }
 .guide_left .menu .level1 span {  display: block;  width: 50%;  float: left;  font-size: 16px ;padding-left:40px; text-align:left;}
 .guide_left .menu .level1 i {  width: 20%;  float: right  }
@@ -109,5 +109,5 @@ table td{padding-left: 20px;border-top: 1px solid #e4e4e4;line-height: 30px;font
 .guide_left .menu .level2 a:hover {  text-decoration: underline  }
 .guide_left .menu .level2 a:first-child {  padding-top: 1em;  }
 .guide_left .menu .level2 a:last-child {  padding-bottom: 0.4em;  }
-.guide_left .cur .level1 {  background: white;  border-left: 5px solid #08a3d7;  text-indent: -5px  }
+.guide_left .cur .level1 {  background: white;  border-left: 5px solid rgba(254, 116, 31, 0.9);  text-indent: -5px  }
 .guide_left .cur .level1 i {  display: block  }

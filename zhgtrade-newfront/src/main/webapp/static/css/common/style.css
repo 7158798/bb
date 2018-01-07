@@ -34,13 +34,13 @@
 .header .nav .top_nav ul li{padding:0px 10px;height:66px;float:left;}
 .header .nav .top_nav ul li a{display:block; text-decoration: none}
 .header .nav .top_nav ul li a span{padding: 6px 6px;}
-.header .nav .top_nav ul li.current span{background-color: #08a3d7;border-radius: 5px;-moz-border-radius:5px;-webkit-border-radius:5px;color: #FFF;}
+.header .nav .top_nav ul li.current span{background-color: rgba(254, 116, 31, 0.9);border-radius: 5px;-moz-border-radius:5px;-webkit-border-radius:5px;color: #FFF;}
 .header .nav .top_nav ul li.current a{color:#409eeb;}
-.header .nav .top_nav ul li a span:hover{background-color: #08a3d7;border-radius: 5px;-moz-border-radius:5px;-webkit-border-radius:5px;color: #FFF;}
+.header .nav .top_nav ul li a span:hover{background-color: rgba(254, 116, 31, 0.9);border-radius: 5px;-moz-border-radius:5px;-webkit-border-radius:5px;color: #FFF;}
 .header .logined{position:relative;}
 .header .user_info{border:1px solid transparent;padding: 0 10px;}
 .header .user_info.cur{background:#fff;position:relative;z-index:4;box-shadow:0 -4px 4px #d9d9d9;border:1px solid #d9d9d9;border-bottom:none;}
-.login_reg a:hover{color:#08a3d7;}
+.login_reg a:hover{color:rgba(254, 116, 31, 0.9);}
 .cannot_select{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;/*IE10*/-khtml-user-select:none;/*ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂµÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨*/user-select:none;  }
 .mywallet_list{position:absolute;right:0px;top:30px;background:#fff;box-shadow:0 0 4px #d9d9d9;border:1px solid #d9d9d9;padding:9px 14px 8px;width:406px;z-index:3;}
 .mywallet_list ul{width:195px;}
@@ -49,8 +49,8 @@
 .mywallet_list li em,.price_today_ul em,#profit_list em{float:left;width:26px;height:19px;margin-top:11px;background:url(/images/jubi/coinstyle.png?v=1.44) no-repeat}
 .mywallet_list li strong{float:left;font-weight:normal;color:#333;}
 .mywallet_btn_box{margin-top:11px;border-top:1px dotted #888;padding-top:15px;width:408px}
-.mywallet_btn_box a{float:left;width:80px;height:25px;border:1px solid #08a3d7;margin-right:10px;margin-bottom:10px;color:#08a3d7;background:#fff;line-height:25px;font-size:14px;text-align:center;border-radius:3px;}
-.mywallet_btn_box a:hover{color:#fff;background:#08a3d7;text-decoration:none}
+.mywallet_btn_box a{float:left;width:80px;height:25px;border:1px solid rgba(254, 116, 31, 0.9);margin-right:10px;margin-bottom:10px;color:rgba(254, 116, 31, 0.9);background:#fff;line-height:25px;font-size:14px;text-align:center;border-radius:3px;}
+.mywallet_btn_box a:hover{color:#fff;background:rgba(254, 116, 31, 0.9);text-decoration:none}
 .warning{background:#f6f6f6;margin-bottom: 35px;margin-top: 35px;}
 .warning .info{height:30px;line-height:30px;font-size:14px;}
 .warning .info .iconfont{height:30px;width:30px;line-height:28px;cursor:pointer;}
@@ -76,7 +76,7 @@
 .team .partner_title .zh{font-size: 24px;}
 .team .partner_title .en{margin-top: 8px;margin-bottom: 32px;}
 .team .partner_title .en .middle{width: 100px;padding: 0 22px;}
-.team .partner_title{font-family: "Microsoft YaHei";font-size: 14px;color: #08a4d7;}
+.team .partner_title{font-family: "Microsoft YaHei";font-size: 14px;color: rgba(254, 116, 31, 0.9);}
 .team .partner_title .en .left{display:inline-block;width: 50px;height: 2px;line-height:2px;background: #fe741f;vertical-align: middle;}
 .team .partner_title .en .right{display:inline-block;width: 50px;height: 2px;line-height:2px;background: #fe741f;vertical-align: middle;}
 /*.team .team_btn{display:block;float:left;color:#333;margin-left:28px;width: 100px;height: 36px;line-height: 36px;text-align: center;border:2px solid #333;border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;}*/
@@ -167,18 +167,18 @@
 #login_box .f_content input.code{width: 130px;margin-right:10px;}
 #login_box .f_content p{height:40px;line-height:40px;margin-bottom: 20px;}
 #login_box .f_content p.voice_tips{margin-left: 194px;font-size: 12px;height: 20px;line-height: 20px;margin-top: -10px;}
-#login_box .f_content p.voice_tips a{color: #08a3d7;}
+#login_box .f_content p.voice_tips a{color: rgba(254, 116, 31, 0.9);}
 #login_box .f_content p.message{margin-bottom:0px;}
 #login_box .f_content a.confirm{margin-top:0px;height:40px;line-height:40px;width:217px;margin-left:195px;background: #fe741f;}
 #login_box .opertaion{margin-left:193px;}
 
 #send_message_box .f_content select{width: auto;}
 #send_message_box .f_content span{width: 70px;}
-#send_message_box .questionButtonblue{display:inline-block;font-weight:700;font-size:14px;color:#fff;text-align:center;width: 140px;height:32px;line-height:32px;background:#0096e0;margin-left: 70px;margin-top: 15px;}
-#send_message_box .questionButtonblue:hover{  color:#fff;  text-decoration: none;  background:#0096e0;  }
+#send_message_box .questionButtonblue{display:inline-block;font-weight:700;font-size:14px;color:#fff;text-align:center;width: 140px;height:32px;line-height:32px;background:rgba(254, 116, 31, 0.9);margin-left: 70px;margin-top: 15px;}
+#send_message_box .questionButtonblue:hover{  color:#fff;  text-decoration: none;  background:rgba(254, 116, 31, 0.9);  }
 
-#verticle_line{border-left:1px solid #ddd;position:absolute;bottom:0px;right:0px;}
-#horizontal_line{border-bottom:1px solid #ddd;}
+#verticle_line{border-left:1px solid #30c2ff24;position:absolute;bottom:0px;right:0px;}
+#horizontal_line{border-bottom:1px solid #30c2ff24;}
 .coin_container .rotate_icon{webkit-transition:0.3s ease all;transition:0.3s ease all;-o-transition:0.3s ease all;-moz-transition:0.3s ease all;-ms-transition:0.3s ease all;}
 .coin_container:hover .rotate_icon{transform:rotateZ(180deg);-webkit-transform:rotateZ(180deg);-moz-transform:rotateZ(180deg);-ms-transform:rotateZ(180deg);-o-transform:rotateZ(180deg)}
 .yjt {color: #888;  font-family: tahoma,Microsoft YaHei,Arial,Helvetica,sans-serif; }

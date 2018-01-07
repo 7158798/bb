@@ -42,13 +42,13 @@
                     '.dialog_window .dialog_title span{display:inline-block;height:40px;line-height:40px;font-size:16px;color: #333;text-align: center;}' +
                     '.dialog_window .dialog_title span.warn:after{float:left;margin-top:1px;padding-right:5px;text-align:center;display:inline-block;height:40px;line-height:40px;content: "\\e601"; font-family: iconfont; font-style: normal; font-size: 20px; color: #fe741f;}' +
                     '.dialog_window .dialog_title span.error:after{float:left;margin-top:1px;padding-right:5px;text-align:center;display:inline-block;height:40px;line-height:40px;content: "\\e60b"; font-family: iconfont; font-style: normal; font-size: 20px; color: #F00;}' +
-                    '.dialog_window .dialog_title span.info:after{float:left;padding-right:5px;margin-top:-2px;text-align:center;display:inline-block;height:40px;line-height:40px;content: "\\e62d"; font-family: iconfont; font-style: normal; font-size: 20px; color: #08a3d7;}' +
+                    '.dialog_window .dialog_title span.info:after{float:left;padding-right:5px;margin-top:-2px;text-align:center;display:inline-block;height:40px;line-height:40px;content: "\\e62d"; font-family: iconfont; font-style: normal; font-size: 20px; color: rgba(254, 116, 31, 0.9);}' +
                     '.dialog_window .dialog_title .close{cursor:pointer;}' +
                     '.dialog_window .dialog_title .close:after{float:right;margin-right:10px;height:40px;line-height:40px;content: "\\e62e"; font-family: iconfont; font-style: normal; font-size: 20px; color: #969696;}' +
                     '.dialog_window .dialog_title .close:hover:after{color: #333;}' +
                     '.dialog_window .dialog_content{max-width:536px;min-width:250px;padding: 15px 10px;text-align: center;}' +
                     '.dialog_window .dialog_btns{bottom:10px;margin:0 auto;text-align: center;height: 50px;line-height: 50px;}' +
-                    '.dialog_window .dialog_btns a{text-decoration:none;color:#FFF;text-align:center;min-width:80px;padding: 6px 15px;background-color: #08a3d7;border-radius: 4px;-webkit-border-radius: 4px;-moz-border-radius: 4px;}' +
+                    '.dialog_window .dialog_btns a{text-decoration:none;color:#FFF;text-align:center;min-width:80px;padding: 6px 15px;background-color: rgba(254, 116, 31, 0.9);border-radius: 4px;-webkit-border-radius: 4px;-moz-border-radius: 4px;}' +
                     '.dialog_window .dialog_btns a:hover{background-color: #30C2FF;}' +
                     '.dialog_window .dialog_btns span{width:20px;display: inline-block;}' +
                     '</style>';

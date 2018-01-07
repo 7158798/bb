@@ -63,12 +63,12 @@
 
 				  <div class="bor">
 					<div class="${selectGroup==4?'tradeTitlecur':'tradeTitle' }">
-						<span class="${selectGroup==4?'questionAnswercur':'questionAnswer'}">网站助手</span>
+						<span class="${selectGroup==4?'questionAnswercur':'questionAnswer'}">帮助中心</span>
 					</div>
 					<ul>
 					    <%-- <li class="${leftMenu=='apply'?'cur':'' }"><a href="/user/apply.html" class="items12">申请F币圈子</a></li> --%>
 						<li class="${leftMenu=='question'?'cur':'' }"><a href="/question/question.html" class="items12">发起提问</a></li>
-						<li class="${leftMenu=='questionColumn'?'cur':'' }"><a href="/question/questionColumn.html" class="items13">问题列表</a></li>
+						<li class="${leftMenu=='questionColumn'?'cur':'' }"><a href="/question/questionColumn.html" class="items13">工单列表</a></li>
 						<li class="${leftMenu=='message'?'cur':'' }"><a href="/question/message.html" class="items13">消息中心</a></li>
 					</ul>
 				  </div>

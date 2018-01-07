@@ -14,7 +14,7 @@
     request.setAttribute("constant", constantMap.getMap());
 %>
 <script type="text/javascript">var loadTime = new Date().getTime();var resources = "${resources}"</script>
-<div id="loading" class="dn" style="background: #08a3d7;height: 2px;position: fixed;top: 0;z-index: 1000000;width: 0;"></div>
+<div id="loading" class="dn" style="background: rgba(254, 116, 31, 0.9);height: 2px;position: fixed;top: 0;z-index: 1000000;width: 0;"></div>
 <input type="hidden" id="coinMainUrl" value="<%=basePath%>"/>
 <script src="${resources}/static/js/jquery/jquery-1.11.1.min.js"></script>
 <div class="header">
@@ -41,9 +41,9 @@
             <div class="login_reg fr">
                 <%--<!-- 用户登录后 -->--%>
                 <div id="userInfoBar" class="logined fl dn">
-                    <a class="db fl" href="/account/collection.html" title="">
+                   <%-- <a class="db fl" href="/account/collection.html" title="">
                         <i class="iconfont db fl" style="width: 20px;display: inline-block">&#xe63a;</i><span class="db fl">我的收藏</span>
-                    </a>
+                    </a>--%>
                     <a id="logoutBtn" class="db fl" href="javascript:void(0);" title="退出">
                         <i class="iconfont db fl" style="margin-top: 3px;width: 20px;display: inline-block">&#xe607;</i><span class="db fl">退出</span>
                     </a>
@@ -63,13 +63,13 @@
                             <div class="clear">
                                 <ul class="balance_list fl">
                                     <h4>可用余额</h4>
-                                    <li><i class="iconfont db fl c_blue">&#xe61a;</i> <strong class="db fl pl5">人民币：</strong>
+                                    <li><i class="iconfont db fl c_blue">&#xe61a;</i> <strong class="db fl pl5">折合：</strong>
                                                 <span class="c_green db fl" name="totalRMB"></span>
                                     </li>
                                 </ul>
                                 <ul class="freeze_list fl">
                                     <h4>委托冻结</h4>
-                                    <li><i class="iconfont c_blue db fl">&#xe619;</i> <strong class="db fl pl5">人民币：</strong>
+                                    <li><i class="iconfont c_blue db fl">&#xe619;</i> <strong class="db fl pl5">折合：</strong>
                                                 <span class="c_red db fl" name="frozenRMB"></span>
                                     </li>
                                 </ul>

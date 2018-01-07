@@ -17,6 +17,6 @@
 .announce .cms_title .zh{font-size: 24px;}
 .announce .cms_title .en{margin-top: 8px;margin-bottom: 32px;}
 .announce .cms_title .en .middle{width: 100px;padding: 0 5px;}
-.announce .cms_title{font-family: "Microsoft YaHei";font-size: 14px;color: #08a4d7;}
+.announce .cms_title{font-family: "Microsoft YaHei";font-size: 14px;color: rgba(254, 116, 31, 0.9);}
 .announce .cms_title .en .left{display:inline-block;width: 50px;height: 2px;line-height:2px;background: #fe741f;vertical-align: middle;}
 .announce .cms_title .en .right{display:inline-block;width: 50px;height: 2px;line-height:2px;background: #fe741f;vertical-align: middle;}
