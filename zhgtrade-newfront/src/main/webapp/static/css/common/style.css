@@ -98,7 +98,7 @@
 .footer .copyright{padding: 30px 0 30px 0;color:#fff;text-align:center;line-height:0px;}
 .footer .tools{position:fixed;top:105%;right:8px;width:45px;height:200px;margin-top: -140px;z-index: 100;}
 .footer .tools ul li a{text-decoration: none;}
-.footer .tools ul li{width:180px;cursor:pointer;border-radius:5px 0 0 5px;height:45px;margin:3px 0;background:url("../../images/index/title.png") no-repeat 7px -201px;background-color:#19334c;position: relative;}
+.footer .tools ul li{width:180px;cursor:pointer;border-radius:5px 0 0 5px;height:45px;margin:3px 0;background:url("../../images/index/title.png") no-repeat 7px -201px;background-color:rgba(254, 116, 31, 0.9);position: relative;}
 .footer .tools .weixin img{position: absolute;left: -220px;top: 0px;width: 220px;height: 220px;z-index: 100;}
 /* .footer .tools li:hover{background-color:#30c2ff;} */
 .footer .tools ul li .phone{font-size:14px;color:#fff;line-height:45px;margin-left:45px;}

@@ -351,7 +351,7 @@
 		<!-- 新买盘 买盘 成交记录 -->
 		<div class="entrust_wrapper tac">
 			<div class="float_left entrust_container entrust_log" style="margin-right: 0px">
-				<div class="content" style="height: 507px">
+				<div class="content" style="height: 507px;width: 450px">
 					<p class="ptitle_font" style="padding-left: 20px;text-align: left">成交记录</p>
 					<p class="fir bg_gray">
 						<span class="db lt1 fl">成交时间</span>
@@ -360,7 +360,7 @@
 						<span class="db lt4 fl">成交量</span>
 						<span class="db lt5 fl">总金额</span>
 					</p>
-					<div style="width: 103%;height: 500px;overflow-y: scroll;">
+					<div style="width: 100%;height: 87%;overflow-y: scroll;">
 						<p class="fir " ng-repeat="data in recentDealList">
 							<span class="db lt1 fl">{{data[2] | date: 'MM-dd HH:mm:ss'}}</span>
 							<%--#fd0202--%>
@@ -403,7 +403,7 @@
 					</div>
 				</div>
 				<div class="content" style="    width: 760px; margin-left: -370px; height: 300px;">
-					<p class="ptitle_font" style="padding-left: 20px;text-align: left;margin-top: 50px">我的委托历史</p>
+					<p class="ptitle_font" style="padding-left: 20px;text-align: left;">我的委托历史</p>
 					<p class="fir bg_gray" >
 						<span class="db lt1 fl">成交时间</span>
 						<span class="db lt5 fl">交易对</span>
