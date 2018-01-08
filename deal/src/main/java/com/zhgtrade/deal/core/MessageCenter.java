@@ -80,9 +80,9 @@ public class MessageCenter implements MessageListener<FentrustData> {
             // 极端情况下，用户下了单，但是没有被撮合，这个时候撮合引擎重启了，然后用户又取消了
             // 导致队列里面有有取消的消息，撮合引擎重启的时候，又把这条当成已取消了
             // 如果直接更新深度挂单数据，则会出现多减的情况
-            if (tradingSystem.getEntrust(message.getFid()) != null) {
-                entrustListener.onCreateEntrust(message.clone());
-            }
+//            if (tradingSystem.getEntrust(message.getFid()) != null) {
+//                entrustListener.onCreateEntrust(message.clone());
+//            }
             tradingSystem.cancelEntrust(message);
             return;
         }

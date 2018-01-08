@@ -10,4 +10,6 @@ public interface RealDataService {
 
     String getNewMessage(String key);
 
+    String getReal(String id);
+
 }

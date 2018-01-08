@@ -86,10 +86,10 @@ public class PushServer implements MessageListener<String>, ConnectListener, Dis
 //        sendUserInfo(client, symbol);
     }
 
-    private void sendUserInfo(SocketIOClient client, String symbol) {
-        String content = getUserInfoFromWebServer(Integer.parseInt(symbol), sessionManager.getHttpSessionId(client));
-        client.sendEvent("entrust-update", content);
-    }
+//    private void sendUserInfo(SocketIOClient client, String symbol) {
+//        String content = getUserInfoFromWebServer(Integer.parseInt(symbol), sessionManager.getHttpSessionId(client));
+//        client.sendEvent("entrust-update", content);
+//    }
 
     private void sendDepthEntrustToClient(SocketIOClient client, String channel) {
         String[] params = channel.split(":");
@@ -110,7 +110,8 @@ public class PushServer implements MessageListener<String>, ConnectListener, Dis
     private void sendRealPriceToClient(SocketIOClient client, String symbol) {
         // 推送实时价格
         int fviFid = Integer.valueOf(symbol);
-        String realPrice = getTickerFromWebServer(fviFid);
+//        String realPrice = getTickerFromWebServer(fviFid);
+        String realPrice = dataService.getReal(fviFid+"");
         log.trace("push real data to client {}.", client.getSessionId());
         client.sendEvent("real", realPrice);
     }
@@ -208,7 +209,8 @@ public class PushServer implements MessageListener<String>, ConnectListener, Dis
         // 推送实时价格
         String[] params = channel.split(":");
         int fviFid = Integer.valueOf(params[2]);
-        String realPrice = getTickerFromWebServer(fviFid);
+//        String realPrice = getTickerFromWebServer(fviFid);
+        String realPrice = dataService.getReal(fviFid+"");
         for (int deep = 4; deep > 0; deep--) {
             String room = "/trade-" + fviFid + "-" + deep;
             log.trace("push real data to room {}.", room);

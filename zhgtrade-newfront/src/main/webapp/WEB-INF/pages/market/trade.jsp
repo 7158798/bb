@@ -26,6 +26,7 @@
 		input::selection{background:rgba(254, 116, 31, 0.9);color:#fff;}
 	</style>
 	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script src="${resources}/static/js/market/newtradeController.js"></script>
 </head>
 <body>
 <%@ include file="../common/header.jsp"%>
@@ -65,27 +66,32 @@
 				</div>
 			</div>
 
-			<div class="price c_blue f26 fl" id="last-price">${last}</div>
+			<%--<div class="price c_blue f26 fl" id="last-price">${last}</div>--%>
+			<div class="price c_blue f26 fl" >{{lastDealPrize}}</div>
 			<div class="data fl">
 				<ul>
 					<li>
-						<p class="f20 c_red" id="high-price">${high}</p>
+						<p class="f20 c_red" >{{highestPrize24}}</p>
 						<p>最高价</p>
 					</li>
 					<li>
-						<p class="f20 c_green" id="low-price">${low}</p>
+						<%--<p class="f20 c_green" id="low-price">${low}</p>--%>
+						<p class="f20 c_green"  >{{lowestPrize24}}</p>
 						<p>最低价</p>
 					</li>
 					<li>
-						<p class="f20" id="buy-price">${buy}</p>
+						<%--<p class="f20" id="buy-price">${buy}</p>--%>
+						<p class="f20"  >{{higestBuyPrize}}</p>
 						<p>买价</p>
 					</li>
 					<li>
-						<p class="f20" id="sell-price">${sell}</p>
+						<%--<p class="f20" id="sell-price">${sell}</p>--%>
+						<p class="f20" >{{lowestSellPrize}}</p>
 						<p>卖价</p>
 					</li>
 					<li>
-						<p class="f20" id="vol-price">${vol}</p>
+						<%--<p class="f20" id="vol-price">${vol}</p>--%>
+						<p class="f20"  >{{totalDeal24}}</p>
 						<p>成交量</p>
 					</li>
 				</ul>
@@ -443,7 +449,7 @@
 </script>
 
 <%--<script src="${resources}/static/js/angular/angualr.js"></script>--%>
-<script src="${resources}/static/js/market/newtradeController.js"></script>
+
 <%--<script src="${resources}/static/js/market/newtrade.js"></script>--%>
 <%--<script type="text/javascript" src="//cdn.bootcss.com/react/0.14.7/react.js"></script>--%>
 <%--<script type="text/javascript" src="//cdn.bootcss.com/react/0.14.7/react-dom.js"></script>--%>
@@ -453,7 +459,7 @@
 <script src="http://cdn.bootcss.com/socket.io/1.4.6/socket.io.min.js"></script>
 
 <%--<script src="${resources}/static/js/year_red.js"></script>--%>
-<script src="${resources}/static/js/market/trade.js?v=1.7"></script>
+<%--<script src="${resources}/static/js/market/trade.js?v=1.7"></script>--%>
 
 <%--<script src="http://localhost/1.0.0/trade.js"></script>--%>
 
@@ -486,7 +492,6 @@
     }
 </script>
 <script src="${resources}/static/js/market/collect.js"></script>
-<script src="${resources}/static/js/jquery/jquery-1.9.0.min.js"></script>
 <script src="${resources}/static/js/jquery/xcConfirm.js"></script>
 
 

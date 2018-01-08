@@ -1,6 +1,7 @@
 package com.lc.push.data;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.lc.push.model.EntrustlogData;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -67,6 +68,20 @@ public class RealDataServiceImpl implements RealDataService {
         try (Jedis connection = pool.getResource()) {
             String data = connection.hget("depth", key);
             return data == null ? "[]" : data;
+        }
+    }
+
+    public String getReal(String key){
+        try (Jedis connection = pool.getResource()) {
+            String coinMessage = connection.hget("cache:latest", key); //获取币种每日成交量
+//            JSONObject  jsonObject= JSON.parseObject(coinMessage);
+//            String high = (String) jsonObject.get("highestPrize24");
+//            String low = (String) jsonObject.get("lowestPrize24");
+//            String highBuyPrize = (String) jsonObject.get("higestBuyPrize");
+//            String lowSellPrize = (String) jsonObject.get("lowestSellPrize");
+//            String updown = (String) js
+//            Map real = connection.hgetAll("cache:real:"+key); //获取实际成交
+            return coinMessage == null? "" :coinMessage;
         }
     }
 
