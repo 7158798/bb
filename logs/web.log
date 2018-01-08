@@ -3983,3 +3983,208 @@ Caused by: java.io.IOException: 您的主机中的软件中止了一个已建立
 The source of the configuration was net.sf.ehcache.config.generator.ConfigurationSource$InputStreamConfigurationSource@6b71e98f.
 The diskStore path for this CacheManager will be set to C:\Users\ADMINI~1\AppData\Local\Temp\\ehcache_auto_created_1515326670381.
 To avoid this warning consider using the CacheManager factory methods to create a singleton CacheManager or specifying a separate ehcache configuration (ehcache.xml) for each CacheManager instance.
+0    [08-一月-2018 09:59:58] WARN  (DeprecationWarning.java:43) org.eclipse.jetty.util.DeprecationWarning  - Using @Deprecated Class org.springframework.web.util.Log4jConfigListener
+10909 [08-一月-2018 10:00:09] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fsystemargs]; using defaults.
+11005 [08-一月-2018 10:00:09] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.FTypeDetail]; using defaults.
+11044 [08-一月-2018 10:00:09] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Ffriendlink]; using defaults.
+11075 [08-一月-2018 10:00:09] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Farticletype]; using defaults.
+11152 [08-一月-2018 10:00:09] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fwebbaseinfo]; using defaults.
+11167 [08-一月-2018 10:00:09] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fintrolinfo]; using defaults.
+11283 [08-一月-2018 10:00:09] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Flimittrade]; using defaults.
+11294 [08-一月-2018 10:00:09] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fabout]; using defaults.
+11372 [08-一月-2018 10:00:09] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.TradeApi]; using defaults.
+11389 [08-一月-2018 10:00:09] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Farticle]; using defaults.
+11705 [08-一月-2018 10:00:10] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.org.hibernate.cache.UpdateTimestampsCache]; using defaults.
+11710 [08-一月-2018 10:00:10] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.org.hibernate.cache.StandardQueryCache]; using defaults.
+13949 [08-一月-2018 10:00:12] WARN  (AbstractApplicationContext.java:546) org.springframework.web.context.support.XmlWebApplicationContext  - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.scheduling.support.ScheduledMethodRunnable#1': Cannot resolve reference to bean 'realTimeDealDataService' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'realTimeDealDataService': Invocation of init method failed; nested exception is redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+13978 [08-一月-2018 10:00:12] ERROR (ContextLoader.java:351) org.springframework.web.context.ContextLoader  - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.scheduling.support.ScheduledMethodRunnable#1': Cannot resolve reference to bean 'realTimeDealDataService' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'realTimeDealDataService': Invocation of init method failed; nested exception is redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:359)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:634)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:140)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1143)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1046)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:772)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:839)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:444)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:326)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:843)
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:533)
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:816)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:345)
+	at org.eclipse.jetty.webapp.WebAppContext.startWebapp(WebAppContext.java:1404)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1366)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:778)
+	at org.eclipse.jetty.servlet.ServletContextHandler.doStart(ServletContextHandler.java:262)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:520)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:132)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:114)
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:61)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:132)
+	at org.eclipse.jetty.server.Server.start(Server.java:411)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:106)
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:61)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:378)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at main.NewFrontendAppServer.main(NewFrontendAppServer.java:62)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'realTimeDealDataService': Invocation of init method failed; nested exception is redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:136)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1570)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	... 38 more
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.util.Pool.getResource(Pool.java:53)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:99)
+	at com.ruizton.main.cache.data.impl.RealTimeDealDataServiceImpl.syncLatestDealData(RealTimeDealDataServiceImpl.java:70)
+	at com.ruizton.main.cache.data.impl.RealTimeDealDataServiceImpl.run(RealTimeDealDataServiceImpl.java:63)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:354)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:305)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:133)
+	... 47 more
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at redis.clients.jedis.Connection.connect(Connection.java:164)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:80)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1677)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:87)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:868)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:435)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:363)
+	at redis.clients.util.Pool.getResource(Pool.java:49)
+	... 57 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:158)
+	... 64 more
+13986 [08-一月-2018 10:00:12] WARN  (WebAppContext.java:529) org.eclipse.jetty.webapp.WebAppContext  - Failed startup of context o.e.j.w.WebAppContext@36ecf9f6{/,file:///E:/Project/20171215/newsite/zhgtrade-newfront/src/main/webapp/,UNAVAILABLE}{zhgtrade-newfront/src/main/webapp}
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.scheduling.support.ScheduledMethodRunnable#1': Cannot resolve reference to bean 'realTimeDealDataService' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'realTimeDealDataService': Invocation of init method failed; nested exception is redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:359)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:634)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:140)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1143)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1046)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:772)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:839)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:444)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:326)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:843)
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:533)
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:816)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:345)
+	at org.eclipse.jetty.webapp.WebAppContext.startWebapp(WebAppContext.java:1404)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1366)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:778)
+	at org.eclipse.jetty.servlet.ServletContextHandler.doStart(ServletContextHandler.java:262)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:520)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:132)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:114)
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:61)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:132)
+	at org.eclipse.jetty.server.Server.start(Server.java:411)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:106)
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:61)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:378)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at main.NewFrontendAppServer.main(NewFrontendAppServer.java:62)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'realTimeDealDataService': Invocation of init method failed; nested exception is redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:136)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1570)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	... 38 more
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.util.Pool.getResource(Pool.java:53)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:99)
+	at com.ruizton.main.cache.data.impl.RealTimeDealDataServiceImpl.syncLatestDealData(RealTimeDealDataServiceImpl.java:70)
+	at com.ruizton.main.cache.data.impl.RealTimeDealDataServiceImpl.run(RealTimeDealDataServiceImpl.java:63)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:354)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:305)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:133)
+	... 47 more
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at redis.clients.jedis.Connection.connect(Connection.java:164)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:80)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1677)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:87)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:868)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:435)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:363)
+	at redis.clients.util.Pool.getResource(Pool.java:49)
+	... 57 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:158)
+	... 64 more
+0    [08-一月-2018 10:01:43] WARN  (DeprecationWarning.java:43) org.eclipse.jetty.util.DeprecationWarning  - Using @Deprecated Class org.springframework.web.util.Log4jConfigListener
+9678 [08-一月-2018 10:01:52] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fsystemargs]; using defaults.
+9723 [08-一月-2018 10:01:52] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.FTypeDetail]; using defaults.
+9765 [08-一月-2018 10:01:53] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Ffriendlink]; using defaults.
+9807 [08-一月-2018 10:01:53] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Farticletype]; using defaults.
+9920 [08-一月-2018 10:01:53] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fwebbaseinfo]; using defaults.
+9969 [08-一月-2018 10:01:53] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fintrolinfo]; using defaults.
+10058 [08-一月-2018 10:01:53] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Flimittrade]; using defaults.
+10074 [08-一月-2018 10:01:53] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fabout]; using defaults.
+10148 [08-一月-2018 10:01:53] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.TradeApi]; using defaults.
+10175 [08-一月-2018 10:01:53] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Farticle]; using defaults.
+10511 [08-一月-2018 10:01:53] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.org.hibernate.cache.UpdateTimestampsCache]; using defaults.
+10515 [08-一月-2018 10:01:53] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.org.hibernate.cache.StandardQueryCache]; using defaults.
+12864 [08-一月-2018 10:01:56] WARN  (CacheManager.java:611) net.sf.ehcache.CacheManager  - Creating a new instance of CacheManager using the diskStorePath "C:\Users\admin\AppData\Local\Temp\" which is already used by an existing CacheManager.
+The source of the configuration was net.sf.ehcache.config.generator.ConfigurationSource$InputStreamConfigurationSource@746e534.
+The diskStore path for this CacheManager will be set to C:\Users\admin\AppData\Local\Temp\\ehcache_auto_created_1515376916119.
+To avoid this warning consider using the CacheManager factory methods to create a singleton CacheManager or specifying a separate ehcache configuration (ehcache.xml) for each CacheManager instance.

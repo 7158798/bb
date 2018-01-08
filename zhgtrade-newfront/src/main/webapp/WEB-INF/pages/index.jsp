@@ -238,7 +238,7 @@
 <%--</div>--%>
 
 <div class="coin_wrapper center_page">
-    <div class="coin_title">
+    <div class="coin_title" style="height: 45px">
         <ul>
             <li data-type="1" class="fl cur">
                 <p class="f16 fb pt5">${name}交易区</p> <i class="iconfont">&#xe604;</i>

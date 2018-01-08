@@ -35,7 +35,7 @@
 	<div class="center_page">
 		<div class="coin_wrapper f14">
 			<div class="coin_container cp fl">
-				<div class="coin_title">
+				<div class="coin_title" >
 					<img class="coin_img db fl" style="margin: 20px;" height="47" width="47" src="${cdn}${vdata.furl}" />
 					<p class="db fl pl5 ellipsis coinname">
 						<span class="db text text1 ellipsis" title="${vdata.fname_sn}">${vdata.fname_sn}</span>
@@ -357,7 +357,7 @@
 		<!-- 新买盘 买盘 成交记录 -->
 		<div class="entrust_wrapper tac">
 			<div class="float_left entrust_container entrust_log" style="margin-right: 0px">
-				<div class="content" style="height: 507px;width: 450px">
+				<div class="content" style="width: 450px">
 					<p class="ptitle_font" style="padding-left: 20px;text-align: left">成交记录</p>
 					<p class="fir bg_gray">
 						<span class="db lt1 fl">成交时间</span>
@@ -379,8 +379,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="float_right entrust_container entrust_log" >
-				<div class="content" style="    width: 760px; margin-left: -370px; height: 234px;margin-bottom: 5px">
+			<div class="float_right entrust_container entrust_log" style="height: 568px" >
+				<div class="content" style="    width: 766px; margin-left: -370px; height: 28%;margin-bottom: 63px">
 					<p class="ptitle_font" style="padding-left: 20px;text-align: left">当前委托</p>
 					<p class="fir bg_gray">
 						<span class="db lt1 fl">成交时间</span>
@@ -393,8 +393,8 @@
 						<span class="db lt7 fl">未成交</span>
 						<span class="db lt5 fl">操作</span>
 					</p>
-					<div style="overflow-y: auto;height: 195px;width: 101%;">
-						<p ng-repeat=" data in userOrders">
+					<div style="overflow-y: auto;height: 100%;">
+						<p class="fir " ng-repeat=" data in userOrders">
 							<span class="db lt1 fl">{{data.fCreateTime| date:'MM-dd HH:mm:ss'}}</span>
 							<span class="db lt5 fl">{{user.virname}}/{{user.rmbname}}</span>
 							<span class="db lt2 fl" ng-if="data.fEntrustType == 0" style="color: #1f963d;">买入</span>
@@ -404,11 +404,11 @@
 							<span class="db lt4 fl">{{data.fAmount| currency : '' : 4}}</span>
 							<span class="db lt5 fl">{{data.fsuccessAmount | currency : '' : 4}}</span>
 							<span class="db lt7 fl">{{(data.fAmount- data.fsuccessAmount) | currency : '' : 4}}</span>
-							<span class="db lt5 fl" ng-click = "cancelOrder(data.fId)">撤销</span>
+							<span class="db lt5 fl" style="color: #7A98F7" ng-click = "cancelOrder(data.fId)">撤销</span>
 						</p>
 					</div>
 				</div>
-				<div class="content" style="    width: 760px; margin-left: -370px; height: 300px;">
+				<div class="content" style="    width: 766px; margin-left: -370px; height: 63%;">
 					<p class="ptitle_font" style="padding-left: 20px;text-align: left;">我的委托历史</p>
 					<p class="fir bg_gray" >
 						<span class="db lt1 fl">成交时间</span>
@@ -419,10 +419,10 @@
 						<span class="db lt4 fl">委托总额</span>
 						<span class="db lt5 fl">已成交</span>
 						<span class="db lt7 fl">状态</span>
-						<span class="db lt5 fl">操作</span>
+						<span class="db lt5 fl">成交总额</span>
 					</p>
-					<div style="overflow-y: auto;height: 195px;width: 101%; " >
-						<p ng-repeat=" data in userOrderLogs">
+					<div style="overflow-y: auto;height: 77%;" >
+						<p class="fir " ng-repeat=" data in userOrderLogs">
 							<span class="db lt1 fl">{{data.fCreateTime| date:'MM-dd HH:mm:ss'}}</span>
 							<span class="db lt5 fl">{{user.virname}}/{{user.rmbname}}</span>
 							<span class="db lt2 fl" ng-if="data.fEntrustType == 0" style="color:#1f963d;">买入</span>
@@ -432,7 +432,7 @@
 							<span class="db lt4 fl">{{data.fAmount| currency : '' : 4}}</span>
 							<span class="db lt5 fl">{{data.fsuccessAmount | currency : '' : 4}}</span>
 							<span class="db lt7 fl">{{(data.fAmount- data.fsuccessAmount) | currency : '' : 4}}</span>
-							<span class="db lt5 fl" ng-click = "cancelOrder(data.fId)">详情</span>
+							<span class="db lt5 fl" >{{data.fAmount| currency : '' : 4}}</span>
 						</p>
 					</div>
 				</div>
@@ -481,15 +481,37 @@
 			}
 		})
 	}()
-	
+
 	function showfee() {
-        window.wxc.xcConfirm("请输入信息", window.wxc.xcConfirm.typeEnum.input,{
-            onOk:function(v){
-                console.log(v);
-            }
-        });
-//        window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
+//        window.wxc.xcConfirm("请输入信息", window.wxc.xcConfirm.typeEnum.input,{
+//            onOk:function(v){
+//                console.log(v);
+//            }
+//        });
+        window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
     }
+</script>
+<script>
+	!function(){
+		var is_load_icons = false
+		$(".coin_container").hover(function(){
+			if (!is_load_icons) {
+				is_load_icons = true
+				$(this).find('img').each(function(){
+					$(this).attr('src', $(this).attr('data-src'))
+				})
+			}
+		})
+	}()
+
+	function showfee() {
+//        window.wxc.xcConfirm("请输入信息", window.wxc.xcConfirm.typeEnum.input,{
+//            onOk:function(v){
+//                console.log(v);
+//            }
+//        });
+		window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
+	}
 </script>
 <script src="${resources}/static/js/market/collect.js"></script>
 <script src="${resources}/static/js/jquery/xcConfirm.js"></script>

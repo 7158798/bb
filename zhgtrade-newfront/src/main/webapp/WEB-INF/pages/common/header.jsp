@@ -78,7 +78,7 @@
                                 <a href="/account/chargermb.html" target="_self">充值</a>
                                 <a href="/account/withdrawCny.html" target="_self">提现</a> <a
                                     href="/account/entrusts.html" target="_self">委托管理</a>
-                                <a href="/account/fund.html" target="_self">个人财务</a>
+                               <%-- <a href="/account/fund.html" target="_self">个人财务</a>--%>
                             </div>
                             <a href="/account/message.html" target="_self"> <i class="iconfont c_blue">&#xe614;</i>
                                 <span>系统消息</span>

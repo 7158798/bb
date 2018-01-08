@@ -163,7 +163,6 @@ input::-webkit-contacts-auto-fill-button {
 /*aæ ‡ç­¾*/
 a, .link {
   text-decoration: none;
-  color: #7A98F7;
   transition: all .2s ease-in-out;
   cursor: pointer; }
   a:hover, .link:hover {
