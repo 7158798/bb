@@ -398,7 +398,7 @@
 							<span class="db lt4 fl">{{data.fAmount| currency : '' : 4}}</span>
 							<span class="db lt5 fl">{{data.fsuccessAmount | currency : '' : 4}}</span>
 							<span class="db lt7 fl">{{(data.fAmount- data.fsuccessAmount) | currency : '' : 4}}</span>
-							<span class="db lt5 fl" ng-click = "cancelOrder(data.fId)">撤销</span>
+							<span class="db lt5 fl" style="color: #7A98F7" ng-click = "cancelOrder(data.fId)">撤销</span>
 						</p>
 					</div>
 				</div>
@@ -475,7 +475,7 @@
 			}
 		})
 	}()
-	
+
 	function showfee() {
 //        window.wxc.xcConfirm("请输入信息", window.wxc.xcConfirm.typeEnum.input,{
 //            onOk:function(v){
@@ -484,6 +484,28 @@
 //        });
         window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
     }
+</script>
+<script>
+	!function(){
+		var is_load_icons = false
+		$(".coin_container").hover(function(){
+			if (!is_load_icons) {
+				is_load_icons = true
+				$(this).find('img').each(function(){
+					$(this).attr('src', $(this).attr('data-src'))
+				})
+			}
+		})
+	}()
+
+	function showfee() {
+//        window.wxc.xcConfirm("请输入信息", window.wxc.xcConfirm.typeEnum.input,{
+//            onOk:function(v){
+//                console.log(v);
+//            }
+//        });
+		window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
+	}
 </script>
 <script src="${resources}/static/js/market/collect.js"></script>
 <script src="${resources}/static/js/jquery/jquery-1.9.0.min.js"></script>
