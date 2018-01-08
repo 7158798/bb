@@ -482,6 +482,14 @@
 		})
 	}()
 
+	!function(){
+		$("input").focus(function(){
+			$(this).addClass("input_text_onfocus");
+		})
+		$("input").blur(function(){
+			$(this).removeClass("input_text_onfocus");
+		})
+	}()
 	function showfee() {
 //        window.wxc.xcConfirm("请输入信息", window.wxc.xcConfirm.typeEnum.input,{
 //            onOk:function(v){
@@ -490,28 +498,6 @@
 //        });
         window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
     }
-</script>
-<script>
-	!function(){
-		var is_load_icons = false
-		$(".coin_container").hover(function(){
-			if (!is_load_icons) {
-				is_load_icons = true
-				$(this).find('img').each(function(){
-					$(this).attr('src', $(this).attr('data-src'))
-				})
-			}
-		})
-	}()
-
-	function showfee() {
-//        window.wxc.xcConfirm("请输入信息", window.wxc.xcConfirm.typeEnum.input,{
-//            onOk:function(v){
-//                console.log(v);
-//            }
-//        });
-		window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
-	}
 </script>
 <script src="${resources}/static/js/market/collect.js"></script>
 <script src="${resources}/static/js/jquery/xcConfirm.js"></script>
