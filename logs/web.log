@@ -2151,3 +2151,34 @@ To avoid this warning consider using the CacheManager factory methods to create 
 The source of the configuration was net.sf.ehcache.config.generator.ConfigurationSource$InputStreamConfigurationSource@4c0930c4.
 The diskStore path for this CacheManager will be set to C:\Users\sunpeng\AppData\Local\Temp\\ehcache_auto_created_1515743173018.
 To avoid this warning consider using the CacheManager factory methods to create a singleton CacheManager or specifying a separate ehcache configuration (ehcache.xml) for each CacheManager instance.
+0    [08-一月-2018 20:23:18] WARN  (DeprecationWarning.java:43) org.eclipse.jetty.util.DeprecationWarning  - Using @Deprecated Class org.springframework.web.util.Log4jConfigListener
+4086 [08-一月-2018 20:23:23] WARN  (LogUtils.java:62) com.aliyun.oss  - [Server]Unable to execute HTTP request: The OSS Access Key Id you provided is disabled.
+[ErrorCode]: InvalidAccessKeyId
+[RequestId]: 5A5362BABEE44BFD19A67865
+[HostId]: zhgtrade.oss-cn-qingdao.aliyuncs.com
+[ResponseError]:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+  <Code>InvalidAccessKeyId</Code>
+  <Message>The OSS Access Key Id you provided is disabled.</Message>
+  <RequestId>5A5362BABEE44BFD19A67865</RequestId>
+  <HostId>zhgtrade.oss-cn-qingdao.aliyuncs.com</HostId>
+  <OSSAccessKeyId>CgryEEegaP561gSn</OSSAccessKeyId>
+</Error>
+
+9756 [08-一月-2018 20:23:28] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fsystemargs]; using defaults.
+9786 [08-一月-2018 20:23:28] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.FTypeDetail]; using defaults.
+9814 [08-一月-2018 20:23:28] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Ffriendlink]; using defaults.
+9847 [08-一月-2018 20:23:28] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Farticletype]; using defaults.
+9941 [08-一月-2018 20:23:28] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fwebbaseinfo]; using defaults.
+9958 [08-一月-2018 20:23:28] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fintrolinfo]; using defaults.
+10083 [08-一月-2018 20:23:29] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Flimittrade]; using defaults.
+10093 [08-一月-2018 20:23:29] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Fabout]; using defaults.
+10167 [08-一月-2018 20:23:29] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.TradeApi]; using defaults.
+10222 [08-一月-2018 20:23:29] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.com.ruizton.main.model.Farticle]; using defaults.
+10554 [08-一月-2018 20:23:29] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.org.hibernate.cache.UpdateTimestampsCache]; using defaults.
+10558 [08-一月-2018 20:23:29] WARN  (EhCacheProvider.java:93) org.hibernate.cache.EhCacheProvider  - Could not find configuration [encache_.org.hibernate.cache.StandardQueryCache]; using defaults.
+12599 [08-一月-2018 20:23:31] WARN  (CacheManager.java:611) net.sf.ehcache.CacheManager  - Creating a new instance of CacheManager using the diskStorePath "C:\Users\admin\AppData\Local\Temp\" which is already used by an existing CacheManager.
+The source of the configuration was net.sf.ehcache.config.generator.ConfigurationSource$InputStreamConfigurationSource@126ff1a1.
+The diskStore path for this CacheManager will be set to C:\Users\admin\AppData\Local\Temp\\ehcache_auto_created_1515414211554.
+To avoid this warning consider using the CacheManager factory methods to create a singleton CacheManager or specifying a separate ehcache configuration (ehcache.xml) for each CacheManager instance.

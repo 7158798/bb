@@ -1166,3 +1166,8 @@ background-color: #1f963d;
 .cotent_size2{
   width: 760px; margin-left: -370px; height: 300px;
 }
+.input_text_onfocus{
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+}

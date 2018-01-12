@@ -347,7 +347,7 @@
 						<span class="db lt4 fl">成交量</span>
 						<span class="db lt5 fl">总金额</span>
 					</p>
-					<div style="width: 100%;height: 87%;overflow-y: scroll;">
+					<div style="width: 100%;height: 87%;overflow-y: auto;">
 						<p class="fir " ng-repeat="data in recentDealList">
 							<span class="db lt1 fl">{{data[2] | date: 'MM-dd HH:mm:ss'}}</span>
 							<%--#fd0202--%>
@@ -361,7 +361,7 @@
 				</div>
 			</div>
 			<div class="float_right entrust_container entrust_log" style="height: 568px" >
-				<div class="content" style="    width: 766px; margin-left: -370px; height: 28%;margin-bottom: 63px">
+				<div class="content" style="    width: 766px; margin-left: -370px; height: 28%;margin-bottom:77px">
 					<p class="ptitle_font" style="padding-left: 20px;text-align: left">当前委托</p>
 					<p class="fir bg_gray">
 						<span class="db lt1 fl">成交时间</span>
@@ -389,7 +389,7 @@
 						</p>
 					</div>
 				</div>
-				<div class="content" style="    width: 766px; margin-left: -370px; height: 63%;">
+				<div class="content" style="    width: 766px; margin-left: -370px; height: 59%;">
 					<p class="ptitle_font" style="padding-left: 20px;text-align: left;">我的委托历史</p>
 					<p class="fir bg_gray" >
 						<span class="db lt1 fl">成交时间</span>
@@ -464,6 +464,14 @@
 		})
 	}()
 
+	!function(){
+		$("input").focus(function(){
+			$(this).addClass("input_text_onfocus");
+		})
+		$("input").blur(function(){
+			$(this).removeClass("input_text_onfocus");
+		})
+	}()
 	function showfee() {
 //        window.wxc.xcConfirm("请输入信息", window.wxc.xcConfirm.typeEnum.input,{
 //            onOk:function(v){
@@ -472,28 +480,6 @@
 //        });
         window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
     }
-</script>
-<script>
-	!function(){
-		var is_load_icons = false
-		$(".coin_container").hover(function(){
-			if (!is_load_icons) {
-				is_load_icons = true
-				$(this).find('img').each(function(){
-					$(this).attr('src', $(this).attr('data-src'))
-				})
-			}
-		})
-	}()
-
-	function showfee() {
-//        window.wxc.xcConfirm("请输入信息", window.wxc.xcConfirm.typeEnum.input,{
-//            onOk:function(v){
-//                console.log(v);
-//            }
-//        });
-		window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
-	}
 </script>
 <script src="${resources}/static/js/market/collect.js"></script>
 <script src="${resources}/static/js/jquery/xcConfirm.js"></script>
