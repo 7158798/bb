@@ -26,7 +26,7 @@
 .header .flow{background:#fff;width:100%;box-shadow:1px 2px 5px #E4E4E4;}
 .header .nav{color:#333;font-size:14px;width:1200px;margin:0 auto;height:70px;}
 /*.header .nav .logo{margin-left:-22px;margin-top:5px;}*/
-.header .nav .logo{width:200px;height:70px;left: -37%}
+.header .nav .logo{width:200px;height:70px}
 .header .nav .logo a{height:70px;line-height:70px;}
 .header .nav .logo a img{margin-top:8px;height:55px;}
 .header .nav .top_nav{margin:0 auto;width:960px;height:70px;line-height:70px;text-align: right;}

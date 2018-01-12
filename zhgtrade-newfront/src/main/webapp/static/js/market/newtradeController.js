@@ -40,7 +40,7 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
                 $scope.sellOrders = result.data.sellDepthList;
                 $scope.recentDealList = result.data.recentDealList;
             })
-    };
+    }
     // getFentrusts($scope.marketId);
 
     //点击挂单事件
@@ -62,7 +62,7 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
     let order_socket; //全局socket
     //链接socket
     function connectWs() {
-        let host = "localhost:9092";
+        let host = "192.168.0.250:9092";
         order_socket && order_socket.close();
         order_socket = io(location.protocol + '//' + host + '/trade?deep=4&token=dev&symbol=' + $scope.marketId, {transports: ['websocket', 'pull']});
         order_socket.on('entrust-buy', function (msg) {
@@ -126,16 +126,42 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
     };
 
     $scope.createOrder = function(type) {
-        $scope.showTip = true;
-        if (!checkLogin(type) || !checkOrder(type)) {
+
+        let flag = checkOrder(type);
+        if (!checkLogin(type) || !flag) {
+            if(!flag){
+                $timeout(function () {
+                    $scope.showTip = false;
+                },1000);
+            }
             return;
         }
+        if($scope.user.needTradePasswd){
+            window.wxc.xcConfirm("请输入交易密码", window.wxc.xcConfirm.typeEnum.inputPass,{
+                onOk:function(res){
+                    console.log(res);
+                    if(res === null || res === ""){
+                        window.wxc.xcConfirm("交易密码不能为空", window.wxc.xcConfirm.typeEnum.error);
+                        return;
+                    }
+                    // $scope.tradePassword = v;
+                    $scope.showTip = true;
+                    submitTrade(type,res);
+                }
+             });
+        }else {
+            $scope.showTip = true;
+            submitTrade(type,"");
+        }
+    };
+    
+    function submitTrade(type, res) {
         if (type === 'buy') {
             let data = {
                 symbol: $scope.marketId,
                 tradeAmount: $scope.buyCount,
                 tradeCnyPrice: $scope.buyPrice,
-                tradePwd: $scope.tradePassword
+                tradePwd: res
             };
             $http.post('/market/buyBtcSubmit', $.param(data), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
                 .then(function(res){
@@ -153,16 +179,16 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
                     },1000);
                 })
         } else {
-            var data = {
+            let data = {
                 symbol: $scope.marketId,
                 tradeAmount: $scope.sellCount,
                 tradeCnyPrice: $scope.sellPrice,
-                tradePwd: $scope.tradePassword
+                tradePwd: $scope.res
             };
             $http.post('/market/sellBtcSubmit', $.param(data), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
                 .then(function(res){
                     $scope.showTip = true;
-                    var msg = res.data.msg ? res.data.msg : "";
+                    let msg = res.data.msg ? res.data.msg : "";
                     if (res.data.resultCode !== 0) {
                         setErrorMessage(type, WARN_TEXT[res.data.resultCode] + msg)
                     } else {
@@ -176,8 +202,7 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
                     },1000);
                 })
         }
-
-    };
+    }
 
     $scope.cancelOrder = function(id) {
         $http.post('/market/cancelEntrust', $.param({id: id}), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
@@ -202,19 +227,23 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
     function checkOrder(type) {
         if(type === "sell"){
             if ($scope.sellCount < 0.0001) {
+                $scope.showTip = true;
                 setErrorMessage(type, "最小数量为0.0001");
                 return false;
             }
             if ($scope.sellAmount< 0.01) {
+                $scope.showTip = true;
                 setErrorMessage(type, "最小金额为0.01");
                 return false;
             }
         }else {
             if ($scope.buyCount < 0.0001) {
+                $scope.showTip = true;
                 setErrorMessage(type, "最小数量为0.0001");
                 return false;
             }
             if ($scope.buyAmount < 0.01) {
+                $scope.showTip = true;
                 setErrorMessage(type, "最小金额为0.01");
                 return false;
             }
@@ -231,5 +260,121 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
     //         })
     // }
 
+    function rangBuy() {
+        var $box = $('#box');
+        var width = $box.width();
+        var $bg = $('#bg');
+        var $bgcolor = $('#bgcolor');
+        var $btn = $('#bt');
+        var $text = $('#bg_text');
+        var statu = false;
+        var ox = 0;
+        var lx = 0;
+        var left = 0;
+        var bgleft = 0;
+        $btn.mousedown(function(e){
+            lx = $btn.offset().left;
+            ox = e.pageX - left;
+            statu = true;
+        });
+        $(document).mouseup(function(){
+            statu = false;
+        });
+        $box.mousemove(function(e){
+            if(statu){
+                left = e.pageX - ox;
+                if(left < 0){
+                    left = 0;
+                }
+                if(left > width){
+                    left = width;
+                }
+                $btn.css('left',left);
+                $bgcolor.width(left);
+                $text.html(parseInt(left*100/width) + '%');
+                $scope.buyCount = $scope.buyPrice > 0? $scope.user.rmbtotal/$scope.buyPrice* (left/width).toFixed(2) : 0;
+                $scope.buyAmount = $scope.buyPrice * $scope.buyCount;
+                $scope.$apply();
+            }
+        });
+        $bg.click(function(e){
+            if(!statu){
+                bgleft = $bg.offset().left;
+                left = e.pageX - bgleft;
+                if(left < 0){
+                    left = 0;
+                }
+                if(left > width){
+                    left = width;
+                }
+                $btn.css('left',left);
+                $bgcolor.stop().animate({width:left},width);
+                $text.html( parseInt(left*100/width) + '%');
+                $scope.buyCount = $scope.buyPrice > 0? $scope.user.rmbtotal/$scope.buyPrice* (left/width).toFixed(2) : 0;
+                $scope.buyAmount = $scope.buyPrice * $scope.buyCount;
+                $scope.$apply();
+
+            }
+        });
+    }
+    rangBuy();
+    function rangSell() {
+        var $box = $('#box1');
+        var width = $box.width();
+        var $bg = $('#bg1');
+        var $bgcolor = $('#bgcolor1');
+        var $btn = $('#bt1');
+        var $text = $('#bg_text1');
+        var statu = false;
+        var ox = 0;
+        var lx = 0;
+        var left = 0;
+        var bgleft = 0;
+        $btn.mousedown(function(e){
+            lx = $btn.offset().left;
+            ox = e.pageX - left;
+            statu = true;
+        });
+        $(document).mouseup(function(){
+            statu = false;
+        });
+        $box.mousemove(function(e){
+            if(statu){
+                left = e.pageX - ox;
+                if(left < 0){
+                    left = 0;
+                }
+                if(left > width){
+                    left = width;
+                }
+                $btn.css('left',left);
+                $bgcolor.width(left);
+                $text.html(parseInt(left*100/width) + '%');
+                $scope.sellCount = $scope.sellPrice > 0? $scope.user.rmbtotal/$scope.sellPrice* (left/width).toFixed(2) : 0;
+                $scope.sellAmount = $scope.sellPrice * $scope.sellCount;
+                $scope.$apply();
+            }
+        });
+        $bg.click(function(e){
+            if(!statu){
+                bgleft = $bg.offset().left;
+                left = e.pageX - bgleft;
+                if(left < 0){
+                    left = 0;
+                }
+                if(left > width){
+                    left = width;
+                }
+                $btn.css('left',left);
+                $bgcolor.stop().animate({width:left},width);
+                $text.html( parseInt(left*100/width) + '%');
+                $scope.sellCount = $scope.sellPrice > 0? $scope.user.rmbtotal/$scope.sellPrice* (left/width).toFixed(2) : 0;
+                $scope.sellAmount = $scope.sellPrice * $scope.sellCount;
+                $scope.$apply();
+
+            }
+        });
+    }
+    rangSell();
 
 }]);

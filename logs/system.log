@@ -440,3 +440,41 @@ java.sql.SQLException: Access denied for user 'root'@'localhost' (using password
 [2018-01-06 22:20:058] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=403, fleftCount=11.0, fprize=1.621, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
 [2018-01-06 22:28:035] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=404, fleftCount=11.0, fprize=1.63, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
 [2018-01-06 22:44:059] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=405, fleftCount=10.0, fprize=1.65, fviFid=11, fentrustType=1, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:004] INFO  (AppInitializer.java:53) - clear cached depth data
+[2018-01-08 20:51:004] INFO  (AppInitializer.java:57) - load latest deal price from db
+[2018-01-08 20:51:005] INFO  (AppInitializer.java:59) - load entrust from db
+[2018-01-08 20:51:005] INFO  (AppInitializer.java:61) - load entrust log from db
+[2018-01-08 20:51:005] INFO  (AppInitializer.java:63) - send entrust to message center size 19
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=339, fleftCount=7.0, fprize=1.0, fviFid=11, fentrustType=0, deep=null, fstatus=2, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:71) - new 11 system
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=341, fleftCount=1.0, fprize=1.0, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=342, fleftCount=1.0, fprize=1.0, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=479, fleftCount=1.0, fprize=1.5, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=480, fleftCount=1.0, fprize=1.5, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=481, fleftCount=1.0, fprize=1.5, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=482, fleftCount=1.0, fprize=1.5, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=483, fleftCount=1.0, fprize=1.5, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=484, fleftCount=1.0, fprize=1.5, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=488, fleftCount=1.0, fprize=2.1, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=489, fleftCount=1.0, fprize=2.1, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=393, fleftCount=1.0, fprize=1.0, fviFid=12, fentrustType=1, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:71) - new 12 system
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=394, fleftCount=1.0, fprize=1.0, fviFid=12, fentrustType=1, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=443, fleftCount=1.0, fprize=2.1, fviFid=11, fentrustType=1, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=444, fleftCount=1.0, fprize=2.2, fviFid=11, fentrustType=1, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=445, fleftCount=1.0, fprize=2.3, fviFid=11, fentrustType=1, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=456, fleftCount=2.0, fprize=1.11, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=458, fleftCount=1.0, fprize=1.12, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=459, fleftCount=1.0, fprize=1.13, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 20:51:005] INFO  (AppServer.java:69) - app server started 8126 ms
+[2018-01-08 20:51:036] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=489, fleftCount=1.0, fprize=2.1, fviFid=11, fentrustType=0, deep=null, fstatus=4, robotStatus=0}
+[2018-01-08 20:51:041] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=484, fleftCount=1.0, fprize=1.5, fviFid=11, fentrustType=0, deep=null, fstatus=4, robotStatus=0}
+[2018-01-08 20:51:051] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=483, fleftCount=1.0, fprize=1.5, fviFid=11, fentrustType=0, deep=null, fstatus=4, robotStatus=0}
+[2018-01-08 20:51:055] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=482, fleftCount=1.0, fprize=1.5, fviFid=11, fentrustType=0, deep=null, fstatus=4, robotStatus=0}
+[2018-01-08 20:52:042] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=479, fleftCount=1.0, fprize=1.5, fviFid=11, fentrustType=0, deep=null, fstatus=4, robotStatus=0}
+[2018-01-08 21:04:017] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=490, fleftCount=1.0, fprize=2.2, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 21:14:006] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=491, fleftCount=1.0, fprize=2.3, fviFid=11, fentrustType=0, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 21:14:039] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=492, fleftCount=1.0, fprize=2.2, fviFid=11, fentrustType=1, deep=null, fstatus=1, robotStatus=0}
+[2018-01-08 21:17:045] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=493, fleftCount=1.0, fprize=2.3, fviFid=11, fentrustType=1, deep=null, fstatus=1, robotStatus=0}
+[2018-01-09 10:49:040] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=494, fleftCount=1.0, fprize=1.5, fviFid=11, fentrustType=1, deep=null, fstatus=1, robotStatus=0}
+[2018-01-09 10:49:055] DEBUG (MessageCenter.java:68) - onMessage FentrustData{fid=495, fleftCount=1.0, fprize=2.1, fviFid=11, fentrustType=1, deep=null, fstatus=1, robotStatus=0}

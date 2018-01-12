@@ -42,7 +42,12 @@
 				btn: btnType.okcancel
 			},
 			input: {
-				title: "输入",
+				title: "请输入",
+				icon: "",
+				btn: btnType.ok
+			},
+			inputPass: {
+				title: "请输入",
 				icon: "",
 				btn: btnType.ok
 			},
@@ -53,6 +58,7 @@
 			}
 		};
 		var itype = type ? type instanceof Object ? type : popType[type] || {} : {};//格式化输入的参数:弹窗类型
+		// var itype = type;//格式化输入的参数:弹窗类型
 		var config = $.extend(true, {
 			//属性
 			title: "", //自定义的标题
@@ -81,7 +87,8 @@
 		
 		var $ok = $("<a>").addClass("sgBtn").addClass("ok").text("确定");//确定按钮
 		var $cancel = $("<a>").addClass("sgBtn").addClass("cancel").text("取消");//取消按钮
-		var $input = $("<input>").addClass("inputBox");//输入框
+		var $input = $("<input id ='inputMessage'>").addClass("inputBox");//输入框
+		var $inputPass = $("<input type = 'password' id ='inputMessage' >").addClass("inputBox");//输入框
 		var $clsBtn = $("<a>").addClass("clsBtn");//关闭按钮
 		
 		//建立按钮映射关系
@@ -97,6 +104,9 @@
 			if(popType["input"] === itype){
 				$txt.append($input);
 			}
+            if(popType["inputPass"] === itype){
+                $txt.append($inputPass);
+            }
 			
 			creatDom();
 			bind();
@@ -141,8 +151,9 @@
 		//确认按钮事件
 		function doOk(){
 			var $o = $(this);
-			var v = $.trim($input.val());
-			if ($input.is(":visible"))
+			// var v = $.trim($input.val());
+			var v = $.trim($("#inputMessage").val());
+			if ($input.is(":visible") || $inputPass.is(":visible"))
 		        config.onOk(v);
 		    else
 		        config.onOk();
@@ -209,7 +220,8 @@
 		confirm: "confirm",
 		warning: "warning",
 		input: "input",
-		custom: "custom"
+		custom: "custom",
+		inputPass: "inputPass"
 	};
 
 })(jQuery);

@@ -18,6 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="${resources}/static/css/common/style.css">
 	<link rel="stylesheet" type="text/css" href="${resources}/static/css/exchange.css?v=11111">
 	<link rel="stylesheet" type="text/css" href="${resources}/static/css/jquery/xcConfirm.css">
+	<link rel="stylesheet" type="text/css" href="${resources}/static/css/range.css">
 	<%--<link rel="stylesheet" href="${resources}/static/css/common/animate.css"/>--%>
 	<link rel="stylesheet" href="${resources}/static/css/market.css"/>
 	<style>
@@ -27,6 +28,29 @@
 	</style>
 	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 	<script src="${resources}/static/js/market/newtradeController.js"></script>
+
+	<style type="text/css">
+	.box{position: relative; width: 90%;  margin-top:  10px;}
+	.bg{height: 10px; margin-top: 19px; border: 1px solid #ddd; border-radius: 5px; overflow: hidden;}
+	.bgcolor{background: #1f963d; width: 0; height: 10px; border-radius: 5px;}
+	.bt{width: 20px; height: 20px; border: 1px solid #EDEDED ; overflow: hidden; position: absolute;  margin-left: -9px; top: -8px;border-radius: 10px; cursor: col-resize;background-color: #EDEDED}
+	.bt:before{background-color: #1f963d;    content: '';
+		position: absolute;
+		top: 27%;
+		left: 28%;
+		width: 50%;
+		height: 50%;
+		border-radius: 50%;}
+	.bt1{width: 20px; height: 20px; border: 1px solid #EDEDED ; overflow: hidden; position: absolute;  margin-left: -9px; top: -8px;border-radius: 10px; cursor: col-resize;background-color: #EDEDED}
+	.bt1:before{background-color: #fd0202;    content: '';
+		position: absolute;
+		top: 27%;
+		left: 28%;
+		width: 50%;
+		height: 50%;
+		border-radius: 50%;}
+	.bg_text{width: 10%; margin: 0 auto; font-size: 14px; line-height: 2em;}
+</style>
 </head>
 <body>
 <%@ include file="../common/header.jsp"%>
@@ -127,53 +151,7 @@
 					</div>
 				</div>
 			</div>
-			<%--<div class="trade_wrapper fl">--%>
-				<%--<div class="item buy_item fl" id="buy-content">--%>
-
-				<%--</div>--%>
-				<%--<div class="item sell_item fl" id="sell-content">--%>
-
-				<%--</div>--%>
-			<%--</div>--%>
-
-			<%--<div class="info fr">--%>
-				<%--<!-- 金钱信息 -->--%>
-				<%--<div class="money_info" id="user-wallet">--%>
-
-				<%--</div>--%>
-				<%--<!-- 未成交 -->--%>
-				<%--<div class="dealing deal tac" id="not-deal">--%>
-
-				<%--</div>--%>
-				<%--<!-- 已成交 -->--%>
-				<%--<div class="dealed deal tac" id="deal-log">--%>
-
-				<%--</div>--%>
-			<%--</div>--%>
-			<%--<div class="cb"></div>--%>
 		</li>
-		<%--<!-- 币行情 -->
-		<li class="dn">
-			<div class="quotes tac " style="margin-bottom: 40px; line-height:500px;padding-top: 20px;" id="market-charts">
-
-			</div>
-		</li>
-		<!-- 了解币 -->
-		<li class="dn" id="detail-div">
-
-		</li>
-		<!-- 市场动态 -->
-		<li class="dn" id="news-div">
-
-		</li>--%>
-		<!-- 行情对比 -->
-		<%--<li class="dn" id="compare-div">
-			<%@ include file="compare.jsp"%>
-		</li>--%>
-		<!-- 币对冲 -->
-		<%--<li class="dn" id="hedging-div">
-			<%@ include file="hedging.jsp"%>
-		</li>--%>
 	</ul>
 
 		<%--新增样式，搞不定直接注释掉--%>
@@ -202,30 +180,27 @@
 							<div class="bd">
 								<div>
 									<div class="input_text"><b class="label"  >买入价</b><label >
-										<input ng-model="buyPrice" > <span
+										<input ng-model="buyPrice | number :4" > <span
 											class="upper unit" unit="show_buy_quote_logout">{{user.rmbname}}</span></label><strong
 											class="msg"></strong><!--<p class="math_price"></p>--></div>
 									<div class="input_text input_text_amount">
 										<b class="label">买入量</b>
 										<label>
-										<input  ng-model="buyCount" ng-change="countChange(0)">
+										<input  ng-model="buyCount | number:4" ng-change="countChange(0)">
 											<span class="unit u">
 												<em class="uppercase" >{{user.virname}}</em>
 											</span>
 										</label>
 										<strong class="msg"></strong>
 									</div>
-									<div ng-show="user.needTradePasswd">
-										<span class="label" style="font-size:14px;">交易密码</span>
-										<input style="box-sizing: border-box; border-radius: 3px;margin-left:40px; height: 40px;width: 70%;font-size: 16px;"
-											   ng-model="tradePassword" type="password">
+									<div class="box" id="box">
+										<div class="bg" id="bg" style="height: 5px">
+											<div class="bgcolor" id="bgcolor"></div> <div class="bt" id="bt"></div>
+										</div>
+										<span class="bg_text" id="bg_text" style="position: absolute;top: -12px;right: -42px;font-size: 14px"></span>
 									</div>
-									<div class="input_range limit_buy_logout buy_color"></div>
-									<div class="amount_range uppercase"><span class="min"><span class="min_num">0</span><em
-											lazyfill="" data-template=""> {{::user.virname}}</em></span> <span
-											class="max"><span class="max_num">0.0000</span><em> {{::user.virname}}</em></span>
-									</div>
-									<div class="total"><p>交易额 <span>{{buyAmount | currency :'': 4}} {{::user.rmbname}}</span></p>
+
+									<div class="total" style="margin-top: 26px"><p>交易额 <span>{{buyAmount | currency :'': 4}} {{::user.rmbname}}</span></p>
 										<p class="transform_total"></p>
 									</div>
 									<div ng-if="showTip"  style="font-size: 12px;height: 25px">
@@ -257,32 +232,38 @@
 							<div class="bd">
 								<div>
 									<div class="input_text"><b class="label">卖出价</b><label>
-										<input ng-model="sellPrice"> <span
+										<input ng-model="sellPrice | number :4" > <span
 											class="upper unit" unit="show_sell_quote_logout">{{user.rmbname}}</span></label><strong
 											class="msg"></strong><!--<p class="math_price"></p>--></div>
 									<div class="input_text input_text_amount"><b class="label">卖出量</b><label>
-										<input ng-model="sellCount" ng-change="countChange(1)">
+										<input ng-model="sellCount | number:4 "  ng-change="countChange(1)">
                                 <span class="unit"><em class="uppercase">{{user.virname}}</em>
 								</span></label><strong
 											class="msg"></strong></div>
-									<div ng-show="user.needTradePasswd">
-										<span class="label" style="font-size:14px;">交易密码</span>
-										<input style="box-sizing: border-box; border-radius: 3px;margin-left:40px; height: 40px;width: 70%;font-size: 16px;"
-											   ng-model="tradePassword" type="password">
+									<%--<div ng-show="user.needTradePasswd">--%>
+										<%--<span class="label" style="font-size:14px;">交易密码</span>--%>
+										<%--<input style="box-sizing: border-box; border-radius: 3px;margin-left:40px; height: 40px;width: 70%;font-size: 16px;"--%>
+											   <%--ng-model="tradePassword" type="password">--%>
+									<%--</div>--%>
+									<div class="demo">
+									<input class="range-slider" type="hidden" value="10,89"/>
+									<!-- <button id="g2">获取值</button> -->
 									</div>
-									<div class="input_range limit_sell_logout sell_color"></div>
-									<div class="amount_range uppercase"><span class="min"><span class="min_num">0</span><em
-											lazyfill="" data-template=""> etc</em></span> <span
-											class="max"><span class="max_num">0.0000</span><em lazyfill=""
-																							   data-template=" "> etc</em></span>
+
+									<div class="box" id="box1">
+										<div class="bg" id="bg1" style="height: 5px">
+											<div class="bgcolor" id="bgcolor1" style="background-color: #fd0202"></div> <div class="bt1" id="bt1"></div>
+										</div>
+										<span class="bg_text" id="bg_text1" style="position: absolute;top: -12px;right: -42px;font-size: 14px"></span>
 									</div>
-									<div class="total"><p>交易额 <span>{{sellAmount | currency :'': 4}} {{::user.rmbname}}</span></p>
+
+									<div class="total" style="margin-top: 26px"><p>交易额 <span>{{sellAmount | currency :'': 4}} {{::user.rmbname}}</span></p>
 										<p class="transform_total"></p>
 									</div>
 									<div ng-if="showTip"   style="font-size: 12px; height: 25px">
 										<span style="color: red">{{sellErrorMessage}}</span>
 									</div>
-									<div class="submit">
+									<div class="submit" >
 										<button  class="btn_sell color_sell_bg" ng-click = "createOrder('sell')">
 											卖出{{::user.virname}}
 										</button>
@@ -458,6 +439,7 @@
 
 <script src="http://cdn.bootcss.com/socket.io/1.4.6/socket.io.min.js"></script>
 
+
 <%--<script src="${resources}/static/js/year_red.js"></script>--%>
 <%--<script src="${resources}/static/js/market/trade.js?v=1.7"></script>--%>
 
@@ -529,6 +511,58 @@
 <%--<script src="static/js/kline/kline.js"></script>--%>
 
 <%@ include file="../common/footer.jsp"%>
+<%--<script src="${resources}/static/js/market/range.js"></script>--%>
+<%--<script type="text/javascript">--%>
+    <%--(function($){--%>
+        <%--var $box = $('#box');--%>
+        <%--var $bg = $('#bg');--%>
+        <%--var $bgcolor = $('#bgcolor');--%>
+        <%--var $btn = $('#bt');--%>
+        <%--var $text = $('#text');--%>
+        <%--var statu = false;--%>
+        <%--var ox = 0;--%>
+        <%--var lx = 0;--%>
+        <%--var left = 0;--%>
+        <%--var bgleft = 0;--%>
+        <%--$btn.mousedown(function(e){--%>
+            <%--lx = $btn.offset().left;--%>
+            <%--ox = e.pageX - left;--%>
+            <%--statu = true;--%>
+        <%--});--%>
+<%--//        $(document).mouseup(function(){--%>
+<%--//            statu = false;--%>
+<%--//        });--%>
+        <%--$box.mousemove(function(e){--%>
+            <%--if(statu){--%>
+                <%--left = e.pageX - ox;--%>
+                <%--if(left < 0){--%>
+                    <%--left = 0;--%>
+                <%--}--%>
+                <%--if(left > 371.5){--%>
+                    <%--left = 371.5;--%>
+                <%--}--%>
+                <%--$btn.css('left',left);--%>
+                <%--$bgcolor.width(left);--%>
+                <%--$text.html('位置:' + parseInt(left/3.715) + '%');--%>
+            <%--}--%>
+        <%--});--%>
+        <%--$bg.click(function(e){--%>
+            <%--if(!statu){--%>
+                <%--bgleft = $bg.offset().left;--%>
+                <%--left = e.pageX - bgleft;--%>
+                <%--if(left < 0){--%>
+                    <%--left = 0;--%>
+                <%--}--%>
+                <%--if(left > 371.5){--%>
+                    <%--left = 371.5;--%>
+                <%--}--%>
+                <%--$btn.css('left',left);--%>
+                <%--$bgcolor.stop().animate({width:left},371.5);--%>
+                <%--$text.html('位置:' + parseInt(left/3.715) + '%');--%>
+            <%--}--%>
+        <%--});--%>
+    <%--})(jQuery);--%>
+<%--</script>--%>
 </body>
 </html>
 
