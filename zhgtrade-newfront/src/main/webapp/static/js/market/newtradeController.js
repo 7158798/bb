@@ -259,6 +259,16 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
     //             $scope.userOrderLogs = result.data.entrustListLog;
     //         })
     // }
+    //币种选择框
+    function coin_sel_box() {
+        $("#coin_container").mouseover(function () {
+            $("#coin_sel_box").css("display",'block');
+        });
+        $("#coin_container").mouseout(function () {
+            $("#coin_sel_box").css("display",'none');
+        })
+    }
+    coin_sel_box();
 
     function rangBuy() {
         var $box = $('#box');

@@ -58,7 +58,7 @@
 	<input type="hidden" id="symbol" value="${vdata.fid}"/>
 	<div class="center_page">
 		<div class="coin_wrapper f14">
-			<div class="coin_container cp fl">
+			<div class="coin_container cp fl" id="coin_container">
 				<div class="coin_title" >
 					<img class="coin_img db fl" style="margin: 20px;" height="47" width="47" src="${cdn}${vdata.furl}" />
 					<p class="db fl pl5 ellipsis coinname">
@@ -70,7 +70,7 @@
 					</p>
 					<i class="db fl iconfont rotate_icon c_blue mr25 cp" style="margin-left: 12px" id="coin_sel">&#xe611;</i>
 				</div>
-				<div class="coin_sel_box dn">
+				<div class="coin_sel_box dn" id="coin_sel_box">
 					<ul>
 						<c:set var="vlen" value="${fn:length(vlist)}"/>
 						<c:forEach items="${vlist}" var="v" varStatus="s">
@@ -79,7 +79,7 @@
 								<c:set var="sty" value="style='border: 0'"/>
 							</c:if>
 							<li ${sty} i="${(vlen%4 == 0 ? vlen-4 : vlen-vlen%4)}">
-								<a href="/market/trade.html?symbol=${v.fid}" title="${v.fname_sn}" >
+								<a href="/market/trade.html?symbol=${v.fid}" title="${v.fname_sn} " target="_self">
 									<img class="coin_img db fl" alt="" height="47" width="47" data-src="${cdn}${v.furl}" />
 									<p class="db pl5 ellipsis coinname" style="line-height: 22px;padding-top: 15px;">${v.fname_sn}</p>
 									<span class="db pl5 ellipsis coinname" style="line-height: 20px;color: #e55600;">￥${v.lastDealPrize}</span>
@@ -427,24 +427,15 @@
 		sname: '${vdata.fShortName}',
 		symbol: '${vdata.fid}'
 	}
+
 </script>
 
-<%--<script src="${resources}/static/js/angular/angualr.js"></script>--%>
-
-<%--<script src="${resources}/static/js/market/newtrade.js"></script>--%>
-<%--<script type="text/javascript" src="//cdn.bootcss.com/react/0.14.7/react.js"></script>--%>
-<%--<script type="text/javascript" src="//cdn.bootcss.com/react/0.14.7/react-dom.js"></script>--%>
-
-<%--<script src="${resources}/static/js/market/common.js"></script>--%>
 
 <script src="http://cdn.bootcss.com/socket.io/1.4.6/socket.io.min.js"></script>
 
-
-<%--<script src="${resources}/static/js/year_red.js"></script>--%>
 <%--<script src="${resources}/static/js/market/trade.js?v=1.7"></script>--%>
 
 <%--<script src="http://localhost/1.0.0/trade.js"></script>--%>
-
 <script type="text/javascript">
 	!function(){
 		var $iframe = document.getElementById('klineFullScreen');
@@ -484,11 +475,7 @@
 <script src="${resources}/static/js/market/collect.js"></script>
 <script src="${resources}/static/js/jquery/xcConfirm.js"></script>
 
-
-<%--<script src="http://localhost/js/lib/react.js"></script>--%>
-<%--<script src="http://localhost/js/lib/react-dom.js"></script>--%>
 <%--<script src="http://localhost/1.0.0/common.js"></script>--%>
-
 
 <%--<script src="${resources}/static/js/kline/highstock.js"></script>--%>
 
@@ -497,58 +484,7 @@
 <%--<script src="static/js/kline/kline.js"></script>--%>
 
 <%@ include file="../common/footer.jsp"%>
-<%--<script src="${resources}/static/js/market/range.js"></script>--%>
-<%--<script type="text/javascript">--%>
-    <%--(function($){--%>
-        <%--var $box = $('#box');--%>
-        <%--var $bg = $('#bg');--%>
-        <%--var $bgcolor = $('#bgcolor');--%>
-        <%--var $btn = $('#bt');--%>
-        <%--var $text = $('#text');--%>
-        <%--var statu = false;--%>
-        <%--var ox = 0;--%>
-        <%--var lx = 0;--%>
-        <%--var left = 0;--%>
-        <%--var bgleft = 0;--%>
-        <%--$btn.mousedown(function(e){--%>
-            <%--lx = $btn.offset().left;--%>
-            <%--ox = e.pageX - left;--%>
-            <%--statu = true;--%>
-        <%--});--%>
-<%--//        $(document).mouseup(function(){--%>
-<%--//            statu = false;--%>
-<%--//        });--%>
-        <%--$box.mousemove(function(e){--%>
-            <%--if(statu){--%>
-                <%--left = e.pageX - ox;--%>
-                <%--if(left < 0){--%>
-                    <%--left = 0;--%>
-                <%--}--%>
-                <%--if(left > 371.5){--%>
-                    <%--left = 371.5;--%>
-                <%--}--%>
-                <%--$btn.css('left',left);--%>
-                <%--$bgcolor.width(left);--%>
-                <%--$text.html('位置:' + parseInt(left/3.715) + '%');--%>
-            <%--}--%>
-        <%--});--%>
-        <%--$bg.click(function(e){--%>
-            <%--if(!statu){--%>
-                <%--bgleft = $bg.offset().left;--%>
-                <%--left = e.pageX - bgleft;--%>
-                <%--if(left < 0){--%>
-                    <%--left = 0;--%>
-                <%--}--%>
-                <%--if(left > 371.5){--%>
-                    <%--left = 371.5;--%>
-                <%--}--%>
-                <%--$btn.css('left',left);--%>
-                <%--$bgcolor.stop().animate({width:left},371.5);--%>
-                <%--$text.html('位置:' + parseInt(left/3.715) + '%');--%>
-            <%--}--%>
-        <%--});--%>
-    <%--})(jQuery);--%>
-<%--</script>--%>
+
 </body>
 </html>
 
