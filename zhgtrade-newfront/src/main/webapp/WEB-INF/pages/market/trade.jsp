@@ -290,7 +290,7 @@
 								<div style="height:205px;overflow-y: auto;">
 									<dd data-info="{{sell[0]}}" ng-repeat="sell in sellOrders | orderBy: sell[0]:'desc' " ng-click="clickOrder(sell)" ng-cloak="">
 										<div class="inner" >
-											<span class="title color-sell">卖 {{sellOrders.length-$index}}</span>
+											<span class="title color-sell">卖 {{sellOrders.length-$indexnew}}</span>
 											<span class="price">{{sell[0] | currency:'':4}}</span>
 											<span class="amount">{{sell[1] | currency:'':4}}</span>
 											<span>{{sell[2] | currency:'':4}}</span>
@@ -464,11 +464,6 @@
 		})
 	}()
 	function showfee() {
-//        window.wxc.xcConfirm("请输入信息", window.wxc.xcConfirm.typeEnum.input,{
-//            onOk:function(v){
-//                console.log(v);
-//            }
-//        });
         window.wxc.xcConfirm("交易手续费统一千分之二", window.wxc.xcConfirm.typeEnum.info);
     }
 </script>
@@ -479,9 +474,8 @@
 
 <%--<script src="${resources}/static/js/kline/highstock.js"></script>--%>
 
-<%--<script src="/static/js/market/trade.js"></script>--%>
 
-<%--<script src="static/js/kline/kline.js"></script>--%>
+<%--<script src="${resources}/static/js/kline/kline3.js"></script>--%>
 
 <%@ include file="../common/footer.jsp"%>
 
