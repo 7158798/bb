@@ -26,7 +26,7 @@
 		#detail-div ::selection{background:rgba(254, 116, 31, 0.9);color:#fff;}
 		input::selection{background:rgba(254, 116, 31, 0.9);color:#fff;}
 	</style>
-	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script src="{resources}/static/js/angular/angualr.js"></script>
 	<script src="${resources}/static/js/market/newtradeController.js"></script>
 
 	<style type="text/css">
@@ -431,7 +431,7 @@
 </script>
 
 
-<script src="http://cdn.bootcss.com/socket.io/1.4.6/socket.io.min.js"></script>
+<script src="${resources}/static/js/socket.io.min.js"></script>
 
 <%--<script src="${resources}/static/js/market/trade.js?v=1.7"></script>--%>
 
