@@ -246,13 +246,12 @@ Stoch RSI``
 		
 	}
 </script>
-<script type="text/javascript" src="${resources}/static/js/kline/kline1.js?v=1.2"></script>
+<script type="text/javascript" src="${resources}/static/js/kline/kline1.js?"></script>
 <%--<c:choose>--%>
 	<%--<c:when test="${sessionScope['login_user'].fid == 38336}">--%>
-		<script type="text/javascript" src="${resources}/static/js/kline/kline3.js"></script>
+		<script type="text/javascript" src="${resources}/static/js/kline/kline2.js"></script>
 	<%--</c:when>--%>
 	<%--<c:otherwise>--%>
-		<%--<script type="text/javascript" src="${resources}/static/js/kline/kline2.js?v=1.3"></script>--%>
 	<%--</c:otherwise>--%>
 <%--</c:choose>--%>
 </body>
