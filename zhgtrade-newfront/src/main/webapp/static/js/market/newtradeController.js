@@ -144,7 +144,7 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
                         window.wxc.xcConfirm("交易密码不能为空", window.wxc.xcConfirm.typeEnum.error);
                         return;
                     }
-                    // $scope.tradePassword = v;
+                    $scope.tradePassword = res;
                     $scope.showTip = true;
                     submitTrade(type,res);
                 }
@@ -183,7 +183,7 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
                 symbol: $scope.marketId,
                 tradeAmount: $scope.sellCount,
                 tradeCnyPrice: $scope.sellPrice,
-                tradePwd: $scope.res
+                tradePwd: res
             };
             $http.post('/market/sellBtcSubmit', $.param(data), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
                 .then(function(res){

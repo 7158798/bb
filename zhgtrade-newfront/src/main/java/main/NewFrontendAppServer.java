@@ -25,7 +25,7 @@ public class NewFrontendAppServer {
 
     public static void main(String[] args) throws Exception {
         long startTime = System.currentTimeMillis();
-        int port = 8880;
+        int port = 8000;
         if (args.length > 0) {
             port = Integer.valueOf(args[0]);
         }
