@@ -3,7 +3,6 @@ package com.zhgtrade.front.controller;
 import com.ruizton.main.Enum.EntrustTypeEnum;
 import com.ruizton.main.auto.KlinePeriodData;
 import com.ruizton.main.cache.data.RealTimeDataService;
-import com.ruizton.main.dto.FentrustData;
 import com.ruizton.main.dto.FentrustlogData;
 import com.ruizton.main.model.Fvirtualcointype;
 import com.ruizton.main.service.front.FrontVirtualCoinService;
@@ -16,16 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-/**
- * 比特家
- * CopyRight : www.btc58.cc
- * Author : xxp
- * Date： 2016-05-17 16:08
- */
 @Controller
 @RequestMapping("/market")
 public class KlineController {
@@ -126,7 +115,7 @@ public class KlineController {
         StringBuffer sb = new StringBuffer();
         sb.append("[");
         int length = objs.length;
-        long last = this.klinePeriodData.lastUpdateTime.getTime();
+        long last = System.currentTimeMillis();
         for (int i = length - 1; i >= 0; i--) {
             FentrustlogData fentrust = (FentrustlogData) objs[i];
             if ((since == 0 && fentrust.getFcreateTime().getTime() < last)
