@@ -26,7 +26,7 @@
 		#detail-div ::selection{background:rgba(254, 116, 31, 0.9);color:#fff;}
 		input::selection{background:rgba(254, 116, 31, 0.9);color:#fff;}
 	</style>
-	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script src="{resources}/static/js/angular/angualr.js"></script>
 	<script src="${resources}/static/js/market/newtradeController.js"></script>
 
 	<style type="text/css">
@@ -180,13 +180,13 @@
 							<div class="bd">
 								<div>
 									<div class="input_text"><b class="label"  >买入价</b><label >
-										<input ng-model="buyPrice | number :4" > <span
+										<input ng-model="buyPrice" > <span
 											class="upper unit" unit="show_buy_quote_logout">{{user.rmbname}}</span></label><strong
 											class="msg"></strong><!--<p class="math_price"></p>--></div>
 									<div class="input_text input_text_amount">
 										<b class="label">买入量</b>
 										<label>
-										<input  ng-model="buyCount | number:4" ng-change="countChange(0)">
+										<input  ng-model="buyCount" ng-change="countChange(0)">
 											<span class="unit u">
 												<em class="uppercase" >{{user.virname}}</em>
 											</span>
@@ -232,11 +232,11 @@
 							<div class="bd">
 								<div>
 									<div class="input_text"><b class="label">卖出价</b><label>
-										<input ng-model="sellPrice | number :4" > <span
+										<input ng-model="sellPrice" > <span
 											class="upper unit" unit="show_sell_quote_logout">{{user.rmbname}}</span></label><strong
 											class="msg"></strong><!--<p class="math_price"></p>--></div>
 									<div class="input_text input_text_amount"><b class="label">卖出量</b><label>
-										<input ng-model="sellCount | number:4 "  ng-change="countChange(1)">
+										<input ng-model="sellCount "  ng-change="countChange(1)">
                                 <span class="unit"><em class="uppercase">{{user.virname}}</em>
 								</span></label><strong
 											class="msg"></strong></div>
@@ -431,7 +431,7 @@
 </script>
 
 
-<script src="http://cdn.bootcss.com/socket.io/1.4.6/socket.io.min.js"></script>
+<script src="${resources}/static/js/socket.io.min.js"></script>
 
 <%--<script src="${resources}/static/js/market/trade.js?v=1.7"></script>--%>
 

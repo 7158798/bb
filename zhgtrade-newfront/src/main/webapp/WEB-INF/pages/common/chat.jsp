@@ -62,7 +62,7 @@
         //判断当前浏览器是否支持WebSocket
         if('WebSocket' in window){
 //            websocket = new WebSocket("ws://118.190.132.141:1000/websocket");
-            websocket = new WebSocket("ws://60.205.211.129:1000/websocket");
+            websocket = new WebSocket("wss://60.205.211.129:1000/websocket");
         }
         else{
             alert('Not support websocket')
