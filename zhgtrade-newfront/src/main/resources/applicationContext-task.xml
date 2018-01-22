@@ -20,7 +20,7 @@
         <!-- 刷新转账系统列表 1小时 -->
         <!--<task:scheduled ref="walletTransferService" method="syncApplication" initial-delay="10000" fixed-delay="60000"/>-->
         <!-- 刷新可转移币类型 -->
-        <task:scheduled ref="walletTransferService" method="syncTransferCoin" initial-delay="1000" fixed-delay="10000"/>
+        <!--<task:scheduled ref="walletTransferService" method="syncTransferCoin" initial-delay="1000" fixed-delay="10000"/>-->
 
     </task:scheduled-tasks>
 

@@ -68,12 +68,14 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
         // order_socket = io("ws" + '//' + host + '/trade?deep=4&token=dev&symbol=' + $scope.marketId, {transports: ['websocket', 'pull']});
         order_socket.on('entrust-buy', function (msg) {
             $scope.buyOrders = JSON.parse(msg);
+            $scope.$apply();
         });
         order_socket.on('entrust-sell', function (msg) {
             $scope.sellOrders = JSON.parse(msg);
         });
         order_socket.on('entrust-log', function (msg) {
             $scope.recentDealList = JSON.parse(msg);
+            $scope.$apply();
         });
         order_socket.on('real', function (msg) {
             let coin = JSON.parse(msg);
@@ -84,6 +86,7 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
             $scope.lowestPrize24 = coin.lowestPrize24;
             $scope.lowestSellPrize = coin.lowestSellPrize;
             $scope.totalDeal24 = coin.totalDeal24;
+            $scope.$apply();
         });
         order_socket.on('entrust-update', function (msg) {
             var newData = eval("(" + msg + ")");
@@ -94,11 +97,12 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
                 $scope.user.virfrozen = newData.virfrozen;
                 $scope.userOrders = newData.entrustList;
                 $scope.userOrderLogs = newData.entrustListLog;
-                $scope.$apply();
+
             } else {
                 $scope.user.rmbfrozen = newData.rmbfrozen;
                 $scope.user.rmbtotal = newData.rmbtotal;
             }
+            $scope.$apply();
         });
     }
     connectWs();
