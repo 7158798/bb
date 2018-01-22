@@ -26,7 +26,7 @@
 		#detail-div ::selection{background:rgba(254, 116, 31, 0.9);color:#fff;}
 		input::selection{background:rgba(254, 116, 31, 0.9);color:#fff;}
 	</style>
-	<script src="{resources}/static/js/angular/angualr.js"></script>
+	<script src="${resources}/static/js/angular/angualr.js"></script>
 	<script src="${resources}/static/js/market/newtradeController.js"></script>
 
 	<style type="text/css">
@@ -290,7 +290,7 @@
 								<div style="height:205px;overflow-y: auto;">
 									<dd data-info="{{sell[0]}}" ng-repeat="sell in sellOrders | orderBy: sell[0]:'desc' " ng-click="clickOrder(sell)" ng-cloak="">
 										<div class="inner" >
-											<span class="title color-sell">卖 {{sellOrders.length-$indexnew}}</span>
+											<span class="title color-sell">卖 {{sellOrders.length-$index}}</span>
 											<span class="price">{{sell[0] | currency:'':4}}</span>
 											<span class="amount">{{sell[1] | currency:'':4}}</span>
 											<span>{{sell[2] | currency:'':4}}</span>

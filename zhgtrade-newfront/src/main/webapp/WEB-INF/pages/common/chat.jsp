@@ -45,7 +45,7 @@
     }
     function initMessage() {
 //        $.get("http://118.190.132.141:1000/getMessage",function (data) {
-        $.get("http://60.205.211.129:1000/getMessage",function (data) {
+        $.get("http://103.224.248.169:1000/getMessage",function (data) {
             var html = "";
             for (var i = 0; i < data.length; i++) {
 
@@ -62,7 +62,7 @@
         //判断当前浏览器是否支持WebSocket
         if('WebSocket' in window){
 //            websocket = new WebSocket("ws://118.190.132.141:1000/websocket");
-            websocket = new WebSocket("wss://60.205.211.129:1000/websocket");
+            websocket = new WebSocket("ws://103.224.248.169:1000/websocket");
         }
         else{
             alert('Not support websocket')

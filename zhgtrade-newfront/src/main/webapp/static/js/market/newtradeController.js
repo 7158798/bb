@@ -62,10 +62,10 @@ app.controller("newtradeController",['$scope', '$http','$location','$timeout',fu
     let order_socket; //全局socket
     //链接socket
     function connectWs() {
-        let host = "127.0.0.1:9092";
+        let host = "103.224.248.169:9092";
         order_socket && order_socket.close();
-        // order_socket = io(location.protocol + '//' + host + '/trade?deep=4&token=dev&symbol=' + $scope.marketId, {transports: ['websocket', 'pull']});
-        order_socket = io("wws" + '//' + host + '/trade?deep=4&token=dev&symbol=' + $scope.marketId, {transports: ['websocket', 'pull']});
+        order_socket = io(location.protocol + '//' + host + '/trade?deep=4&token=dev&symbol=' + $scope.marketId, {transports: ['websocket', 'pull']});
+        // order_socket = io("ws" + '//' + host + '/trade?deep=4&token=dev&symbol=' + $scope.marketId, {transports: ['websocket', 'pull']});
         order_socket.on('entrust-buy', function (msg) {
             $scope.buyOrders = JSON.parse(msg);
         });
